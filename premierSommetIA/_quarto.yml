@@ -1,0 +1,21 @@
+project:
+  type: website
+
+website:
+  title: "Jumbo"
+  navbar:
+    right:
+      - about.qmd
+      - icon: linkedin
+        text: LinkedIn
+        href: https://www.linkedin.com/in/junior-jumbong-258330211
+      - icon: github
+        text: Github
+        href: https://github.com/Jumbong
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+
+
+

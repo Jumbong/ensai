@@ -1,0 +1,17 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/junior-jumbong-258330211
+    - icon: github
+      text: Github
+      href: https://github.com/Jumbong
+
+---
+
+About this blog
