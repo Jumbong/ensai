@@ -5,7 +5,6 @@ date: "2023-11-04"
 categories: [news]
 ---
 
-
 # Le Pouvoir se reçoit, l'autorité se construit.
 
 Comme l'éminent penseur Christian Monjou, débutons avec une citation marquante. Niccolò Machiavel, une figure clé dans l'étude du leadership et de la stratégie politique, affirmait : 'Les qualités nécessaires pour conserver le pouvoir ne sont pas les mêmes que celles pour l'acquérir.' Cette citation soulève un point crucial dans le domaine de la gestion du leadership et de l'autorité en entreprise. Lorsqu'on crée une entreprise, devenir un patron ou un chef d'entreprise confère du pouvoir, mais pas nécessairement de l'autorité. L'autorité, dans le contexte de la leadership efficace, est une reconnaissance octroyée par autrui ; elle repose sur la légitimité perçue par les collaborateurs. Un leader en cours de construction de son autorité n'est pas automatiquement reconnu comme légitime. En effet, la légitimité en leadership et en gestion d'équipe se manifeste à travers le respect et la confiance que l'on inspire à son entourage. Souvent, ceux qui doivent affirmer leur propre légitimité en sont en réalité dépourvus. La construction de l'autorité est donc un élément essentiel à l'efficacité du leadership dans le monde des affaires et la gestion d'équipe.
@@ -29,5 +28,3 @@ Dans le contexte actuel de l'éducation et du leadership, une transformation not
 # Un monde de changement
 
 Nous vivons dans une ère de transformation rapide, caractérisée par un marché mondial en constante évolution. À l'ère numérique et face aux défis de la transition écologique, les communautés et organisations qui ne reconnaissent pas ce changement de paradigme risquent l'obsolescence. Cette transformation s'illustre particulièrement avec l'avènement de l'intelligence artificielle, comme en témoigne le développement de technologies telles que ChatGPT. De plus, les appels urgents du GIEC et des communautés scientifiques, notamment des astrophysiciens, mettent en lumière l'imminence d'une crise écologique mondiale. Il est impératif pour les entreprises, et plus spécifiquement pour les banques, d'évaluer et de gérer ces risques. L'enjeu n'est pas simplement financier, mais il s'agit de la préservation de la vie sur Terre dans toutes ses formes. La responsabilité sociale des entreprises et la durabilité environnementale sont devenues des facteurs clés dans la stratégie d'entreprise moderne, dictant une nouvelle approche vers un avenir plus durable et conscient.
-
-
