@@ -1,7 +1,7 @@
 # blog
-- [Le premier sommet mondial de l'IA](https://jumbo.quarto.pub/premiersommetia/)
+- [Le premier sommet mondial de l'IA](https://jumbongjunior.quarto.pub/premiersommetia/)
 
-- [le leadership : l'autorité se construit](https://jumbo.quarto.pub/premiersommetia/posts/Leadership/)
+- [le leadership : l'autorité se construit](https://jumbongjunior.quarto.pub/premiersommetia/posts/Leadership/)
 
 - [climateScenario](https://jumbongjunior.quarto.pub/ensai/posts/ClimateScenario/)
 
