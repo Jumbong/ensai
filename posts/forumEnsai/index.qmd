@@ -1,0 +1,26 @@
+---
+title: "Un entretien raté"
+author: "Jumbong Junior"
+date: "2023-11-04"
+categories: [news]
+format:
+  html:
+    toc: true
+    toc-title: "Sommaire"
+    html-math-method: katex
+
+---
+
+![entretien](interview.png)
+
+## Comment raté son entretien de stage ?
+
+Aujourd'hui, a eu lieu le forum des ingénieurs de l'ENSAI où tout étudiant rêve de décrocher un stage. C'est l'occasion pour les étudiants de discuter avec les entreprises de leur parler d'eux.
+
+Il y'a une première étape, où les étudiants doivent s'inscrire sur une platform pour facililer la prise de rendez-vous. Ensuite, les étudiants doivent se présenter à l'heure à l'entretien. Ce n'est pas grave si un étudiant n'arrive pas à décrocher un entretien, il peut toujours se présenter à l'entreprise pour discuter avec les recruteurs.
+
+J'ai pu obtenir quelques entretiens
+
+Je me suis lévé aujourd'hui à 9 heures, j'ai pris mon petit déjeuné, je me suis habillé, direction l'ENSAI. Enfin d'être présentable, j'ai porté une chémise.
+
+Quand je suis arrivé, j'ai localisé les différent

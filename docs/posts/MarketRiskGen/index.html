@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jumbong Junior">
+<meta name="dcterms.date" content="2023-11-04">
+
+<title>blog - Market risk generalities</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Market risk generalities</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">news</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jumbong Junior </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 4, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sommaire</h2>
+   
+  <ul>
+  <li><a href="#what-is-market-risk" id="toc-what-is-market-risk" class="nav-link active" data-scroll-target="#what-is-market-risk">What is market risk ?</a>
+  <ul class="collapse">
+  <li><a href="#augmentation-des-taux-dintérêts-entraine-une-diminution-de-la-valeur-des-obligations" id="toc-augmentation-des-taux-dintérêts-entraine-une-diminution-de-la-valeur-des-obligations" class="nav-link" data-scroll-target="#augmentation-des-taux-dintérêts-entraine-une-diminution-de-la-valeur-des-obligations">Augmentation des taux d’intérêts entraine une diminution de la valeur des obligations</a></li>
+  <li><a href="#curve-risk" id="toc-curve-risk" class="nav-link" data-scroll-target="#curve-risk">Curve risk</a></li>
+  </ul></li>
+  <li><a href="#measuring-market-risk" id="toc-measuring-market-risk" class="nav-link" data-scroll-target="#measuring-market-risk">Measuring market risk</a>
+  <ul class="collapse">
+  <li><a href="#sensitivity-based-methods" id="toc-sensitivity-based-methods" class="nav-link" data-scroll-target="#sensitivity-based-methods">Sensitivity-based methods</a>
+  <ul class="collapse">
+  <li><a href="#duration" id="toc-duration" class="nav-link" data-scroll-target="#duration">Duration</a></li>
+  </ul></li>
+  <li><a href="#the-greeks" id="toc-the-greeks" class="nav-link" data-scroll-target="#the-greeks">The Greeks</a>
+  <ul class="collapse">
+  <li><a href="#delta" id="toc-delta" class="nav-link" data-scroll-target="#delta">Delta</a></li>
+  <li><a href="#gamma" id="toc-gamma" class="nav-link" data-scroll-target="#gamma">Gamma</a></li>
+  <li><a href="#vega" id="toc-vega" class="nav-link" data-scroll-target="#vega">Vega</a></li>
+  <li><a href="#theta-and-rho" id="toc-theta-and-rho" class="nav-link" data-scroll-target="#theta-and-rho">Theta and Rho</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="what-is-market-risk" class="level1">
+<h1>What is market risk ?</h1>
+<p>A market risk is a risk of loss an investment value due to a variation of the market factors. The market factors are the parameters that influence the price of a financial instrument. The most common market factors are:</p>
+<ul>
+<li>Interest rates</li>
+<li>Equity prices</li>
+<li>Foreign exchange rates</li>
+<li>Commodity prices</li>
+</ul>
+<p>The interest rate risk is the risk that the value of a financial instrument(ex:bond) will decline due to an increase of the interest rates.</p>
+<p>C’est donc une offre dont la valeur va baisser si les taux augmentent. C’est le cas des obligations.</p>
+<p>Exemple : A zero coupon bond with a face value of 1000€ and a maturity of 10 years. The interest rate is 5%. The value of the bond is <span class="math display">p = \frac{1000}{(1+0.05)^{10}} = 613.</span></p>
+<p>If the interest rate increases to 6%, the value of the bond is <span class="math display">p = \frac{1000}{(1+0.06)^{10}} = 558</span></p>
+<p>Une autre chose qu’il faut remarquer est que si les taux d’intérêts augmentent, la valeur des obligations diminue. Qu’elle est l’interprétation économique de cela ?</p>
+<section id="augmentation-des-taux-dintérêts-entraine-une-diminution-de-la-valeur-des-obligations" class="level2">
+<h2 class="anchored" data-anchor-id="augmentation-des-taux-dintérêts-entraine-une-diminution-de-la-valeur-des-obligations">Augmentation des taux d’intérêts entraine une diminution de la valeur des obligations</h2>
+<p>Si les taux d’intérêts augmentent, les investisseurs peuvent obtenir plus de rendements sur les nouvelles obligations, la demande pour les anciennes obligations diminue et donc leur prix diminue.</p>
+</section>
+<section id="curve-risk" class="level2">
+<h2 class="anchored" data-anchor-id="curve-risk">Curve risk</h2>
+<p>Une banque se finance sur le coup terme et prête sur long terme. Si les taux d’intérêts augmentent, la banque va devoir payer plus cher pour se financer et donc son bénéfice va diminuer.</p>
+<p>Comment le régulateur peut diminuer l’inflation ? En augmentant les taux d’intérêts, cela rend le credit plus cher, ce qui peut réduire les dépenses des ménages et des entreprises et les investissements. Ceci réduit la demande de crédit et dont l’offre de monnaie. Cela réduit l’inflation.</p>
+<p>Donc pour relancer l’économie, on peut baisser les taux d’intérêts.</p>
+<p>Finalement, pour que la banque puisse se financer à coup terme et prêter à long terme, il faut une absence d’une corrélation entre les taux d’intérêts à court terme et à long terme.</p>
+<p>Equity price risk(le risque du prix des actions, ETF (Exchange-Traded Funds) : ) is the risk associated with the volatility of the stock prices. It can be divided into two categories: general market risk and specific risk.</p>
+<p>Let <span class="math inline">R_i</span> the return of a portfolio of N equities. The global return <span class="math inline">R_p = \frac{\sum_{i=1}^{N}R_i}{N}</span>. If we denode by <span class="math inline">R_m</span> the return of the market, the global return can be written as <span class="math inline">R_i = \beta R_m + \alpha_i</span> where <span class="math inline">\beta</span> is the sensitivity of the portfolio to the market and <span class="math inline">\alpha</span> is the specific return of the portfolio.</p>
+<p>Foreign exchange risk is the risk that the value of a financial instrument will decline due to a change in the exchange rate.</p>
+<p>The price of commodities is influenced by the supply and demand.</p>
+<p>The market risk can be measured by several methods: sensitivity analysis, scenario analysis, value at risk, stress testing.</p>
+</section>
+</section>
+<section id="measuring-market-risk" class="level1">
+<h1>Measuring market risk</h1>
+<section id="sensitivity-based-methods" class="level2">
+<h2 class="anchored" data-anchor-id="sensitivity-based-methods">Sensitivity-based methods</h2>
+<section id="duration" class="level3">
+<h3 class="anchored" data-anchor-id="duration">Duration</h3>
+<p>La duration exprime comment un porte-feuille est sensible aux variations des taux d’intérêts.</p>
+<p>Exemple: Un porte-feuille avec une duration de 5 ans signifie que si les taux d’intérêts augmentent de 1%, la valeur du porte-feuille va diminuer de 5%.</p>
+<p>Donc une duration élevée signifie un risque élevé.</p>
+<p>Maintenant si on a deux obligations(bonds): Le premier de nominal 1000, maturité 10 ans, de prix 900 et de coupon 5%. Le deuxième de nominal 1000, maturité 10 ans, de prix 1100 et de coupon 7%.</p>
+<p>Sur quels bond va t-on investir ?</p>
+<p>Pour répondre à cette question, nous avons besoin d’un outil: the yield to maturity.</p>
+<p>The yield to maturity est le taux d’intérêt qui rend la valeur actuelle des flux de trésorerie futurs égale au prix actuel du titre. Mathématiquement, <span class="math display">P = \sum_{i=1}^{N} \frac{C_i}{(1+y)^i}</span></p>
+<p>où <span class="math inline">C_i = nominal* coupon</span> <span class="math inline">i!=N</span> <span class="math inline">C_N = nominal + coupon*nominal</span></p>
+<p>Il faut deux hypothèses pour calculer le yield to maturity: - Le coupon est réinvesti au taux d’intérêt du marché. - Le titre est détenu jusqu’à la maturité. On a défini le yield to maturity, on peut définir la duration.</p>
+<p>La duration est la sensibilité de la valeur d’un titre par rapport au yield to maturity. Mathématiquement,</p>
+<p><span class="math display">D = -\frac{1}{P}\frac{dP}{dy}</span>.</p>
+<p><strong>Conséquence de la duration</strong>:</p>
+<ul>
+<li><p>Si le taux d’intérêt augmente diminue, nous allons investir dans un porte-feuille avec une duration élevée.</p></li>
+<li><p>Soit une obligation dont le prix est de 90 qui paye des coupons annnuels de 5% de nominal 1000 et de maturité 5 ans.</p></li>
+</ul>
+<p>Determinons son yield to maturity.</p>
+<p>On sait que le yield to maturity est le taux d’intérêt qui rend la valeur actuelle des flux de trésorerie futurs égale au prix actuel du titre.</p>
+<p>Mathématiquement, <span class="math display">P = \sum_{i=1}^{N} \frac{C_i}{(1+y)^i}</span></p>
+<p>Pour déterminer la duration, on a besoin de calculer la dérivée de P par rapport à y.</p>
+<p>on sait que la dérivée peut être calculée comme une limite de la formule suivante:</p>
+<p><span class="math display">\frac{dP}{dy} = \lim_{\Delta y \to 0} \frac{P(y+\Delta y) - P(y- \Delta y)}{2 \Delta y}</span></p>
+<p>Ainsi si on a déterminé le yield to maturity, on peut déterminer la duration. Il faut pour cela, calculer le prix de l’obligation pour deux valeurs de y: <span class="math inline">y+\Delta</span> et <span class="math inline">y-\Delta y</span>. Prenons <span class="math inline">\Delta</span> = 0.01 Pour y1 = <span class="math inline">y+\Delta</span> <span class="math display">P(y+\Delta) = \sum_{i=1}^{N} \frac{C_i}{(1+y+\Delta)^i}</span></p>
+<p>pour y2 = <span class="math inline">y-\Delta</span> <span class="math display">P(y-\Delta) = \sum_{i=1}^{N} \frac{C_i}{(1+y-\Delta)^i}</span></p>
+<p>Finalement, <span class="math inline">D = -\frac{1}{P}\frac{P(y+\Delta) - P(y- \Delta y)}{2 \Delta y}</span></p>
+<p>Il y’a une hypothèse forte derrière la duration: Une courbe de déplacement parallèle. C’est à dire que si les taux d’intérêts augmentent de 1%, la courbe des taux d’intérêts va se déplacer parallèlement vers le haut.</p>
+</section>
+</section>
+<section id="the-greeks" class="level2">
+<h2 class="anchored" data-anchor-id="the-greeks">The Greeks</h2>
+<p>La valeur d’un porte-feuille dépend de plusieurs facteurs, qui peuvent interagir entre eux. Pour mesurer l’impact de ces facteurs sur la valeur du porte-feuille, on utilise les lettres grecques : delta, gamma, vega, theta, rho.</p>
+<section id="delta" class="level3">
+<h3 class="anchored" data-anchor-id="delta">Delta</h3>
+<p>Le delta exprime le changement entre un changement de la valeur du porte-feuille et un changement de la valeur du sous-jacent. Exemple : Soit <span class="math inline">C_0</span> le prix d’une option de maturité T et de strike k. Soit <span class="math inline">S_t</span> le prix du sous-jacent à la date t.</p>
+<p>payoff de l’option : <span class="math inline">max(S_T - k, 0)</span>, le prix de l’option est le payoff actualisé : <span class="math display">C_0 = \frac{max(S_T - k, 0)}{(1+r)^T}</span></p>
+<p>Les facteurs de risques de cette option sont : le prix du sous-jacent, le taux d’intérêt et la volatilité.</p>
+<p>Le delta de cette option est : <span class="math inline">\frac{\partial C_0}{\partial S_t}</span></p>
+<p>Comment se couvrir de la variation du prix du sous-jacent ?</p>
+<p>Il faut construire un porte-feuille qui a un delta égal à 0. C’est à dire que si le prix du sous-jacent augmente, la valeur du porte-feuille ne change pas.</p>
+<p>on peut par exemple considéré un porte-feuille de prix <span class="math inline">P^{'} = C_0 + \alpha S_t</span>. La nouvelle option est de sensibilité nulle par rapport au prix du sous-jacent si <span class="math inline">\alpha = -\frac{\partial C_0}{\partial S_t}</span>. Ceci revient à dire que pour se couvrir du risque de la variation de prix du sous-jacent, il faut vendre à decouvert c’est-à-dire short selling <span class="math inline">\frac{\partial C_0}{\partial S_t}</span> unités du sous-jacent. Le delta d’une action est 1.</p>
+<p>Un portefeuille avec un delta de 0 est option risque neutre. Il est construit pour (hedging purposes) se couvrir du risque de la variation du prix du sous-jacent.</p>
+</section>
+<section id="gamma" class="level3">
+<h3 class="anchored" data-anchor-id="gamma">Gamma</h3>
+<p>Le gamma est la dérivée seconde du prix de l’option par rapport au prix du sous-jacent. Il mesure la sensibilité du delta par rapport au prix du sous-jacent. Son implication dans le cas d’un portefeuille delta-neutre est qu’il a besoin d’être réajusté régulièrement si son gamma est élevé. Le gamma est donc de mesurer le degré d’exposition au risque qu’une position couverte(hedged position) dévellopera si la couverture(hedge) n’est pas réajustée.</p>
+</section>
+<section id="vega" class="level3">
+<h3 class="anchored" data-anchor-id="vega">Vega</h3>
+<p>Le vega mesure le changement du prix de l’option par rapport à la volatilité du sous-jacent. Il mesure la sensibilité du prix de l’option par rapport à la volatilité du sous-jacent.</p>
+<p>Un portefeuille avec un vega de 0 est vega-neutre. Il est construit pour se couvrir du risque de la variation de la volatilité du sous-jacent. C’est-à-dire qu’il est insensitive à la variation de la volatilité du sous-jacent.</p>
+</section>
+<section id="theta-and-rho" class="level3">
+<h3 class="anchored" data-anchor-id="theta-and-rho">Theta and Rho</h3>
+<p>Le Theta et le rho déterminent respectivement le taux de changement de la valeur d’un portefeuille par rapport au temps to maturity et par rapport au taux d’intérêt.</p>
+<p>En practive, les sensibilités d’un portefeuille sont calculées intensivement, intra-day(à l’intérieur de la journée) et quotidiennement pour chaque traded product. Ils sont utilisées par les traders afin de gérer leur risque, their position(hedging) et par les managers pour expliquer leur perte et leur profit(P&amp;L). Cependant, elles souffrent de plusieurs limitations: elles ne peuvent pas être comparées entre plusieurs activités pour conclure qu’une activité est plus risquée qu’une autre.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
