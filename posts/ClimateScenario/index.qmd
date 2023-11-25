@@ -1,0 +1,46 @@
+---
+title: "Analyse de scénario climatique : une illustration des impacts économiques et sur les marchés financiers à long terme potentiels."
+author: "Jumbong Junior"
+date: "2023-15-04"
+categories: [news]
+format:
+  html:
+    toc: true
+    html-math-method: katex
+
+---
+
+![Risques physiques et climatiques](risquePhysique.png)
+# Objectif :
+
+L'objectif est d'intégrer les données climatiques dans le cadre d'allocation d'actifs.
+
+Il s'agit plus simplement de comprendre comment intégrer les scénarions climatiques et les risques climatiques dans les projections financières futures.
+
+Comprendre comment ceux-ci impactent les performances financières d'investissement.
+
+Cet article de Luca Bongiorno et al. met à lumière les impacts potentiels du changement climatique sur les marchés financiers, en se concentrant sur leurs effets à long terme.
+
+Elle utilise un outil de modélisation top-down dévéloppé par Ortec finance qui intégre la science climatique aux effets macroéconomiques et financiers pour examiner les impacts possibles de trois scénarios plausible et non extrèmes.
+
+L'article analyse l'impact sur le PIB, il en ressort une réduction de PIB dans les trois scénarios, avec un impact très sévère dans le cadre d'une transition ratée où les objectifs climatiques de l'accord de Paris ne sont pas atteints.
+
+L'impact sur les marchés financiers est également analysé. Il en ressort une baisse des rendements cumulés des actions mondiales
+
+GIEC : groupe d'experts intergouvernemental sur l'évolution du climat.
+
+Ces risques climatiques commencent à se manifester à travers les changements de conditions climatiques(variations de température, régimes pluviométriques, etc.), l'élévation du niveau de la mer, les conditions météorologiques extrêmes, les incendies de forêt, les sécheresses, les inondations, les ouragans, les cyclones, les tempêtes de neige, les vagues de chaleur, les vagues de froid, etc. Ces événements ont des impacts négatifs significatifs et pertubent divers secteurs notamment l'agriculture, la sylviculture, l'énergie, les infrastructures.
+
+Les actions menant à limiter l'ampleur du changement climatique en reduisant les émissions de gaz à effet de serre, principalement en diminuant l'utilisation de l'énergie fossile, en utilisant l'énergie renouvelable.
+
+Le changement climatique est un risque systémique car il affecte tous les secteurs de l'économie de la même manière et en même temps.
+
+Les changements climatiques posent des risques pour l'économie et le système financier.
+
+Les risques climatiques sont classés en deux catégories : les risques physiques et les risques de transition.
+
+les risques physiques découlent des changements des conditions climatiques et des événements météorologiques extrêmes. Ils peuvent être aigus ou chroniques. 
+
+les risques de transition résultent du passage à une économie à faible émission de carbone, à l'utilisation d'une technologie propre et à l'adoption de pratiques commerciales durables. Ils peuvent être liés à la politique, à la technologie, à la marché et aux risques légaux.
+
+Bonjour, merci de me donner l'opportunité de m'exprimer aujourd'hui. Je m'appelle Junior Jumbong. Mon intérêt 
