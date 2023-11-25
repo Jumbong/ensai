@@ -3,18 +3,34 @@ project:
   output-dir: docs
 
 website:
-  title: "menu"
+  title: "Menu"
+  sidebar: 
+    style: floating
+    search: true
+    contents: 
+      - section: "Ensai 3A"
+        contents: 
+          - index.qmd
+          
+          
+    
+          
   navbar:
     right:
       - about.qmd
+      - icon: linkedin
+        text: LinkedIn
+        href: https://www.linkedin.com/in/junior-jumbong-258330211/
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        text: Github
+        href: https://github.com/Jumbong
 format:
   html:
     theme: cosmo
     css: styles.css
 
+
+execute:
+  freeze: auto
 
 
