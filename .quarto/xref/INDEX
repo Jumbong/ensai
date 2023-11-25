@@ -1,0 +1,29 @@
+{
+  "posts/welcome/index.qmd": {
+    "index.html": "df4b5cc7"
+  },
+  "about.qmd": {
+    "about.html": "6a2baf0d"
+  },
+  "posts/post-with-code/index.qmd": {
+    "index.html": "1c196671"
+  },
+  "index.qmd": {
+    "index.html": "6294c346"
+  },
+  "posts/ClimateScenario/index.qmd": {
+    "index.html": "7f2c0d90"
+  },
+  "posts/forumEnsai/index.qmd": {
+    "index.html": "67874ce9"
+  },
+  "posts/Leadership/index.qmd": {
+    "index.html": "50339ba5"
+  },
+  "posts/MarketRiskGen/index.qmd": {
+    "index.html": "9b19b3c6"
+  },
+  "posts/TBATS/index.qmd": {
+    "index.html": "a4100bce"
+  }
+}
