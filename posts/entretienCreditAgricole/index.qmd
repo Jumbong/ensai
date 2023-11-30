@@ -4,24 +4,17 @@ author: "Jumbong Junior"
 date: "2023-11-30"
 categories: [news]
 css:
-      - letter.css
+      - css.css
 ---
 
 ![Sommet mondial IA](creditAgricole.png)
-::: gras
+
+:::gras
 Compte rendu de l'entretien pour le poste data scientist - Auditeur du jeudi, 30 novembre 2023.
 :::
 
 **Liste des personnes présentes :**
 
-<style>
-    .centered-table {
-        margin-left: auto;
-        margin-right: auto;
-    }
-</style>
-</head>
-<body>
 
 <table class="centered-table" border="1">
     <tr>
@@ -31,13 +24,13 @@ Compte rendu de l'entretien pour le poste data scientist - Auditeur du jeudi, 30
     </tr>
     <tr>
         <td>Recruteur</td>
-        <td>Etienne</td>
-        <td>DEMDAMI</td>
+        <td>prenom</td>
+        <td>nom</td>
     </tr>
     <tr>
         <td>Recruteur</td>
-        <td>Marie Alix</td>
-        <td>BADUEL</td>
+        <td>Marie </td>
+        <td>nom</td>
     </tr>
     <tr>
         <td>Candidat</td>
