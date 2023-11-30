@@ -1,0 +1,76 @@
+---
+title: "Compte rendu de l'entretien pour le poste data scientist - Auditeur du jeudi, 30 novembre 2023."
+author: "Jumbong Junior"
+date: "2023-11-30"
+categories: [news]
+css:
+      - letter.css
+---
+
+![Sommet mondial IA](creditAgricole.png)
+::: gras
+Compte rendu de l'entretien pour le poste data scientist - Auditeur du jeudi, 30 novembre 2023.
+:::
+
+**Liste des personnes présentes :**
+
+<style>
+    .centered-table {
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+</head>
+<body>
+
+<table class="centered-table" border="1">
+    <tr>
+        <th>Intervenants</th>
+        <th>Prénom</th>
+        <th>Nom</th>
+    </tr>
+    <tr>
+        <td>Recruteur</td>
+        <td>Etienne</td>
+        <td>DEMDAMI</td>
+    </tr>
+    <tr>
+        <td>Recruteur</td>
+        <td>Marie Alix</td>
+        <td>BADUEL</td>
+    </tr>
+    <tr>
+        <td>Candidat</td>
+        <td>Junior</td>
+        <td>JUMBONG</td>
+    </tr>
+</table>
+
+
+**Déroulement de l'Entretien :**
+
+L'entretien du jeudi, 30 novembre pour le poste de data scientist - Auditeur a duré 1 heure et a eu pour objectif d'évaluer les compétences du candidat et la compréhension du poste de stage.
+
+1.  **Parcours de l'Étudiant :**
+
+La discussion a débuté par un tour de table permettant à chacun de se présenter. Le candidat notamment présenté son parcours, et mis en avant quelques compétences acquises durant ses différents projets universitaires.
+
+2.  **Présentation de Crédit Agricole CACIB :**
+
+Crédit Agricole CACIB est la banque de financement et d'investissement du groupe Crédit Agricole. Elle offre une gamme étendue de produits et services en banque d'investissement, financements structurés, banque commerciale, et marchés financiers.
+
+3.  **Missions du Stage :**
+
+    a.  **Équipe Méthode Support - Data Scientist :**
+
+        Une première mission dans l'équipe méthode support où le candidat, s'il est retenu, travaillera sur la modélisation des risques de la banque. Il devra utiliser les compétences théoriques et pratiques acquises lors des formations précédentes, notamment en clustering et modélisation statistique.
+
+    b.  **Mission d'Inspection - Encadrement :**
+
+        La deuxième mission en tant qu'inspecteur consistera à utiliser des techniques basées sur la donnée, l'analyse quantitative, et à proposer de nouvelles techniques afin de contribuer à la réussite de la mission. Les méthodologies utilisées, telles que la collecte de la donnée ,son exploration, sa préparation, son analyse ainsi que la diffusion des résultats, ont été précisément présentées.
+
+**Conclusion** :
+
+Le processus de recruitement est actuellement en cours. Le candidat recevra une réponse finale d'ici quelques semaines, une fois que tous les entretiens seront terminés avec les autres candidats.
+
+Il lui a été demandé d'informer s'il est engagé dans d'autres processus de recrutement parallèle. Sa transparence est importante afin de permettre aux recruteurs d'adapter leurs réponses dans le cas échéant.
