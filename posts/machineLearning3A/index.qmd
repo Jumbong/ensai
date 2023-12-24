@@ -7,12 +7,12 @@ categories: [news]
 
 # Introduction
 
-Je ne sais pas si c'est Da Veiga qui vous donnera cours, mais je vais vous donner un petit aperçu de ce que vous pourriez avoir comme examen. Je pense que c'est important parce que nous prenons souvent à la légère ce genre d'activité surtout qu'il permet l'utilisation des générateurs de texte(chatgpt). Cette année, peu d'étudiant ont terminé le projet, parce que chargé les données était long et fastidieux. Je vous conseille de vous y prendre à l'avance. Créer des fonctions qui font certaines tâches, je vous expliquerai progressivement.
+Il est possible que ce soit Da Veiga qui assure vos cours, mais je vais vous offrir un aperçu de ce à quoi pourrait ressembler votre examen. C'est important, car nous avons tendance à sous-estimer ce type d'activité, surtout lorsqu'il autorise l'utilisation de générateurs de texte tels que ChatGPT. Cette année, peu d'étudiants ont achevé le projet, la charge de données étant longue et fastidieuse. Je vous conseille de vous y prendre en avance. Préparez des fonctions exécutant certaines tâches spécifiques, que je vous expliquerai progressivement.
 
 # Les données
 
-J'utiliserai un échantillon des données(Dataset1 et Dataset2) proposé par l'enseignant sur ma machine locale afin que la compilation soit plus rapide. Je mettrai les données sur mon github.
-
+Les données, très larges proposées sont Dataset1 et Dataset2. Vous les trouverez
+sur mon [github]()
 # Packages
 
 J'utiliserai les packages suivants: sklearn, pandas, numpy, matplotlib,seaborn pour la visualiation. 
