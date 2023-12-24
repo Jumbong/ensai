@@ -1,0 +1,594 @@
+---
+title: "Examen de machine learning"
+author: "Jumbong Junior"
+date: "2023-12-08"
+categories: [news]
+---
+
+# Introduction
+
+Je ne sais pas si c'est Da Veiga qui vous donnera cours, mais je vais vous donner un petit aperçu de ce que vous pourriez avoir comme examen. Je pense que c'est important parce que nous prenons souvent à la légère ce genre d'activité surtout qu'il permet l'utilisation des générateurs de texte(chatgpt). Cette année, peu d'étudiant ont terminé le projet, parce que chargé les données était long et fastidieux. Je vous conseille de vous y prendre à l'avance. Créer des fonctions qui font certaines tâches, je vous expliquerai progressivement.
+
+# Les données
+
+J'utiliserai un échantillon des données(Dataset1 et Dataset2) proposé par l'enseignant sur ma machine locale afin que la compilation soit plus rapide. Je mettrai les données sur mon github.
+
+# Packages
+
+J'utiliserai les packages suivants: sklearn, pandas, numpy, matplotlib,seaborn pour la visualiation. 
+
+# Objectif
+
+L'objectif de ce notebook consistera à une 'analyse exploratoire des données, le prétraitement des données pour la modélisation, et l'application ainsi que l'évaluation de modèles de classification() sur un ensemble de données.
+
+```{python}
+# Importation des packages
+
+import pandas as pd
+import numpy as np
+import pandas as pd
+import chardet
+import warnings
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+warnings.filterwarnings("ignore")
+
+from sklearn.model_selection import train_test_split
+
+from sklearn.feature_selection import mutual_info_classif
+
+from sklearn.feature_selection import mutual_info_classif
+
+
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.impute import SimpleImputer
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+
+from sklearn.linear_model import LogisticRegression, LogisticRegressionCV
+from sklearn.metrics import ConfusionMatrixDisplay
+from sklearn.metrics import accuracy_score
+
+from sklearn.metrics import confusion_matrix
+
+from sklearn.ensemble import RandomForestClassifier
+
+from sklearn.preprocessing import LabelEncoder
+import xgboost as xgb
+from xgboost import XGBClassifier
+
+
+
+
+
+
+
+```
+
+# Chargement des données
+
+```{python}
+with open('Dataset1.csv', 'rb') as f:
+    result = chardet.detect(f.read())  # or readline if the file is large
+#print(result['encoding'])
+
+Dataset1 = pd.read_csv('Dataset1.csv', delimiter=",",decimal = ".",encoding=result['encoding'])
+Dataset1.head()
+```
+
+```{python}
+#info
+Dataset1.info()
+```
+
+Les données contiennent 51 colonnes et 581012 lignes.
+Dans le code ci-dessous, nous allons séparer les données en output(Y) et en features(X). L'output ici est la variable **Cover_Type**.
+
+```{python}
+ # split  data into training and testing sets
+X = Dataset1.drop(['Cover_Type'], axis=1).copy()
+Y = Dataset1['Cover_Type'].copy()
+
+```
+
+La prémiere chose à faire est de voir la distribution de Y. Afin de vérifier si c'est une variable catégorielle ou continue.
+
+```{python}
+# Distribution de Y
+sns.countplot(x='Cover_Type', data=Dataset1)
+plt.show()
+```
+
+On peut voir que la variable est catégorielle. Elle contient 7 classes non équilibrées. On peut s'attendre que le modèle prédira mieux les classes les plus représentées(1 et 2) que les autres.
+
+Nous ne traiterons pas ça ici. Les données étant labélisées, nous allons utiliser des modèles de classification.
+
+# Data preprocessing
+
+Nous pouvons dans un premier temps vérifier s'il y a des valeurs manquantes dans les données.
+
+```{python}
+# Missing values
+Dataset1.isnull().sum()
+```
+
+Il n'y a pas de valeurs manquantes dans les données. 
+
+# Features selections.
+
+Nous allons supprimer les variables en se basant sur le critère de [l'information mutulle](https://fr.wikipedia.org/wiki/Information_mutuelle) qui n'apportent pas au moins 0.01 d'information à la variable cible.
+
+En termes simples, l'information mutuelle mesure combien la connaissance d'une variable réduit l'incertitude concernant l'autre. 
+
+
+```{python}
+
+mutual_info = mutual_info_classif(X, Y)
+
+
+mutual_info_df = pd.DataFrame(mutual_info, index=X.columns, columns=['Mutual Information'])
+
+# Filtrer les caractéristiques avec une information mutuelle supérieure à 0.01
+relevant_features = mutual_info_df[mutual_info_df['Mutual Information'] > 0.01].index
+
+# Afficher les caractéristiques pertinentes
+print("Caractéristiques pertinentes (Information Mutuelle > 0.01) :")
+print(relevant_features)
+```
+
+Nous allons supprimer les variables qui ne sont pas pertinentes.
+
+```{python}
+# Supprimer les caractéristiques non pertinentes
+X = X[relevant_features]
+X.info()
+```
+
+Là on a plus que 10 features et les données sont toutes numériques. 
+
+```{python}
+X.describe()
+```
+
+# analyse exploratoire des données
+
+Pour l'analyse exploratoire, nous allons utiliser qu'un échantillon des données.  Je vais en prendre 500
+
+```{python}
+sample_size = 500 # Adjust this based on your dataset size
+X_sampled = X.sample(n=sample_size, random_state=42)
+Y_sampled = Y.loc[X_sampled.index]
+X_sampled.describe()
+```
+
+```{python}
+```
+
+Nous pouvons tracer la distribution de chaque variable.
+
+```{python}
+_ = X_sampled.hist(figsize=(20, 14))
+```
+
+Voyons si on des dinausores dans les données.
+
+```{python} 
+sns.pairplot(X_sampled)
+```
+
+Il semble qu'il n'existe pas de corrélations linéaires entre les variables.
+
+```{python}
+# Correlation matrix
+import seaborn as sns
+corr_matrix = X_sampled.corr()
+
+# Heatmap of the correlation matrix
+
+_= sns.heatmap(corr_matrix, annot=True)
+```	
+
+Ce graphique semble confirmer qu'il n'y a pas de corrélations linéaires entre les variables.
+
+## Box plot
+
+Le graphique ci-dessous montre la distribution de chaque variable en fonction de la variable cible.
+
+```{python}
+# box plot
+# Transformed Cover_Type to categorical
+Y_sampled = Y_sampled.astype('category')
+
+for col in X_sampled.columns:
+    sns.boxplot(x=Y_sampled, y=X_sampled[col])
+    plt.show()
+```	
+
+
+Interprétation: Nous allons nous concentrer sur la variable **Elevation**.
+
+ On peut voir que la variable **Elevation** est très discriminante. 
+
+Les types de couverture 1, 2, et 7 montrent des médianes relativement élevées pour l'élévation, avec 7 ayant la médiane la plus élevée, suivie par 1 et 2.
+
+# Chargement des données
+Dataset2.
+
+```{python}
+with open('Dataset2.csv', 'rb') as f:
+    result = chardet.detect(f.read())  # or readline if the file is large
+#print(result['encoding'])
+
+Dataset2 = pd.read_csv('Dataset2.csv', delimiter=",",decimal = ".",encoding=result['encoding'])
+Dataset2.info()
+```
+
+Cette fois-ci, nous avons 2 variables et 581012 lignes.
+On peut voir que les données sont de types int64 Inspectons ces données les pour voir si elles sont numériques ou catégorielles.
+
+```{python}
+
+# Distribution de Y
+sns.countplot(x='Wilderness_Area', data=Dataset2)
+plt.show()
+```
+
+On peut voir que la variable est catégorielle. Elle contient 4 classes équilibrées. Passons à la deuxième variable.
+
+```{python}
+
+sns.countplot(x='Soil_Type', data=Dataset2)
+plt.show()
+
+```
+
+Ici, nous pouvons voir que la variable est plutôt numérique.  Traçons la distribution de la variable.
+
+```{python}
+_=Dataset2[['Soil_Type']].hist(figsize=(20, 14))
+```
+
+Comme les deux base de données,on les mêmes lignes, nous allons les concaténer.
+
+```{python}
+
+combined_X = pd.concat([X, Dataset2], axis=1)
+combined_X.info()
+
+```
+
+Nous pouvons maintenant séparer les données en train et test. Avec stratification sur la variable cible.
+
+```{python}
+# split  data into training and testing sets
+print("Splitting data into training and testing sets...")
+X_train, X_test, Y_train, Y_test = train_test_split(combined_X, Y, test_size=0.2, random_state=42, stratify=Y)
+
+```
+
+Avant de passer à la modélisation, nous allons standardiser les données,  et encoder les variables catégorielles.
+
+D'abord, nous allons séparer les variables numériques et catégorielles.
+
+```{python}
+X_train.columns
+
+```
+
+```{python}
+categorical_cols = ['Wilderness_Area']
+numerical_cols = ['Slope', 'Hillshade_9am', 'Hillshade_Noon',
+       'Horizontal_Distance_To_Roadways', 'Hillshade_3pm',
+       'Vertical_Distance_To_Hydrology', 'Horizontal_Distance_To_Fire_Points',
+       'Aspect', 'Horizontal_Distance_To_Hydrology', 'Elevation', 'Soil_Type']
+```
+
+Nous allons créer un pipeline pour standardiser les données numériques et encoder les variables catégorielles. J'adore les pipelines.
+
+```{python}
+
+numerical_transformer = Pipeline(steps=[
+    ('imputer', SimpleImputer(strategy='mean')),  # or median
+    ('scaler', StandardScaler())])
+
+categorical_transformer = Pipeline(steps=[
+    ('imputer', SimpleImputer(strategy='most_frequent')),
+    ('onehot', OneHotEncoder(handle_unknown='ignore'))])
+
+preprocessor = ColumnTransformer(
+    transformers=[
+        ('num', numerical_transformer, numerical_cols),
+        ('cat', categorical_transformer, categorical_cols)])
+
+X_train_transformed = preprocessor.fit_transform(X_train)
+X_test_transformed = preprocessor.transform(X_test)
+```
+
+Ici nous n'avons pas de valeurs manquantes, mais nous avons quand même utilisé un imputer pour remplacer les valeurs manquantes par la moyenne pour les variables numériques et par la valeur la plus fréquente pour les variables catégorielles.
+Un premier pipeline pour les variables numériques et un deuxième pour les variables catégorielles. Nous avons utilisé un onehot encoder pour les variables catégorielles. Les données sont maintenant prêtes pour la modélisation.
+
+# Modélisation
+
+## Elastic Net Regression
+
+C'est une méthode de machine learning qui combine la régression Ridge et Lasso. Elle est utilisée pour résoudre le problème de surraprentissage, la multicollinéarité et la sélection de variables. 
+
+Passons à sa modélisation :
+
+Nous avons utilisé ici un modèle de régression logistique avec une pénalité elasticnet. Nous avons utilisé une validation croisée pour trouver le meilleur paramètre de régularisation. Nous avons utilisé une pénalité elasticnet avec un ratio de 0.5. Nous avons utilisé un solver saga qui est adapté aux problèmes multiclasse. Nous avons utilisé une tolérance de 0.01. Nous avons utilisé un random state de 12345.
+
+
+```{python}
+
+clf_l1l2_LR = LogisticRegressionCV(penalty='elasticnet', l1_ratios=[0.5], 
+                                   cv=5, multi_class="multinomial", 
+                                 solver="saga",tol=0.01, random_state=12345)
+
+model = Pipeline(steps=[('preprocessor', preprocessor), ('logistic', clf_l1l2_LR)])
+
+model.fit(X_train,Y_train)
+prediction = model.predict(X_test)
+accuracy_LR = accuracy_score(Y_test, prediction)
+
+print("Accuracy of Logistic Regression :","%.3f" % accuracy_LR)
+
+```
+
+
+J'ai un accuracy de 0.714. Ce n'est pas mal. Nous pouvons voir la matrice de confusion.
+
+```{python}
+
+
+# Confusion matrix
+
+# Compute the confusion matrix
+conf_matrix = confusion_matrix(Y_test, prediction)
+
+# Display the confusion matrix using Seaborn's heatmap
+plt.figure(figsize=(10, 7))
+sns.heatmap(conf_matrix, annot=True, fmt='g', cmap='Blues')
+plt.title('Confusion Matrix')
+plt.xlabel('Predicted labels')
+plt.ylabel('True labels')
+plt.show()
+
+```
+
+- Les valeurs sur la diagonale principale (de haut à gauche à bas à droite) représentent le nombre de prédictions correctes pour chaque classe. Par exemple, il y a 29724 prédictions correctes pour la classe 0, 44616 pour la classe 1, et ainsi de suite.
+- Les valeurs hors de la diagonale indiquent les erreurs de classification. Par exemple, 11947 instances de la classe 0 ont été incorrectement prédites comme appartenant à la classe 1.
+- La classe 0 a le plus grand nombre de faux positifs, c'est-à-dire que de nombreuses instances d'autres classes ont été incorrectement prédites comme appartenant à la classe 0.
+- Les classes avec le moins de prédictions incorrectes (et donc les plus sombres dans la visualisation) sont la classe 3 et la classe 6, avec respectivement 187 et 1993 prédictions correctes.
+Les cases avec un fond plus clair, en dehors de la diagonale, indiquent des erreurs moins fréquentes entre les classes spécifiques.
+
+## Random Forest
+
+### OOB error (Out-of-bag error)
+
+OOB est une méthode de validation croisée pour les forêts aléatoires. Chaque arbre dans la forêt est construit à partir d'un échantillon bootstrap du jeu de données d'entraînement. Certaines observations sont laissées de côté et non utilisées dans la construction d'un arbre donné. Ces observations "hors sac" peuvent être utilisées pour évaluer les performances de cet arbre. Du coup on peut utiliser cette méthode pour évaluer la performance de la forêt aléatoire et ajuster les hyperparamètres.
+
+Le code ci-dessous montre comment calculer l'erreur OOB pour un modèle de forêt aléatoire. Il permet en particulier de sélectionner la profondeur de l'arbre dans la forêt aléatoire.
+Le modèle de forêt aléatoire est entraîné avec une profondeur d'arbre de 10, 20 et 30. L'erreur OOB est calculée pour chaque modèle. Le modèle avec la plus petite erreur OOB est sélectionné.
+
+```{python}
+
+## Training Random Forest
+
+
+
+
+depths = [10, 20, 30]
+oob_errors = []
+models = []
+best_oob_error = float('inf')
+best_model = None
+i = 0
+for depth in depths:
+    print(i)
+    model = RandomForestClassifier(max_depth=depth, oob_score=True, random_state=42,
+                                   n_estimators=100,  
+                                   warm_start=True  # This allows us to add more estimators later if needed
+                                  )
+    model.fit(X_train, Y_train)
+    oob_error = 1 - model.oob_score_
+    oob_errors.append(oob_error)
+    models.append(model)
+    if oob_error < best_oob_error:
+        best_oob_error = oob_error
+        best_model = model
+    i = i+1
+    print("Done")
+
+# Print OOB errors for each model
+for depth, error in zip(depths, oob_errors):
+    print(f"Depth: {depth}, OOB Error: {error}")
+```
+
+### Accuracy et matrice de confusion
+
+```{python}
+# Compute the accuracy of the best random forest model
+predictions = best_model.predict(X_test)
+accuracy = accuracy_score(Y_test, predictions)
+print("Accuracy of the Best Random Forest: {:.3f}".format(accuracy))
+
+# Display the confusion matrix
+conf_matrix = confusion_matrix(Y_test, predictions)
+plt.figure(figsize=(10, 7))
+sns.heatmap(conf_matrix, annot=True, fmt='g', cmap='Blues')
+plt.title('Confusion Matrix')
+plt.xlabel('Predicted labels')
+plt.ylabel('True labels')
+plt.show()
+```
+
+Nous avons un accuracy de 0.962. C'est très bien si on compare avec le modèle de régression logistique qui a un accuracy de 0.714. Nous pouvons voir la matrice de confusion.
+
+# Xgboost
+
+Essayons tout d'abord par expliquer ce qu'est le Xgboost. Xgboost signifie Extreme Gradient Boosting.
+Il combine des weaks models afin de produire des prédictions plus précises.  Il est très rapide et performant. 
+
+Avant de passer à la modélisation, il faut transformer les données en un format spécifique à Xgboost.  En effet, le package xgboost ne gère pas les chaînes de caractères pour les étiquettes contrairement à tous les modèles entraînés précédemment, donc vous devez d'abord les encoder en tant qu'entiers.
+
+```{python}
+
+# encode string class values as integers
+label_encoder = LabelEncoder()
+label_encoder = label_encoder.fit(Y)
+label_encoded_y_train = label_encoder.transform(Y_train)
+```
+
+Nous avons utilisé un modèle de classification Xgboost avec les paramètres suivants:
+
+- objective='multi:softprob' : Spécifie la fonction objectif de l'entraînement. Ici, 'multi:softprob' est utilisé pour les problèmes de classification multiclasse et retournera une matrice de probabilité estimée pour chaque classe, ce qui est nécessaire pour calculer des scores comme le log-loss.
+
+- seed='12345' : Fournit une graine pour le générateur de nombres aléatoires. Cela garantit que les résultats sont reproductibles. Toutefois, il semble y avoir une petite confusion ici, car la graine devrait être un entier (seed=12345), pas une chaîne de caractères (seed='12345').
+
+- gamma=0 : Paramètre de régularisation qui minimise la complexité du modèle et aide à prévenir le surajustement. La valeur de 0 indique qu'il n'y a pas de régularisation supplémentaire.
+
+- learning_rate=0.05 : C'est le taux d'apprentissage, également connu sous le nom d'eta. Cela contribue à rendre le processus d'apprentissage plus robuste en empêchant les poids de s'ajuster trop fortement à chaque itération. Une valeur plus faible peut nécessiter plus d'arbres pour apprendre les mêmes relations, mais peut améliorer la performance finale du modèle.
+
+- max_depth=5 : Détermine la profondeur maximale de chaque arbre. C'est un autre paramètre qui aide à prévenir le surajustement. Plus la profondeur est grande, plus le modèle est complexe.
+
+- n_estimators=200 : Le nombre d'arbres à construire. Plus il y a d'arbres, plus le modèle peut être précis, mais cela augmente aussi le temps de calcul et le risque de surajustement.
+
+```{python}
+clf_xgb = XGBClassifier(objective='multi:softprob', seed='12345',
+                       gamma=0, learning_rate=0.05, max_depth=5, n_estimators=200)
+clf_xgb.fit(X_train, label_encoded_y_train)
+
+accuracy_xgb = accuracy_score(label_encoder.transform(Y_test), clf_xgb.predict(X_test))
+
+print("Accuracy of XGBOOST :","%.3f" % accuracy_xgb)
+
+
+
+```
+
+Ici on a un accuracy de 0.0.786. C'est mieux que le modèle de régression logistique mais moins bien que le modèle de forêt aléatoire. Nous pouvons voir la matrice de confusion.
+
+```{python}
+
+# Display the confusion matrix
+predictions = clf_xgb.predict(X_test)
+conf_matrix = confusion_matrix(Y_test, predictions)
+plt.figure(figsize=(10, 7))
+sns.heatmap(conf_matrix, annot=True, fmt='g', cmap='Blues')
+plt.title('Confusion Matrix')
+plt.xlabel('Predicted labels')
+plt.ylabel('True labels')
+plt.show()
+```
+
+### Courbe ROC
+
+La courbe ROC est un graphique qui montre la performance d'un modèle de classification à différents seuils de classification. Elle trace le taux de vrais positifs (TPR) en fonction du taux de faux positifs (FPR) à différents seuils de classification. Le TPR est également connu sous le nom de rappel et le FPR est égal à 1 - spécificité.
+
+```{python}
+
+import numpy as np
+from sklearn.preprocessing import label_binarize
+from sklearn.metrics import roc_curve, auc
+
+def compute_roc_auc(models, X, Y_test):
+    """
+    Compute ROC AUC for a list of models.
+    
+    Args:
+    models (dict): A dictionary of models with their names as keys.
+    X_test (array-like): Test features.
+    Y_test (array-like): True labels for the test set.
+    
+    Returns:
+    dict: A dictionary containing FPR, TPR, and ROC AUC for each model.
+    """
+    Y_classes = np.unique(Y_test)
+    Y_test_binarized = label_binarize(Y_test, classes=Y_classes)
+    n_classes = len(Y_classes)
+    
+    results = {}
+
+    for model_name, model in models.items():
+        if model_name == 'Logistic':
+            model = Pipeline(steps=[('preprocessor', preprocessor), ('logistic', clf_l1l2_LR)])
+            model.fit(X_train,Y_train)
+            score = model.predict_proba(X_test)
+        else:
+          
+            score = model.predict_proba(X_test)
+        
+        fpr = dict()
+        tpr = dict()
+        roc_auc = dict()
+
+        # Compute ROC for each class
+        for i in range(n_classes):
+            fpr[i], tpr[i], _ = roc_curve(Y_test_binarized[:, i], score[:, i])
+            roc_auc[i] = auc(fpr[i], tpr[i])
+
+        # Compute micro-average ROC curve and ROC area
+        fpr["micro"], tpr["micro"], _ = roc_curve(Y_test_binarized.ravel(), score.ravel())
+        roc_auc["micro"] = auc(fpr["micro"], tpr["micro"])
+
+        results[model_name] = {'fpr': fpr, 'tpr': tpr, 'roc_auc': roc_auc, 'score':score}
+
+    return results
+
+models = {
+    'Logistic': clf_l1l2_LR,
+      # Assurez-vous que clf_svm est entraîné sur des données mises à l'échelle si nécessaire
+    'Random Forests': best_model,
+    'XGBOOST': clf_xgb,
+    
+}
+
+roc_results = compute_roc_auc(models, X_test, Y_test)
+
+```
+
+```{python}
+
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(6, 6))
+plt.plot([0, 1], [0, 1], 'k--')  # Ligne diagonale
+
+for model_name, metrics in roc_results.items():
+    plt.plot(metrics['fpr']['micro'], metrics['tpr']['micro'], label=f'{model_name} Micro (area = {metrics["roc_auc"]["micro"]:.2f})')
+
+plt.legend()
+plt.xlabel("False Positive Rate")
+plt.ylabel("True Positive Rate")
+plt.title('Micro-Average Receiver Operating Characteristic')
+plt.show()
+```
+
+La courbe ROC montre que le modèle de forêt aléatoire est le meilleur modèle. Il a la plus grande surface sous la courbe (AUC). Le modèle Xgboost est le deuxième meilleur modèle. Le modèle de régression logistique est le moins bon modèle.
+
+# Bonus
+
+```{python}
+from sklearn.metrics import roc_auc_score
+
+# Affichage des AUC micro-averaged
+print("Area under Roc Curve (micro-average) for:\n")
+for model_name in models.keys():
+    print(f"- {model_name}: {roc_results[model_name]['roc_auc']['micro']:.3f}")
+
+# Calcul et affichage des AUC one-vs-one macro-averaged
+print("\nArea under Roc Curve (one-vs-one macro-average) for:\n")
+for model_name, model in models.items():
+    
+    score = roc_results[model_name]['score']
+    auc_ovo_macro = roc_auc_score(Y_test, score, multi_class="ovo", average="macro")
+    print(f"- {model_name}: {auc_ovo_macro:.3f}")
+```
+
+
+# Conclusion 
+
+L'examen a couvert l'analyse, le prétraitement, la modélisation ML et l'évaluation, soulignant l'importance de sélectionner les caractéristiques et d'ajuster les hyperparamètres. Des techniques comme l'erreur OOB et la courbe ROC ont aidé à évaluer les modèles, avec une préparation minutieuse comme clé de la réussite.

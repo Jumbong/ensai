@@ -46,7 +46,7 @@ L'entretien du jeudi, 30 novembre pour le poste de data scientist - Auditeur a d
 
 1.  **Parcours de l'Étudiant :**
 
-La discussion a débuté par un tour de table permettant à chacun de se présenter. Le candidat notamment présenté son parcours, et mis en avant quelques compétences acquises durant ses différents projets universitaires.
+La discussion a débuté par un tour de table permettant à chacun de se présenter. Le candidat a notamment présenté son parcours, et mis en avant quelques compétences acquises durant ses différents projets universitaires.
 
 2.  **Présentation de Crédit Agricole CACIB :**
 
@@ -64,6 +64,6 @@ Crédit Agricole CACIB est la banque de financement et d'investissement du group
 
 **Conclusion** :
 
-Le processus de recruitement est actuellement en cours. Le candidat recevra une réponse finale d'ici quelques semaines, une fois que tous les entretiens seront terminés avec les autres candidats.
+Le processus de recrutement est actuellement en cours. Le candidat recevra une réponse finale d'ici quelques semaines, une fois que tous les entretiens seront terminés avec les autres candidats.
 
 Il lui a été demandé d'informer s'il est engagé dans d'autres processus de recrutement parallèle. Sa transparence est importante afin de permettre aux recruteurs d'adapter leurs réponses dans le cas échéant.

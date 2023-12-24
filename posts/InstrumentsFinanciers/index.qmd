@@ -1,0 +1,52 @@
+---
+title: "Les intruments financiers à un bébé"
+author: "Jumbong Junior"
+date: "2023-12-08"
+categories: [news]
+---
+
+![Les instruments financiers](intelligenceArtificielle.png)
+
+Dans le cadre d'un cours d'asset pricing à l'ENSAI, je suis totalement perdu dans la compréhension des instruments financiers. 
+
+Ce décrochage m'empêche de suivre le cours et je suis donc totalement perdu sur les autres notions telles que pricing, hedging, etc. 
+
+J'ai donc décidé de retourner à la base c'est-à-dire de comprendre les instruments financiers. 
+
+Dans mes recherches sur chatgpt, j'ai trouvé les différents instruments financiers et leurs définitions.
+
+## Les obligations.
+
+J'ai été vraiment déçu de la définition et de sa complexité. Une obligation est définie comme un titre de dette émis par une entreprise, un gouvernement, etc. Les détenteurs de ces obligations reçoivent des intérêts à intervalles réguliers et remboursent le montant total à l'échéance.
+
+Qu'est-ce que cela signifie concrètement ?
+
+Prenons un exemple. J'ai faim, j'ai besoin d'argent pour manger à l'école mais je n'ai pas d'argent. Je vais donc voir un ami pour lui expliquer ma situation. Il me prête de l'argent de l'argent avec des intérêts sur une durée de cinq jours et il me demande de lui verser une partie de cette argent(qui correspond au produit entre le taux d'intérêt et la somme dont je lui est empruntée) chaque jour et de lui rembourser le montant total à la fin des cinq jours. Pour être sûr que je vais lui rembourser, il me demande un papier signé par moi et par lui. Ce papier est une obligation.
+
+Il existe deux types d'obligations:
+- Les obligations 0 coupon: Ce sont des prêts que l'on fait généralement au lycée. C'est-à-dire que l'on part voir un ami pour lui demander de l'argent avec un intérêt de x\% pour cinq jours. On lui remboursera à la fin des cinq jours la somme empruntée plus les intérêts. 
+
+- Les obligations couponnées: Ce sont des obligations qui versent des intérêts à intervalles réguliers. C'est-à-dire que chaque mois nous verserons une partie de la somme empruntée(la somme empruntée multipliée par le taux d'intérêt) et à la fin de la période, nous rembourserons la somme empruntée plus les intérêts.
+
+## Les actions.
+
+En anglais les actions sont appelées les equities. Ce sont des titres de propriété d'une entreprise.
+
+## Les produits dérivés.
+
+Ce sont les intruments financiers qui pose actuellement beaucoup de difficultés.
+
+Ce sont des intruments financiers dont la valeur dépend de la valeur d'un autre actif qui est appelé sous-jacent. On compte parmi les produits dérivés les options, les futures, les swaps, etc.
+
+### Les options.
+
+Une option est un contrat qui donne à son détenteur le droit mais pas l'obligation d'acheter ou de vendre  un actif à un prix fixé à l'avance et à une date donnée.
+
+Il y'a deux choses à retenir dans cette définition: le prix fixé à l'avance et la date donnée.
+
+On signe ce type de contrat lorsque pense que le prix de l'actif va augmenter. 
+
+Par exemple je pense que le prix de l'Iphone va augmenter dans les prochains jours. Je vois un ami qui vend des Iphones. Je lui donne un montant afin qu'il me reserve cet Iphone à un prix k fixé aujourd'hui. Si le prix de l'Iphone augmente, je pourrais l'acheter à un prix inférieur à celui du marché. Si le prix de l'Iphone diminue, je ne l'achèterai pas et je perdrai le montant que j'ai donné à mon ami.
+
+### Les futures.
+
