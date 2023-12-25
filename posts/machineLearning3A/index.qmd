@@ -3,6 +3,7 @@ title: "Examen de machine learning"
 author: "Jumbong Junior"
 date: "2023-12-08"
 categories: [news]
+toc: true
 ---
 
 # Introduction
@@ -13,6 +14,8 @@ Il est possible que ce soit Da Veiga qui assure vos cours, mais je vais vous off
 
 Les données, très larges proposées sont Dataset1 et Dataset2. Vous les trouverez
 sur mon [github]()
+
+
 # Packages
 
 J'utiliserai les packages suivants: sklearn, pandas, numpy, matplotlib,seaborn pour la visualiation. 
@@ -23,6 +26,7 @@ L'objectif de ce notebook consistera à une 'analyse exploratoire des données, 
 
 ```{python}
 # Importation des packages
+
 
 import pandas as pd
 import numpy as np
@@ -592,3 +596,4 @@ for model_name, model in models.items():
 # Conclusion 
 
 L'examen a couvert l'analyse, le prétraitement, la modélisation ML et l'évaluation, soulignant l'importance de sélectionner les caractéristiques et d'ajuster les hyperparamètres. Des techniques comme l'erreur OOB et la courbe ROC ont aidé à évaluer les modèles, avec une préparation minutieuse comme clé de la réussite.
+

@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: d5d14630-6975-47c3-9cd1-1011041444c8
+      url: 'https://jumbongjunior.quarto.pub/menu'
