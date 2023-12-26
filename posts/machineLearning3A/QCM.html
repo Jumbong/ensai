@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jumbong Junior">
+<meta name="dcterms.date" content="2023-12-26">
+
+<title>Menu - Examen de machine learning QCM</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Menu</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/junior-jumbong-258330211/" rel="" target=""><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text">LinkedIn</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/Jumbong" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text">Github</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Examen de machine learning QCM</li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Examen de machine learning QCM</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">news</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jumbong Junior </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 26, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Ensai 3A</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">menu</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#q1-what-is-the-primary-objective-of-empirical-risk-minimization-erm-in-machine-learning" id="toc-q1-what-is-the-primary-objective-of-empirical-risk-minimization-erm-in-machine-learning" class="nav-link" data-scroll-target="#q1-what-is-the-primary-objective-of-empirical-risk-minimization-erm-in-machine-learning">Q1: What is the primary objective of Empirical Risk Minimization (ERM) in machine learning?</a></li>
+  <li><a href="#q2-in-ridge-regression-what-does-the-regularization-term-primarily-aim-to-prevent" id="toc-q2-in-ridge-regression-what-does-the-regularization-term-primarily-aim-to-prevent" class="nav-link" data-scroll-target="#q2-in-ridge-regression-what-does-the-regularization-term-primarily-aim-to-prevent">Q2: In Ridge regression, what does the regularization term primarily aim to prevent?</a></li>
+  <li><a href="#q3-which-of-the-following-regression-techniques-is-primarily-used-for-feature-selection-by-adding-a-penalty-term-to-the-loss-function" id="toc-q3-which-of-the-following-regression-techniques-is-primarily-used-for-feature-selection-by-adding-a-penalty-term-to-the-loss-function" class="nav-link" data-scroll-target="#q3-which-of-the-following-regression-techniques-is-primarily-used-for-feature-selection-by-adding-a-penalty-term-to-the-loss-function">Q3: Which of the following regression techniques is primarily used for feature selection by adding a penalty term to the loss function?</a></li>
+  <li><a href="#q4-which-optimization-technique-aims-to-find-the-minimum-of-a-convex-function-by-iteratively-updating-the-model-parameters-in-the-direction-of-the-gradient" id="toc-q4-which-optimization-technique-aims-to-find-the-minimum-of-a-convex-function-by-iteratively-updating-the-model-parameters-in-the-direction-of-the-gradient" class="nav-link" data-scroll-target="#q4-which-optimization-technique-aims-to-find-the-minimum-of-a-convex-function-by-iteratively-updating-the-model-parameters-in-the-direction-of-the-gradient">Q4: Which optimization technique aims to find the minimum of a convex function by iteratively updating the model parameters in the direction of the gradient?</a></li>
+  <li><a href="#q5-in-support-vector-machines-what-is-the-primary-goal-when-selecting-the-optimal-hyperplane" id="toc-q5-in-support-vector-machines-what-is-the-primary-goal-when-selecting-the-optimal-hyperplane" class="nav-link" data-scroll-target="#q5-in-support-vector-machines-what-is-the-primary-goal-when-selecting-the-optimal-hyperplane">Q5: In support vector machines, what is the primary goal when selecting the optimal hyperplane?</a></li>
+  <li><a href="#q6-in-ridge-regression-what-does-the-regularization-term-penalize" id="toc-q6-in-ridge-regression-what-does-the-regularization-term-penalize" class="nav-link" data-scroll-target="#q6-in-ridge-regression-what-does-the-regularization-term-penalize">Q6: In Ridge regression, what does the regularization term penalize?</a></li>
+  <li><a href="#q7-which-of-the-following-machine-learning-algorithms-is-specifically-designed-for-binary-classification-and-uses-a-hyperplane-to-separate-data-points" id="toc-q7-which-of-the-following-machine-learning-algorithms-is-specifically-designed-for-binary-classification-and-uses-a-hyperplane-to-separate-data-points" class="nav-link" data-scroll-target="#q7-which-of-the-following-machine-learning-algorithms-is-specifically-designed-for-binary-classification-and-uses-a-hyperplane-to-separate-data-points">Q7: Which of the following machine learning algorithms is specifically designed for binary classification and uses a hyperplane to separate data points?</a></li>
+  <li><a href="#q8-which-of-the-following-statements-is-true-about-the-bias-variance-trade-off-in-machine-learning" id="toc-q8-which-of-the-following-statements-is-true-about-the-bias-variance-trade-off-in-machine-learning" class="nav-link" data-scroll-target="#q8-which-of-the-following-statements-is-true-about-the-bias-variance-trade-off-in-machine-learning">Q8: Which of the following statements is true about the bias-variance trade-off in machine learning?</a></li>
+  <li><a href="#q9-what-is-the-main-advantage-of-using-a-kernel-trick-in-support-vector-machines" id="toc-q9-what-is-the-main-advantage-of-using-a-kernel-trick-in-support-vector-machines" class="nav-link" data-scroll-target="#q9-what-is-the-main-advantage-of-using-a-kernel-trick-in-support-vector-machines">Q9: What is the main advantage of using a kernel trick in Support Vector Machines?</a></li>
+  <li><a href="#q10-what-is-the-primary-purpose-of-cross-validation-in-machine-learning" id="toc-q10-what-is-the-primary-purpose-of-cross-validation-in-machine-learning" class="nav-link" data-scroll-target="#q10-what-is-the-primary-purpose-of-cross-validation-in-machine-learning">Q10: What is the primary purpose of cross-validation in machine learning?</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>J’ai pensé important de mettre en place ce QCM. D’abord il faut que je vous informe de ne pas sécher, fuir les cours de Da Veiga. Le système est tellement fort et ne tolère pas les individus qui sortent du moule. Da Veiga faisant partie du système, pour s’assurer que les étudiants assistent à ses cours, il a fait un QCM surprise et qui a compté coéfficient 1 sur son cours de machine learning de coéfficient 2.5. Il a affecté coéfficient 1 à l’examen sur table et le reste sur le TP. Vous devez assister à son cours pour ne pas être dans la situation d’un de mes amis qui a râté le QCM du cours, il a eu 0, et il a eu 5 sur 26 au devoir sur table. ça ne fait rien mais je ne pense pas que vous aimerez être dans cette situation. Voici les QCM ainsi que les réponses. Vous pouvez vérifier ultérieurement si les réponses sont correctes.</p>
+<section id="q1-what-is-the-primary-objective-of-empirical-risk-minimization-erm-in-machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="q1-what-is-the-primary-objective-of-empirical-risk-minimization-erm-in-machine-learning">Q1: What is the primary objective of Empirical Risk Minimization (ERM) in machine learning?</h2>
+<ul>
+<li><ol type="A">
+<li>Minimize training error</li>
+</ol></li>
+<li><ol start="2" type="A">
+<li>Minimize testing error</li>
+</ol></li>
+<li><ol start="3" type="A">
+<li>Minimize a combination of training and testing error</li>
+</ol></li>
+<li><ol start="4" type="A">
+<li>Maximize model complexity</li>
+</ol></li>
+</ul>
+<p><strong>Réponse</strong>: C) Minimize a combination of training and testing error</p>
+</section>
+<section id="q2-in-ridge-regression-what-does-the-regularization-term-primarily-aim-to-prevent" class="level2">
+<h2 class="anchored" data-anchor-id="q2-in-ridge-regression-what-does-the-regularization-term-primarily-aim-to-prevent">Q2: In Ridge regression, what does the regularization term primarily aim to prevent?</h2>
+<ul>
+<li><ol type="A">
+<li>Feature selection</li>
+</ol></li>
+<li><ol start="2" type="A">
+<li>Overfitting</li>
+</ol></li>
+<li><ol start="3" type="A">
+<li>Underfitting</li>
+</ol></li>
+<li><ol start="4" type="A">
+<li>Data preprocessing errors</li>
+</ol></li>
+</ul>
+<p><strong>Réponse</strong>: B) Overfitting</p>
+</section>
+<section id="q3-which-of-the-following-regression-techniques-is-primarily-used-for-feature-selection-by-adding-a-penalty-term-to-the-loss-function" class="level2">
+<h2 class="anchored" data-anchor-id="q3-which-of-the-following-regression-techniques-is-primarily-used-for-feature-selection-by-adding-a-penalty-term-to-the-loss-function">Q3: Which of the following regression techniques is primarily used for feature selection by adding a penalty term to the loss function?</h2>
+<ul>
+<li><ol type="A">
+<li>Linear regression</li>
+</ol></li>
+<li><ol start="2" type="A">
+<li>Ridge regression</li>
+</ol></li>
+<li><ol start="3" type="A">
+<li>Lasso regression</li>
+</ol></li>
+<li><ol start="4" type="A">
+<li>Support vector regression</li>
+</ol></li>
+</ul>
+<p><strong>Réponse</strong>: C) Lasso regression</p>
+</section>
+<section id="q4-which-optimization-technique-aims-to-find-the-minimum-of-a-convex-function-by-iteratively-updating-the-model-parameters-in-the-direction-of-the-gradient" class="level2">
+<h2 class="anchored" data-anchor-id="q4-which-optimization-technique-aims-to-find-the-minimum-of-a-convex-function-by-iteratively-updating-the-model-parameters-in-the-direction-of-the-gradient">Q4: Which optimization technique aims to find the minimum of a convex function by iteratively updating the model parameters in the direction of the gradient?</h2>
+<ul>
+<li><ol type="A">
+<li>Gradient Descent</li>
+</ol></li>
+<li><ol start="2" type="A">
+<li>Newton’s Method</li>
+</ol></li>
+<li><ol start="3" type="A">
+<li>Genetic Algorithms</li>
+</ol></li>
+<li><ol start="4" type="A">
+<li>Decision Trees</li>
+</ol></li>
+</ul>
+<p><strong>Réponse</strong>: A) Gradient Descent</p>
+</section>
+<section id="q5-in-support-vector-machines-what-is-the-primary-goal-when-selecting-the-optimal-hyperplane" class="level2">
+<h2 class="anchored" data-anchor-id="q5-in-support-vector-machines-what-is-the-primary-goal-when-selecting-the-optimal-hyperplane">Q5: In support vector machines, what is the primary goal when selecting the optimal hyperplane?</h2>
+<ul>
+<li><ol type="A">
+<li>Maximize the margin between data points from different classes.</li>
+</ol></li>
+<li><ol start="2" type="A">
+<li>Minimize the margin between data points from the same class.</li>
+</ol></li>
+<li><ol start="3" type="A">
+<li>Maximize the number of support vectors.</li>
+</ol></li>
+<li><ol start="4" type="A">
+<li>Minimize the number of support vectors.</li>
+</ol></li>
+</ul>
+<p><strong>Réponse</strong>: A) Maximize the margin between data points from different classes.</p>
+</section>
+<section id="q6-in-ridge-regression-what-does-the-regularization-term-penalize" class="level2">
+<h2 class="anchored" data-anchor-id="q6-in-ridge-regression-what-does-the-regularization-term-penalize">Q6: In Ridge regression, what does the regularization term penalize?</h2>
+<ul>
+<li><ol type="A">
+<li>The magnitude of the coefficients</li>
+</ol></li>
+<li><ol start="2" type="A">
+<li>The number of features</li>
+</ol></li>
+<li><ol start="3" type="A">
+<li>The mean squared error</li>
+</ol></li>
+<li><ol start="4" type="A">
+<li>The bias of the model</li>
+</ol></li>
+</ul>
+<p><strong>Réponse</strong>: A) The magnitude of the coefficients</p>
+</section>
+<section id="q7-which-of-the-following-machine-learning-algorithms-is-specifically-designed-for-binary-classification-and-uses-a-hyperplane-to-separate-data-points" class="level2">
+<h2 class="anchored" data-anchor-id="q7-which-of-the-following-machine-learning-algorithms-is-specifically-designed-for-binary-classification-and-uses-a-hyperplane-to-separate-data-points">Q7: Which of the following machine learning algorithms is specifically designed for binary classification and uses a hyperplane to separate data points?</h2>
+<ul>
+<li><ol type="A">
+<li>Principal Component Analysis (PCA)</li>
+</ol></li>
+<li><ol start="2" type="A">
+<li>K-Means Clustering</li>
+</ol></li>
+<li><ol start="3" type="A">
+<li>Support Vector Machine (SVM)</li>
+</ol></li>
+<li><ol start="4" type="A">
+<li>K-Nearest Neighbors (KNN)</li>
+</ol></li>
+</ul>
+<p><strong>Réponse</strong>: C) Support Vector Machine (SVM)</p>
+</section>
+<section id="q8-which-of-the-following-statements-is-true-about-the-bias-variance-trade-off-in-machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="q8-which-of-the-following-statements-is-true-about-the-bias-variance-trade-off-in-machine-learning">Q8: Which of the following statements is true about the bias-variance trade-off in machine learning?</h2>
+<ul>
+<li><ol type="A">
+<li>Increasing model complexity reduces bias and increases variance</li>
+</ol></li>
+<li><ol start="2" type="A">
+<li>Increasing model complexity increases both bias and variance</li>
+</ol></li>
+<li><ol start="3" type="A">
+<li>Decreasing model complexity reduces bias and increases variance</li>
+</ol></li>
+<li><ol start="4" type="A">
+<li>Decreasing model complexity reduces both bias and variance</li>
+</ol></li>
+</ul>
+<p><strong>Réponse</strong>: A) Increasing model complexity reduces bias and increases variance</p>
+</section>
+<section id="q9-what-is-the-main-advantage-of-using-a-kernel-trick-in-support-vector-machines" class="level2">
+<h2 class="anchored" data-anchor-id="q9-what-is-the-main-advantage-of-using-a-kernel-trick-in-support-vector-machines">Q9: What is the main advantage of using a kernel trick in Support Vector Machines?</h2>
+<ul>
+<li><ol type="A">
+<li>It reduces overfitting</li>
+</ol></li>
+<li><ol start="2" type="A">
+<li>It simplifies the optimization problem</li>
+</ol></li>
+<li><ol start="3" type="A">
+<li>It allows SVM to handle non-linear data</li>
+</ol></li>
+<li><ol start="4" type="A">
+<li>It speeds up the training process</li>
+</ol></li>
+</ul>
+<p><strong>Réponse</strong>: C) It allows SVM to handle non-linear data</p>
+</section>
+<section id="q10-what-is-the-primary-purpose-of-cross-validation-in-machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="q10-what-is-the-primary-purpose-of-cross-validation-in-machine-learning">Q10: What is the primary purpose of cross-validation in machine learning?</h2>
+<ul>
+<li><ol type="A">
+<li>To train a model on multiple datasets</li>
+</ol></li>
+<li><ol start="2" type="A">
+<li>To select the best hyperparameters for a model</li>
+</ol></li>
+<li><ol start="3" type="A">
+<li>To overfit the model to the training data</li>
+</ol></li>
+<li><ol start="4" type="A">
+<li>To evaluate a model’s performance on the training data</li>
+</ol></li>
+</ul>
+<p><strong>Réponse</strong>: B) To select the best hyperparameters for a model</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
