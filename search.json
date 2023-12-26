@@ -172,77 +172,77 @@
     "href": "posts/machineLearning3A/QCM.html",
     "title": "Examen de machine learning QCM",
     "section": "",
-    "text": "J’ai pensé important de mettre en place ce QCM. D’abord il faut que je vous informe de ne pas sécher, fuir les cours de Da Veiga. Le système est tellement fort et ne tolère pas les individus qui sortent du moule. Da Veiga faisant partie du système, pour s’assurer que les étudiants assistent à ses cours, il a fait un QCM surprise et qui a compté coéfficient 1 sur son cours de machine learning de coéfficient 2.5. Il a affecté coéfficient 1 à l’examen sur table et le reste sur le TP. Vous devez assister à son cours pour ne pas être dans la situation d’un de mes amis qui a râté le QCM du cours, il a eu 0, et il a eu 5 sur 26 au devoir sur table. ça ne fait rien mais je ne pense pas que vous aimerez être dans cette situation. Voici les QCM ainsi que les réponses. Vous pouvez vérifier ultérieurement si les réponses sont correctes.\n\n\n\n\nMinimize training error\n\n\nMinimize testing error\n\n\nMinimize a combination of training and testing error\n\n\nMaximize model complexity\n\n\nRéponse: C) Minimize a combination of training and testing error\n\n\n\n\n\nFeature selection\n\n\nOverfitting\n\n\nUnderfitting\n\n\nData preprocessing errors\n\n\nRéponse: B) Overfitting\n\n\n\n\n\nLinear regression\n\n\nRidge regression\n\n\nLasso regression\n\n\nSupport vector regression\n\n\nRéponse: C) Lasso regression\n\n\n\n\n\nGradient Descent\n\n\nNewton’s Method\n\n\nGenetic Algorithms\n\n\nDecision Trees\n\n\nRéponse: A) Gradient Descent\n\n\n\n\n\nMaximize the margin between data points from different classes.\n\n\nMinimize the margin between data points from the same class.\n\n\nMaximize the number of support vectors.\n\n\nMinimize the number of support vectors.\n\n\nRéponse: A) Maximize the margin between data points from different classes.\n\n\n\n\n\nThe magnitude of the coefficients\n\n\nThe number of features\n\n\nThe mean squared error\n\n\nThe bias of the model\n\n\nRéponse: A) The magnitude of the coefficients\n\n\n\n\n\nPrincipal Component Analysis (PCA)\n\n\nK-Means Clustering\n\n\nSupport Vector Machine (SVM)\n\n\nK-Nearest Neighbors (KNN)\n\n\nRéponse: C) Support Vector Machine (SVM)\n\n\n\n\n\nIncreasing model complexity reduces bias and increases variance\n\n\nIncreasing model complexity increases both bias and variance\n\n\nDecreasing model complexity reduces bias and increases variance\n\n\nDecreasing model complexity reduces both bias and variance\n\n\nRéponse: A) Increasing model complexity reduces bias and increases variance\n\n\n\n\n\nIt reduces overfitting\n\n\nIt simplifies the optimization problem\n\n\nIt allows SVM to handle non-linear data\n\n\nIt speeds up the training process\n\n\nRéponse: C) It allows SVM to handle non-linear data\n\n\n\n\n\nTo train a model on multiple datasets\n\n\nTo select the best hyperparameters for a model\n\n\nTo overfit the model to the training data\n\n\nTo evaluate a model’s performance on the training data\n\n\nRéponse: B) To select the best hyperparameters for a model"
+    "text": "qcm"
   },
   {
     "objectID": "posts/machineLearning3A/QCM.html#q1-what-is-the-primary-objective-of-empirical-risk-minimization-erm-in-machine-learning",
     "href": "posts/machineLearning3A/QCM.html#q1-what-is-the-primary-objective-of-empirical-risk-minimization-erm-in-machine-learning",
     "title": "Examen de machine learning QCM",
-    "section": "",
-    "text": "Minimize training error\n\n\nMinimize testing error\n\n\nMinimize a combination of training and testing error\n\n\nMaximize model complexity\n\n\nRéponse: C) Minimize a combination of training and testing error"
+    "section": "Q1: What is the primary objective of Empirical Risk Minimization (ERM) in machine learning?",
+    "text": "Q1: What is the primary objective of Empirical Risk Minimization (ERM) in machine learning?\n\n\nMinimize training error\n\n\nMinimize testing error\n\n\nMinimize a combination of training and testing error\n\n\nMaximize model complexity\n\n\nRéponse: C) Minimize training error"
   },
   {
     "objectID": "posts/machineLearning3A/QCM.html#q2-in-ridge-regression-what-does-the-regularization-term-primarily-aim-to-prevent",
     "href": "posts/machineLearning3A/QCM.html#q2-in-ridge-regression-what-does-the-regularization-term-primarily-aim-to-prevent",
     "title": "Examen de machine learning QCM",
-    "section": "",
-    "text": "Feature selection\n\n\nOverfitting\n\n\nUnderfitting\n\n\nData preprocessing errors\n\n\nRéponse: B) Overfitting"
+    "section": "Q2: In Ridge regression, what does the regularization term primarily aim to prevent?",
+    "text": "Q2: In Ridge regression, what does the regularization term primarily aim to prevent?\n\n\nFeature selection\n\n\nOverfitting\n\n\nUnderfitting\n\n\nData preprocessing errors\n\n\nRéponse: B) Overfitting"
   },
   {
     "objectID": "posts/machineLearning3A/QCM.html#q3-which-of-the-following-regression-techniques-is-primarily-used-for-feature-selection-by-adding-a-penalty-term-to-the-loss-function",
     "href": "posts/machineLearning3A/QCM.html#q3-which-of-the-following-regression-techniques-is-primarily-used-for-feature-selection-by-adding-a-penalty-term-to-the-loss-function",
     "title": "Examen de machine learning QCM",
-    "section": "",
-    "text": "Linear regression\n\n\nRidge regression\n\n\nLasso regression\n\n\nSupport vector regression\n\n\nRéponse: C) Lasso regression"
+    "section": "Q3: Which of the following regression techniques is primarily used for feature selection by adding a penalty term to the loss function?",
+    "text": "Q3: Which of the following regression techniques is primarily used for feature selection by adding a penalty term to the loss function?\n\n\nLinear regression\n\n\nRidge regression\n\n\nLasso regression\n\n\nSupport vector regression\n\n\nRéponse: C) Lasso regression"
   },
   {
     "objectID": "posts/machineLearning3A/QCM.html#q4-which-optimization-technique-aims-to-find-the-minimum-of-a-convex-function-by-iteratively-updating-the-model-parameters-in-the-direction-of-the-gradient",
     "href": "posts/machineLearning3A/QCM.html#q4-which-optimization-technique-aims-to-find-the-minimum-of-a-convex-function-by-iteratively-updating-the-model-parameters-in-the-direction-of-the-gradient",
     "title": "Examen de machine learning QCM",
-    "section": "",
-    "text": "Gradient Descent\n\n\nNewton’s Method\n\n\nGenetic Algorithms\n\n\nDecision Trees\n\n\nRéponse: A) Gradient Descent"
+    "section": "Q4: Which optimization technique aims to find the minimum of a convex function by iteratively updating the model parameters in the direction of the gradient?",
+    "text": "Q4: Which optimization technique aims to find the minimum of a convex function by iteratively updating the model parameters in the direction of the gradient?\n\n\nGradient Descent\n\n\nNewton’s Method\n\n\nGenetic Algorithms\n\n\nDecision Trees\n\n\nRéponse: A) Gradient Descent"
   },
   {
     "objectID": "posts/machineLearning3A/QCM.html#q5-in-support-vector-machines-what-is-the-primary-goal-when-selecting-the-optimal-hyperplane",
     "href": "posts/machineLearning3A/QCM.html#q5-in-support-vector-machines-what-is-the-primary-goal-when-selecting-the-optimal-hyperplane",
     "title": "Examen de machine learning QCM",
-    "section": "",
-    "text": "Maximize the margin between data points from different classes.\n\n\nMinimize the margin between data points from the same class.\n\n\nMaximize the number of support vectors.\n\n\nMinimize the number of support vectors.\n\n\nRéponse: A) Maximize the margin between data points from different classes."
+    "section": "Q5: In support vector machines, what is the primary goal when selecting the optimal hyperplane?",
+    "text": "Q5: In support vector machines, what is the primary goal when selecting the optimal hyperplane?\n\n\nMaximize the margin between data points from different classes.\n\n\nMinimize the margin between data points from the same class.\n\n\nMaximize the number of support vectors.\n\n\nMinimize the number of support vectors.\n\n\nRéponse: A) Maximize the margin between data points from different classes."
   },
   {
     "objectID": "posts/machineLearning3A/QCM.html#q6-in-ridge-regression-what-does-the-regularization-term-penalize",
     "href": "posts/machineLearning3A/QCM.html#q6-in-ridge-regression-what-does-the-regularization-term-penalize",
     "title": "Examen de machine learning QCM",
-    "section": "",
-    "text": "The magnitude of the coefficients\n\n\nThe number of features\n\n\nThe mean squared error\n\n\nThe bias of the model\n\n\nRéponse: A) The magnitude of the coefficients"
+    "section": "Q6: In Ridge regression, what does the regularization term penalize?",
+    "text": "Q6: In Ridge regression, what does the regularization term penalize?\n\n\nThe magnitude of the coefficients\n\n\nThe number of features\n\n\nThe mean squared error\n\n\nThe bias of the model\n\n\nRéponse: A) The magnitude of the coefficients"
   },
   {
     "objectID": "posts/machineLearning3A/QCM.html#q7-which-of-the-following-machine-learning-algorithms-is-specifically-designed-for-binary-classification-and-uses-a-hyperplane-to-separate-data-points",
     "href": "posts/machineLearning3A/QCM.html#q7-which-of-the-following-machine-learning-algorithms-is-specifically-designed-for-binary-classification-and-uses-a-hyperplane-to-separate-data-points",
     "title": "Examen de machine learning QCM",
-    "section": "",
-    "text": "Principal Component Analysis (PCA)\n\n\nK-Means Clustering\n\n\nSupport Vector Machine (SVM)\n\n\nK-Nearest Neighbors (KNN)\n\n\nRéponse: C) Support Vector Machine (SVM)"
+    "section": "Q7: Which of the following machine learning algorithms is specifically designed for binary classification and uses a hyperplane to separate data points?",
+    "text": "Q7: Which of the following machine learning algorithms is specifically designed for binary classification and uses a hyperplane to separate data points?\n\n\nPrincipal Component Analysis (PCA)\n\n\nK-Means Clustering\n\n\nSupport Vector Machine (SVM)\n\n\nK-Nearest Neighbors (KNN)\n\n\nRéponse: C) Support Vector Machine (SVM)"
   },
   {
     "objectID": "posts/machineLearning3A/QCM.html#q8-which-of-the-following-statements-is-true-about-the-bias-variance-trade-off-in-machine-learning",
     "href": "posts/machineLearning3A/QCM.html#q8-which-of-the-following-statements-is-true-about-the-bias-variance-trade-off-in-machine-learning",
     "title": "Examen de machine learning QCM",
-    "section": "",
-    "text": "Increasing model complexity reduces bias and increases variance\n\n\nIncreasing model complexity increases both bias and variance\n\n\nDecreasing model complexity reduces bias and increases variance\n\n\nDecreasing model complexity reduces both bias and variance\n\n\nRéponse: A) Increasing model complexity reduces bias and increases variance"
+    "section": "Q8: Which of the following statements is true about the bias-variance trade-off in machine learning?",
+    "text": "Q8: Which of the following statements is true about the bias-variance trade-off in machine learning?\n\n\nIncreasing model complexity reduces bias and increases variance\n\n\nIncreasing model complexity increases both bias and variance\n\n\nDecreasing model complexity reduces bias and increases variance\n\n\nDecreasing model complexity reduces both bias and variance\n\n\nRéponse: A) Increasing model complexity reduces bias and increases variance"
   },
   {
     "objectID": "posts/machineLearning3A/QCM.html#q9-what-is-the-main-advantage-of-using-a-kernel-trick-in-support-vector-machines",
     "href": "posts/machineLearning3A/QCM.html#q9-what-is-the-main-advantage-of-using-a-kernel-trick-in-support-vector-machines",
     "title": "Examen de machine learning QCM",
-    "section": "",
-    "text": "It reduces overfitting\n\n\nIt simplifies the optimization problem\n\n\nIt allows SVM to handle non-linear data\n\n\nIt speeds up the training process\n\n\nRéponse: C) It allows SVM to handle non-linear data"
+    "section": "Q9: What is the main advantage of using a kernel trick in Support Vector Machines?",
+    "text": "Q9: What is the main advantage of using a kernel trick in Support Vector Machines?\n\n\nIt reduces overfitting\n\n\nIt simplifies the optimization problem\n\n\nIt allows SVM to handle non-linear data\n\n\nIt speeds up the training process\n\n\nRéponse: C) It allows SVM to handle non-linear data"
   },
   {
     "objectID": "posts/machineLearning3A/QCM.html#q10-what-is-the-primary-purpose-of-cross-validation-in-machine-learning",
     "href": "posts/machineLearning3A/QCM.html#q10-what-is-the-primary-purpose-of-cross-validation-in-machine-learning",
     "title": "Examen de machine learning QCM",
-    "section": "",
-    "text": "To train a model on multiple datasets\n\n\nTo select the best hyperparameters for a model\n\n\nTo overfit the model to the training data\n\n\nTo evaluate a model’s performance on the training data\n\n\nRéponse: B) To select the best hyperparameters for a model"
+    "section": "Q10: What is the primary purpose of cross-validation in machine learning?",
+    "text": "Q10: What is the primary purpose of cross-validation in machine learning?\n\n\nTo train a model on multiple datasets\n\n\nTo select the best hyperparameters for a model\n\n\nTo overfit the model to the training data\n\n\nTo evaluate a model’s performance on the training data\n\n\nRéponse: B) To select the best hyperparameters for a model"
   },
   {
     "objectID": "posts/TBATS/index.html",
