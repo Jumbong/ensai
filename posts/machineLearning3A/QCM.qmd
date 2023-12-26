@@ -1,0 +1,99 @@
+---
+title: "Examen de machine learning QCM"
+author: "Jumbong Junior"
+date: "2023-12-26"
+categories: [news]
+
+---
+
+![qcm](QCM.png)
+
+# Introduction
+
+J'aimerais partager avec vous quelques réflexions et conseils importants concernant notre cours de Machine Learning avec le professeur Da Veiga. Comme vous le savez, l'assiduité et l'engagement dans ce cours sont cruciaux, non seulement pour notre apprentissage mais aussi pour notre réussite académique.
+
+Premièrement, il est essentiel de souligner l'importance de ne pas manquer les cours. Notre système éducatif valorise fortement la participation et l'implication active des étudiants. Dans le cadre de ce cours, l'absence peut avoir des conséquences significatives sur notre performance. Le professeur Da Veiga, conscient de cette exigence, a intégré un QCM surprise qui contribue à hauteur de 1 sur le coefficient total de 2.5 de son cours. Cette évaluation, bien que surprenante, joue un rôle crucial dans notre note finale.
+
+En outre, la répartition des coefficients est la suivante : le QCM compte pour 1, l'examen sur table pour 1, et le reste est attribué aux travaux pratiques. Cette structure met en lumière la nécessité d'une participation régulière. Pour illustrer ceci, permettez-moi de partager l'expérience d'un ami qui, ayant manqué le QCM, s'est retrouvé avec une note de 0, et n'a obtenu que 5 sur 26 à l'examen sur table.
+
+Cela dit, je tiens à vous encourager à aborder ce cours avec optimisme et détermination. Pour vous aider, je partage avec vous les QCM ainsi que leurs réponses. Je vous invite à les utiliser comme un outil de révision et à vérifier leur exactitude. 
+
+## Q1: What is the primary objective of Empirical Risk Minimization (ERM) in machine learning?
+- A) Minimize training error
+- B) Minimize testing error
+- C) Minimize a combination of training and testing error
+- D) Maximize model complexity
+
+**Réponse**: C) Minimize  training error
+
+## Q2: In Ridge regression, what does the regularization term primarily aim to prevent?
+- A) Feature selection
+- B) Overfitting
+- C) Underfitting
+- D) Data preprocessing errors
+
+**Réponse**: B) Overfitting
+
+## Q3: Which of the following regression techniques is primarily used for feature selection by adding a penalty term to the loss function?
+- A) Linear regression
+- B) Ridge regression
+- C) Lasso regression
+- D) Support vector regression
+
+**Réponse**: C) Lasso regression
+
+## Q4: Which optimization technique aims to find the minimum of a convex function by iteratively updating the model parameters in the direction of the gradient?
+- A) Gradient Descent
+- B) Newton's Method
+- C) Genetic Algorithms
+- D) Decision Trees
+
+**Réponse**: A) Gradient Descent
+
+## Q5: In support vector machines, what is the primary goal when selecting the optimal hyperplane?
+- A) Maximize the margin between data points from different classes.
+- B) Minimize the margin between data points from the same class.
+- C) Maximize the number of support vectors.
+- D) Minimize the number of support vectors.
+
+**Réponse**: A) Maximize the margin between data points from different classes.
+
+## Q6: In Ridge regression, what does the regularization term penalize?
+- A) The magnitude of the coefficients
+- B) The number of features
+- C) The mean squared error
+- D) The bias of the model
+
+**Réponse**: A) The magnitude of the coefficients
+
+## Q7: Which of the following machine learning algorithms is specifically designed for binary classification and uses a hyperplane to separate data points?
+- A) Principal Component Analysis (PCA)
+- B) K-Means Clustering
+- C) Support Vector Machine (SVM)
+- D) K-Nearest Neighbors (KNN)
+
+**Réponse**: C) Support Vector Machine (SVM)
+
+## Q8: Which of the following statements is true about the bias-variance trade-off in machine learning?
+- A) Increasing model complexity reduces bias and increases variance
+- B) Increasing model complexity increases both bias and variance
+- C) Decreasing model complexity reduces bias and increases variance
+- D) Decreasing model complexity reduces both bias and variance
+
+**Réponse**: A) Increasing model complexity reduces bias and increases variance
+
+## Q9: What is the main advantage of using a kernel trick in Support Vector Machines?
+- A) It reduces overfitting
+- B) It simplifies the optimization problem
+- C) It allows SVM to handle non-linear data
+- D) It speeds up the training process
+
+**Réponse**: C) It allows SVM to handle non-linear data
+
+## Q10: What is the primary purpose of cross-validation in machine learning?
+- A) To train a model on multiple datasets
+- B) To select the best hyperparameters for a model
+- C) To overfit the model to the training data
+- D) To evaluate a model's performance on the training data
+
+**Réponse**: B) To select the best hyperparameters for a model

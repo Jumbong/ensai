@@ -171,7 +171,7 @@ Un portefeuille avec un vega de 0 est vega-neutre. Il est construit pour se couv
 
 Le Theta et le rho déterminent respectivement le taux de changement de la valeur d'un portefeuille par rapport au temps to maturity et par rapport au taux d'intérêt.
 
-En practive, les sensibilités d'un portefeuille sont calculées intensivement, intra-day(à l'intérieur de la journée) et quotidiennement pour chaque traded product. Ils sont utilisées par les traders afin de gérer leur risque, their position(hedging) et par les managers pour expliquer leur perte et leur profit(P&L).
+En practique, les sensibilités d'un portefeuille sont calculées intensivement, intra-day(à l'intérieur de la journée) et quotidiennement pour chaque traded product. Ils sont utilisées par les traders afin de gérer leur risque, their position(hedging) et par les managers pour expliquer leur perte et leur profit(P&L).
 Cependant, elles souffrent de plusieurs limitations: elles ne peuvent pas être comparées entre plusieurs activités pour conclure qu'une activité est plus risquée qu'une autre.
 
 
