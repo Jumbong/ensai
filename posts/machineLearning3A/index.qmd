@@ -595,5 +595,6 @@ for model_name, model in models.items():
 
 # Conclusion 
 
-L'examen a couvert l'analyse, le prétraitement, la modélisation ML et l'évaluation, soulignant l'importance de sélectionner les caractéristiques et d'ajuster les hyperparamètres. Des techniques comme l'erreur OOB et la courbe ROC ont aidé à évaluer les modèles, avec une préparation minutieuse comme clé de la réussite.
+Pour aborder cet exercice de manière efficace, je vous recommande fortement de vous concentrer sur la préparation préalable de vos propres fonctions, plutôt que de vous reposer excessivement sur des générateurs de texte automatiques. La création de vos fonctions en amont vous permettra de gagner un temps précieux. N'oubliez pas que les fonctions et les pipelines que vous avez déjà utilisés ont été préparés avant même de commencer le devoir ; votre tâche consiste essentiellement à les adapter aux besoins spécifiques de la situation.
 
+Par ailleurs, l'utilisation judicieuse de ChatGPT peut s'avérer très bénéfique, notamment dans des tâches telles que la génération de boxplots ou l'implémentation de l'algorithme pour calculer l'erreur out-of-bag (Out-of-bag error). ChatGPT peut fournir des conseils, des exemples de code ou des explications qui peuvent faciliter le processus de développement. Cependant, gardez à l'esprit que l'outil doit être utilisé comme un complément à votre propre travail de programmation et de réflexion, et non comme une solution complète.
