@@ -4,6 +4,7 @@ project:
 
 website:
   title: "Menu"
+  favicon: "ensai.png"
   sidebar: 
     style: floating
     search: true
