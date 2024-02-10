@@ -436,14 +436,28 @@ Nous avons un accuracy de 0.962. C'est très bien si on compare avec le modèle 
 Essayons tout d'abord par expliquer ce qu'est le Xgboost. Xgboost signifie Extreme Gradient Boosting.
 Il combine des weaks models afin de produire des prédictions plus précises.  Il est très rapide et performant. 
 
-Avant de passer à la modélisation, il faut transformer les données en un format spécifique à Xgboost.  En effet, le package xgboost ne gère pas les chaînes de caractères pour les étiquettes contrairement à tous les modèles entraînés précédemment, donc vous devez d'abord les encoder en tant qu'entiers.
+Avant de passer à la modélisation, il faut transformer les données en un format spécifique à Xgboost.  En effet, le package xgboost ne gère pas les chaînes de caractères pour les étiquettes contrairement à tous les modèles entraînés précédemment, donc vous devez d'abord les encoder en tant qu'entiers. De plus, il encode automatiquement les étiquettes en tant que 0, 1, 2, etc. Cela signifie que si vous avez des étiquettes de classe 1, 2, 3, 4, 5, 6, 7, vous devez les encoder en tant que 0, 1, 2, 3, 4, 5, 6. Il faut le faire pour les labels(Y_train et Y_test) d'entraînement et de test.
 
 ```{python}
 
 # encode string class values as integers
+
+
 label_encoder = LabelEncoder()
 label_encoder = label_encoder.fit(Y)
 label_encoded_y_train = label_encoder.transform(Y_train)
+label_encoded_y_test = label_encoder.transform(Y_test)
+
+```
+
+```{python}
+# Vérifiez les étiquettes uniques dans les ensembles d'entraînement et de test
+unique_train_labels = np.unique(label_encoded_y_train)
+unique_test_labels = np.unique(label_encoded_y_test)
+
+print("Unique labels in training set:", unique_train_labels)
+print("Unique labels in test set:", unique_test_labels)
+
 ```
 
 Nous avons utilisé un modèle de classification Xgboost avec les paramètres suivants:
@@ -462,7 +476,7 @@ Nous avons utilisé un modèle de classification Xgboost avec les paramètres su
 
 ```{python}
 clf_xgb = XGBClassifier(objective='multi:softprob', seed='12345',
-                       gamma=0, learning_rate=0.05, max_depth=5, n_estimators=200)
+                       gamma=0, learning_rate=0.05, max_depth=5, n_estimators=200,num_class=7)
 clf_xgb.fit(X_train, label_encoded_y_train)
 
 accuracy_xgb = accuracy_score(label_encoder.transform(Y_test), clf_xgb.predict(X_test))
@@ -479,7 +493,7 @@ Ici on a un accuracy de 0.0.786. C'est mieux que le modèle de régression logis
 
 # Display the confusion matrix
 predictions = clf_xgb.predict(X_test)
-conf_matrix = confusion_matrix(Y_test, predictions)
+conf_matrix = confusion_matrix(label_encoded_y_test, predictions)
 plt.figure(figsize=(10, 7))
 sns.heatmap(conf_matrix, annot=True, fmt='g', cmap='Blues')
 plt.title('Confusion Matrix')
