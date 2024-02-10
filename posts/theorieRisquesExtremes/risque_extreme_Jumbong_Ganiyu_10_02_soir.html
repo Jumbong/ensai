@@ -138,7 +138,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed fullcontent">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -245,7 +245,105 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#projet-statistique-des-risques-extrêmes" id="toc-projet-statistique-des-risques-extrêmes" class="nav-link active" data-scroll-target="#projet-statistique-des-risques-extrêmes"><span class="header-section-number">1</span> <strong>PROJET STATISTIQUE DES RISQUES EXTRÊMES</strong></a></li>
+  <li><a href="#init" id="toc-init" class="nav-link" data-scroll-target="#init"><span class="header-section-number">2</span> Init</a>
+  <ul class="collapse">
+  <li><a href="#import-des-données" id="toc-import-des-données" class="nav-link" data-scroll-target="#import-des-données"><span class="header-section-number">2.0.1</span> Import des données</a></li>
+  <li><a href="#mise-en-forme-et-nettoyage-des-données" id="toc-mise-en-forme-et-nettoyage-des-données" class="nav-link" data-scroll-target="#mise-en-forme-et-nettoyage-des-données"><span class="header-section-number">2.0.2</span> Mise en forme et nettoyage des données</a></li>
+  <li><a href="#calcul-du-log-rendement" id="toc-calcul-du-log-rendement" class="nav-link" data-scroll-target="#calcul-du-log-rendement"><span class="header-section-number">2.0.3</span> calcul du log rendement</a></li>
+  <li><a href="#représentation-de-la-série-des-cours-et-de-la-série-des-log-rendements-en-fonction-de-la-date" id="toc-représentation-de-la-série-des-cours-et-de-la-série-des-log-rendements-en-fonction-de-la-date" class="nav-link" data-scroll-target="#représentation-de-la-série-des-cours-et-de-la-série-des-log-rendements-en-fonction-de-la-date"><span class="header-section-number">2.0.4</span> Représentation de la série des cours et de la série des log rendements en fonction de la date</a></li>
+  <li><a href="#fonction-dautocorrélation-et-dautocorrélation-partielle-de-la-série-des-log-rendements" id="toc-fonction-dautocorrélation-et-dautocorrélation-partielle-de-la-série-des-log-rendements" class="nav-link" data-scroll-target="#fonction-dautocorrélation-et-dautocorrélation-partielle-de-la-série-des-log-rendements"><span class="header-section-number">2.0.5</span> Fonction d’autocorrélation et d’autocorrélation partielle de la série des log rendements</a></li>
+  <li><a href="#etude-de-la-stationnarité" id="toc-etude-de-la-stationnarité" class="nav-link" data-scroll-target="#etude-de-la-stationnarité"><span class="header-section-number">2.0.6</span> Etude de la stationnarité</a></li>
+  <li><a href="#découpage-train-test" id="toc-découpage-train-test" class="nav-link" data-scroll-target="#découpage-train-test"><span class="header-section-number">2.0.7</span> Découpage train test</a></li>
+  <li><a href="#statistiques-descriptives-des-rendements" id="toc-statistiques-descriptives-des-rendements" class="nav-link" data-scroll-target="#statistiques-descriptives-des-rendements"><span class="header-section-number">2.0.8</span> Statistiques descriptives des rendements</a></li>
+  </ul></li>
+  <li><a href="#modélisation-de-la-var." id="toc-modélisation-de-la-var." class="nav-link" data-scroll-target="#modélisation-de-la-var."><span class="header-section-number">3</span> Modélisation de la VaR.</a></li>
+  <li><a href="#var-non-paramétrique" id="toc-var-non-paramétrique" class="nav-link" data-scroll-target="#var-non-paramétrique"><span class="header-section-number">4</span> VaR non paramétrique</a>
+  <ul class="collapse">
+  <li><a href="#var-historique" id="toc-var-historique" class="nav-link" data-scroll-target="#var-historique"><span class="header-section-number">4.1</span> VaR historique :</a></li>
+  <li><a href="#backtesting" id="toc-backtesting" class="nav-link" data-scroll-target="#backtesting"><span class="header-section-number">4.2</span> Backtesting</a></li>
+  <li><a href="#var-historique-bootstrap" id="toc-var-historique-bootstrap" class="nav-link" data-scroll-target="#var-historique-bootstrap"><span class="header-section-number">4.3</span> VaR historique Bootstrap</a></li>
+  <li><a href="#backtesting-1" id="toc-backtesting-1" class="nav-link" data-scroll-target="#backtesting-1"><span class="header-section-number">4.4</span> Backtesting</a></li>
+  </ul></li>
+  <li><a href="#méthodes-paramétriques-destimation-de-la-var" id="toc-méthodes-paramétriques-destimation-de-la-var" class="nav-link" data-scroll-target="#méthodes-paramétriques-destimation-de-la-var"><span class="header-section-number">5</span> Méthodes paramétriques d’estimation de la VaR</a>
+  <ul class="collapse">
+  <li><a href="#var-gaussienne" id="toc-var-gaussienne" class="nav-link" data-scroll-target="#var-gaussienne"><span class="header-section-number">5.1</span> VaR gaussienne</a>
+  <ul class="collapse">
+  <li><a href="#validation" id="toc-validation" class="nav-link" data-scroll-target="#validation"><span class="header-section-number">5.1.1</span> Validation</a></li>
+  <li><a href="#représentation-graphique" id="toc-représentation-graphique" class="nav-link" data-scroll-target="#représentation-graphique"><span class="header-section-number">5.1.2</span> Représentation graphique</a></li>
+  <li><a href="#analyse-des-exceptions" id="toc-analyse-des-exceptions" class="nav-link" data-scroll-target="#analyse-des-exceptions"><span class="header-section-number">5.1.3</span> Analyse des exceptions</a></li>
+  <li><a href="#var-gaussienne-à-10-jours" id="toc-var-gaussienne-à-10-jours" class="nav-link" data-scroll-target="#var-gaussienne-à-10-jours"><span class="header-section-number">5.1.4</span> VaR gaussienne à 10 jours</a></li>
+  <li><a href="#var-gaussienne-pondérée" id="toc-var-gaussienne-pondérée" class="nav-link" data-scroll-target="#var-gaussienne-pondérée"><span class="header-section-number">5.1.5</span> VaR gaussienne pondérée :</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#var-dynamique" id="toc-var-dynamique" class="nav-link" data-scroll-target="#var-dynamique"><span class="header-section-number">6</span> VaR dynamique :</a>
+  <ul class="collapse">
+  <li><a href="#réprésentation-graphique" id="toc-réprésentation-graphique" class="nav-link" data-scroll-target="#réprésentation-graphique"><span class="header-section-number">6.0.1</span> Réprésentation graphique</a></li>
+  </ul></li>
+  <li><a href="#var-skew-student" id="toc-var-skew-student" class="nav-link" data-scroll-target="#var-skew-student"><span class="header-section-number">7</span> VaR skew-Student :</a>
+  <ul class="collapse">
+  <li><a href="#fonction-de-densité-de-la-skew-student" id="toc-fonction-de-densité-de-la-skew-student" class="nav-link" data-scroll-target="#fonction-de-densité-de-la-skew-student"><span class="header-section-number">7.0.1</span> fonction de densité de la skew-student</a></li>
+  <li><a href="#fonction-de-log-vraisemblance" id="toc-fonction-de-log-vraisemblance" class="nav-link" data-scroll-target="#fonction-de-log-vraisemblance"><span class="header-section-number">7.0.2</span> Fonction de log vraisemblance</a></li>
+  <li><a href="#fonction-doptimisation" id="toc-fonction-doptimisation" class="nav-link" data-scroll-target="#fonction-doptimisation"><span class="header-section-number">7.0.3</span> fonction d’optimisation</a></li>
+  <li><a href="#estimation-des-paramètres-sur-base-dapprentissage" id="toc-estimation-des-paramètres-sur-base-dapprentissage" class="nav-link" data-scroll-target="#estimation-des-paramètres-sur-base-dapprentissage"><span class="header-section-number">7.0.4</span> Estimation des paramètres sur base d’apprentissage</a></li>
+  <li><a href="#comparaison-entre-densité-théorique-et-densité-empirique-de-la-skew-student-sur-les-log-rendements" id="toc-comparaison-entre-densité-théorique-et-densité-empirique-de-la-skew-student-sur-les-log-rendements" class="nav-link" data-scroll-target="#comparaison-entre-densité-théorique-et-densité-empirique-de-la-skew-student-sur-les-log-rendements"><span class="header-section-number">7.1</span> Comparaison entre densité théorique et densité empirique de la skew-student sur les log rendements</a>
+  <ul class="collapse">
+  <li><a href="#fonction-de-repartition-de-la-skew-student-et-fonction-quantile" id="toc-fonction-de-repartition-de-la-skew-student-et-fonction-quantile" class="nav-link" data-scroll-target="#fonction-de-repartition-de-la-skew-student-et-fonction-quantile"><span class="header-section-number">7.1.1</span> Fonction de repartition de la skew-student et fonction quantile</a></li>
+  <li><a href="#qq-plot" id="toc-qq-plot" class="nav-link" data-scroll-target="#qq-plot"><span class="header-section-number">7.1.2</span> QQ plot :</a></li>
+  <li><a href="#comparaison-entre-loi-gaussienne-et-loi-de-skew-student" id="toc-comparaison-entre-loi-gaussienne-et-loi-de-skew-student" class="nav-link" data-scroll-target="#comparaison-entre-loi-gaussienne-et-loi-de-skew-student"><span class="header-section-number">7.1.3</span> comparaison entre loi gaussienne et loi de Skew Student</a></li>
+  <li><a href="#calcul-de-la-var-skew-student" id="toc-calcul-de-la-var-skew-student" class="nav-link" data-scroll-target="#calcul-de-la-var-skew-student"><span class="header-section-number">7.1.4</span> Calcul de la VaR Skew Student</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#var-tve-approche-maxima-par-bloc" id="toc-var-tve-approche-maxima-par-bloc" class="nav-link" data-scroll-target="#var-tve-approche-maxima-par-bloc"><span class="header-section-number">8</span> VaR TVE: Approche maxima par bloc</a>
+  <ul class="collapse">
+  <li><a href="#construction-de-léchantillon-de-maxima" id="toc-construction-de-léchantillon-de-maxima" class="nav-link" data-scroll-target="#construction-de-léchantillon-de-maxima"><span class="header-section-number">8.0.1</span> Construction de l’échantillon de maxima</a></li>
+  <li><a href="#gumbel-plot" id="toc-gumbel-plot" class="nav-link" data-scroll-target="#gumbel-plot"><span class="header-section-number">8.0.2</span> Gumbel Plot</a></li>
+  <li><a href="#calcul-de-la-var" id="toc-calcul-de-la-var" class="nav-link" data-scroll-target="#calcul-de-la-var"><span class="header-section-number">8.0.3</span> Calcul de la VAR</a></li>
+  <li><a href="#backtesting-2" id="toc-backtesting-2" class="nav-link" data-scroll-target="#backtesting-2"><span class="header-section-number">8.0.4</span> Backtesting</a></li>
+  </ul></li>
+  <li><a href="#var-tve-approche-peak-over-threshold" id="toc-var-tve-approche-peak-over-threshold" class="nav-link" data-scroll-target="#var-tve-approche-peak-over-threshold"><span class="header-section-number">9</span> VAR TVE: Approche Peak over threshold</a>
+  <ul class="collapse">
+  <li><a href="#fonction-pour-le-mean-excess-plot" id="toc-fonction-pour-le-mean-excess-plot" class="nav-link" data-scroll-target="#fonction-pour-le-mean-excess-plot"><span class="header-section-number">9.0.1</span> Fonction pour le Mean Excess Plot</a></li>
+  <li><a href="#détermination-de-u-par-analyse-graphique" id="toc-détermination-de-u-par-analyse-graphique" class="nav-link" data-scroll-target="#détermination-de-u-par-analyse-graphique"><span class="header-section-number">9.0.2</span> Détermination de u par analyse graphique</a></li>
+  <li><a href="#estimation-des-paramètres-de-la-loi-gpd" id="toc-estimation-des-paramètres-de-la-loi-gpd" class="nav-link" data-scroll-target="#estimation-des-paramètres-de-la-loi-gpd"><span class="header-section-number">9.0.3</span> Estimation des paramètres de la loi GPD</a></li>
+  <li><a href="#validation-ex-ante" id="toc-validation-ex-ante" class="nav-link" data-scroll-target="#validation-ex-ante"><span class="header-section-number">9.0.4</span> Validation Ex ante</a></li>
+  <li><a href="#calcul-de-la-var-1" id="toc-calcul-de-la-var-1" class="nav-link" data-scroll-target="#calcul-de-la-var-1"><span class="header-section-number">9.0.5</span> Calcul de la VAR</a></li>
+  <li><a href="#backtesting-3" id="toc-backtesting-3" class="nav-link" data-scroll-target="#backtesting-3"><span class="header-section-number">9.0.6</span> Backtesting</a></li>
+  </ul></li>
+  <li><a href="#comparaison-des-différentes-approches" id="toc-comparaison-des-différentes-approches" class="nav-link" data-scroll-target="#comparaison-des-différentes-approches"><span class="header-section-number">10</span> Comparaison des différentes approches</a>
+  <ul class="collapse">
+  <li><a href="#commentaires" id="toc-commentaires" class="nav-link" data-scroll-target="#commentaires"><span class="header-section-number">10.1</span> Commentaires</a></li>
+  </ul></li>
+  <li><a href="#calcul-de-la-var-en-utilisant-un-modèle-ar-garch" id="toc-calcul-de-la-var-en-utilisant-un-modèle-ar-garch" class="nav-link" data-scroll-target="#calcul-de-la-var-en-utilisant-un-modèle-ar-garch"><span class="header-section-number">11</span> Calcul de la VaR en utilisant un modèle AR-GARCH</a>
+  <ul class="collapse">
+  <li><a href="#qq-plot-des-résidus" id="toc-qq-plot-des-résidus" class="nav-link" data-scroll-target="#qq-plot-des-résidus"><span class="header-section-number">11.0.1</span> QQ plot des résidus</a></li>
+  <li><a href="#adéquation-du-modèle-garch-sur-les-résidus" id="toc-adéquation-du-modèle-garch-sur-les-résidus" class="nav-link" data-scroll-target="#adéquation-du-modèle-garch-sur-les-résidus"><span class="header-section-number">11.0.2</span> Adéquation du modèle GARCH sur les résidus</a></li>
+  <li><a href="#modélisation-du-garch-sur-les-résidus." id="toc-modélisation-du-garch-sur-les-résidus." class="nav-link" data-scroll-target="#modélisation-du-garch-sur-les-résidus."><span class="header-section-number">11.1</span> Modélisation du GARCH sur les résidus.</a>
+  <ul class="collapse">
+  <li><a href="#vérifions-que-les-résidus-de-ce-modèle-garch-sont-des-bruits-blancs." id="toc-vérifions-que-les-résidus-de-ce-modèle-garch-sont-des-bruits-blancs." class="nav-link" data-scroll-target="#vérifions-que-les-résidus-de-ce-modèle-garch-sont-des-bruits-blancs."><span class="header-section-number">11.1.1</span> Vérifions que les résidus de ce modèle GARCH sont des bruits blancs.</a></li>
+  </ul></li>
+  <li><a href="#estimation-des-paramètres-du-modèle-ar1-garch11." id="toc-estimation-des-paramètres-du-modèle-ar1-garch11." class="nav-link" data-scroll-target="#estimation-des-paramètres-du-modèle-ar1-garch11."><span class="header-section-number">11.2</span> Estimation des paramètres du modèle AR(1)-GARCH(1,1).</a></li>
+  </ul></li>
+  <li><a href="#reproduction-de-la-dynamique-historique-de-sigma_t-et-de-mu_t" id="toc-reproduction-de-la-dynamique-historique-de-sigma_t-et-de-mu_t" class="nav-link" data-scroll-target="#reproduction-de-la-dynamique-historique-de-sigma_t-et-de-mu_t"><span class="header-section-number">12</span> Reproduction de la dynamique historique de <span class="math inline">\(\sigma_t\)</span> et de <span class="math inline">\(\mu_t\)</span></a>
+  <ul class="collapse">
+  <li><a href="#calcul-de-la-var-sur-les-résidus-standardisés-epsilon_t" id="toc-calcul-de-la-var-sur-les-résidus-standardisés-epsilon_t" class="nav-link" data-scroll-target="#calcul-de-la-var-sur-les-résidus-standardisés-epsilon_t"><span class="header-section-number">12.0.1</span> Calcul de la VaR sur les résidus standardisés <span class="math inline">\(\epsilon_t\)</span></a></li>
+  </ul></li>
+  <li><a href="#var-historique-boostrap-sur-les-résidus-standardisés-et-calcul-de-la-var-dynamique" id="toc-var-historique-boostrap-sur-les-résidus-standardisés-et-calcul-de-la-var-dynamique" class="nav-link" data-scroll-target="#var-historique-boostrap-sur-les-résidus-standardisés-et-calcul-de-la-var-dynamique"><span class="header-section-number">13</span> VaR historique boostrap sur les résidus standardisés et calcul de la VaR dynamique</a></li>
+  <li><a href="#backtesting-4" id="toc-backtesting-4" class="nav-link" data-scroll-target="#backtesting-4"><span class="header-section-number">14</span> Backtesting</a></li>
+  <li><a href="#var-par-la-méthode-maxima-par-bloc-sur-les-résidus-standardisés-et-calcul-de-la-var-dynamique" id="toc-var-par-la-méthode-maxima-par-bloc-sur-les-résidus-standardisés-et-calcul-de-la-var-dynamique" class="nav-link" data-scroll-target="#var-par-la-méthode-maxima-par-bloc-sur-les-résidus-standardisés-et-calcul-de-la-var-dynamique"><span class="header-section-number">15</span> VaR par la méthode maxima par bloc sur les résidus standardisés et calcul de la VaR dynamique</a></li>
+  <li><a href="#calcul-de-la-var-2" id="toc-calcul-de-la-var-2" class="nav-link" data-scroll-target="#calcul-de-la-var-2"><span class="header-section-number">16</span> Calcul de la VaR</a>
+  <ul class="collapse">
+  <li><a href="#backtesting-5" id="toc-backtesting-5" class="nav-link" data-scroll-target="#backtesting-5"><span class="header-section-number">16.1</span> Backtesting</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">17</span> Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
