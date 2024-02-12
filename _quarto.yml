@@ -12,7 +12,7 @@ website:
       - section: "Ensai 3A"
         contents: 
           - index.qmd
-          - posts/theorie Risques Extremes/risques_extremes.ipynb
+          - posts/ValueAtRisk/ValueAtRisk.ipynb
           
           
     
