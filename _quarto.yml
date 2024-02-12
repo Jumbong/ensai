@@ -13,6 +13,7 @@ website:
         contents: 
           - index.qmd
           - posts/ValueAtRisk/ValueAtRisk.ipynb
+          - posts/MasteringFinancialData/index.qmd
           
           
     

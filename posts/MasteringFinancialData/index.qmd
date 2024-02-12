@@ -1,0 +1,138 @@
+---
+title: "Maitrise des données financières avec Python"
+author: "Jumbong Junior"
+date: "2024-02-12"
+categories: [news]
+toc: true
+number-sections: true
+---
+
+# Introduction
+
+Les données financières sont très utilisées dans la filière gestion des risques de l'ENSAI. Avoir rapidement accès est un atout pour les étudiants et les fera gagner du temps. Ces données sont utilisées dans plusieurs cours notamment le cours de séries temporelles, le cours de la théorie de gestion des risques multiples,le cours d'asset pricing, etc.  C'est pourquoi j'ai décidé de partager avec vous quelques astuces pour maitriser les données financières avec Python. Nous utiliserons la librairie `yfinance` pour récupérer les données financières et `pandas` pour les manipuler et `matplotlib` pour les visualiser.
+
+```{python}
+import pandas as pd
+import numpy as np
+import datetime
+import matplotlib.pyplot as plt
+```
+
+J'ai importé la library `datetime` pour manipuler les dataes. Maintenant, nous pouvons importer les données.
+
+# Importer les données
+
+```{python}
+import yfinance as yf
+
+aapl = yf.download('AAPL', 
+                      start='2012-01-01', 
+                      end='2024-01-01',)
+aapl.head()                    
+```
+
+Le code ci-dessus utilise la fonction `download`de la librairir `yfinance` pour télécharger les données de la société Apple (AAPL) de 2012 à 2024. De la même manière, vous pouvez télécharger les données d'autres sociétés. Par exemple, pour accèder aux données du CAC40, vous pouvez utiliser le code suivant:
+
+```{python}
+cac40 = yf.download('^FCHI', 
+                      start='2012-01-01', 
+                      end='2024-01-01',)
+cac40.head()
+```
+
+
+Nous savons que pour les données de marché, nous avons les colonnes suivantes: `Open`, `High`, `Low`, `Close`, `Adj Close`, `Volume`. Nous allons maintenant travailler avec la colonne `Close` qui représente le prix de clôture de l'action. Nous pouvons maintenant visualiser les données.
+
+```{python}
+
+plt.figure(figsize=(10, 6))
+plt.plot(aapl['Close'], label='AAPL')
+plt.title('Prix de clôture de l\'action AAPL')
+plt.xlabel('Date')
+plt.ylabel('Prix de clôture')
+plt.legend()
+plt.show()
+```
+
+Ces données ne sont pas stationnaires. Généralement, pour les données financières, nous travaillons avec les rendements car ils sont stationnaires. Si $P_t$ est le prix de l'action à la date $t$, le rendement à la date $t$ est donné par:
+$$
+r_t = \frac{P_t - P_{t-1}}{P_{t-1}}
+$$
+
+est équivalent à 
+
+$$
+\log\left(1 + \frac{P_t - P_{t-1}}{P_{t-1}}\right) = \log\left(\frac{P_t}{P_{t-1}}\right)
+$$
+
+Donc nous travaillons avec le logarithme des rendements. Nous pouvons maintenant calculer les rendements. Il existe une fonction `pct_change` dans la librairie `pandas` qui permet de calculer les rendements. Nous allons utiliser cette fonction combinée avec la fonction `log` de la librairie `numpy` pour calculer les logarithmes des rendements du prix de clôture de l'action AAPL.
+
+
+```{python}
+daily_close = aapl[['Close']]
+daily_close_returns = daily_close.pct_change().apply(lambda x: np.log(1+x))
+daily_close_returns.head()
+```
+
+Dans le code ci-dessus nous avons utilisé l'expression ci-dessous pour calculer les rendements:
+$$
+\log\left(1 + \frac{P_t - P_{t-1}}{P_{t-1}}\right)
+$$
+
+
+Nous pouvons plutôt utiliser la fonction `log` de la librairie `numpy` pour calculer les rendements à partir de l'expression ci-dessous:
+$$
+\log\left(\frac{P_t}{P_{t-1}}\right)
+$$
+
+```{python}	
+daily_close_returns = np.log(daily_close / daily_close.shift(1))
+daily_close_returns.head()
+```
+
+Nous avons les mêmes résultats avec la première valeur qui est `NaN`. Nous pouvons supprimer cette valeur.
+
+```{python}
+daily_close_returns = daily_close_returns.dropna()
+daily_close_returns.head()
+```
+
+Nous pouvons maintenant visualiser les rendements.
+
+```{python}
+daily_close_returns.plot(figsize=(10, 6))
+plt.title('Logarithme des rendements du prix de clôture de l\'action AAPL')
+plt.xlabel('Date')
+plt.ylabel('Logarithme des rendements')
+plt.show()
+```
+
+Si vous voulez, vous pouvez étudier les statistiques descriptives des rendements. Une fonction que j'adore qui donne les statistiques sommaire est la fonction `describe` de la librairie `pandas`.
+
+```{python}
+daily_close_returns.describe()
+```
+
+Nous pouvons aussi rééchantillonner les données pour avoir les log rendements minimums, maximums, moyens, etc. par semaine, par mois, par trimestre,etc. Par exemple pour avoir les log rendements moyens par semaine, nous pouvons utliser la fonction `resample` de la librairie `pandas` combinée avec la fonction `mean` pour avoir les moyennes.
+
+```{python}
+weekly = daily_close_returns.resample('W').mean()
+weekly.head()
+```
+
+Je vais terminer ce poste par vous montrer comment télécharger les données de plusieurs sociétés. Par exemple, pour télécharger les données de Apple, Microsoft, Google et Amazon, vous pouvez utiliser le code suivant:
+
+```{python}
+import yfinance as yf
+tickers = ['AAPL', 'MSFT', 'GOOGL', 'AMZN']
+
+def get_data(tickers, startdate, enddate):
+    def data(ticker):
+        return (yf.download(ticker, start=startdate, end=enddate))
+    datas = map(data, tickers)
+    return(pd.concat(datas,keys= tickers, names=['Ticker', 'Date']))
+all_data = get_data(tickers, '2012-01-01', '2024-01-01')
+all_data.head()
+```
+
+J'espère que ce poste vous sera utile. Si vous avez des questions, n'hésitez pas à me contacter si chatgpt ne peut pas vous aider.
