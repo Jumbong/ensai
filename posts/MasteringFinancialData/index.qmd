@@ -3,8 +3,7 @@ title: "Maitrise des données financières avec Python"
 author: "Jumbong Junior"
 date: "2024-02-12"
 categories: [news]
-toc: true
-number-sections: true
+title-block-banner: false
 ---
 
 # Introduction

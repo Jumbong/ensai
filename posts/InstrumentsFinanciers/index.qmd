@@ -1,6 +1,7 @@
 ---
 title: "Les intruments financiers à un bébé"
 author: "Jumbong Junior"
+title-block-banner: false
 date: "2023-12-08"
 categories: [news]
 ---

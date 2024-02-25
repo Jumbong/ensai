@@ -3,6 +3,7 @@ title: "Compte rendu de l'entretien pour le poste data scientist - Auditeur du j
 author: "Jumbong Junior"
 date: "2023-11-30"
 categories: [news]
+title-block-banner: false
 css:
       - css.css
 ---
