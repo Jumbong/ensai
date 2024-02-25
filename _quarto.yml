@@ -6,7 +6,7 @@ website:
   title: "Menu"
   favicon: "ensai.png"
   sidebar: 
-    background: "#40916C"
+    background: "#95D5B2"
     style: floating
     search: true
     contents: 
@@ -20,7 +20,7 @@ website:
     
           
   navbar:
-    background: "#95D5B2"
+    background: "#40916C"
     search: true
     right:
       - about.qmd
