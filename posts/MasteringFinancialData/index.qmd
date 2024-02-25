@@ -16,6 +16,8 @@ import pandas as pd
 import numpy as np
 import datetime
 import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings("ignore")
 ```
 
 J'ai importé la library `datetime` pour manipuler les dataes. Maintenant, nous pouvons importer les données.
@@ -134,5 +136,7 @@ def get_data(tickers, startdate, enddate):
 all_data = get_data(tickers, '2012-01-01', '2024-01-01')
 all_data.head()
 ```
+
+# Conclusion
 
 J'espère que ce poste vous sera utile. Si vous avez des questions, n'hésitez pas à me contacter si chatgpt ne peut pas vous aider.
