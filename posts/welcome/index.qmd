@@ -5,7 +5,9 @@ date: "2023-11-04"
 categories: [news]
 ---
 
-![somment mondial IA](intelligenceArtificielle.png)
+![somment mondial IA](intelligenceArtificielle.png){width=500 height=200}
+
+
 # **L’avènement de l’intelligence artificielle (IA) : un sujet controversé à l’échelle mondiale**
 
 Les débats autour de l'intelligence artificielle (IA) sont partagés. Alors que certains craignent que l'IA ne supprime de nombreux emplois et ait un impact négatif sur l'environnement, l'importance de parvenir à un consensus sur la manière de manipuler cet outil qui évolue à une vitesse exponentielle est cruciale. C'est dans cet esprit que le Royaume-Uni a organisé le tout premier sommet mondial sur l'IA.

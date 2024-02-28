@@ -16,6 +16,12 @@ website:
             text: "Value at Risk"
           - href : posts/MasteringFinancialData/index.qmd
             text: "Mastering Financial Data"
+      - section: climat
+        contents: 
+          - href: posts/ClimateScenario/index.qmd
+            text: "Scénarios climatiques"
+          - href: posts/ClimatMeteo/index.qmd
+            text: "Différence entre climat et météo"
           
           
     
