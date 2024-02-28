@@ -281,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="illustration-par-un-exemple">Illustration par un exemple</h2>
 <p>Considérons les données ci-dessous qui représentent la précipitation maximale tombée en 24 heures pour chaque mois de Janvier 1950 à Décembre 2020. Ces données sont issues de la station météorologique de Rennes.</p>
 <p>Chaque point correspond à une donnée météorologique.</p>
-<div id="24d08d5d" class="cell" data-execution_count="1">
+<div id="cda967f3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Data Visualization Libraries:</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -297,7 +297,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>columns <span class="op">=</span> [<span class="st">'AAAAMM'</span>,<span class="st">'RRAB'</span>]</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data[columns]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="7e82b44f" class="cell" data-execution_count="2">
+<div id="4ae2a5c0" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'AAAAMM'</span>] <span class="op">=</span> pd.to_datetime(data[<span class="st">'AAAAMM'</span>],<span class="bu">format</span><span class="op">=</span><span class="st">'%Y%m'</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># faire un tri par date</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data.sort_values(by<span class="op">=</span><span class="st">'AAAAMM'</span>)</span>
@@ -317,7 +317,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Le graphique ci-dessous représente le diagramme en bâton de la précipitation maximale pour chaque mois depuis 1950 à 2022. On peut déduire que la précipitation maximale moyenne en Janvier est de 14 mm. Nous avons donc une donnée climatique.</p>
-<div id="a655a7af" class="cell" data-execution_count="3">
+<div id="cf4b6a76" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data.assign(month<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="st">'AAAAMM'</span>].dt.month)</span>
@@ -333,37 +333,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'RRAB'</span>,</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Month"</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>plt.xticks(ticks <span class="op">=</span> <span class="bu">range</span>(<span class="dv">12</span>), labels <span class="op">=</span> [<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"March"</span>, <span class="st">"April"</span>, <span class="st">"May"</span>, <span class="st">"June"</span>, <span class="st">"July"</span>, <span class="st">"August"</span>, <span class="st">"Sept"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>([&lt;matplotlib.axis.XTick at 0x1f38e9d9730&gt;,
-  &lt;matplotlib.axis.XTick at 0x1f38e9d9820&gt;,
-  &lt;matplotlib.axis.XTick at 0x1f38ea306d0&gt;,
-  &lt;matplotlib.axis.XTick at 0x1f38ea35100&gt;,
-  &lt;matplotlib.axis.XTick at 0x1f38ea44af0&gt;,
-  &lt;matplotlib.axis.XTick at 0x1f38ea55790&gt;,
-  &lt;matplotlib.axis.XTick at 0x1f38ea55df0&gt;,
-  &lt;matplotlib.axis.XTick at 0x1f38ea4e490&gt;,
-  &lt;matplotlib.axis.XTick at 0x1f38ea5e2b0&gt;,
-  &lt;matplotlib.axis.XTick at 0x1f38ea5ee50&gt;,
-  &lt;matplotlib.axis.XTick at 0x1f38ea58e20&gt;,
-  &lt;matplotlib.axis.XTick at 0x1f38ea586a0&gt;],
- [Text(0, 0, 'Jan'),
-  Text(1, 0, 'Feb'),
-  Text(2, 0, 'March'),
-  Text(3, 0, 'April'),
-  Text(4, 0, 'May'),
-  Text(5, 0, 'June'),
-  Text(6, 0, 'July'),
-  Text(7, 0, 'August'),
-  Text(8, 0, 'Sept'),
-  Text(9, 0, 'Oct'),
-  Text(10, 0, 'Nov'),
-  Text(11, 0, 'Dec')])</code></pre>
-</div>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>plt.xticks(ticks <span class="op">=</span> <span class="bu">range</span>(<span class="dv">12</span>), labels <span class="op">=</span> [<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"March"</span>, <span class="st">"April"</span>, <span class="st">"May"</span>, <span class="st">"June"</span>, <span class="st">"July"</span>, <span class="st">"August"</span>, <span class="st">"Sept"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/cell-4-output-2.png" width="821" height="429" class="figure-img"></p>
+<p><img src="index_files/figure-html/cell-4-output-1.png" width="821" height="429" class="figure-img"></p>
 </figure>
 </div>
 </div>
