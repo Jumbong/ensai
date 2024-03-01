@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/NotionCle/index.html",
+      "/posts/obligation/index.html",
       "/posts/ValueAtRisk/ValueAtRisk.html",
       "/posts/ClimateScenario/index.html",
       "/posts/ClimatMeteo/index.html",
