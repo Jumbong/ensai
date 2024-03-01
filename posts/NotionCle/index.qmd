@@ -1,0 +1,35 @@
+---
+bibliography: references.bib
+---
+
+|                                                                   |
+|-------------------------------------------------------------------|
+| title: "Notions clés pour comprendre le réchauffement climatique" |
+| author: "Jumbong Junior"                                          |
+| bibliography: reference.bib                                       |
+| date: "2024-02-29"                                                |
+| categories: \[news\]                                              |
+| tags: \[rayonnement,albedo\]                                      |
+| html:                                                             |
+| code-fold: true                                                   |
+| jupyter: python3                                                  |
+
+# Introduction
+
+Le réchauffement climatique est une notion d'actualité. Il est important de comprendre les mécanismes qui le sous-tendent, les mécanismes qui servent de base à sa compréhension. Connait-on vraiment l'atmosphère ? Nous avons souvent attendu parler de rayonnement, d'albedo, de gaz à effet de serre et de bilan radioactif. Savons-nous vraiment ce que cela signifie ?
+
+La première partie de ce document consistera à présenter brièvement l'atmosphère et ces différentes couches. Ensuite, nous aborderons les notions de rayonnement, d'albedo, de gaz à effet de serre et de bilan radioactif.
+
+# L'atmosphère
+
+L'atmosphère au sens large est un ensemble de couches gazeuses qui entourent certains astres. La terre ainsi que d'autres planètes en sont pourvues. Une atmosphère peut contenir des particules en suspension (poussières, aérosols, etc)[@futura]. L'atmosphère terrestre est la partie la plus proche du sol de la terre. C'est une couche de gaz qui entourre le globe maintenue par la force gravitationnelle et qui l'empêche de se disperser dans l'[univers](https://www.futura-sciences.com/sciences/definitions/astronomie-univers-15239/). Nous n'allons pas trop insisté sur la composition de l'atmosphère. Pour plus d'informations, je vous conseille le lien [ci-après](https://www.futura-sciences.com/planete/definitions/climatologie-atmosphere-850/). Maintenant nous allons décrire quelques couches de l'atmosphère.
+
+## Les couches de l'atmosphère terrestre.
+
+L'atmosphère est constitué de plusieurs couches, dont les plus importantes pour comprendre le réchauffement climatique sont la troposphère et la stratosphère.
+
+-   [La troposhère](https://www.futura-sciences.com/planete/definitions/climatologie-troposphere-997/) est la couche inférieure de l'atmosphère, la couche la plus proche du sol. Elle contient les nuages et la majorité de la vapeur d'eau de l'atmosphère. Elle constitue les 5/6 de la masse totale de l'atmosphère. C'est dans cette couche que se déroule la plupart des phénomènes météorologiques. La température diminue avec l'altitude dans cette couche.
+
+- [La stratosphère](https://www.futura-sciences.com/planete/actualites/climatologie-stratosphere-impacte-fortement-climat-terrestre-49327/) compose le niveau supérieur, jusqu'à 50 km d'altitude et héberge la couche d'ozone. La température augmente avec l'altitude dans cette couche, absorbant une grande partie du rayonnement solaire.
+
+Je n'insisterai pas sur les autres couches qui sont la [mésosphère](https://www.futura-sciences.com/planete/definitions/climatologie-mesosphere-4642/), la [thermosphère](https://www.futura-sciences.com/planete/definitions/climatologie-thermosphere-4643/) et l'[exosphère](https://www.futura-sciences.com/planete/definitions/climatologie-exosphere-21046/).

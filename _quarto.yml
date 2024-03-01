@@ -16,13 +16,16 @@ website:
             text: "Value at Risk"
           - href : posts/MasteringFinancialData/index.qmd
             text: "Mastering Financial Data"
+          - href : posts/obligation/index.ipynb
+            text: "Courbe de taux"
       - section: climat
         contents: 
           - href: posts/ClimateScenario/index.qmd
             text: "Scénarios climatiques"
           - href: posts/ClimatMeteo/index.qmd
             text: "Différence entre climat et météo"
-          
+          - href: posts/NotionCle/index.qmd
+            text: "Notions clés pour comprendre le changement climatique"
           
     
           

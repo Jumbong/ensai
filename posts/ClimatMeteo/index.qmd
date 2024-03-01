@@ -3,12 +3,10 @@ title: "Différence entre climat et météo"
 author: "Jumbong Junior"
 date: "2024-02-28"
 categories: [news]
-bibliography: references.bib
-notice: |
-    @brozyna2018
 html:
     code-fold: true
 jupyter: python3
+title-block-banner: false
 ---
 
 ## Introduction
@@ -45,6 +43,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
+import warnings
+warnings.filterwarnings('ignore')
 import pandas as pd
 
 
@@ -74,7 +74,7 @@ Le graphique ci-dessous représente le diagramme en bâton de la précipitation 
 ```{python}
 fig,ax = plt.subplots(figsize=(10,5))
 
-ata = data.assign(month=lambda x: x['AAAAMM'].dt.month)
+data = data.assign(month=lambda x: x['AAAAMM'].dt.month)
 
 # Calculer la moyenne pour chaque mois
 monthly_means = data.groupby('month')['RRAB'].mean()
@@ -87,8 +87,8 @@ sns.barplot(
     y='RRAB',
 )
 plt.xlabel("Month")
-plt.xticks(ticks = range(12), labels = ["Jan", "Feb", "March", "April", "May", "June", "July", "August", "Sept", "Oct", "Nov", "Dec"])
-monthly_means
+plt.xticks(ticks = range(12), labels = ["Jan", "Feb", "March", "April", "May", "June", "July", "August", "Sept", "Oct", "Nov", "Dec"]);
+
 ```
 
 ## Conclusion
