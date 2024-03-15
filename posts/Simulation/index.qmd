@@ -1,0 +1,84 @@
+---
+title: "Simulation de variables aléatoires continues"
+author: "Jumbong Junior"
+date: "2023-11-16"
+categories: [news]
+tags: [simulation]
+
+
+html:
+    code-fold: true
+jupyter: python3
+---
+
+# Introduction
+
+Dans le cadre d'un projet sur la [théorie de copule](http://www.thierry-roncalli.com/download/Lecture-Notes-Copula-Ensai.pdf), je me suis rendu compte que la simulation des variables aléatoires n'est pas si simple que ça. J'ai donc décidé de me pencher sur le sujet. Dans ce papier, nous nous concentrerons sur la simulation d'une variable aléatoire réelle et continue X. Nous utiliserons les atouts du langage de python pour aborder de façon empirique(avec des données observées), de loi d'une variable aléatoire, la loi des grands nombres et le théorème central limite. Je m'inspirerai du livre "Le Logiciel R: Maîtriser le langage - Effectuer des analyses statistiques" de Pierre Lafaye de Micheaux, Rémy Drouilhet et Benoit Liquet. Je pense que ce livre est très intéressant pour tout novice en statistique et en programmation. Il est très bien écrit et très pédagogique. Je vous le recommande vivement.
+
+# La base de la simulation : la loi uniforme sur [0, 1]
+
+Je me suis souvent demandé comment, les ordinateurs généraient des nombres aléatoires, et une autre question qui me pertubait était de savoir comment générait-on des nombres aléatoires qui suivent une loi donnée ? C'est cette question est facile, vous verrez que tout se repose sur la loi uniforme. Et savoir simuler une loi uniforme permettra de simuler n'importe quelle loi de variable aléatoire que l'on connaît la fonction de répartition. Je vais vous expliquer pourquoi :
+La loi uniforme est une loi de probabilités continuent sur l'intervalle [0,1]. Elle est définie par la fonction de répartition suivante : $F(x) = x$ si $x \in [0, 1]$ et $F(x) = 0$ si $x < 0$ et $F(x) = 1$ si $x > 1$. La densité de probabilité est donnée par $f(x) = 1$ si $x \in [0, 1]$ et $f(x) = 0$ sinon. De plus, la fonction de répartition est croissante et continue.
+
+Maintenant, Considérons une variable aléatoire continue réelle X c'est à dire définir sur un espace mesurable $(\Omega, \mathcal{F}, P)$ à valeur réelle de de fonction de répartition F définie par :
+$$F(x) = P(X \leq x)$$
+
+Un résultat important en simulation est que la variable aléatoire F(X) suit une loi uniforme. En effet,
+$$P(F(X) \leq x) = P(X \leq F^{-1}(x)) = F(F^{-1}(x)) = x$$
+
+Cela signifie que l'on peut écrire $F(X)=U$ équivalent à $X=F^{-1}(U)$ où U suit une loi uniforme sur [0, 1]. Cela signifie que si on sait simuler une loi uniforme, on peut simuler n'importe quelle loi de variable aléatoire. C'est ce que nous allons faire dans la suite. 
+
+
+# Simulation de la loi uniforme sur [0, 1]
+
+Pour simuler une loi uniforme sur [0, 1], nous allons utiliser la fonction `random` du module `random` de python. Cette fonction génère des nombres aléatoires suivant une loi uniforme sur [0, 1]. Nous allons générer 1000Oui  nombres aléatoires suivant une loi uniforme sur [0, 1] et les représenter graphiquement.
+
+```{python}
+import random
+import matplotlib.pyplot as plt
+
+# Simulation de la loi uniforme sur [0, 1]
+n = 1000
+u = [random.random() for i in range(n)]
+
+# Représentation graphique
+plt.plot(u, 'o', label="Loi uniforme sur [0, 1]")
+plt.title("Simulation de la loi uniforme sur [0, 1]")
+plt.show()
+```
+
+Nous remarquons que les valeurs Sont répartis uniformément sur l'intervalle [0, 1]. Cela signifie que la simulation est correcte. Nous allons maintenant simuler une loi exponentielle de paramètre $\lambda = 1$.
+Sa fonction de répartition est donnée par:
+$$F(x) = 1 - e^{-x}$$
+Et sa fonction inverse est donnée par :
+$$F^{-1}(x) = -\ln(1-x)$$
+
+Nous allons simuler 1000 valeurs de la loi exponentielle de paramètre $\lambda = 1$ et les représenter graphiquement.
+
+```{python}
+import numpy as np
+
+# Simulation de la loi exponentielle de paramètre lambda = 1
+x = [-np.log(1 - u[i]) for i in range(n)]
+
+# Représentation graphique
+plt.hist(x, bins=30, density=True, label="Loi exponentielle de paramètre lambda = 1")
+plt.title("Simulation de la loi exponentielle de paramètre lambda = 1")
+plt.show()
+```
+
+Nous remarquons que les valeurs sont bien réparties suivant une loi exponentielle de paramètre $\lambda = 1$. Nous allons superposer la densité d'une loi exponentielle de paramètres lambda égale à 1 pour montrer à quel point notre simulation est parfaite. 
+
+```{python}
+import scipy.stats as stats
+
+# Représentation graphique
+plt.hist(x, bins=30, density=True, label="Loi exponentielle de paramètre lambda = 1")
+plt.plot(np.linspace(0, 6, 100), stats.expon.pdf(np.linspace(0, 6, 100)), label="Densité de la loi exponentielle de paramètre lambda = 1")
+plt.title("Simulation de la loi exponentielle de paramètre lambda = 1")
+plt.show()
+```
+
+# Conclusion
+
+Dans ce papier, nous avons voulu montrer que simuler une loi continue est facile si l'on connaît sa fonction de répartition,sa fonction inverse et si on sait simuler une loi uniforme. 

@@ -1,7 +1,6 @@
 ---
 title: "Notions clés pour comprendre le réchauffement climatique" 
-author: "Jumbong Junior"                                          
-bibliography: reference.bib                                       
+author: "Jumbong Junior"                                                                              
 date: "2024-02-29"                                                
 categories: [news]                                              
 tags: [rayonnement, albedo] 

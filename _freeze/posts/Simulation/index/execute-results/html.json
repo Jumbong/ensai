@@ -1,0 +1,12 @@
+{
+  "hash": "b303061097d78c73c7253110c8a0ea51",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Introduction\nauthor: Jumbong Junior\ndate: '2023-11-16'\ncategories:\n  - news\ntags:\n  - simulation\nhtml:\n  code-fold: true\n---\n\n\n\n\n\nDans le cadre d'un projet sur la théorie de copule, je me suis rendu compte que je ne maîtrisais pas bien la simulation des variables aléatoires. J'ai donc décidé de me pencher sur le sujet. Nous utiliserons les atouts du langage de python pour aborder de façon empirique(avec des données observées), de loi d'une variable aléatoire, la loi des grands nombres et le théorème central limite. Je m'inspirerai du livre \"Le Logiciel R: Maîtriser le langage - Effectuer des analyses statistiques\" de Pierre Lafaye de Micheaux, Rémy Drouilhet et Benoit Liquet. Je pense que ce livre est très intéressant pour tout novice en statistique et en programmation. Il est très bien écrit et très pédagogique. Je vous le recommande vivement.\n\n# Génération de nombres aléatoires\n\nJe me suis souvent demandé comment, les ordinateurs généraient des nombres aléatoires, et une autre question qui me pertubait était de savoir comment générait-on des nombres aléatoires qui suivent une loi donnée. Une approche de professionnel commence toujours par mettre en place un contexte, une expérience, un problème. On peut imaginer la génération de nombres aléatoires comme une expérience qui consiste à lancer un dé à 6 faces. L'ordre d'apparition des faces de ce dé peut suivre une loi uniforme. \n\nLorsque que l'on fait de la simulation, la génération des nombres aléatoires est très importante. La production de cet algorithme est basée sur un algorithme mathématique. Voici un exemple de génération de nombres aléatoires. Un algorithme fondé sur la méthode de congruence linéaire. Cet algorithme est basé sur la relation de récurrence suivante: $X_{n+1} = (aX_n + c) \\mod m$. Rappelons que x mod m est le reste de la division euclidienne de x par m.  Implémentons cet algorithme en python.\nAvec $x_1$ un nombre aléatoire dans l'intervalle $[0, 1]$, $a =48271$ et $c=0$ et m = $2^{31} - 1$.\n\n\n::: {#c724ed14 .cell execution_count=1}\n``` {.python .cell-code}\ndef congruence_lineaire(x, a, c, m):\n    return (a*x + c) % m\n\nx = 0.5\na = 48271\nc = 0\nm = 2**31 - 1\ncongruence_lineaire(x, a, c, m)\n```\n\n::: {.cell-output .cell-output-display execution_count=1}\n```\n24135.5\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "index_files\\figure-html"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
