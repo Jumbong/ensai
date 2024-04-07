@@ -4,6 +4,7 @@
     "items": [
       "/posts/obligation/index.html",
       "/posts/ValueAtRisk/ValueAtRisk.html",
+      "/posts/MarketFinance/schiller.html",
       "/posts/ClimateScenario/index.html",
       "/posts/NotionCle/index.html",
       "/posts/ClimatMeteo/index.html",
@@ -17,6 +18,7 @@
       "/posts/forumEnsai/index.html",
       "/posts/Leadership/index.html",
       "/posts/MarketRiskGen/index.html",
+      "/posts/QuartoInteressant/interactive_reticulate.html",
       "/posts/welcome/index.html"
     ]
   }
