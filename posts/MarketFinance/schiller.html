@@ -160,10 +160,10 @@ window.Quarto = {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed fullcontent">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -212,39 +212,7 @@ window.Quarto = {
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/ValueAtRisk/ValueAtRisk.html">Ensai 3A</a></li><li class="breadcrumb-item"><a href="../../posts/MarketFinance/schiller.html">Sharpes Ratio</a></li></ol></nav>
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Data Schiller : CAPE Ratio</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">Market</div>
-                <div class="quarto-category">Stock</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Jumbong Junior </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">November 16, 2024</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -323,22 +291,67 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#the-schiller-cape-ratio" id="toc-the-schiller-cape-ratio" class="nav-link" data-scroll-target="#the-schiller-cape-ratio"><span class="header-section-number">2</span> The Schiller CAPE Ratio</a>
+  <ul class="collapse">
+  <li><a href="#interpretation-of-cape-ratio" id="toc-interpretation-of-cape-ratio" class="nav-link" data-scroll-target="#interpretation-of-cape-ratio"><span class="header-section-number">2.1</span> Interpretation of CAPE Ratio</a></li>
+  </ul></li>
+  <li><a href="#schillers-database-and-methodology" id="toc-schillers-database-and-methodology" class="nav-link" data-scroll-target="#schillers-database-and-methodology"><span class="header-section-number">3</span> Schiller’s database and methodology</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">4</span> Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/ValueAtRisk/ValueAtRisk.html">Ensai 3A</a></li><li class="breadcrumb-item"><a href="../../posts/MarketFinance/schiller.html">Sharpes Ratio</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Data Schiller : CAPE Ratio</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Market</div>
+    <div class="quarto-category">Stock</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jumbong Junior </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 16, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+</header>
+
+
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 <p>For our final year project at ENSAI, we embarked on an ambitious endeavor to evaluate the impact of climate change on stock portfolio allocation, utilizing data from the Network for Greening the Financial System (NGFS). The NGFS is a collective of central banks and financial supervisors dedicated to exchanging best practices and fostering the development of environmental and climate risk management within the financial sector. This group provides various models based on climate change scenarios, which project future variables essential for our analysis.</p>
 <p>We decided to focus our research on four countries: the United States, the UK, China, and France. Our objective was to construct a model capable of predicting stock prices in each country under different climate change scenarios, leveraging macroeconomic variables. Due to the lack of direct access to stock prices for all these countries, we adopted a methodology proposed by Robert J. Shiller to find a proxy for stock prices. By predicting this proxy using macroeconomic variables, we aimed to gain insights into future stock prices, which would then inform our portfolio allocation strategy.</p>
 <p>An integral part of our analysis involved the CAPE ratio, developed by economist Robert J. Shiller. The CAPE ratio, or Cyclically Adjusted Price to Earnings ratio, is a valuation measure for stocks. It is calculated by dividing the stock price by the average of the company’s earnings over the last ten years, adjusted for inflation. This approach smooths out short-term fluctuations in earnings and provides a more stable measure of a stock’s valuation, making it particularly useful for long-term investment decisions. By incorporating the CAPE ratio into our model, we sought to leverage its predictive power to enhance our understanding of how climate change scenarios might influence stock valuations and, consequently, portfolio allocation decisions.</p>
 </section>
-<section id="the-schiller-cape-ratio" class="level2">
-<h2 class="anchored" data-anchor-id="the-schiller-cape-ratio">The Schiller CAPE Ratio</h2>
+<section id="the-schiller-cape-ratio" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="the-schiller-cape-ratio"><span class="header-section-number">2</span> The Schiller CAPE Ratio</h2>
 <p>In 1998, Robert Schiller and John Campell found that long-term equity market returns are not random walks and could be predicted through a measure they constructed: the Cyclically Adjusted Price–Earnings ratio (CAPE ratio). Schiller and Campbell calculated the CAPE ratio by dividing a long-term index of stock market prices and earnings (the index considered is the S&amp;P 500 index) by the average earnings per share of S&amp;P 500 companies over the last ten years, with earnings and stock prices measured in real terms. Then</p>
 <p><span class="math display">\[
 CAPE_t = \frac{P_t}{[(EARN_t+EARN_{t-1}+...+EARN_{t-10})/10]}
@@ -502,8 +515,8 @@ Name: CAPE, dtype: float64</code></pre>
 <div id="31fefe31" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data_schiller[<span class="st">'logCape'</span>] <span class="op">=</span> np.log(data_schiller[<span class="st">'CAPE'</span>].astype(<span class="bu">float</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="interpretation-of-cape-ratio" class="level3">
-<h3 class="anchored" data-anchor-id="interpretation-of-cape-ratio">Interpretation of CAPE Ratio</h3>
+<section id="interpretation-of-cape-ratio" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="interpretation-of-cape-ratio"><span class="header-section-number">2.1</span> Interpretation of CAPE Ratio</h3>
 <p>The CAPE ratio is a ratio of two elements. Mathematically, it is elevated when the stock price is high relative to the average earnings over the last ten years, or conversely, when these average earnings are low compared to the stock price. Hence, it can be viewed as an indicator of the stock market’s or a specific company’s profitability.</p>
 <p>This ratio was at a record 28 in January 1997, with the only other instance (at that time) of a comparably high ratio occurring in 1929. Shiller and Campbell asserted the ratio was predicting that the real value of the market would be 40% lower in ten years than it was at that time. That forecast proved to be remarkably prescient, as the market crash of 2008 contributed to the S&amp;P 500 plunging 60% from October 2007 to March 2009.</p>
 <p>The CAPE ratio for the S&amp;P 500 climbed steadily in the second decade of this millennium as the economic recovery in the U.S. gathered momentum, and stock prices reached record levels. As of June 2018, the CAPE ratio stood at 33.78, compared with its long-term average of 17.40. The fact that the ratio had previously only exceeded 30 in 1929 and 2000 triggered a raging debate about whether the elevated value of the ratio portends a major market correction, see <a href="#fig-cape" class="quarto-xref">Figure&nbsp;1</a></p>
@@ -532,8 +545,8 @@ Figure&nbsp;1: CAPE Ratio
 </div>
 </section>
 </section>
-<section id="schillers-database-and-methodology" class="level2">
-<h2 class="anchored" data-anchor-id="schillers-database-and-methodology">Schiller’s database and methodology</h2>
+<section id="schillers-database-and-methodology" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="schillers-database-and-methodology"><span class="header-section-number">3</span> Schiller’s database and methodology</h2>
 <p>The Schiller database at our disposal contains monthly U.S. data on 19 variables from 1871 to 2023. These include the <span class="math inline">\(P_t\)</span> value of the S&amp;P index, earnings, dividends, the CAPE ratio, the annualized 10-year real return for the equity market and the same for the bond market. The 10 year annualized real return refers to annual returns over the next 10 years either on the stock market or on the bond market. They are observed over 10 years. This variable therefore refers to future or prospective returns. All these variables will be particularly useful in our study.</p>
 <p>The formula for the 10-year annualized real return can be represented as follows: <span class="math display">\[
 R_{\text{annualized}} = \left( \frac{R_{\text{t}}}{R_\text{t+10 year}} \right)^{\frac{1}{10}} - 1
@@ -651,8 +664,8 @@ Notes:
 </div>
 <p>They obtained that the coefficient on the CAPE ratio is highly significant. Furthermore, the <span class="math inline">\(R^2\)</span> is 35%, indicating that the CAPE ratio explains more than a third of the variation of 10-year real equity returns. Using this regression, they are able to estimate and predict returns.</p>
 </section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<section id="conclusion" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">4</span> Conclusion</h2>
 <p>This example shows how the CAPE ratio can be used to predict future stock returns. However, it has some limitations. Critics of the CAPE ratio contend that it is not very useful since it is inherently backward-looking, rather than forward-looking. Another issue is that the ratio relies on GAAP (generally accepted accounting principles) earnings, which have undergone marked changes in recent years.</p>
 <p>In June 2016, Jeremy Siegel of the Wharton School published a paper in which he said that forecasts of future equity returns using the CAPE ratio might be overly pessimistic because of changes in the way GAAP earnings are calculated. Siegel said that using consistent earnings data such as operating earnings or NIPA (national income and product account) after-tax corporate profits, rather than GAAP earnings, improves the forecasting ability of the CAPE model and forecasts higher U.S. equity returns.</p>
 
