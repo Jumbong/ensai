@@ -150,7 +150,7 @@
     "crumbs": [
       "About",
       "Ensai 3A",
-      "Sharpes Ratio"
+      "CAPE Ratio"
     ]
   },
   {
@@ -162,7 +162,7 @@
     "crumbs": [
       "About",
       "Ensai 3A",
-      "Sharpes Ratio"
+      "CAPE Ratio"
     ]
   },
   {
@@ -174,7 +174,7 @@
     "crumbs": [
       "About",
       "Ensai 3A",
-      "Sharpes Ratio"
+      "CAPE Ratio"
     ]
   },
   {
@@ -186,7 +186,7 @@
     "crumbs": [
       "About",
       "Ensai 3A",
-      "Sharpes Ratio"
+      "CAPE Ratio"
     ]
   },
   {
@@ -198,7 +198,7 @@
     "crumbs": [
       "About",
       "Ensai 3A",
-      "Sharpes Ratio"
+      "CAPE Ratio"
     ]
   },
   {
@@ -228,224 +228,6 @@
     "title": "Examen de machine learning",
     "section": "Random Forest",
     "text": "Random Forest\n\nOOB error (Out-of-bag error)\nOOB est une méthode de validation croisée pour les forêts aléatoires. Chaque arbre dans la forêt est construit à partir d’un échantillon bootstrap du jeu de données d’entraînement. Certaines observations sont laissées de côté et non utilisées dans la construction d’un arbre donné. Ces observations “hors sac” peuvent être utilisées pour évaluer les performances de cet arbre. Du coup on peut utiliser cette méthode pour évaluer la performance de la forêt aléatoire et ajuster les hyperparamètres.\nLe code ci-dessous montre comment calculer l’erreur OOB pour un modèle de forêt aléatoire. Il permet en particulier de sélectionner la profondeur de l’arbre dans la forêt aléatoire. Le modèle de forêt aléatoire est entraîné avec une profondeur d’arbre de 10, 20 et 30. L’erreur OOB est calculée pour chaque modèle. Le modèle avec la plus petite erreur OOB est sélectionné.\n\n## Training Random Forest\n\n\n\n\ndepths = [10, 20, 30]\noob_errors = []\nmodels = []\nbest_oob_error = float('inf')\nbest_model = None\ni = 0\nfor depth in depths:\n    print(i)\n    model = RandomForestClassifier(max_depth=depth, oob_score=True, random_state=42,\n                                   n_estimators=100,  \n                                   warm_start=True  # This allows us to add more estimators later if needed\n                                  )\n    model.fit(X_train, Y_train)\n    oob_error = 1 - model.oob_score_\n    oob_errors.append(oob_error)\n    models.append(model)\n    if oob_error &lt; best_oob_error:\n        best_oob_error = oob_error\n        best_model = model\n    i = i+1\n    print(\"Done\")\n\n# Print OOB errors for each model\nfor depth, error in zip(depths, oob_errors):\n    print(f\"Depth: {depth}, OOB Error: {error}\")\n\n0\nDone\n1\nDone\n2\nDone\nDepth: 10, OOB Error: 0.21680518234371537\nDepth: 20, OOB Error: 0.05706860237215716\nDepth: 30, OOB Error: 0.038628770096964526\n\n\n\n\nAccuracy et matrice de confusion\n\n# Compute the accuracy of the best random forest model\npredictions = best_model.predict(X_test)\naccuracy = accuracy_score(Y_test, predictions)\nprint(\"Accuracy of the Best Random Forest: {:.3f}\".format(accuracy))\n\n# Display the confusion matrix\nconf_matrix = confusion_matrix(Y_test, predictions)\nplt.figure(figsize=(10, 7))\nsns.heatmap(conf_matrix, annot=True, fmt='g', cmap='Blues')\nplt.title('Confusion Matrix')\nplt.xlabel('Predicted labels')\nplt.ylabel('True labels')\nplt.show()\n\nAccuracy of the Best Random Forest: 0.962\n\n\n\n\n\n\n\n\n\nNous avons un accuracy de 0.962. C’est très bien si on compare avec le modèle de régression logistique qui a un accuracy de 0.714. Nous pouvons voir la matrice de confusion."
-  },
-  {
-    "objectID": "posts/InstrumentsFinanciers/index.html",
-    "href": "posts/InstrumentsFinanciers/index.html",
-    "title": "Les intruments financiers à un bébé",
-    "section": "",
-    "text": "Les instruments financiers\nDans le cadre d’un cours d’asset pricing à l’ENSAI, je suis totalement perdu dans la compréhension des instruments financiers.\nCe décrochage m’empêche de suivre le cours et je suis donc totalement perdu sur les autres notions telles que pricing, hedging, etc.\nJ’ai donc décidé de retourner à la base c’est-à-dire de comprendre les instruments financiers.\nDans mes recherches sur chatgpt, j’ai trouvé les différents instruments financiers et leurs définitions."
-  },
-  {
-    "objectID": "posts/InstrumentsFinanciers/index.html#les-obligations.",
-    "href": "posts/InstrumentsFinanciers/index.html#les-obligations.",
-    "title": "Les intruments financiers à un bébé",
-    "section": "Les obligations.",
-    "text": "Les obligations.\nJ’ai été vraiment déçu de la définition et de sa complexité. Une obligation est définie comme un titre de dette émis par une entreprise, un gouvernement, etc. Les détenteurs de ces obligations reçoivent des intérêts à intervalles réguliers et remboursent le montant total à l’échéance.\nQu’est-ce que cela signifie concrètement ?\nPrenons un exemple. J’ai faim, j’ai besoin d’argent pour manger à l’école mais je n’ai pas d’argent. Je vais donc voir un ami pour lui expliquer ma situation. Il me prête de l’argent de l’argent avec des intérêts sur une durée de cinq jours et il me demande de lui verser une partie de cette argent(qui correspond au produit entre le taux d’intérêt et la somme dont je lui est empruntée) chaque jour et de lui rembourser le montant total à la fin des cinq jours. Pour être sûr que je vais lui rembourser, il me demande un papier signé par moi et par lui. Ce papier est une obligation.\nIl existe deux types d’obligations: - Les obligations 0 coupon: Ce sont des prêts que l’on fait généralement au lycée. C’est-à-dire que l’on part voir un ami pour lui demander de l’argent avec un intérêt de x% pour cinq jours. On lui remboursera à la fin des cinq jours la somme empruntée plus les intérêts.\n\nLes obligations couponnées: Ce sont des obligations qui versent des intérêts à intervalles réguliers. C’est-à-dire que chaque mois nous verserons une partie de la somme empruntée(la somme empruntée multipliée par le taux d’intérêt) et à la fin de la période, nous rembourserons la somme empruntée plus les intérêts."
-  },
-  {
-    "objectID": "posts/InstrumentsFinanciers/index.html#les-actions.",
-    "href": "posts/InstrumentsFinanciers/index.html#les-actions.",
-    "title": "Les intruments financiers à un bébé",
-    "section": "Les actions.",
-    "text": "Les actions.\nEn anglais les actions sont appelées les equities. Ce sont des titres de propriété d’une entreprise."
-  },
-  {
-    "objectID": "posts/InstrumentsFinanciers/index.html#les-produits-dérivés.",
-    "href": "posts/InstrumentsFinanciers/index.html#les-produits-dérivés.",
-    "title": "Les intruments financiers à un bébé",
-    "section": "Les produits dérivés.",
-    "text": "Les produits dérivés.\nCe sont les intruments financiers qui pose actuellement beaucoup de difficultés.\nCe sont des intruments financiers dont la valeur dépend de la valeur d’un autre actif qui est appelé sous-jacent. On compte parmi les produits dérivés les options, les futures, les swaps, etc.\n\nLes options.\nUne option est un contrat qui donne à son détenteur le droit mais pas l’obligation d’acheter ou de vendre un actif à un prix fixé à l’avance et à une date donnée.\nIl y’a deux choses à retenir dans cette définition: le prix fixé à l’avance et la date donnée.\nOn signe ce type de contrat lorsque pense que le prix de l’actif va augmenter.\nPar exemple je pense que le prix de l’Iphone va augmenter dans les prochains jours. Je vois un ami qui vend des Iphones. Je lui donne un montant afin qu’il me reserve cet Iphone à un prix k fixé aujourd’hui. Si le prix de l’Iphone augmente, je pourrais l’acheter à un prix inférieur à celui du marché. Si le prix de l’Iphone diminue, je ne l’achèterai pas et je perdrai le montant que j’ai donné à mon ami.\n\n\nLes futures."
-  },
-  {
-    "objectID": "posts/entretienCreditAgricole/index.html",
-    "href": "posts/entretienCreditAgricole/index.html",
-    "title": "Compte rendu de l’entretien pour le poste data scientist - Auditeur du jeudi, 30 novembre 2023.",
-    "section": "",
-    "text": "Sommet mondial IA\n\n\n\nCompte rendu de l’entretien pour le poste data scientist - Auditeur du jeudi, 30 novembre 2023.\n\nListe des personnes présentes :\n\n\n\nIntervenants\n\n\nPrénom\n\n\nNom\n\n\n\n\nRecruteur\n\n\nprenom\n\n\nnom\n\n\n\n\nRecruteur\n\n\nMarie\n\n\nnom\n\n\n\n\nCandidat\n\n\nJunior\n\n\nJUMBONG\n\n\n\nDéroulement de l’Entretien :\nL’entretien du jeudi, 30 novembre pour le poste de data scientist - Auditeur a duré 1 heure et a eu pour objectif d’évaluer les compétences du candidat et la compréhension du poste de stage.\n\nParcours de l’Étudiant :\n\nLa discussion a débuté par un tour de table permettant à chacun de se présenter. Le candidat a notamment présenté son parcours, et mis en avant quelques compétences acquises durant ses différents projets universitaires.\n\nPrésentation de Crédit Agricole CACIB :\n\nCrédit Agricole CACIB est la banque de financement et d’investissement du groupe Crédit Agricole. Elle offre une gamme étendue de produits et services en banque d’investissement, financements structurés, banque commerciale, et marchés financiers.\n\nMissions du Stage :\n\nÉquipe Méthode Support - Data Scientist :\nUne première mission dans l’équipe méthode support où le candidat, s’il est retenu, travaillera sur la modélisation des risques de la banque. Il devra utiliser les compétences théoriques et pratiques acquises lors des formations précédentes, notamment en clustering et modélisation statistique.\nMission d’Inspection - Encadrement :\nLa deuxième mission en tant qu’inspecteur consistera à utiliser des techniques basées sur la donnée, l’analyse quantitative, et à proposer de nouvelles techniques afin de contribuer à la réussite de la mission. Les méthodologies utilisées, telles que la collecte de la donnée ,son exploration, sa préparation, son analyse ainsi que la diffusion des résultats, ont été précisément présentées.\n\n\nConclusion :\nLe processus de recrutement est actuellement en cours. Le candidat recevra une réponse finale d’ici quelques semaines, une fois que tous les entretiens seront terminés avec les autres candidats.\nIl lui a été demandé d’informer s’il est engagé dans d’autres processus de recrutement parallèle. Sa transparence est importante afin de permettre aux recruteurs d’adapter leurs réponses dans le cas échéant."
-  },
-  {
-    "objectID": "posts/ClimateScenario/substainablefinance.html",
-    "href": "posts/ClimateScenario/substainablefinance.html",
-    "title": "Understanding Sustainable Finance and its Regulations",
-    "section": "",
-    "text": "Sustainable finance is a team that can be difficult to define. So what exactly should we understand when we hear the term sustainable finance? To grasp The concept we need to make the difference between traditional finance and sustainable finance.\n\n\nTraditional finance targets economic performance by taking the account purely financial criteria. The men good here is to maximize the profitability, the share price or growth prospects.\nSustainable finance, on the other hand, takes into account extra-financial criteria. These criteria are environmental, social and governance (ESG) criteria. The goal is to reconcile economic performance with positive social and environmental impacts to meet the goals of sustainable development.\n\n\n\nThe ESG criteria are the three pillars of sustainable finance. Let’s start with the environmental criteria. Their role is to measure the direct or indirect impact of the activity of an economic entity on the environment. For example, it might be to analyze a company’s CO2 emissions, its energy consumptions or the recycling of the waste it produces.\nThen there are the social criteria. They aim to measure the performance of an economic entity on social issues. For example, it might be to analyze the diversity of the workforce, the health and safety of employees, parity or the number of employees with disabilities.\nFinally, the governance criteria assess the way in which the economic entity is managed, administered and monitored. This involves for instance, analyzing the composition of the board of directors, the remuneration of the management, the transparency of the information provided or the fight against corruption."
-  },
-  {
-    "objectID": "posts/ClimateScenario/substainablefinance.html#definition-of-sustainable-finance-and-esg-criteria.",
-    "href": "posts/ClimateScenario/substainablefinance.html#definition-of-sustainable-finance-and-esg-criteria.",
-    "title": "Understanding Sustainable Finance and its Regulations",
-    "section": "",
-    "text": "Sustainable finance is a team that can be difficult to define. So what exactly should we understand when we hear the term sustainable finance? To grasp The concept we need to make the difference between traditional finance and sustainable finance.\n\n\nTraditional finance targets economic performance by taking the account purely financial criteria. The men good here is to maximize the profitability, the share price or growth prospects.\nSustainable finance, on the other hand, takes into account extra-financial criteria. These criteria are environmental, social and governance (ESG) criteria. The goal is to reconcile economic performance with positive social and environmental impacts to meet the goals of sustainable development.\n\n\n\nThe ESG criteria are the three pillars of sustainable finance. Let’s start with the environmental criteria. Their role is to measure the direct or indirect impact of the activity of an economic entity on the environment. For example, it might be to analyze a company’s CO2 emissions, its energy consumptions or the recycling of the waste it produces.\nThen there are the social criteria. They aim to measure the performance of an economic entity on social issues. For example, it might be to analyze the diversity of the workforce, the health and safety of employees, parity or the number of employees with disabilities.\nFinally, the governance criteria assess the way in which the economic entity is managed, administered and monitored. This involves for instance, analyzing the composition of the board of directors, the remuneration of the management, the transparency of the information provided or the fight against corruption."
-  },
-  {
-    "objectID": "posts/ClimateScenario/substainablefinance.html#the-3-tools-of-sustainable-finance.",
-    "href": "posts/ClimateScenario/substainablefinance.html#the-3-tools-of-sustainable-finance.",
-    "title": "Understanding Sustainable Finance and its Regulations",
-    "section": "2 The 3 tools of sustainable finance.",
-    "text": "2 The 3 tools of sustainable finance.\nIn practice, sustainable finance use 3 tools to implement the ESG criteriaI : “Socially responsible investment” (SRI), “Green finance” and “Solidarity-based finance”\nSocially responsible investment (SRI) is an investment strategy based on the integration of ESG criteria into the selection of financial assets. Investing in the renewable energy sector or excluding companies that do not respect human rights are examples of SRI.\nGreen finance covers actions and financial operations that promote the energy and ecological transition and the fight against climate change. This includes green bonds, green loans or green funds in particular.\nSolidarity-based finance is a form of finance that aims to finance projects designed to fight against social exclusion or promote social integration. This includes microcredit, social entrepreneurship or ethical banking.\nThank you for reading and see you soon!"
-  },
-  {
-    "objectID": "posts/ClimateScenario/globalWarning.html",
-    "href": "posts/ClimateScenario/globalWarning.html",
-    "title": "UNDERSTANDING THE ECOLOGICAL CRISIS",
-    "section": "",
-    "text": "The world is currently experiencing a major ecological crisis, a main aspect of which is global warming. Before argue about ecological crisis, First, you need to know what is global warming.\nGlobal warming is linked to the greenhouse effect. In the atmosphere, Greenhouse gases trap the infrared radiation emitted by the Earth once the sun has warmed its surface. This phenomenon is natural and necessary for life on Earth as it keep the planet warm enough to sustain life. However, since the industrial revolution, human activity have increased the concentration of greenhouse gases in the atmosphere, leading to an increase in the greenhouse effect and therefore global warming. This is known as anthropogenic global warming. Amounts the greenhouse gasses we can find carbon dioxide, methane, nitrous oxide, and fluorinated gases."
-  },
-  {
-    "objectID": "posts/ClimateScenario/globalWarning.html#what-is-global-warming",
-    "href": "posts/ClimateScenario/globalWarning.html#what-is-global-warming",
-    "title": "UNDERSTANDING THE ECOLOGICAL CRISIS",
-    "section": "",
-    "text": "The world is currently experiencing a major ecological crisis, a main aspect of which is global warming. Before argue about ecological crisis, First, you need to know what is global warming.\nGlobal warming is linked to the greenhouse effect. In the atmosphere, Greenhouse gases trap the infrared radiation emitted by the Earth once the sun has warmed its surface. This phenomenon is natural and necessary for life on Earth as it keep the planet warm enough to sustain life. However, since the industrial revolution, human activity have increased the concentration of greenhouse gases in the atmosphere, leading to an increase in the greenhouse effect and therefore global warming. This is known as anthropogenic global warming. Amounts the greenhouse gasses we can find carbon dioxide, methane, nitrous oxide, and fluorinated gases."
-  },
-  {
-    "objectID": "posts/ClimateScenario/globalWarning.html#the-impacts-of-human-activities-on-global-warming",
-    "href": "posts/ClimateScenario/globalWarning.html#the-impacts-of-human-activities-on-global-warming",
-    "title": "UNDERSTANDING THE ECOLOGICAL CRISIS",
-    "section": "2 The impacts of human activities on global warming",
-    "text": "2 The impacts of human activities on global warming\nAlmost all human activities emit greenhouse gases. The main sources of these gases are the burning of fossil fuels (coal, oil, and natural gas) for energy production, transportation, and heating, as well as deforestation and intensive agriculture.\nFurthermore, our activity often reduce the capacity of ecosystems to absorb these gases. Forests, soils and oceans are the main natural carbon sinks(puits de carbone). Their degradation through deforestation, urbanization, agriculture or pollution reduce their capacity to absorb CO2."
-  },
-  {
-    "objectID": "posts/ClimateScenario/globalWarning.html#the-consequences-of-global-warming",
-    "href": "posts/ClimateScenario/globalWarning.html#the-consequences-of-global-warming",
-    "title": "UNDERSTANDING THE ECOLOGICAL CRISIS",
-    "section": "3 The consequences of global warming",
-    "text": "3 The consequences of global warming\nIf the train continues, the consequence will be dramatic. In 2019 the Eearth’s temperature was already one degree warmer than in the pre-industrial era. This may seem negligible, but it is enoromous : The last ice age, the average temperature on Earth was only five degrees lower than today. A few degrees can radically transform the climate.\nA rise of one degree can profoundly alter the balance of ecosystems and increase the frequency of extreme weather events like droughts, floods, cyclones.\nClimate change can also affect agricultural productivity and industrial sectors’ supply of primary materials, As well as decreasing the economy as whole. Climate change affects the overalll health and safety of populations : Natural disasters, migrations, conflicts over access to resources,etc.\nThe consequences of global warming are already visible. To face them, we must starting today, aim for carbon neutrality : not emitting more greenhouse gases than we can absorb. This is the only way to limit the rise in temperature to 1.5 degrees, as recommended by the IPCC."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this blog"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Menu",
-    "section": "",
-    "text": "Courbe de taux et valorisation d’obligations\n\n\n\n\n\nLors de la valorisation d’une obligation, il est essentiel de considérer des éléments clés tels que le prix sale (dirty price) et le prix net (clean price), lesquels dépendent de facteurs variés incluant le taux d’intérêt, la maturité et le taux de coupon. Dans cette analyse, nous avons généré la courbe des taux spot en utilisant des obligations zéro coupon et évalué le prix d’une obligation sous l’hypothèse d’une courbe de taux déterministe. Par la suite, nous avons exploré un modèle simplifié de Hull et White, examiné les spécificités d’une obligation munie d’une clause de rappel et discuté des stratégies de couverture contre le risque de taux d’intérêt. \n\n\n\n\n\nJunior Jumbong\n\n\n\n\n\n\n\n\n\n\n\n\nModélisation de la value at risk\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nData Schiller : CAPE Ratio\n\n\n\n\n\n\nMarket\n\n\nStock\n\n\n\n\n\n\n\n\n\nNov 16, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nNotions clés pour comprendre le réchauffement climatique\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 29, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nDifférence entre climat et météo\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 28, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nMaitrise des données financières avec Python\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 12, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nExamen de machine learning QCM\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nDec 26, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nLes intruments financiers à un bébé\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nDec 8, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nExamen de machine learning\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nDec 8, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nCompte rendu de l’entretien pour le poste data scientist - Auditeur du jeudi, 30 novembre 2023.\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 30, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nUNDERSTANDING THE ECOLOGICAL CRISIS\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nsimple tool in R to analyze data : Graph representationExecution Mm-hmm. I. , p-value, test, odds ratio, etc.\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding Sustainable Finance and its Regulations\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nSimulation de variables aléatoires continues\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nTBATS : N’a pas de contraintes de saisonnalité\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nPSI and CRAMER’S V\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nUn entretien raté\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 4, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nLeadership : Pouvoir, autorité et légitimité\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 4, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nMarket risk generalities\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 4, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto dashboard\n\n\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nIA : Eléments clés du premier sommet mondial\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 4, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/ClimateScenario/index.html",
-    "href": "posts/ClimateScenario/index.html",
-    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
-    "section": "",
-    "text": "This document is primarily intended for second year students at ENSAI in general, and for those who are particularly interested in biostatistics. When we deal with data, an easy way to understand our work is to create a graph. This gives us an intuition about what we are doing. The advice to follow is to choose simplicity when using graphs and to favor those that everyone knows how to interpret. So when you create a graph, think about your audience and not your personal preferences.\nThere are also many concerns that we use every day to take decision and we don’t know what they mean. For example the p-value. In this document, we will go through those concepts and explain them in a simple way.",
-    "crumbs": [
-      "About",
-      "climat",
-      "Scénarios climatiques"
-    ]
-  },
-  {
-    "objectID": "posts/ClimateScenario/index.html#introduction",
-    "href": "posts/ClimateScenario/index.html#introduction",
-    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
-    "section": "",
-    "text": "This document is primarily intended for second year students at ENSAI in general, and for those who are particularly interested in biostatistics. When we deal with data, an easy way to understand our work is to create a graph. This gives us an intuition about what we are doing. The advice to follow is to choose simplicity when using graphs and to favor those that everyone knows how to interpret. So when you create a graph, think about your audience and not your personal preferences.\nThere are also many concerns that we use every day to take decision and we don’t know what they mean. For example the p-value. In this document, we will go through those concepts and explain them in a simple way.",
-    "crumbs": [
-      "About",
-      "climat",
-      "Scénarios climatiques"
-    ]
-  },
-  {
-    "objectID": "posts/ClimateScenario/index.html#presentation-of-data.",
-    "href": "posts/ClimateScenario/index.html#presentation-of-data.",
-    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
-    "section": "2 Presentation of data.",
-    "text": "2 Presentation of data.\nThe data used in this document come from ParisSaclay Introduction à la statistique avec R - Session 21 if the mooc is available when you will read this document. The dataset has 799 observations and 26 variables. One observation represents a prisoner, and variables correspond to the mental health status of the prisoner.\n\n## import library for readcsv\nlibrary(readr)\n\n## import data\nsetwd(\"C:/Users/johns/OneDrive/Bureau/code/blog/ensai/posts/ClimateScenario\")\n\ngetwd()\n\n[1] \"C:/Users/johns/OneDrive/Bureau/code/blog/ensai/posts/ClimateScenario\"\n\nsmp2 &lt;- read_delim(\"data/smp2.csv\", delim = \";\",  \n    escape_double = FALSE, trim_ws = TRUE,show_col_types = FALSE)\n\nstr(smp2)\n\nspc_tbl_ [799 × 26] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n $ age         : num [1:799] 31 49 50 47 23 34 24 52 42 45 ...\n $ prof        : chr [1:799] \"autre\" NA \"prof.intermediaire\" \"ouvrier\" ...\n $ duree       : num [1:799] 4 NA 5 NA 4 NA NA 5 4 NA ...\n $ discip      : num [1:799] 0 0 0 0 1 0 0 0 1 0 ...\n $ n.enfant    : num [1:799] 2 7 2 0 1 3 5 2 1 2 ...\n $ n.fratrie   : num [1:799] 4 3 2 6 6 2 3 9 12 5 ...\n $ ecole       : num [1:799] 1 2 2 1 1 2 1 2 1 2 ...\n $ separation  : num [1:799] 0 1 0 1 1 0 1 0 1 0 ...\n $ juge.enfant : num [1:799] 0 0 0 0 NA 0 1 0 1 0 ...\n $ place       : num [1:799] 0 0 0 1 1 0 1 0 0 0 ...\n $ abus        : num [1:799] 0 0 0 0 0 0 0 0 1 1 ...\n $ grav.cons   : num [1:799] 1 2 2 1 2 1 5 1 5 5 ...\n $ dep.cons    : num [1:799] 0 0 0 0 1 0 1 0 1 0 ...\n $ ago.cons    : num [1:799] 1 0 0 0 0 0 0 0 0 0 ...\n $ ptsd.cons   : num [1:799] 0 0 0 0 0 0 0 0 0 0 ...\n $ alc.cons    : num [1:799] 0 0 0 0 0 0 0 0 1 1 ...\n $ subst.cons  : num [1:799] 0 0 0 0 0 0 1 0 1 0 ...\n $ scz.cons    : num [1:799] 0 0 0 0 0 0 0 0 0 0 ...\n $ char        : num [1:799] 1 1 1 1 1 1 1 1 4 1 ...\n $ rs          : num [1:799] 2 2 2 2 2 1 3 2 3 2 ...\n $ ed          : num [1:799] 1 2 3 2 2 2 3 2 3 2 ...\n $ dr          : num [1:799] 1 1 2 2 2 1 2 2 1 2 ...\n $ suicide.s   : num [1:799] 0 0 0 1 0 0 3 0 4 0 ...\n $ suicide.hr  : num [1:799] 0 0 0 0 0 0 1 0 1 0 ...\n $ suicide.past: num [1:799] 0 0 0 0 1 0 1 0 1 0 ...\n $ dur.interv  : num [1:799] NA 70 NA 105 NA NA 105 84 78 60 ...\n - attr(*, \"spec\")=\n  .. cols(\n  ..   age = col_double(),\n  ..   prof = col_character(),\n  ..   duree = col_double(),\n  ..   discip = col_double(),\n  ..   n.enfant = col_double(),\n  ..   n.fratrie = col_double(),\n  ..   ecole = col_double(),\n  ..   separation = col_double(),\n  ..   juge.enfant = col_double(),\n  ..   place = col_double(),\n  ..   abus = col_double(),\n  ..   grav.cons = col_double(),\n  ..   dep.cons = col_double(),\n  ..   ago.cons = col_double(),\n  ..   ptsd.cons = col_double(),\n  ..   alc.cons = col_double(),\n  ..   subst.cons = col_double(),\n  ..   scz.cons = col_double(),\n  ..   char = col_double(),\n  ..   rs = col_double(),\n  ..   ed = col_double(),\n  ..   dr = col_double(),\n  ..   suicide.s = col_double(),\n  ..   suicide.hr = col_double(),\n  ..   suicide.past = col_double(),\n  ..   dur.interv = col_double()\n  .. )\n - attr(*, \"problems\")=&lt;externalptr&gt; \n\n\nFor our analysis, we will use four variables :\n\nage : numerical variable (the age of the prisoner in years)\nn.enfant : numerical variable (the number of children)\ndep.cons : Existence of a depressive disorder (0 = no, 1 = yes)\nprof : prisoner’s profession (1 = unemployed, 2 = farmer, 3 = independent, 4 = executive, 5 = employee, 6 = worker, 7 = retired, 8 = student).\n\nThe first thing we want to do is to analyze the distribution of each variable.",
-    "crumbs": [
-      "About",
-      "climat",
-      "Scénarios climatiques"
-    ]
-  },
-  {
-    "objectID": "posts/ClimateScenario/index.html#distribution-of-categorical-variables-profession.",
-    "href": "posts/ClimateScenario/index.html#distribution-of-categorical-variables-profession.",
-    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
-    "section": "3 Distribution of categorical variables: profession.",
-    "text": "3 Distribution of categorical variables: profession.\n\n3.1 Barplot\nThe graphic tool allow us to represent a distribution of categorical variables is the barplot. Before we built the distribution of variable, we have an amazing tool in our hands to summarize the data. It is the table function. This function allows us to count the number of occurrences of each category in a variable.\n\n## count the number of occurrences of each category in a variable\ntable(smp2$prof)\n\n\n       agriculteur            artisan              autre              cadre \n                 6                 90                 31                 24 \n           employe            ouvrier prof.intermediaire        sans emploi \n               135                227                 58                222 \n\n\nThe result of the table function is a vector. We can use this vector to create a barplot.\n\n## create a barplot\nbarplot(table(smp2$prof), main = \"Distribution of profession\", xlab = \"Profession\", ylab = \"Frequency\")\n\n\n\n\n\n\n\n\n\n\n3.2 Pie chart\nAnother way to represent the distribution of the category variable is the pie chart. The pie chart is a circle divided into sectors. Each sector represents a category of the variable. The size of the sector is proportional to the frequency of the category. Statistics don’t like the pie chart because it is difficult to compare the size of the sectors. However, it is a good way to represent the distribution of a variable when the number of categories is small.\n\n## create a pie chart and put the legend on the right and the percentage\npie(table(smp2$dep.cons), main = \"Distribution of depressive disorder\", col = c(\"red\", \"blue\"), labels = c(\"No\", \"Yes\"), cex = 0.8)",
-    "crumbs": [
-      "About",
-      "climat",
-      "Scénarios climatiques"
-    ]
-  },
-  {
-    "objectID": "posts/ClimateScenario/index.html#distribution-of-numerical-variables-age",
-    "href": "posts/ClimateScenario/index.html#distribution-of-numerical-variables-age",
-    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
-    "section": "4 Distribution of numerical variables: age",
-    "text": "4 Distribution of numerical variables: age\n\n4.1 Histogram\nThe histogram is a graphical representation of the distribution of a numerical variable. Unlike barplot, We don’t need to use the table function to create an histogram.\n\n## create an histogram\nhist(smp2$age, main = \"Distribution of age\", xlab = \"Age\", ylab = \"Frequency\")\n\n\n\n\n\n\n\n\nWe can also plot in the same graphic the density of the variable. The density is the probability of the variable.\n\n## create an histogram with density\nhist(smp2$age, main = \"Distribution of age\", xlab = \"Age\", ylab = \"Density\", freq = FALSE)\nlines(density(smp2$age,na.rm =T), col = \"red\")\n\n\n\n\n\n\n\n\n\n\n4.2 Boxplot\nThe boxplot is a graphical representation of the distribution of a numerical variable. The boxplot is composed of a box and two whiskers. The box represents the interquartile range (IQR). The whiskers represent the minimum and maximum values of the variable. The boxplot is a good way to detect outliers in the data.\n\n## create a boxplot\nboxplot(smp2$age, main = \"Distribution of age\", xlab = \"Age\", ylab = \"Frequency\")\n\n\n\n\n\n\n\n\n\n\n4.3 Association between categorical and numerical variables\nThe boxplot is a good way to represent the distribution of a numerical variable according to a categorical variable.\n\n## create a boxplot\nboxplot(smp2$age ~ smp2$dep.cons, main = \"Distribution of age according to depressive disorder\", xlab = \"Depressive disorder\", ylab = \"Age\")",
-    "crumbs": [
-      "About",
-      "climat",
-      "Scénarios climatiques"
-    ]
-  },
-  {
-    "objectID": "posts/ClimateScenario/index.html#association-between-two-numerical-variables",
-    "href": "posts/ClimateScenario/index.html#association-between-two-numerical-variables",
-    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
-    "section": "5 Association between two numerical variables",
-    "text": "5 Association between two numerical variables\nWhen you deal with two numerical variables.The best way to represent the association between them is the scatter plot.\n\n## create a scatter plot\nplot(smp2$age, smp2$n.enfant, main = \"Association between age and number of children\", xlab = \"Age\", ylab = \"Number of children\")\n\n\n\n\n\n\n\n\nAs you see in this graphic, it seem like all the points are not represented. This is because the number of point is too large. R have a good function to deal with the problems : jitter. This function add a little noise to the data to avoid the overplotting.\n\n## create a scatter plot\nplot(jitter(smp2$age), jitter(smp2$n.enfant), main = \"Association between age and number of children\", xlab = \"Age\", ylab = \"Number of children\")",
-    "crumbs": [
-      "About",
-      "climat",
-      "Scénarios climatiques"
-    ]
-  },
-  {
-    "objectID": "posts/ClimateScenario/index.html#association-between-two-categorical-variables",
-    "href": "posts/ClimateScenario/index.html#association-between-two-categorical-variables",
-    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
-    "section": "6 Association between two categorical variables",
-    "text": "6 Association between two categorical variables\nThe best way to represent the association between two categorical variables is to use a contingency table. A contingency table displays the frequency or count of observations that fall into each combination of the categories of the two variables. We can use the table of contingency to create a barplot.\n\n## create a contingency table\ntable(smp2$dep.cons, smp2$prof)\n\n   \n    agriculteur artisan autre cadre employe ouvrier prof.intermediaire\n  0           4      62    22    16      79     131                 31\n  1           2      28     9     8      56      96                 27\n   \n    sans emploi\n  0         133\n  1          89\n\n## create a barplot\nbarplot(table(smp2$dep.cons, smp2$prof), main = \"Association between depressive disorder and profession\", xlab = \"Depressive disorder\", ylab = \"Frequency\")",
-    "crumbs": [
-      "About",
-      "climat",
-      "Scénarios climatiques"
-    ]
-  },
-  {
-    "objectID": "posts/ClimateScenario/index.html#the-link-between-variable.",
-    "href": "posts/ClimateScenario/index.html#the-link-between-variable.",
-    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
-    "section": "7 The link between variable.",
-    "text": "7 The link between variable.\n\n7.1 Correlation between two numerical variables\nThere are many ways to study the correlation between two numerical variables. The most common ways are the Pearson correlation coefficient and the Spearman correlation. The Pearson correlation coefficient is used when the two variables are normally distributed. The Spearman correlation is used when the two variables are not normally distributed. We can not use those tools if Variables have a missing values.\n\n## Pearson correlation\ncor(smp2$age, smp2$n.enfant, use = \"complete.obs\")\n\n[1] 0.4326039\n\n## Spearman correlation\ncor(smp2$age, smp2$n.enfant, method = \"spearman\", use = \"complete.obs\")\n\n[1] 0.4243662",
-    "crumbs": [
-      "About",
-      "climat",
-      "Scénarios climatiques"
-    ]
-  },
-  {
-    "objectID": "posts/ClimateScenario/index.html#temporal-evolution-of-a-numerical-variable",
-    "href": "posts/ClimateScenario/index.html#temporal-evolution-of-a-numerical-variable",
-    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
-    "section": "8 Temporal evolution of a numerical variable",
-    "text": "8 Temporal evolution of a numerical variable\nI will finish by showing how to represent the evolution of the mean of a numerical variable over time. This is very useful In biostatistic When we want to show the evolution of a disease over time. I will use the package gplots to create the graph. You can use ggplot2 to create the same graph. We will use a temporal data outils_hdrs.csv. The data have 3 variables : - NUMERO : the id of the patient - VISIT : the visit of the patient - HDRS : the score of the patient\n\nhdrs &lt;- read_csv2(\"data/outils_hdrs.csv\")\n\nℹ Using \"','\" as decimal and \"'.'\" as grouping mark. Use `read_delim()` for more control.\n\n\nRows: 1053 Columns: 3\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \";\"\ndbl (3): NUMERO, VISIT, HDRS\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nstr(hdrs)\n\nspc_tbl_ [1,053 × 3] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n $ NUMERO: num [1:1053] 96 96 96 96 96 96 96 96 157 157 ...\n $ VISIT : num [1:1053] 0 4 7 14 21 28 42 56 0 4 ...\n $ HDRS  : num [1:1053] 34 26 12 7 5 1 1 1 27 19 ...\n - attr(*, \"spec\")=\n  .. cols(\n  ..   NUMERO = col_double(),\n  ..   VISIT = col_double(),\n  ..   HDRS = col_double()\n  .. )\n - attr(*, \"problems\")=&lt;externalptr&gt; \n\n\n\n# install packages\n\n#install.packages(\"gplots\")  \n\nlibrary(gplots)  \n\n### Representation of the evolution of the mean of the HDRS score over time\nplotmeans(hdrs$HDRS~hdrs$VISIT,gap=0,barcol=\"black\",main=\"Evolution moyenne du HDRS dans le temps\",xlab=\"Visite\",ylab=\"HDRS moyen\")\n\n\n\n\n\n\n\n\nTo compute the same graph with ggplot2, you need to compute the mean, the first quartile and the third quartile of the HDRS score for each visit.\n\nlibrary(dplyr)\nhdrs_mean &lt;- hdrs %&gt;% \n  group_by(VISIT) %&gt;%\n  summarise(mean = mean(HDRS,na.rm =T),\n            lower = quantile(HDRS,0.25,na.rm = T),\n            upper = quantile(HDRS,0.75,na.rm = T))\nhead(hdrs_mean)\n\n# A tibble: 6 × 4\n  VISIT  mean lower upper\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0  27.9  25      30\n2     4  25.2  23      28\n3     7  20.6  16      25\n4    14  16.7  12      22\n5    21  14.3   8      20\n6    28  11.5   6.5    16\n\n\nNow we can create the graph with ggplot2.\n\nlibrary(ggplot2)\nggplot(hdrs_mean, aes(x = VISIT, y = mean)) +\n  geom_point(size = 3) +\n  geom_line(size = 0) +\n  geom_errorbar(aes(ymin=lower, ymax=upper), width=1)+\n  scale_x_continuous(expand=c(0,0), breaks=c(0,4,7,14,21,28,42,56)) +\n  geom_vline(xintercept = 21, linetype=\"dashed\",\n               color = \"black\", size=1) +\n    theme_classic() +\n    theme(axis.line.x = element_line(color=\"black\", size = 0.5),\n          axis.line.y = element_line(color=\"black\", size = 0.5)) +\n    theme(axis.text=element_text(size=12, face=\"bold\"),\n          legend.title=element_blank(), legend.key = element_blank()) +\n    theme(axis.text=element_text(size=12), axis.title=element_text(size=12)) +\n    xlab(\"VISIT\")+\n    ylab(\"The mean score of the patient\") +\n    theme(legend.position = c(1,1)) +\n    theme(plot.margin = margin(1, 1, 1, 0.5, \"cm\"))\n\n\n\n\n\n\n\n\nLet’s explain each part of this graphic :\n\nThe ggplot(hdrs_mean, aes(x = VISIT, y = mean)) + function creates the graph. The VISIT variable is on the x-axis and the mean variable is on the y-axis.\nThe geom_point(size = 3) + function creates the points of the graph.\nThe geom_line(size = 0) + function creates the line of the graph.\nThe geom_errorbar(aes(ymin=lower, ymax=upper), width=1) + function creates the error bars of the graph.\nThe scale_x_continuous(expand=c(0,0), breaks=c(0,4,7,14,21,28,42,56)) + function sets the x-axis.\nThe geom_vline(xintercept = 21, linetype=“dashed”, color = “black”, size=1) + function creates a vertical line at the 21st visit.\nThe theme_classic() + function sets the theme of the graph.\nThe theme(axis.line.x = element_line(color=“black”, size = 0.5), axis.line.y = element_line(color=“black”, size = 0.5)) + function sets the color and size of the axis lines.\nThe theme(axis.text=element_text(size=12, face=“bold”), legend.title=element_blank(), legend.key = element_blank()) + function sets the size and style of the axis text.\nThe theme(axis.text=element_text(size=12), axis.title=element_text(size=12)) + function sets the size of the axis text.\nThe xlab(“VISIT”)+ ylab(“The mean score of the patient”) + function sets the labels of the x-axis and y-axis.\nThe theme(legend.position = c(1,1)) + function sets the position of the legend.\nThe theme(plot.margin = margin(1, 1, 1, 0.5, “cm”)) + function sets the margins of the graph.",
-    "crumbs": [
-      "About",
-      "climat",
-      "Scénarios climatiques"
-    ]
-  },
-  {
-    "objectID": "posts/ClimateScenario/index.html#conclusion",
-    "href": "posts/ClimateScenario/index.html#conclusion",
-    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
-    "section": "9 Conclusion",
-    "text": "9 Conclusion\nI will finish here And I hope that you will enjoy it. I will continue to write about the p-value, the test, the odds ratio, etc. in the next document.",
-    "crumbs": [
-      "About",
-      "climat",
-      "Scénarios climatiques"
-    ]
   },
   {
     "objectID": "posts/ClimatMeteo/index.html",
@@ -532,18 +314,187 @@
     ]
   },
   {
-    "objectID": "posts/forumEnsai/index.html",
-    "href": "posts/forumEnsai/index.html",
-    "title": "Un entretien raté",
+    "objectID": "posts/ClimateScenario/index.html",
+    "href": "posts/ClimateScenario/index.html",
+    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
     "section": "",
-    "text": "entretien"
+    "text": "This document is primarily intended for second year students at ENSAI in general, and for those who are particularly interested in biostatistics. When we deal with data, an easy way to understand our work is to create a graph. This gives us an intuition about what we are doing. The advice to follow is to choose simplicity when using graphs and to favor those that everyone knows how to interpret. So when you create a graph, think about your audience and not your personal preferences.\nThere are also many concerns that we use every day to take decision and we don’t know what they mean. For example the p-value. In this document, we will go through those concepts and explain them in a simple way.",
+    "crumbs": [
+      "About",
+      "climat",
+      "simple tool in R to analyze data : Graph representationExecution"
+    ]
   },
   {
-    "objectID": "posts/forumEnsai/index.html#comment-raté-son-entretien-de-stage",
-    "href": "posts/forumEnsai/index.html#comment-raté-son-entretien-de-stage",
-    "title": "Un entretien raté",
-    "section": "Comment raté son entretien de stage ?",
-    "text": "Comment raté son entretien de stage ?\nAujourd’hui, a eu lieu le forum des ingénieurs de l’ENSAI où tout étudiant rêve de décrocher un stage. C’est l’occasion pour les étudiants de discuter avec les entreprises de leur parler d’eux.\nIl y’a une première étape, où les étudiants doivent s’inscrire sur une platform pour facililer la prise de rendez-vous. Ensuite, les étudiants doivent se présenter à l’heure à l’entretien. Ce n’est pas grave si un étudiant n’arrive pas à décrocher un entretien, il peut toujours se présenter à l’entreprise pour discuter avec les recruteurs.\nJ’ai pu obtenir quelques entretiens\nJe me suis lévé aujourd’hui à 9 heures, j’ai pris mon petit déjeuné, je me suis habillé, direction l’ENSAI. Enfin d’être présentable, j’ai porté une chémise.\nQuand je suis arrivé, j’ai localisé les différent"
+    "objectID": "posts/ClimateScenario/index.html#introduction",
+    "href": "posts/ClimateScenario/index.html#introduction",
+    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
+    "section": "",
+    "text": "This document is primarily intended for second year students at ENSAI in general, and for those who are particularly interested in biostatistics. When we deal with data, an easy way to understand our work is to create a graph. This gives us an intuition about what we are doing. The advice to follow is to choose simplicity when using graphs and to favor those that everyone knows how to interpret. So when you create a graph, think about your audience and not your personal preferences.\nThere are also many concerns that we use every day to take decision and we don’t know what they mean. For example the p-value. In this document, we will go through those concepts and explain them in a simple way.",
+    "crumbs": [
+      "About",
+      "climat",
+      "simple tool in R to analyze data : Graph representationExecution"
+    ]
+  },
+  {
+    "objectID": "posts/ClimateScenario/index.html#presentation-of-data.",
+    "href": "posts/ClimateScenario/index.html#presentation-of-data.",
+    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
+    "section": "2 Presentation of data.",
+    "text": "2 Presentation of data.\nThe data used in this document come from ParisSaclay Introduction à la statistique avec R - Session 21 if the mooc is available when you will read this document. The dataset has 799 observations and 26 variables. One observation represents a prisoner, and variables correspond to the mental health status of the prisoner.\n\n## import library for readcsv\nlibrary(readr)\n\n## import data\nsetwd(\"C:/Users/johns/OneDrive/Bureau/code/blog/ensai/posts/ClimateScenario\")\n\ngetwd()\n\n[1] \"C:/Users/johns/OneDrive/Bureau/code/blog/ensai/posts/ClimateScenario\"\n\nsmp2 &lt;- read_delim(\"data/smp2.csv\", delim = \";\",  \n    escape_double = FALSE, trim_ws = TRUE,show_col_types = FALSE)\n\nstr(smp2)\n\nspc_tbl_ [799 × 26] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n $ age         : num [1:799] 31 49 50 47 23 34 24 52 42 45 ...\n $ prof        : chr [1:799] \"autre\" NA \"prof.intermediaire\" \"ouvrier\" ...\n $ duree       : num [1:799] 4 NA 5 NA 4 NA NA 5 4 NA ...\n $ discip      : num [1:799] 0 0 0 0 1 0 0 0 1 0 ...\n $ n.enfant    : num [1:799] 2 7 2 0 1 3 5 2 1 2 ...\n $ n.fratrie   : num [1:799] 4 3 2 6 6 2 3 9 12 5 ...\n $ ecole       : num [1:799] 1 2 2 1 1 2 1 2 1 2 ...\n $ separation  : num [1:799] 0 1 0 1 1 0 1 0 1 0 ...\n $ juge.enfant : num [1:799] 0 0 0 0 NA 0 1 0 1 0 ...\n $ place       : num [1:799] 0 0 0 1 1 0 1 0 0 0 ...\n $ abus        : num [1:799] 0 0 0 0 0 0 0 0 1 1 ...\n $ grav.cons   : num [1:799] 1 2 2 1 2 1 5 1 5 5 ...\n $ dep.cons    : num [1:799] 0 0 0 0 1 0 1 0 1 0 ...\n $ ago.cons    : num [1:799] 1 0 0 0 0 0 0 0 0 0 ...\n $ ptsd.cons   : num [1:799] 0 0 0 0 0 0 0 0 0 0 ...\n $ alc.cons    : num [1:799] 0 0 0 0 0 0 0 0 1 1 ...\n $ subst.cons  : num [1:799] 0 0 0 0 0 0 1 0 1 0 ...\n $ scz.cons    : num [1:799] 0 0 0 0 0 0 0 0 0 0 ...\n $ char        : num [1:799] 1 1 1 1 1 1 1 1 4 1 ...\n $ rs          : num [1:799] 2 2 2 2 2 1 3 2 3 2 ...\n $ ed          : num [1:799] 1 2 3 2 2 2 3 2 3 2 ...\n $ dr          : num [1:799] 1 1 2 2 2 1 2 2 1 2 ...\n $ suicide.s   : num [1:799] 0 0 0 1 0 0 3 0 4 0 ...\n $ suicide.hr  : num [1:799] 0 0 0 0 0 0 1 0 1 0 ...\n $ suicide.past: num [1:799] 0 0 0 0 1 0 1 0 1 0 ...\n $ dur.interv  : num [1:799] NA 70 NA 105 NA NA 105 84 78 60 ...\n - attr(*, \"spec\")=\n  .. cols(\n  ..   age = col_double(),\n  ..   prof = col_character(),\n  ..   duree = col_double(),\n  ..   discip = col_double(),\n  ..   n.enfant = col_double(),\n  ..   n.fratrie = col_double(),\n  ..   ecole = col_double(),\n  ..   separation = col_double(),\n  ..   juge.enfant = col_double(),\n  ..   place = col_double(),\n  ..   abus = col_double(),\n  ..   grav.cons = col_double(),\n  ..   dep.cons = col_double(),\n  ..   ago.cons = col_double(),\n  ..   ptsd.cons = col_double(),\n  ..   alc.cons = col_double(),\n  ..   subst.cons = col_double(),\n  ..   scz.cons = col_double(),\n  ..   char = col_double(),\n  ..   rs = col_double(),\n  ..   ed = col_double(),\n  ..   dr = col_double(),\n  ..   suicide.s = col_double(),\n  ..   suicide.hr = col_double(),\n  ..   suicide.past = col_double(),\n  ..   dur.interv = col_double()\n  .. )\n - attr(*, \"problems\")=&lt;externalptr&gt; \n\n\nFor our analysis, we will use four variables :\n\nage : numerical variable (the age of the prisoner in years)\nn.enfant : numerical variable (the number of children)\ndep.cons : Existence of a depressive disorder (0 = no, 1 = yes)\nprof : prisoner’s profession (1 = unemployed, 2 = farmer, 3 = independent, 4 = executive, 5 = employee, 6 = worker, 7 = retired, 8 = student).\n\nThe first thing we want to do is to analyze the distribution of each variable.",
+    "crumbs": [
+      "About",
+      "climat",
+      "simple tool in R to analyze data : Graph representationExecution"
+    ]
+  },
+  {
+    "objectID": "posts/ClimateScenario/index.html#distribution-of-categorical-variables-profession.",
+    "href": "posts/ClimateScenario/index.html#distribution-of-categorical-variables-profession.",
+    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
+    "section": "3 Distribution of categorical variables: profession.",
+    "text": "3 Distribution of categorical variables: profession.\n\n3.1 Barplot\nThe graphic tool allow us to represent a distribution of categorical variables is the barplot. Before we built the distribution of variable, we have an amazing tool in our hands to summarize the data. It is the table function. This function allows us to count the number of occurrences of each category in a variable.\n\n## count the number of occurrences of each category in a variable\ntable(smp2$prof)\n\n\n       agriculteur            artisan              autre              cadre \n                 6                 90                 31                 24 \n           employe            ouvrier prof.intermediaire        sans emploi \n               135                227                 58                222 \n\n\nThe result of the table function is a vector. We can use this vector to create a barplot.\n\n## create a barplot\nbarplot(table(smp2$prof), main = \"Distribution of profession\", xlab = \"Profession\", ylab = \"Frequency\")\n\n\n\n\n\n\n\n\n\n\n3.2 Pie chart\nAnother way to represent the distribution of the category variable is the pie chart. The pie chart is a circle divided into sectors. Each sector represents a category of the variable. The size of the sector is proportional to the frequency of the category. Statistics don’t like the pie chart because it is difficult to compare the size of the sectors. However, it is a good way to represent the distribution of a variable when the number of categories is small.\n\n## create a pie chart and put the legend on the right and the percentage\npie(table(smp2$dep.cons), main = \"Distribution of depressive disorder\", col = c(\"red\", \"blue\"), labels = c(\"No\", \"Yes\"), cex = 0.8)",
+    "crumbs": [
+      "About",
+      "climat",
+      "simple tool in R to analyze data : Graph representationExecution"
+    ]
+  },
+  {
+    "objectID": "posts/ClimateScenario/index.html#distribution-of-numerical-variables-age",
+    "href": "posts/ClimateScenario/index.html#distribution-of-numerical-variables-age",
+    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
+    "section": "4 Distribution of numerical variables: age",
+    "text": "4 Distribution of numerical variables: age\n\n4.1 Histogram\nThe histogram is a graphical representation of the distribution of a numerical variable. Unlike barplot, We don’t need to use the table function to create an histogram.\n\n## create an histogram\nhist(smp2$age, main = \"Distribution of age\", xlab = \"Age\", ylab = \"Frequency\")\n\n\n\n\n\n\n\n\nWe can also plot in the same graphic the density of the variable. The density is the probability of the variable.\n\n## create an histogram with density\nhist(smp2$age, main = \"Distribution of age\", xlab = \"Age\", ylab = \"Density\", freq = FALSE)\nlines(density(smp2$age,na.rm =T), col = \"red\")\n\n\n\n\n\n\n\n\n\n\n4.2 Boxplot\nThe boxplot is a graphical representation of the distribution of a numerical variable. The boxplot is composed of a box and two whiskers. The box represents the interquartile range (IQR). The whiskers represent the minimum and maximum values of the variable. The boxplot is a good way to detect outliers in the data.\n\n## create a boxplot\nboxplot(smp2$age, main = \"Distribution of age\", xlab = \"Age\", ylab = \"Frequency\")\n\n\n\n\n\n\n\n\n\n\n4.3 Association between categorical and numerical variables\nThe boxplot is a good way to represent the distribution of a numerical variable according to a categorical variable.\n\n## create a boxplot\nboxplot(smp2$age ~ smp2$dep.cons, main = \"Distribution of age according to depressive disorder\", xlab = \"Depressive disorder\", ylab = \"Age\")",
+    "crumbs": [
+      "About",
+      "climat",
+      "simple tool in R to analyze data : Graph representationExecution"
+    ]
+  },
+  {
+    "objectID": "posts/ClimateScenario/index.html#association-between-two-numerical-variables",
+    "href": "posts/ClimateScenario/index.html#association-between-two-numerical-variables",
+    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
+    "section": "5 Association between two numerical variables",
+    "text": "5 Association between two numerical variables\nWhen you deal with two numerical variables.The best way to represent the association between them is the scatter plot.\n\n## create a scatter plot\nplot(smp2$age, smp2$n.enfant, main = \"Association between age and number of children\", xlab = \"Age\", ylab = \"Number of children\")\n\n\n\n\n\n\n\n\nAs you see in this graphic, it seem like all the points are not represented. This is because the number of point is too large. R have a good function to deal with the problems : jitter. This function add a little noise to the data to avoid the overplotting.\n\n## create a scatter plot\nplot(jitter(smp2$age), jitter(smp2$n.enfant), main = \"Association between age and number of children\", xlab = \"Age\", ylab = \"Number of children\")",
+    "crumbs": [
+      "About",
+      "climat",
+      "simple tool in R to analyze data : Graph representationExecution"
+    ]
+  },
+  {
+    "objectID": "posts/ClimateScenario/index.html#association-between-two-categorical-variables",
+    "href": "posts/ClimateScenario/index.html#association-between-two-categorical-variables",
+    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
+    "section": "6 Association between two categorical variables",
+    "text": "6 Association between two categorical variables\nThe best way to represent the association between two categorical variables is to use a contingency table. A contingency table displays the frequency or count of observations that fall into each combination of the categories of the two variables. We can use the table of contingency to create a barplot.\n\n## create a contingency table\ntable(smp2$dep.cons, smp2$prof)\n\n   \n    agriculteur artisan autre cadre employe ouvrier prof.intermediaire\n  0           4      62    22    16      79     131                 31\n  1           2      28     9     8      56      96                 27\n   \n    sans emploi\n  0         133\n  1          89\n\n## create a barplot\nbarplot(table(smp2$dep.cons, smp2$prof), main = \"Association between depressive disorder and profession\", xlab = \"Depressive disorder\", ylab = \"Frequency\")",
+    "crumbs": [
+      "About",
+      "climat",
+      "simple tool in R to analyze data : Graph representationExecution"
+    ]
+  },
+  {
+    "objectID": "posts/ClimateScenario/index.html#the-link-between-variable.",
+    "href": "posts/ClimateScenario/index.html#the-link-between-variable.",
+    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
+    "section": "7 The link between variable.",
+    "text": "7 The link between variable.\n\n7.1 Correlation between two numerical variables\nThere are many ways to study the correlation between two numerical variables. The most common ways are the Pearson correlation coefficient and the Spearman correlation. The Pearson correlation coefficient is used when the two variables are normally distributed. The Spearman correlation is used when the two variables are not normally distributed. We can not use those tools if Variables have a missing values.\n\n## Pearson correlation\ncor(smp2$age, smp2$n.enfant, use = \"complete.obs\")\n\n[1] 0.4326039\n\n## Spearman correlation\ncor(smp2$age, smp2$n.enfant, method = \"spearman\", use = \"complete.obs\")\n\n[1] 0.4243662",
+    "crumbs": [
+      "About",
+      "climat",
+      "simple tool in R to analyze data : Graph representationExecution"
+    ]
+  },
+  {
+    "objectID": "posts/ClimateScenario/index.html#temporal-evolution-of-a-numerical-variable",
+    "href": "posts/ClimateScenario/index.html#temporal-evolution-of-a-numerical-variable",
+    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
+    "section": "8 Temporal evolution of a numerical variable",
+    "text": "8 Temporal evolution of a numerical variable\nI will finish by showing how to represent the evolution of the mean of a numerical variable over time. This is very useful In biostatistic When we want to show the evolution of a disease over time. I will use the package gplots to create the graph. You can use ggplot2 to create the same graph. We will use a temporal data outils_hdrs.csv. The data have 3 variables : - NUMERO : the id of the patient - VISIT : the visit of the patient - HDRS : the score of the patient\n\nhdrs &lt;- read_csv2(\"data/outils_hdrs.csv\")\n\nℹ Using \"','\" as decimal and \"'.'\" as grouping mark. Use `read_delim()` for more control.\n\n\nRows: 1053 Columns: 3\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \";\"\ndbl (3): NUMERO, VISIT, HDRS\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nstr(hdrs)\n\nspc_tbl_ [1,053 × 3] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n $ NUMERO: num [1:1053] 96 96 96 96 96 96 96 96 157 157 ...\n $ VISIT : num [1:1053] 0 4 7 14 21 28 42 56 0 4 ...\n $ HDRS  : num [1:1053] 34 26 12 7 5 1 1 1 27 19 ...\n - attr(*, \"spec\")=\n  .. cols(\n  ..   NUMERO = col_double(),\n  ..   VISIT = col_double(),\n  ..   HDRS = col_double()\n  .. )\n - attr(*, \"problems\")=&lt;externalptr&gt; \n\n\n\n# install packages\n\n#install.packages(\"gplots\")  \n\nlibrary(gplots)  \n\n### Representation of the evolution of the mean of the HDRS score over time\nplotmeans(hdrs$HDRS~hdrs$VISIT,gap=0,barcol=\"black\",main=\"Evolution moyenne du HDRS dans le temps\",xlab=\"Visite\",ylab=\"HDRS moyen\")\n\n\n\n\n\n\n\n\nTo compute the same graph with ggplot2, you need to compute the mean, the first quartile and the third quartile of the HDRS score for each visit.\n\nlibrary(dplyr)\nhdrs_mean &lt;- hdrs %&gt;% \n  group_by(VISIT) %&gt;%\n  summarise(mean = mean(HDRS,na.rm =T),\n            lower = quantile(HDRS,0.25,na.rm = T),\n            upper = quantile(HDRS,0.75,na.rm = T))\nhead(hdrs_mean)\n\n# A tibble: 6 × 4\n  VISIT  mean lower upper\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0  27.9  25      30\n2     4  25.2  23      28\n3     7  20.6  16      25\n4    14  16.7  12      22\n5    21  14.3   8      20\n6    28  11.5   6.5    16\n\n\nNow we can create the graph with ggplot2.\n\nlibrary(ggplot2)\nggplot(hdrs_mean, aes(x = VISIT, y = mean)) +\n  geom_point(size = 3) +\n  geom_line(size = 0) +\n  geom_errorbar(aes(ymin=lower, ymax=upper), width=1)+\n  scale_x_continuous(expand=c(0,0), breaks=c(0,4,7,14,21,28,42,56)) +\n  geom_vline(xintercept = 21, linetype=\"dashed\",\n               color = \"black\", size=1) +\n    theme_classic() +\n    theme(axis.line.x = element_line(color=\"black\", size = 0.5),\n          axis.line.y = element_line(color=\"black\", size = 0.5)) +\n    theme(axis.text=element_text(size=12, face=\"bold\"),\n          legend.title=element_blank(), legend.key = element_blank()) +\n    theme(axis.text=element_text(size=12), axis.title=element_text(size=12)) +\n    xlab(\"VISIT\")+\n    ylab(\"The mean score of the patient\") +\n    theme(legend.position = c(1,1)) +\n    theme(plot.margin = margin(1, 1, 1, 0.5, \"cm\"))\n\n\n\n\n\n\n\n\nLet’s explain each part of this graphic :\n\nThe ggplot(hdrs_mean, aes(x = VISIT, y = mean)) + function creates the graph. The VISIT variable is on the x-axis and the mean variable is on the y-axis.\nThe geom_point(size = 3) + function creates the points of the graph.\nThe geom_line(size = 0) + function creates the line of the graph.\nThe geom_errorbar(aes(ymin=lower, ymax=upper), width=1) + function creates the error bars of the graph.\nThe scale_x_continuous(expand=c(0,0), breaks=c(0,4,7,14,21,28,42,56)) + function sets the x-axis.\nThe geom_vline(xintercept = 21, linetype=“dashed”, color = “black”, size=1) + function creates a vertical line at the 21st visit.\nThe theme_classic() + function sets the theme of the graph.\nThe theme(axis.line.x = element_line(color=“black”, size = 0.5), axis.line.y = element_line(color=“black”, size = 0.5)) + function sets the color and size of the axis lines.\nThe theme(axis.text=element_text(size=12, face=“bold”), legend.title=element_blank(), legend.key = element_blank()) + function sets the size and style of the axis text.\nThe theme(axis.text=element_text(size=12), axis.title=element_text(size=12)) + function sets the size of the axis text.\nThe xlab(“VISIT”)+ ylab(“The mean score of the patient”) + function sets the labels of the x-axis and y-axis.\nThe theme(legend.position = c(1,1)) + function sets the position of the legend.\nThe theme(plot.margin = margin(1, 1, 1, 0.5, “cm”)) + function sets the margins of the graph.",
+    "crumbs": [
+      "About",
+      "climat",
+      "simple tool in R to analyze data : Graph representationExecution"
+    ]
+  },
+  {
+    "objectID": "posts/ClimateScenario/index.html#conclusion",
+    "href": "posts/ClimateScenario/index.html#conclusion",
+    "title": "simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.",
+    "section": "9 Conclusion",
+    "text": "9 Conclusion\nI will finish here And I hope that you will enjoy it. I will continue to write about the p-value, the test, the odds ratio, etc. in the next document.",
+    "crumbs": [
+      "About",
+      "climat",
+      "simple tool in R to analyze data : Graph representationExecution"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Menu",
+    "section": "",
+    "text": "Courbe de taux et valorisation d’obligations\n\n\n\n\n\nLors de la valorisation d’une obligation, il est essentiel de considérer des éléments clés tels que le prix sale (dirty price) et le prix net (clean price), lesquels dépendent de facteurs variés incluant le taux d’intérêt, la maturité et le taux de coupon. Dans cette analyse, nous avons généré la courbe des taux spot en utilisant des obligations zéro coupon et évalué le prix d’une obligation sous l’hypothèse d’une courbe de taux déterministe. Par la suite, nous avons exploré un modèle simplifié de Hull et White, examiné les spécificités d’une obligation munie d’une clause de rappel et discuté des stratégies de couverture contre le risque de taux d’intérêt. \n\n\n\n\n\nJunior Jumbong\n\n\n\n\n\n\n\n\n\n\n\n\nModélisation de la value at risk\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUNDERSTANDING THE ECOLOGICAL CRISIS\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nsimple tool in R to analyze data : Graph representationExecution\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nData Schiller : CAPE Ratio\n\n\n\n\n\n\nMarket\n\n\nStock\n\n\n\n\n\n\n\n\n\nNov 16, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nNotions clés pour comprendre le réchauffement climatique\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 29, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nDifférence entre climat et météo\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 28, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nMaitrise des données financières avec Python\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 12, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nExamen de machine learning QCM\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nDec 26, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nExamen de machine learning\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nDec 8, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding Sustainable Finance and its Regulations\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nSimulation de variables aléatoires continues\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nPSI and CRAMER’S V\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nLeadership : Pouvoir, autorité et légitimité\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 4, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nMarket risk generalities\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 4, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto dashboard\n\n\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nTBATS : N’a pas de contraintes de saisonnalité\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nIA : Eléments clés du premier sommet mondial\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 4, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "posts/ClimateScenario/globalWarning.html",
+    "href": "posts/ClimateScenario/globalWarning.html",
+    "title": "UNDERSTANDING THE ECOLOGICAL CRISIS",
+    "section": "",
+    "text": "The world is currently experiencing a major ecological crisis, a main aspect of which is global warming. Before argue about ecological crisis, First, you need to know what is global warming.\nGlobal warming is linked to the greenhouse effect. In the atmosphere, Greenhouse gases trap the infrared radiation emitted by the Earth once the sun has warmed its surface. This phenomenon is natural and necessary for life on Earth as it keep the planet warm enough to sustain life. However, since the industrial revolution, human activity have increased the concentration of greenhouse gases in the atmosphere, leading to an increase in the greenhouse effect and therefore global warming. This is known as anthropogenic global warming. Amounts the greenhouse gasses we can find carbon dioxide, methane, nitrous oxide, and fluorinated gases."
+  },
+  {
+    "objectID": "posts/ClimateScenario/globalWarning.html#what-is-global-warming",
+    "href": "posts/ClimateScenario/globalWarning.html#what-is-global-warming",
+    "title": "UNDERSTANDING THE ECOLOGICAL CRISIS",
+    "section": "",
+    "text": "The world is currently experiencing a major ecological crisis, a main aspect of which is global warming. Before argue about ecological crisis, First, you need to know what is global warming.\nGlobal warming is linked to the greenhouse effect. In the atmosphere, Greenhouse gases trap the infrared radiation emitted by the Earth once the sun has warmed its surface. This phenomenon is natural and necessary for life on Earth as it keep the planet warm enough to sustain life. However, since the industrial revolution, human activity have increased the concentration of greenhouse gases in the atmosphere, leading to an increase in the greenhouse effect and therefore global warming. This is known as anthropogenic global warming. Amounts the greenhouse gasses we can find carbon dioxide, methane, nitrous oxide, and fluorinated gases."
+  },
+  {
+    "objectID": "posts/ClimateScenario/globalWarning.html#the-impacts-of-human-activities-on-global-warming",
+    "href": "posts/ClimateScenario/globalWarning.html#the-impacts-of-human-activities-on-global-warming",
+    "title": "UNDERSTANDING THE ECOLOGICAL CRISIS",
+    "section": "2 The impacts of human activities on global warming",
+    "text": "2 The impacts of human activities on global warming\nAlmost all human activities emit greenhouse gases. The main sources of these gases are the burning of fossil fuels (coal, oil, and natural gas) for energy production, transportation, and heating, as well as deforestation and intensive agriculture.\nFurthermore, our activity often reduce the capacity of ecosystems to absorb these gases. Forests, soils and oceans are the main natural carbon sinks(puits de carbone). Their degradation through deforestation, urbanization, agriculture or pollution reduce their capacity to absorb CO2."
+  },
+  {
+    "objectID": "posts/ClimateScenario/globalWarning.html#the-consequences-of-global-warming",
+    "href": "posts/ClimateScenario/globalWarning.html#the-consequences-of-global-warming",
+    "title": "UNDERSTANDING THE ECOLOGICAL CRISIS",
+    "section": "3 The consequences of global warming",
+    "text": "3 The consequences of global warming\nIf the train continues, the consequence will be dramatic. In 2019 the Eearth’s temperature was already one degree warmer than in the pre-industrial era. This may seem negligible, but it is enoromous : The last ice age, the average temperature on Earth was only five degrees lower than today. A few degrees can radically transform the climate.\nA rise of one degree can profoundly alter the balance of ecosystems and increase the frequency of extreme weather events like droughts, floods, cyclones.\nClimate change can also affect agricultural productivity and industrial sectors’ supply of primary materials, As well as decreasing the economy as whole. Climate change affects the overalll health and safety of populations : Natural disasters, migrations, conflicts over access to resources,etc.\nThe consequences of global warming are already visible. To face them, we must starting today, aim for carbon neutrality : not emitting more greenhouse gases than we can absorb. This is the only way to limit the rise in temperature to 1.5 degrees, as recommended by the IPCC."
+  },
+  {
+    "objectID": "posts/ClimateScenario/substainablefinance.html",
+    "href": "posts/ClimateScenario/substainablefinance.html",
+    "title": "Understanding Sustainable Finance and its Regulations",
+    "section": "",
+    "text": "Sustainable finance is a team that can be difficult to define. So what exactly should we understand when we hear the term sustainable finance? To grasp The concept we need to make the difference between traditional finance and sustainable finance.\n\n\nTraditional finance targets economic performance by taking the account purely financial criteria. The main goal here is to maximize the profitability, the share price or growth prospects.\nSustainable finance, on the other hand, takes into account extra-financial criteria. These criteria are environmental, social and governance (ESG) criteria. The goal is to reconcile economic performance with positive social and environmental impacts to meet the goals of sustainable development.\n\n\n\nThe ESG criteria are the three pillars of sustainable finance. Let’s start with the environmental criteria. Their role is to measure the direct or indirect impact of the activity of an economic entity on the environment. For example, it might be to analyze a company’s CO2 emissions, its energy consumptions or the recycling of the waste it produces.\nThen there are the social criteria. They aim to measure the performance of an economic entity on social issues. For example, it might be to analyze the diversity of the workforce, the health and safety of employees, parity or the number of employees with disabilities.\nFinally, the governance criteria assess the way in which the economic entity is managed, administered and monitored. This involves for instance, analyzing the composition of the board of directors, the remuneration of the management, the transparency of the information provided or the fight against corruption."
+  },
+  {
+    "objectID": "posts/ClimateScenario/substainablefinance.html#definition-of-sustainable-finance-and-esg-criteria.",
+    "href": "posts/ClimateScenario/substainablefinance.html#definition-of-sustainable-finance-and-esg-criteria.",
+    "title": "Understanding Sustainable Finance and its Regulations",
+    "section": "",
+    "text": "Sustainable finance is a team that can be difficult to define. So what exactly should we understand when we hear the term sustainable finance? To grasp The concept we need to make the difference between traditional finance and sustainable finance.\n\n\nTraditional finance targets economic performance by taking the account purely financial criteria. The main goal here is to maximize the profitability, the share price or growth prospects.\nSustainable finance, on the other hand, takes into account extra-financial criteria. These criteria are environmental, social and governance (ESG) criteria. The goal is to reconcile economic performance with positive social and environmental impacts to meet the goals of sustainable development.\n\n\n\nThe ESG criteria are the three pillars of sustainable finance. Let’s start with the environmental criteria. Their role is to measure the direct or indirect impact of the activity of an economic entity on the environment. For example, it might be to analyze a company’s CO2 emissions, its energy consumptions or the recycling of the waste it produces.\nThen there are the social criteria. They aim to measure the performance of an economic entity on social issues. For example, it might be to analyze the diversity of the workforce, the health and safety of employees, parity or the number of employees with disabilities.\nFinally, the governance criteria assess the way in which the economic entity is managed, administered and monitored. This involves for instance, analyzing the composition of the board of directors, the remuneration of the management, the transparency of the information provided or the fight against corruption."
+  },
+  {
+    "objectID": "posts/ClimateScenario/substainablefinance.html#the-3-tools-of-sustainable-finance.",
+    "href": "posts/ClimateScenario/substainablefinance.html#the-3-tools-of-sustainable-finance.",
+    "title": "Understanding Sustainable Finance and its Regulations",
+    "section": "2 The 3 tools of sustainable finance.",
+    "text": "2 The 3 tools of sustainable finance.\nIn practice, sustainable finance use 3 tools to implement the ESG criteriaI : “Socially responsible investment” (SRI), “Green finance” and “Solidarity-based finance”\nSocially responsible investment (SRI) is an investment strategy based on the integration of ESG criteria into the selection of financial assets. Investing in the renewable energy sector or excluding companies that do not respect human rights are examples of SRI.\nGreen finance covers actions and financial operations that promote the energy and ecological transition and the fight against climate change. This includes green bonds, green loans or green funds in particular.\nSolidarity-based finance is a form of finance that aims to finance projects designed to fight against social exclusion or promote social integration. This includes microcredit, social entrepreneurship or ethical banking.\nThank you for reading and see you soon!I"
   },
   {
     "objectID": "posts/Leadership/index.html",
