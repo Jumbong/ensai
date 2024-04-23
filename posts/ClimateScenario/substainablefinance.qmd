@@ -1,0 +1,44 @@
+---
+title: "Understanding Sustainable Finance and its Regulations"
+toc: true
+number-sections: true
+author: "Jumbong Junior"
+date: "2023-11-16"
+categories: [news]
+title-block-banner: false
+html:
+    code-fold: true
+    toc: true
+---
+## Definition of sustainable finance and ESG criteria. 
+
+
+
+Sustainable finance is a team that can be difficult to define. So what exactly should we understand when we hear the term sustainable finance? To grasp The concept we need to make the difference between traditional finance and sustainable finance. 
+
+### Traditional finance and sustainable finance
+
+Traditional finance targets economic performance by taking the account purely financial criteria. The main goal here is to maximize the profitability, the share price or growth prospects. 
+
+Sustainable finance, on the other hand, takes into account extra-financial criteria. These criteria are environmental, social and governance (ESG) criteria. The goal is to reconcile economic performance with positive social and environmental impacts to meet the goals of sustainable development.
+
+### The ESG criteria of substantial finance
+
+The ESG criteria are the three pillars of sustainable finance. 
+Let's start with the **environmental criteria**. Their role is to measure the direct or indirect impact of the activity of an economic entity on the **environment**. For example, it might be to analyze a company's **CO2 emissions**, its **energy consumptions** or the **recycling of the waste** it produces.
+
+Then there are the **social criteria**. They aim to measure the performance of an economic entity on social issues. For example, it might be to analyze the **diversity** of the workforce, the **health and safety** of employees, **parity** or the **number of employees with disabilities**.
+
+Finally, the **governance criteria** assess the way in which the economic entity is **managed**, **administered** and  **monitored**. This involves for instance, analyzing the **composition of the board of directors**, the **remuneration of the management**, the **transparency** of the information provided or the **fight against corruption**.
+
+## The 3 tools of sustainable finance. 
+
+In practice, sustainable finance use 3 tools to implement the ESG criteriaI : "Socially responsible investment" (SRI), "Green finance" and "Solidarity-based finance"
+
+**Socially responsible investment** (SRI) is an investment strategy based on the integration of ESG criteria into the selection of financial assets. **Investing in the renewable energy sector** or **excluding companies that do not respect human rights** are examples of SRI.
+
+**Green finance** covers actions and financial operations that promote the **energy and ecological transition** and the **fight against climate change**. This includes **green bonds**, **green loans** or **green funds** in particular.
+
+**Solidarity-based finance** is a form of finance that aims to finance projects designed to **fight against social exclusion** or **promote social integration**. This includes **microcredit**, **social entrepreneurship** or **ethical banking**.
+
+Thank you for reading and see you soon!I 

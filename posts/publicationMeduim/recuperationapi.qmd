@@ -1,0 +1,38 @@
+---
+title: "Data retrieval from WEB API with Python"
+toc: true
+number-sections: true
+author: "Jumbong Junior"
+date: "`r Sys.Date()`"
+categories: [news]
+bibliography: references.bib
+title-block-banner: false
+notice: |
+    @brozyna2018
+html:
+    code-fold: true
+jupyter: python3
+---
+
+
+## Introduction
+
+In the current digital era, access and exploitation of data have become essential for many organizations. Web APIs( Application Programming Interface) offer a standardized interface to access data from the web. Thanks to its robusts libraries, Python greatly simplifies the process of retrieving data from the web. In this article, we will explore how to retrieve data from a web API using Python.
+
+## What is a Web API?
+
+A web API is a method for requesting and sending data between a client and a server. The client can be a web browser, a mobile application, or any other device that can access the internet. The server is a computer that hosts the data and processes the requests.  There are many types of web APIs for accessing different types of data :
+- Spotify API for music data
+- Twitter API for social media data
+- Google Maps API for location data
+- CDS API for climate data
+
+To access data from a web API, using Python, we need to follow these steps:
+1. Find the API documentation
+2. Install the necessary libraries
+3. Make a HTTP request to the API to retrieve the data
+4. Transform the data into a python object easily manipulated.
+
+The most API web provide data in JSON format. JSON format is easily readable and manipulated in Python because it is similar to a Python dictionary. Let's see how the HTTP request works in general and how to retrieve data from a web API using Python.
+
+## HTTP Request in Python

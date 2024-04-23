@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jumbong Junior">
-<meta name="dcterms.date" content="2024-03-04">
+<meta name="dcterms.date" content="2023-11-16">
 
-<title>Menu - Analyse de scénario climatique : une illustration des impacts économiques et sur les marchés financiers à long terme potentiels.</title>
+<title>Menu - simple tool in R to analyze data : Graph representationExecution</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -77,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -116,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/ClimateScenario/index.html">climat</a></li><li class="breadcrumb-item"><a href="../../posts/ClimateScenario/index.html">Scénarios climatiques</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/ClimateScenario/index.html">climat</a></li><li class="breadcrumb-item"><a href="../../posts/ClimateScenario/index.html">simple tool in R to analyze data : Graph representationExecution</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -126,38 +160,7 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/ClimateScenario/index.html">climat</a></li><li class="breadcrumb-item"><a href="../../posts/ClimateScenario/index.html">Scénarios climatiques</a></li></ol></nav>
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Analyse de scénario climatique : une illustration des impacts économiques et sur les marchés financiers à long terme potentiels.</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">news</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Jumbong Junior </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">March 4, 2024</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -194,6 +197,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Courbe de taux</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/MarketFinance/schiller.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CAPE Ratio</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -208,7 +217,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../posts/ClimateScenario/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Scénarios climatiques</span></a>
+ <span class="menu-text">simple tool in R to analyze data : Graph representationExecution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -235,41 +244,456 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#objectif" id="toc-objectif" class="nav-link active" data-scroll-target="#objectif">Objectif :</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#presentation-of-data." id="toc-presentation-of-data." class="nav-link" data-scroll-target="#presentation-of-data."><span class="header-section-number">2</span> Presentation of data.</a></li>
+  <li><a href="#distribution-of-categorical-variables-profession." id="toc-distribution-of-categorical-variables-profession." class="nav-link" data-scroll-target="#distribution-of-categorical-variables-profession."><span class="header-section-number">3</span> Distribution of categorical variables: profession.</a>
+  <ul class="collapse">
+  <li><a href="#barplot" id="toc-barplot" class="nav-link" data-scroll-target="#barplot"><span class="header-section-number">3.1</span> Barplot</a></li>
+  <li><a href="#pie-chart" id="toc-pie-chart" class="nav-link" data-scroll-target="#pie-chart"><span class="header-section-number">3.2</span> Pie chart</a></li>
+  </ul></li>
+  <li><a href="#distribution-of-numerical-variables-age" id="toc-distribution-of-numerical-variables-age" class="nav-link" data-scroll-target="#distribution-of-numerical-variables-age"><span class="header-section-number">4</span> Distribution of numerical variables: age</a>
+  <ul class="collapse">
+  <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram"><span class="header-section-number">4.1</span> Histogram</a></li>
+  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot"><span class="header-section-number">4.2</span> Boxplot</a></li>
+  <li><a href="#association-between-categorical-and-numerical-variables" id="toc-association-between-categorical-and-numerical-variables" class="nav-link" data-scroll-target="#association-between-categorical-and-numerical-variables"><span class="header-section-number">4.3</span> Association between categorical and numerical variables</a></li>
+  </ul></li>
+  <li><a href="#association-between-two-numerical-variables" id="toc-association-between-two-numerical-variables" class="nav-link" data-scroll-target="#association-between-two-numerical-variables"><span class="header-section-number">5</span> Association between two numerical variables</a></li>
+  <li><a href="#association-between-two-categorical-variables" id="toc-association-between-two-categorical-variables" class="nav-link" data-scroll-target="#association-between-two-categorical-variables"><span class="header-section-number">6</span> Association between two categorical variables</a></li>
+  <li><a href="#the-link-between-variable." id="toc-the-link-between-variable." class="nav-link" data-scroll-target="#the-link-between-variable."><span class="header-section-number">7</span> The link between variable.</a>
+  <ul class="collapse">
+  <li><a href="#correlation-between-two-numerical-variables" id="toc-correlation-between-two-numerical-variables" class="nav-link" data-scroll-target="#correlation-between-two-numerical-variables"><span class="header-section-number">7.1</span> Correlation between two numerical variables</a></li>
+  </ul></li>
+  <li><a href="#temporal-evolution-of-a-numerical-variable" id="toc-temporal-evolution-of-a-numerical-variable" class="nav-link" data-scroll-target="#temporal-evolution-of-a-numerical-variable"><span class="header-section-number">8</span> Temporal evolution of a numerical variable</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">9</span> Conclusion</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../posts/ClimateScenario/index.html">climat</a></li><li class="breadcrumb-item"><a href="../../posts/ClimateScenario/index.html">simple tool in R to analyze data : Graph representationExecution</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">simple tool in R to analyze data : Graph representation, p-value, test, odds ratio, etc.</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">news</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jumbong Junior </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 16, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
-<div class="quarto-figure quarto-figure-center">
+</header>
+
+
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>This document is primarily intended for second year students at ENSAI in general, and for those who are particularly interested in biostatistics. When we deal with data, an easy way to understand our work is to create a graph. This gives us an intuition about what we are doing. The advice to follow is to choose simplicity when using graphs and to favor those that everyone knows how to interpret. So when you create a graph, think about your audience and not your personal preferences.</p>
+<p>There are also many concerns that we use every day to take decision and we don’t know what they mean. For example the p-value. In this document, we will go through those concepts and explain them in a simple way.</p>
+</section>
+<section id="presentation-of-data." class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="presentation-of-data."><span class="header-section-number">2</span> Presentation of data.</h2>
+<p>The data used in this document come from <a href="https://www.fun-mooc.fr/fr/cours/introduction-a-la-statistique-avec-r/">ParisSaclay Introduction à la statistique avec R - Session 21</a> if the mooc is available when you will read this document. The dataset has 799 observations and 26 variables. One observation represents a prisoner, and variables correspond to the mental health status of the prisoner.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## import library for readcsv</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">## import data</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/johns/OneDrive/Bureau/code/blog/ensai/posts/ClimateScenario"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "C:/Users/johns/OneDrive/Bureau/code/blog/ensai/posts/ClimateScenario"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>smp2 <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"data/smp2.csv"</span>, <span class="at">delim =</span> <span class="st">";"</span>,  </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>,<span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(smp2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>spc_tbl_ [799 × 26] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ age         : num [1:799] 31 49 50 47 23 34 24 52 42 45 ...
+ $ prof        : chr [1:799] "autre" NA "prof.intermediaire" "ouvrier" ...
+ $ duree       : num [1:799] 4 NA 5 NA 4 NA NA 5 4 NA ...
+ $ discip      : num [1:799] 0 0 0 0 1 0 0 0 1 0 ...
+ $ n.enfant    : num [1:799] 2 7 2 0 1 3 5 2 1 2 ...
+ $ n.fratrie   : num [1:799] 4 3 2 6 6 2 3 9 12 5 ...
+ $ ecole       : num [1:799] 1 2 2 1 1 2 1 2 1 2 ...
+ $ separation  : num [1:799] 0 1 0 1 1 0 1 0 1 0 ...
+ $ juge.enfant : num [1:799] 0 0 0 0 NA 0 1 0 1 0 ...
+ $ place       : num [1:799] 0 0 0 1 1 0 1 0 0 0 ...
+ $ abus        : num [1:799] 0 0 0 0 0 0 0 0 1 1 ...
+ $ grav.cons   : num [1:799] 1 2 2 1 2 1 5 1 5 5 ...
+ $ dep.cons    : num [1:799] 0 0 0 0 1 0 1 0 1 0 ...
+ $ ago.cons    : num [1:799] 1 0 0 0 0 0 0 0 0 0 ...
+ $ ptsd.cons   : num [1:799] 0 0 0 0 0 0 0 0 0 0 ...
+ $ alc.cons    : num [1:799] 0 0 0 0 0 0 0 0 1 1 ...
+ $ subst.cons  : num [1:799] 0 0 0 0 0 0 1 0 1 0 ...
+ $ scz.cons    : num [1:799] 0 0 0 0 0 0 0 0 0 0 ...
+ $ char        : num [1:799] 1 1 1 1 1 1 1 1 4 1 ...
+ $ rs          : num [1:799] 2 2 2 2 2 1 3 2 3 2 ...
+ $ ed          : num [1:799] 1 2 3 2 2 2 3 2 3 2 ...
+ $ dr          : num [1:799] 1 1 2 2 2 1 2 2 1 2 ...
+ $ suicide.s   : num [1:799] 0 0 0 1 0 0 3 0 4 0 ...
+ $ suicide.hr  : num [1:799] 0 0 0 0 0 0 1 0 1 0 ...
+ $ suicide.past: num [1:799] 0 0 0 0 1 0 1 0 1 0 ...
+ $ dur.interv  : num [1:799] NA 70 NA 105 NA NA 105 84 78 60 ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   age = col_double(),
+  ..   prof = col_character(),
+  ..   duree = col_double(),
+  ..   discip = col_double(),
+  ..   n.enfant = col_double(),
+  ..   n.fratrie = col_double(),
+  ..   ecole = col_double(),
+  ..   separation = col_double(),
+  ..   juge.enfant = col_double(),
+  ..   place = col_double(),
+  ..   abus = col_double(),
+  ..   grav.cons = col_double(),
+  ..   dep.cons = col_double(),
+  ..   ago.cons = col_double(),
+  ..   ptsd.cons = col_double(),
+  ..   alc.cons = col_double(),
+  ..   subst.cons = col_double(),
+  ..   scz.cons = col_double(),
+  ..   char = col_double(),
+  ..   rs = col_double(),
+  ..   ed = col_double(),
+  ..   dr = col_double(),
+  ..   suicide.s = col_double(),
+  ..   suicide.hr = col_double(),
+  ..   suicide.past = col_double(),
+  ..   dur.interv = col_double()
+  .. )
+ - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
+</div>
+</div>
+<p>For our analysis, we will use four variables :</p>
+<ul>
+<li><code>age</code> : numerical variable (the age of the prisoner in years)</li>
+<li><code>n.enfant</code> : numerical variable (the number of children)</li>
+<li><code>dep.cons</code> : Existence of a depressive disorder (0 = no, 1 = yes)</li>
+<li><code>prof</code> : prisoner’s profession (1 = unemployed, 2 = farmer, 3 = independent, 4 = executive, 5 = employee, 6 = worker, 7 = retired, 8 = student).</li>
+</ul>
+<p>The first thing we want to do is to analyze the distribution of each variable.</p>
+</section>
+<section id="distribution-of-categorical-variables-profession." class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="distribution-of-categorical-variables-profession."><span class="header-section-number">3</span> Distribution of categorical variables: profession.</h2>
+<section id="barplot" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="barplot"><span class="header-section-number">3.1</span> Barplot</h3>
+<p>The graphic tool allow us to represent a distribution of categorical variables is the barplot. Before we built the distribution of variable, we have an amazing tool in our hands to summarize the data. It is the <code>table</code> function. This function allows us to count the number of occurrences of each category in a variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## count the number of occurrences of each category in a variable</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(smp2<span class="sc">$</span>prof)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+       agriculteur            artisan              autre              cadre 
+                 6                 90                 31                 24 
+           employe            ouvrier prof.intermediaire        sans emploi 
+               135                227                 58                222 </code></pre>
+</div>
+</div>
+<p>The result of the table function is a vector. We can use this vector to create a barplot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a barplot</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(smp2<span class="sc">$</span>prof), <span class="at">main =</span> <span class="st">"Distribution of profession"</span>, <span class="at">xlab =</span> <span class="st">"Profession"</span>, <span class="at">ylab =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
 <figure class="figure">
-<p><img src="risquePhysique.png" class="img-fluid figure-img"></p>
-<figcaption>Risques physiques et climatiques</figcaption>
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
-<section id="objectif" class="level1">
-<h1>Objectif :</h1>
-<p>L’objectif est d’intégrer les données climatiques dans le cadre d’allocation d’actifs.</p>
-<p>Il s’agit plus simplement de comprendre comment intégrer les scénarions climatiques et les risques climatiques dans les projections financières futures.</p>
-<p>Comprendre comment ceux-ci impactent les performances financières d’investissement.</p>
-<p>Cet article de Luca Bongiorno et al.&nbsp;met à lumière les impacts potentiels du changement climatique sur les marchés financiers, en se concentrant sur leurs effets à long terme.</p>
-<p>Elle utilise un outil de modélisation top-down dévéloppé par Ortec finance qui intégre la science climatique aux effets macroéconomiques et financiers pour examiner les impacts possibles de trois scénarios plausible et non extrèmes.</p>
-<p>L’article analyse l’impact sur le PIB, il en ressort une réduction de PIB dans les trois scénarios, avec un impact très sévère dans le cadre d’une transition ratée où les objectifs climatiques de l’accord de Paris ne sont pas atteints.</p>
-<p>L’impact sur les marchés financiers est également analysé. Il en ressort une baisse des rendements cumulés des actions mondiales</p>
-<p>GIEC : groupe d’experts intergouvernemental sur l’évolution du climat.</p>
-<p>Ces risques climatiques commencent à se manifester à travers les changements de conditions climatiques(variations de température, régimes pluviométriques, etc.), l’élévation du niveau de la mer, les conditions météorologiques extrêmes, les incendies de forêt, les sécheresses, les inondations, les ouragans, les cyclones, les tempêtes de neige, les vagues de chaleur, les vagues de froid, etc. Ces événements ont des impacts négatifs significatifs et pertubent divers secteurs notamment l’agriculture, la sylviculture, l’énergie, les infrastructures.</p>
-<p>Les actions menant à limiter l’ampleur du changement climatique en reduisant les émissions de gaz à effet de serre, principalement en diminuant l’utilisation de l’énergie fossile, en utilisant l’énergie renouvelable.</p>
-<p>Le changement climatique est un risque systémique car il affecte tous les secteurs de l’économie de la même manière et en même temps.</p>
-<p>Les changements climatiques posent des risques pour l’économie et le système financier.</p>
-<p>Les risques climatiques sont classés en deux catégories : les risques physiques et les risques de transition.</p>
-<p>les risques physiques découlent des changements des conditions climatiques et des événements météorologiques extrêmes. Ils peuvent être aigus ou chroniques.</p>
-<p>les risques de transition résultent du passage à une économie à faible émission de carbone, à l’utilisation d’une technologie propre et à l’adoption de pratiques commerciales durables. Ils peuvent être liés à la politique, à la technologie, à la marché et aux risques légaux.</p>
-<p>Bonjour, merci de me donner l’opportunité de m’exprimer aujourd’hui. Je m’appelle Junior Jumbong. Mon intérêt</p>
+</div>
+</div>
+</section>
+<section id="pie-chart" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="pie-chart"><span class="header-section-number">3.2</span> Pie chart</h3>
+<p>Another way to represent the distribution of the category variable is the pie chart. The pie chart is a circle divided into sectors. Each sector represents a category of the variable. The size of the sector is proportional to the frequency of the category. Statistics don’t like the pie chart because it is difficult to compare the size of the sectors. However, it is a good way to represent the distribution of a variable when the number of categories is small.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a pie chart and put the legend on the right and the percentage</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="fu">table</span>(smp2<span class="sc">$</span>dep.cons), <span class="at">main =</span> <span class="st">"Distribution of depressive disorder"</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>), <span class="at">cex =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="distribution-of-numerical-variables-age" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="distribution-of-numerical-variables-age"><span class="header-section-number">4</span> Distribution of numerical variables: age</h2>
+<section id="histogram" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="histogram"><span class="header-section-number">4.1</span> Histogram</h3>
+<p>The histogram is a graphical representation of the distribution of a numerical variable. Unlike barplot, We don’t need to use the <code>table</code> function to create an histogram.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create an histogram</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(smp2<span class="sc">$</span>age, <span class="at">main =</span> <span class="st">"Distribution of age"</span>, <span class="at">xlab =</span> <span class="st">"Age"</span>, <span class="at">ylab =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can also plot in the same graphic the density of the variable. The density is the probability of the variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create an histogram with density</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(smp2<span class="sc">$</span>age, <span class="at">main =</span> <span class="st">"Distribution of age"</span>, <span class="at">xlab =</span> <span class="st">"Age"</span>, <span class="at">ylab =</span> <span class="st">"Density"</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(smp2<span class="sc">$</span>age,<span class="at">na.rm =</span>T), <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="boxplot" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="boxplot"><span class="header-section-number">4.2</span> Boxplot</h3>
+<p>The boxplot is a graphical representation of the distribution of a numerical variable. The boxplot is composed of a box and two whiskers. The box represents the interquartile range (IQR). The whiskers represent the minimum and maximum values of the variable. The boxplot is a good way to detect outliers in the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a boxplot</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(smp2<span class="sc">$</span>age, <span class="at">main =</span> <span class="st">"Distribution of age"</span>, <span class="at">xlab =</span> <span class="st">"Age"</span>, <span class="at">ylab =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="association-between-categorical-and-numerical-variables" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="association-between-categorical-and-numerical-variables"><span class="header-section-number">4.3</span> Association between categorical and numerical variables</h3>
+<p>The boxplot is a good way to represent the distribution of a numerical variable according to a categorical variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a boxplot</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(smp2<span class="sc">$</span>age <span class="sc">~</span> smp2<span class="sc">$</span>dep.cons, <span class="at">main =</span> <span class="st">"Distribution of age according to depressive disorder"</span>, <span class="at">xlab =</span> <span class="st">"Depressive disorder"</span>, <span class="at">ylab =</span> <span class="st">"Age"</span>)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="association-between-two-numerical-variables" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="association-between-two-numerical-variables"><span class="header-section-number">5</span> Association between two numerical variables</h2>
+<p>When you deal with two numerical variables.The best way to represent the association between them is the scatter plot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a scatter plot</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(smp2<span class="sc">$</span>age, smp2<span class="sc">$</span>n.enfant, <span class="at">main =</span> <span class="st">"Association between age and number of children"</span>, <span class="at">xlab =</span> <span class="st">"Age"</span>, <span class="at">ylab =</span> <span class="st">"Number of children"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As you see in this graphic, it seem like all the points are not represented. This is because the number of point is too large. R have a good function to deal with the problems : <code>jitter</code>. This function add a little noise to the data to avoid the overplotting.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a scatter plot</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">jitter</span>(smp2<span class="sc">$</span>age), <span class="fu">jitter</span>(smp2<span class="sc">$</span>n.enfant), <span class="at">main =</span> <span class="st">"Association between age and number of children"</span>, <span class="at">xlab =</span> <span class="st">"Age"</span>, <span class="at">ylab =</span> <span class="st">"Number of children"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="association-between-two-categorical-variables" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="association-between-two-categorical-variables"><span class="header-section-number">6</span> Association between two categorical variables</h2>
+<p>The best way to represent the association between two categorical variables is to use a contingency table. A contingency table displays the frequency or count of observations that fall into each combination of the categories of the two variables. We can use the table of contingency to create a barplot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a contingency table</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(smp2<span class="sc">$</span>dep.cons, smp2<span class="sc">$</span>prof)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+    agriculteur artisan autre cadre employe ouvrier prof.intermediaire
+  0           4      62    22    16      79     131                 31
+  1           2      28     9     8      56      96                 27
+   
+    sans emploi
+  0         133
+  1          89</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a barplot</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(smp2<span class="sc">$</span>dep.cons, smp2<span class="sc">$</span>prof), <span class="at">main =</span> <span class="st">"Association between depressive disorder and profession"</span>, <span class="at">xlab =</span> <span class="st">"Depressive disorder"</span>, <span class="at">ylab =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="the-link-between-variable." class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="the-link-between-variable."><span class="header-section-number">7</span> The link between variable.</h2>
+<section id="correlation-between-two-numerical-variables" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="correlation-between-two-numerical-variables"><span class="header-section-number">7.1</span> Correlation between two numerical variables</h3>
+<p>There are many ways to study the correlation between two numerical variables. The most common ways are the Pearson correlation coefficient and the Spearman correlation. The Pearson correlation coefficient is used when the two variables are normally distributed. The Spearman correlation is used when the two variables are not normally distributed. We can not use those tools if Variables have a missing values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Pearson correlation</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(smp2<span class="sc">$</span>age, smp2<span class="sc">$</span>n.enfant, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4326039</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Spearman correlation</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(smp2<span class="sc">$</span>age, smp2<span class="sc">$</span>n.enfant, <span class="at">method =</span> <span class="st">"spearman"</span>, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4243662</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="temporal-evolution-of-a-numerical-variable" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="temporal-evolution-of-a-numerical-variable"><span class="header-section-number">8</span> Temporal evolution of a numerical variable</h2>
+<p>I will finish by showing how to represent the evolution of the mean of a numerical variable over time. This is very useful In biostatistic When we want to show the evolution of a disease over time. I will use the package <code>gplots</code> to create the graph. You can use ggplot2 to create the same graph. We will use a temporal data outils_hdrs.csv. The data have 3 variables : - NUMERO : the id of the patient - VISIT : the visit of the patient - HDRS : the score of the patient</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>hdrs <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"data/outils_hdrs.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 1053 Columns: 3
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ";"
+dbl (3): NUMERO, VISIT, HDRS
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(hdrs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>spc_tbl_ [1,053 × 3] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ NUMERO: num [1:1053] 96 96 96 96 96 96 96 96 157 157 ...
+ $ VISIT : num [1:1053] 0 4 7 14 21 28 42 56 0 4 ...
+ $ HDRS  : num [1:1053] 34 26 12 7 5 1 1 1 27 19 ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   NUMERO = col_double(),
+  ..   VISIT = col_double(),
+  ..   HDRS = col_double()
+  .. )
+ - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install packages</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("gplots")  </span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots)  </span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="do">### Representation of the evolution of the mean of the HDRS score over time</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(hdrs<span class="sc">$</span>HDRS<span class="sc">~</span>hdrs<span class="sc">$</span>VISIT,<span class="at">gap=</span><span class="dv">0</span>,<span class="at">barcol=</span><span class="st">"black"</span>,<span class="at">main=</span><span class="st">"Evolution moyenne du HDRS dans le temps"</span>,<span class="at">xlab=</span><span class="st">"Visite"</span>,<span class="at">ylab=</span><span class="st">"HDRS moyen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>To compute the same graph with ggplot2, you need to compute the mean, the first quartile and the third quartile of the HDRS score for each visit.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>hdrs_mean <span class="ot">&lt;-</span> hdrs <span class="sc">%&gt;%</span> </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(VISIT) <span class="sc">%&gt;%</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(HDRS,<span class="at">na.rm =</span>T),</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">lower =</span> <span class="fu">quantile</span>(HDRS,<span class="fl">0.25</span>,<span class="at">na.rm =</span> T),</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">upper =</span> <span class="fu">quantile</span>(HDRS,<span class="fl">0.75</span>,<span class="at">na.rm =</span> T))</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(hdrs_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  VISIT  mean lower upper
+  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     0  27.9  25      30
+2     4  25.2  23      28
+3     7  20.6  16      25
+4    14  16.7  12      22
+5    21  14.3   8      20
+6    28  11.5   6.5    16</code></pre>
+</div>
+</div>
+<p>Now we can create the graph with ggplot2.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hdrs_mean, <span class="fu">aes</span>(<span class="at">x =</span> VISIT, <span class="at">y =</span> mean)) <span class="sc">+</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>lower, <span class="at">ymax=</span>upper), <span class="at">width=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">14</span>,<span class="dv">21</span>,<span class="dv">28</span>,<span class="dv">42</span>,<span class="dv">56</span>)) <span class="sc">+</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">21</span>, <span class="at">linetype=</span><span class="st">"dashed"</span>,</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">color=</span><span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">0.5</span>),</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.line.y =</span> <span class="fu">element_line</span>(<span class="at">color=</span><span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">face=</span><span class="st">"bold"</span>),</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.title=</span><span class="fu">element_blank</span>(), <span class="at">legend.key =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>), <span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>)) <span class="sc">+</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"VISIT"</span>)<span class="sc">+</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"The mean score of the patient"</span>) <span class="sc">+</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">0.5</span>, <span class="st">"cm"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Let’s explain each part of this graphic :</p>
+<ul>
+<li>The ggplot(hdrs_mean, aes(x = VISIT, y = mean)) + function creates the graph. The VISIT variable is on the x-axis and the mean variable is on the y-axis.</li>
+<li>The geom_point(size = 3) + function creates the points of the graph.</li>
+<li>The geom_line(size = 0) + function creates the line of the graph.</li>
+<li>The geom_errorbar(aes(ymin=lower, ymax=upper), width=1) + function creates the error bars of the graph.</li>
+<li>The scale_x_continuous(expand=c(0,0), breaks=c(0,4,7,14,21,28,42,56)) + function sets the x-axis.</li>
+<li>The geom_vline(xintercept = 21, linetype=“dashed”, color = “black”, size=1) + function creates a vertical line at the 21st visit.</li>
+<li>The theme_classic() + function sets the theme of the graph.</li>
+<li>The theme(axis.line.x = element_line(color=“black”, size = 0.5), axis.line.y = element_line(color=“black”, size = 0.5)) + function sets the color and size of the axis lines.</li>
+<li>The theme(axis.text=element_text(size=12, face=“bold”), legend.title=element_blank(), legend.key = element_blank()) + function sets the size and style of the axis text.</li>
+<li>The theme(axis.text=element_text(size=12), axis.title=element_text(size=12)) + function sets the size of the axis text.</li>
+<li>The xlab(“VISIT”)+ ylab(“The mean score of the patient”) + function sets the labels of the x-axis and y-axis.</li>
+<li>The theme(legend.position = c(1,1)) + function sets the position of the legend.</li>
+<li>The theme(plot.margin = margin(1, 1, 1, 0.5, “cm”)) + function sets the margins of the graph.</li>
+</ul>
+</section>
+<section id="conclusion" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">9</span> Conclusion</h2>
+<p>I will finish here And I hope that you will enjoy it. I will continue to write about the p-value, the test, the odds ratio, etc. in the next document.</p>
 
 
 </section>

@@ -1,47 +1,241 @@
 ---
-title: "Analyse de scénario climatique : une illustration des impacts économiques et sur les marchés financiers à long terme potentiels."
+title: "simple tool in R to analyze data : Graph representationExecution"
+toc: true
+number-sections: true
 author: "Jumbong Junior"
-date: "2023-15-04"
+date: "`r Sys.Date()`"
 categories: [news]
-format:
-  html:
+title-block-banner: false
+html:
+    code-fold: true
     toc: true
-    html-math-method: katex
-
 ---
 
-![Risques physiques et climatiques](risquePhysique.png)
+## Introduction
 
-#  Objectif :
+This document is primarily intended for second year students at ENSAI in general, and for those who are particularly interested in biostatistics. When we deal with data, an easy way to understand our work is to create a graph. This gives us an intuition about what we are doing. The advice to follow is to choose simplicity when using graphs and to favor those that everyone knows how to interpret. So when you create a graph, think about your audience and not your personal preferences. 
 
-L'objectif est d'intégrer les données climatiques dans le cadre d'allocation d'actifs.
+There are also many concerns that we use every day to take decision and we don't know what they mean. For example the p-value. In this document, we will go through those concepts and explain them in a simple way. 
 
-Il s'agit plus simplement de comprendre comment intégrer les scénarions climatiques et les risques climatiques dans les projections financières futures.
 
-Comprendre comment ceux-ci impactent les performances financières d'investissement.
 
-Cet article de Luca Bongiorno et al. met à lumière les impacts potentiels du changement climatique sur les marchés financiers, en se concentrant sur leurs effets à long terme.
 
-Elle utilise un outil de modélisation top-down dévéloppé par Ortec finance qui intégre la science climatique aux effets macroéconomiques et financiers pour examiner les impacts possibles de trois scénarios plausible et non extrèmes.
+## Presentation of data.
 
-L'article analyse l'impact sur le PIB, il en ressort une réduction de PIB dans les trois scénarios, avec un impact très sévère dans le cadre d'une transition ratée où les objectifs climatiques de l'accord de Paris ne sont pas atteints.
+The data used in this document come from [ParisSaclay Introduction à la statistique avec R - Session 21](https://www.fun-mooc.fr/fr/cours/introduction-a-la-statistique-avec-r/) if the mooc is available when you will read this document. The dataset has 799 observations and 26 variables. One observation represents a prisoner, and variables correspond to the mental health status of the prisoner. 
 
-L'impact sur les marchés financiers est également analysé. Il en ressort une baisse des rendements cumulés des actions mondiales
+```{r}
+## import library for readcsv
+library(readr)
 
-GIEC : groupe d'experts intergouvernemental sur l'évolution du climat.
+## import data
+setwd("C:/Users/johns/OneDrive/Bureau/code/blog/ensai/posts/ClimateScenario")
 
-Ces risques climatiques commencent à se manifester à travers les changements de conditions climatiques(variations de température, régimes pluviométriques, etc.), l'élévation du niveau de la mer, les conditions météorologiques extrêmes, les incendies de forêt, les sécheresses, les inondations, les ouragans, les cyclones, les tempêtes de neige, les vagues de chaleur, les vagues de froid, etc. Ces événements ont des impacts négatifs significatifs et pertubent divers secteurs notamment l'agriculture, la sylviculture, l'énergie, les infrastructures.
+getwd()
+smp2 <- read_delim("data/smp2.csv", delim = ";",  
+    escape_double = FALSE, trim_ws = TRUE,show_col_types = FALSE)
 
-Les actions menant à limiter l'ampleur du changement climatique en reduisant les émissions de gaz à effet de serre, principalement en diminuant l'utilisation de l'énergie fossile, en utilisant l'énergie renouvelable.
+str(smp2)
+```
 
-Le changement climatique est un risque systémique car il affecte tous les secteurs de l'économie de la même manière et en même temps.
+For our analysis, we will use four variables :
 
-Les changements climatiques posent des risques pour l'économie et le système financier.
+- `age` : numerical variable (the age of the prisoner in years)
+- `n.enfant` : numerical variable (the number of children)
+- `dep.cons` : Existence of a depressive disorder (0 = no, 1 = yes)
+- `prof` : prisoner's profession (1 = unemployed, 2 = farmer, 3 = independent, 4 = executive, 5 = employee, 6 = worker, 7 = retired, 8 = student).
 
-Les risques climatiques sont classés en deux catégories : les risques physiques et les risques de transition.
+The first thing we want to do is to analyze the distribution of each variable. 
 
-les risques physiques découlent des changements des conditions climatiques et des événements météorologiques extrêmes. Ils peuvent être aigus ou chroniques. 
+## Distribution of categorical variables: profession.
 
-les risques de transition résultent du passage à une économie à faible émission de carbone, à l'utilisation d'une technologie propre et à l'adoption de pratiques commerciales durables. Ils peuvent être liés à la politique, à la technologie, à la marché et aux risques légaux.
+### Barplot
 
-Bonjour, merci de me donner l'opportunité de m'exprimer aujourd'hui. Je m'appelle Junior Jumbong. Mon intérêt 
+The graphic tool allow us to represent a distribution of categorical variables is the barplot.
+Before we built the distribution of variable, we have an amazing tool in our hands to summarize the data. It is the `table` function. This function allows us to count the number of occurrences of each category in a variable.
+
+```{r}
+## count the number of occurrences of each category in a variable
+table(smp2$prof)
+```
+
+The result of the table function is a vector. We can use this vector to create a barplot.
+
+```{r}
+## create a barplot
+barplot(table(smp2$prof), main = "Distribution of profession", xlab = "Profession", ylab = "Frequency")
+```
+
+
+### Pie chart
+
+Another way to represent the distribution of the category variable is the pie chart. The pie chart is a circle divided into sectors. Each sector represents a category of the variable. The size of the sector is proportional to the frequency of the category. Statistics don't like the pie chart because it is difficult to compare the size of the sectors. However, it is a good way to represent the distribution of a variable when the number of categories is small.
+
+```{r}
+## create a pie chart and put the legend on the right and the percentage
+pie(table(smp2$dep.cons), main = "Distribution of depressive disorder", col = c("red", "blue"), labels = c("No", "Yes"), cex = 0.8)
+```
+
+## Distribution of numerical variables: age
+
+### Histogram
+
+The histogram is a graphical representation of the distribution of a numerical variable. Unlike barplot, We don't need to use the `table` function to create an histogram. 
+
+```{r}  
+## create an histogram
+hist(smp2$age, main = "Distribution of age", xlab = "Age", ylab = "Frequency")
+```
+
+We can also plot in the same graphic the density of the variable. The density is the probability of the variable.
+
+```{r}
+## create an histogram with density
+hist(smp2$age, main = "Distribution of age", xlab = "Age", ylab = "Density", freq = FALSE)
+lines(density(smp2$age,na.rm =T), col = "red")
+```
+
+### Boxplot
+
+The boxplot is a graphical representation of the distribution of a numerical variable. The boxplot is composed of a box and two whiskers. The box represents the interquartile range (IQR). The whiskers represent the minimum and maximum values of the variable. The boxplot is a good way to detect outliers in the data.
+
+```{r}
+## create a boxplot
+boxplot(smp2$age, main = "Distribution of age", xlab = "Age", ylab = "Frequency")
+```
+
+### Association between categorical and numerical variables
+
+The  boxplot is a good way to represent the distribution of a numerical variable according to a categorical variable.
+
+```{r}
+## create a boxplot
+boxplot(smp2$age ~ smp2$dep.cons, main = "Distribution of age according to depressive disorder", xlab = "Depressive disorder", ylab = "Age")    
+```
+
+## Association between two numerical variables
+
+When you deal with two numerical variables.The best way to represent the association between them is the scatter plot. 
+
+```{r}
+## create a scatter plot
+plot(smp2$age, smp2$n.enfant, main = "Association between age and number of children", xlab = "Age", ylab = "Number of children")
+```
+
+As you see in this graphic, it seem like all the points are not represented. This is because the number of point is too large. R have a good function to deal with the problems : `jitter`. This function add a little noise to the data to avoid the overplotting.
+
+```{r}
+## create a scatter plot
+plot(jitter(smp2$age), jitter(smp2$n.enfant), main = "Association between age and number of children", xlab = "Age", ylab = "Number of children")
+```
+
+## Association between two categorical variables
+
+The best way to represent the association between two categorical variables is to use a contingency table. A contingency table displays the frequency or count of observations that fall into each combination of the categories of the two variables. We can use the table of contingency to create a barplot.
+
+```{r}
+## create a contingency table
+table(smp2$dep.cons, smp2$prof)
+
+## create a barplot
+barplot(table(smp2$dep.cons, smp2$prof), main = "Association between depressive disorder and profession", xlab = "Depressive disorder", ylab = "Frequency")
+```
+
+## The link between variable. 
+
+### Correlation between two numerical variables
+
+There are many ways to study the correlation between two numerical variables. The most common ways are the Pearson correlation coefficient and the Spearman correlation. The Pearson correlation coefficient is used when the two variables are normally distributed. The Spearman correlation is used when the two variables are not normally distributed. We can not use those tools if Variables have a missing values.  
+
+```{r}
+## Pearson correlation
+cor(smp2$age, smp2$n.enfant, use = "complete.obs")
+
+## Spearman correlation
+cor(smp2$age, smp2$n.enfant, method = "spearman", use = "complete.obs")
+```
+
+## Temporal evolution of a numerical variable
+
+I will finish by showing how to represent the evolution of the mean of a numerical variable over time. This is very useful In biostatistic When we want to show the evolution of a disease over time.
+I will use the package `gplots` to create the graph. You can use ggplot2 to create the same graph. We will use a temporal data outils_hdrs.csv.
+The data have 3 variables :
+- NUMERO : the id of the patient
+- VISIT : the visit of the patient
+- HDRS : the score of the patient
+
+
+```{r}
+hdrs <- read_csv2("data/outils_hdrs.csv")
+str(hdrs)
+
+```
+
+
+```{r, warning=FALSE, message=FALSE}
+# install packages
+
+#install.packages("gplots")  
+
+library(gplots)  
+
+### Representation of the evolution of the mean of the HDRS score over time
+plotmeans(hdrs$HDRS~hdrs$VISIT,gap=0,barcol="black",main="Evolution moyenne du HDRS dans le temps",xlab="Visite",ylab="HDRS moyen")
+```
+
+
+To compute the same graph with ggplot2, you need to compute the mean, the first quartile and the third
+quartile of the HDRS score for each visit.
+
+```{r, warning=FALSE, message=FALSE}
+library(dplyr)
+hdrs_mean <- hdrs %>% 
+  group_by(VISIT) %>%
+  summarise(mean = mean(HDRS,na.rm =T),
+            lower = quantile(HDRS,0.25,na.rm = T),
+            upper = quantile(HDRS,0.75,na.rm = T))
+head(hdrs_mean)
+```
+
+Now we can create the graph with ggplot2.
+```{r, warning=FALSE, message=FALSE}
+library(ggplot2)
+ggplot(hdrs_mean, aes(x = VISIT, y = mean)) +
+  geom_point(size = 3) +
+  geom_line(size = 0) +
+  geom_errorbar(aes(ymin=lower, ymax=upper), width=1)+
+  scale_x_continuous(expand=c(0,0), breaks=c(0,4,7,14,21,28,42,56)) +
+  geom_vline(xintercept = 21, linetype="dashed",
+               color = "black", size=1) +
+    theme_classic() +
+    theme(axis.line.x = element_line(color="black", size = 0.5),
+          axis.line.y = element_line(color="black", size = 0.5)) +
+    theme(axis.text=element_text(size=12, face="bold"),
+          legend.title=element_blank(), legend.key = element_blank()) +
+    theme(axis.text=element_text(size=12), axis.title=element_text(size=12)) +
+    xlab("VISIT")+
+    ylab("The mean score of the patient") +
+    theme(legend.position = c(1,1)) +
+    theme(plot.margin = margin(1, 1, 1, 0.5, "cm"))
+
+```
+
+Let's explain each part of this graphic :
+
+- The ggplot(hdrs_mean, aes(x = VISIT, y = mean)) + function creates the graph. The VISIT variable is on the x-axis and the mean variable is on the y-axis.
+- The geom_point(size = 3) + function creates the points of the graph.
+- The geom_line(size = 0) + function creates the line of the graph.
+- The geom_errorbar(aes(ymin=lower, ymax=upper), width=1) + function creates the error bars of the graph.
+- The scale_x_continuous(expand=c(0,0), breaks=c(0,4,7,14,21,28,42,56)) + function sets the x-axis.
+- The geom_vline(xintercept = 21, linetype="dashed", color = "black", size=1) + function creates a vertical line at the 21st visit.
+- The theme_classic() + function sets the theme of the graph.
+- The theme(axis.line.x = element_line(color="black", size = 0.5), axis.line.y = element_line(color="black", size = 0.5)) + function sets the color and size of the axis lines.
+- The theme(axis.text=element_text(size=12, face="bold"), legend.title=element_blank(), legend.key = element_blank()) + function sets the size and style of the axis text.
+- The theme(axis.text=element_text(size=12), axis.title=element_text(size=12)) + function sets the size of the axis text.
+- The xlab("VISIT")+ ylab("The mean score of the patient") + function sets the labels of the x-axis and y-axis.
+- The theme(legend.position = c(1,1)) + function sets the position of the legend.
+- The theme(plot.margin = margin(1, 1, 1, 0.5, "cm")) + function sets the margins of the graph.
+
+## Conclusion
+
+I will finish here And I hope that you will enjoy it. I will continue to write about the p-value, the test, the odds ratio, etc. in the next document.

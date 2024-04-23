@@ -3,7 +3,7 @@ title: "Examen de machine learning QCM"
 author: "Jumbong Junior"
 date: "2023-12-26"
 categories: [news]
-
+title-block-banner: false
 ---
 
 ![qcm](QCM.png)

@@ -8,7 +8,7 @@ format:
     toc: true
     toc-title: "Sommaire"
     html-math-method: katex
-
+title-block-banner: false
 ---
 
 # What is market risk ?

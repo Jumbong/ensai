@@ -4,6 +4,7 @@ author: "Jumbong Junior"
 date: "2024-02-29"                                                
 categories: [news]                                              
 tags: [rayonnement, albedo] 
+title-block-banner: false
 format:                                     
     html:                                                             
         code-fold: true                                                   

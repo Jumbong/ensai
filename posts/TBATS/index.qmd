@@ -1,9 +1,12 @@
 ---
 title: "TBATS : N'a pas de contraintes de saisonnalité"
+toc: true
+number-sections: true
 author: "Jumbong Junior"
-date: "2023-11-16"
+date: "`r Sys.Date()`"
 categories: [news]
 bibliography: references.bib
+title-block-banner: false
 notice: |
     @brozyna2018
 html:

@@ -1,0 +1,42 @@
+---
+title: "PSI and CRAMER'S V"
+toc: true
+number-sections: true
+author: "Jumbong Junior"
+date: "2023-11-16"
+categories: [news]
+title-block-banner: false
+html:
+    code-fold: true
+jupyter: python3
+---
+
+## Introduction
+
+When dealing with credit risk models, we sometimes want to assess the representiveness between two databases Let's assume that you have divided your database into a training set and it test set. In this case, we can use the population stability index(PSI) and CRAMER's V to assess the representativeness between the two databases. This document will be divided into three parts. In the first part, I will explain how the PSI works. In the second part of your explain how Cramer's V works. Finally, I will guide you through how implementing PSI and Cramer's V in Python using real data. 
+
+## Population Stability Index (PSI).
+
+We can define the PSI As a measure of how much a population have shifted over time, or between two different samples of a population (e.g., training and test data). In the case of two different samples of a population , the training and the test set, the PSI can be calculated as follows: 
+$$
+PSI = \sum_{bucket} (P_{train} - P_{test}) \times \log(\frac{P_{train}}{P_{test}})
+$$
+where $P_{train}$ and $P_{test}$ are the proportion of the population in each bucket for the training and test set, respectively. 
+
+## CRAMER's V
+
+The Cramer's V test it is goodness of fit test applied to binned data. Continuous knows that time must be bind into a fixed number of buckets. This number should be determined statically using clustering methodology. The segmentation defined must be propagated on all the historical data.
+
+The Cramer's V Consider the size of the portfolios and the number of classes, there is a link between $\chi^2$ statistics and Cramer's V:
+$$
+V = \sqrt{\frac{\chi^2}{n \times (min(c, r) - 1)}}
+$$
+where $c$ is the number of columns, $r$ is the number of rows, and $n$ is the total number of observations. 
+
+Considering a simple. using the binned value of a variable in the training set and binned value of the same variable in the test set using the same segmentation. We will use the value of the Cramer's V statistic.
+- If the value is low. It's mean there's no link between the variable and the belonging to the training or test set.
+- If the value is high, they say link between the variable and the belonging to the training or test set.
+
+## Implementation
+
+Before implementing. ensure that you have done the same The same treatment in the test set as you have done in the training set. 

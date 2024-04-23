@@ -1,0 +1,15 @@
+{
+  "hash": "099f955535e3ca331c1f7d800c524121",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Quarto dashboard\"\ndate: \"2024-04-06\"\nauthor: \"Jumbong Junior\"\ntitle-block-banner: '#F9A825'\ntitle-block-banner-color: '#000000'\ntoc: true\ntoc-expand: true\nformat:\n    html:\n        theme: sandstone\n        embed-resources: true\n        font-color: '#000000'\n        linestrech: 1.2\n---\n\n\n# Introduction\n\n## Quarto is fun\n\n## You can use \n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Install the reticulate package\n\n#install.packages(\"reticulate\")\n# Load the reticulate package\n\nlibrary(reticulate)\n```\n:::\n\n\n\n\n## You can use python\n\n## You can use Observable\n\n```",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

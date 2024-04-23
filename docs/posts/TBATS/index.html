@@ -157,10 +157,10 @@ window.Quarto = {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed fullcontent">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -209,38 +209,7 @@ window.Quarto = {
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">TBATS : N’a pas de contraintes de saisonnalité</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">news</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Jumbong Junior </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">November 16, 2023</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -277,6 +246,12 @@ window.Quarto = {
  <span class="menu-text">Courbe de taux</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/MarketFinance/schiller.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CAPE Ratio</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -291,7 +266,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../posts/ClimateScenario/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Scénarios climatiques</span></a>
+ <span class="menu-text">simple tool in R to analyze data : Graph representationExecution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -313,19 +288,64 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#présentation-du-modèle-tbats" id="toc-présentation-du-modèle-tbats" class="nav-link active" data-scroll-target="#présentation-du-modèle-tbats"><span class="header-section-number">1</span> Présentation du modèle TBATS</a></li>
+  <li><a href="#présentation-des-données" id="toc-présentation-des-données" class="nav-link" data-scroll-target="#présentation-des-données"><span class="header-section-number">2</span> Présentation des données</a></li>
+  <li><a href="#le-dendogramme-de-la-série-temporelle" id="toc-le-dendogramme-de-la-série-temporelle" class="nav-link" data-scroll-target="#le-dendogramme-de-la-série-temporelle"><span class="header-section-number">3</span> Le dendogramme de la série temporelle</a></li>
+  <li><a href="#résultats-de-prévision-avec-tbats" id="toc-résultats-de-prévision-avec-tbats" class="nav-link" data-scroll-target="#résultats-de-prévision-avec-tbats"><span class="header-section-number">4</span> Résultats de Prévision avec TBATS</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5.0.1</span> References</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">TBATS : N’a pas de contraintes de saisonnalité</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">news</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jumbong Junior </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 16, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <p>Dans notre quête pour décrypter les tendances de consommation énergétique en France, tout au long de notre projet de série temporelle, nous avons été confrontés à un défi de taille : prédire efficacement la consommation future d’énergie dans un contexte de double saisonnalité. En explorant au-delà des méthodes classiques telles que les modèles SARIMA et ARIMA, nous avons rencontré des obstacles liés à l’estimation des variations saisonnières hebdomadaires et annuelles. Ces complexités nous ont conduits vers une solution innovante : le modèle TBATS.</p>
 <p>Le modèle TBATS, une avancée significative dans l’analyse des séries temporelles, embrasse la multifacette de la saisonnalité grâce à une élégante synthèse de fonctions trigonométriques. Contrairement aux modèles ARIMA et SARIMA qui peinaient à capturer les subtilités de nos données, TBATS a brillé par sa capacité à intégrer des périodicités multiples.</p>
 <p>Dans cet article, nous plongeons au cœur de la méthodologie mathématique du modèle TBATS avant de le mettre en application sur nos données de consommation énergétique. Rejoignez-nous pour une exploration de la modélisation prédictive avec Python et la librairie tbats, et découvrez comment nous avons illuminé le chemin vers des prévisions énergétiques plus précises.</p>
-<section id="présentation-du-modèle-tbats" class="level1">
-<h1>Présentation du modèle TBATS</h1>
+<section id="présentation-du-modèle-tbats" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Présentation du modèle TBATS</h1>
 <p>Le modèle TBATS ou encore (Trigonometric, Box-Cox transform, ARMA errors, Trend and Seasonal components)<span class="citation" data-cites="delivera2011">(<a href="#ref-delivera2011" role="doc-biblioref">De Livera, Hyndman, and Snyder 2011</a>)</span> a pour paramètres TBATS(<span class="math inline">\(\omega\)</span>, {p,q}, <span class="math inline">\(\phi\)</span>, <span class="math inline">\({&lt;m_1,k_1&gt;,...,&lt;m_n,k_n&gt;}\)</span>) où :</p>
 <ul>
 <li><span class="math inline">\(\omega\)</span> correspond à la transformation de Box-Cox.</li>
@@ -372,12 +392,12 @@ s^{*}_{j,t}(i) = -s_{j,t-1}(i) \sin \lambda_j(i) + s^{*}_{j,t-1}(i) \cos \lambda
 <p>Dans l’analyse des prédictions de modèles statistiques, la compréhension des erreurs est cruciale. En comparant le Mean Error (ME) et le Mean Absolute Error (MAE), nous pouvons déterminer si les valeurs prédites sont systématiquement plus élevées ou plus faibles que les valeurs réelles, indiquant un biais directionnel. De même, la comparaison entre le Mean Percentage Error (MPE) et le Mean Absolute Percentage Error (MAPE) révèle l’ampleur de ce biais en termes de pourcentage.</p>
 <p>Mais ce n’est pas tout. L’analyse du Mean Squared Error (MSE) peut révéler la présence de valeurs aberrantes ou d’erreurs exceptionnellement élevées dans les prédictions. Ces erreurs extrêmes se manifestent souvent par un écart significatif entre le MAE et le Root Mean Squared Error (RMSE), où le RMSE, en donnant plus de poids aux grandes erreurs, met en lumière les défauts plus subtils de notre modèle prédictif.</p>
 </section>
-<section id="présentation-des-données" class="level1">
-<h1>Présentation des données</h1>
+<section id="présentation-des-données" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Présentation des données</h1>
 <p>Dans notre étude appronfondie sur la demande énergétique en france, nous avons plongé au coeur des données de consommation, mésurées en mégawattts, révelatrices des tendances de consommation du pays. Afin d’affiner notre analyse nous avons présenter les données sous forme de séries temporelles journalières. Cette approche nous permettra d’aborder plus aisement l’analyse.</p>
 </section>
-<section id="le-dendogramme-de-la-série-temporelle" class="level1">
-<h1>Le dendogramme de la série temporelle</h1>
+<section id="le-dendogramme-de-la-série-temporelle" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Le dendogramme de la série temporelle</h1>
 <p>Nous avons mis en évidence des motifs saisonniers clés à travers la représentation d’un dendogramme. Cet outil permettra de vérifier que 365 et 7 sont des saisonnalités.</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> signal</span>
@@ -464,8 +484,8 @@ s^{*}_{j,t}(i) = -s_{j,t-1}(i) \sin \lambda_j(i) + s^{*}_{j,t-1}(i) \cos \lambda
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>print_metrics(y_test, y_pred, <span class="st">'TBATS Forecaster'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="résultats-de-prévision-avec-tbats" class="level1">
-<h1>Résultats de Prévision avec TBATS</h1>
+<section id="résultats-de-prévision-avec-tbats" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Résultats de Prévision avec TBATS</h1>
 <p>Nous avons essayer de mettre les résultats dans un tableau :</p>
 <div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
@@ -503,16 +523,16 @@ s^{*}_{j,t}(i) = -s_{j,t-1}(i) \sin \lambda_j(i) + s^{*}_{j,t-1}(i) \cos \lambda
 </div>
 </div>
 </section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
+<section id="conclusion" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Conclusion</h1>
 <ul>
 <li>Le Mean Absolute Error (MAE) : Il montre qu’en moyenne, les prévisions s’écartent de 290.94 unités des valeurs réelles, nous donnant une idée de l’erreur moyenne absolue.</li>
 <li>Le Root Mean Squared Error (RMSE) : Sa valeur de 493.17, n’étant pas très élévée comparé au MAE, nous pouvons conclure que les erreurs de prévision sont relativement faibles.</li>
 <li>Le Mean Absolute Percentage Error (MAPE) et le Symmetric Mean Absolute Percentage Error (SMAPE) : Ils indiquent une erreur moyenne de prédiction de 0.07%, ce qui est considéré comme relativement précis dans notre contexte.</li>
 </ul>
 <p>Ainsi le modèle TBATS est un modèle qui permet de faire des prévisions acceptables sur les données possèdant des saisonnalités multiples.</p>
-<section id="references" class="level3">
-<h3 class="anchored" data-anchor-id="references">References</h3>
+<section id="references" class="level3" data-number="5.0.1">
+<h3 data-number="5.0.1" class="anchored" data-anchor-id="references"><span class="header-section-number">5.0.1</span> References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-brozyna2018" class="csl-entry" role="listitem">
 BROŻYNA, Jacek, Grzegorz Mentel, Beata Szetela, and Wadim Strielkowski. 2018. <span>“MULTI-SEASONALITY IN THE TBATS MODEL USING DEMAND FOR ELECTRIC ENERGY AS a CASE STUDY.”</span> <em>Economic Computation &amp; Economic Cybernetics Studies &amp; Research</em> 52 (1). <a href="https://www.researchgate.net/profile/Grzegorz-Mentel/publication/323868510_Multi-Seasonality_in_the_TBATS_Model_Using_Demand_for_Electric_Energy_as_a_Case_Study/links/5ab0afafaca2721710fe20b8/Multi-Seasonality-in-the-TBATS-Model-Using-Demand-for-Electric-Energy-as-a-Case-Study.pdf">https://www.researchgate.net/profile/Grzegorz-Mentel/publication/323868510_Multi-Seasonality_in_the_TBATS_Model_Using_Demand_for_Electric_Energy_as_a_Case_Study/links/5ab0afafaca2721710fe20b8/Multi-Seasonality-in-the-TBATS-Model-Using-Demand-for-Electric-Energy-as-a-Case-Study.pdf</a>.

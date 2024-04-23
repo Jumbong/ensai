@@ -1,11 +1,11 @@
 ---
 title: "Simulation de variables aléatoires continues"
 author: "Jumbong Junior"
-date: "2023-11-16"
+date: "`r Sys.Date()`"
 categories: [news]
 tags: [simulation]
 
-
+title-block-banner: false
 html:
     code-fold: true
 jupyter: python3

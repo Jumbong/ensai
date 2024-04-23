@@ -18,10 +18,12 @@ website:
             text: "Mastering Financial Data"
           - href : posts/obligation/index.ipynb
             text: "Courbe de taux"
+          - href: posts/MarketFinance/schiller.qmd
+            text: "CAPE Ratio"
       - section: climat
         contents: 
           - href: posts/ClimateScenario/index.qmd
-            text: "Scénarios climatiques"
+            text: "simple tool in R to analyze data : Graph representationExecution"
           - href: posts/ClimatMeteo/index.qmd
             text: "Différence entre climat et météo"
           - href: posts/NotionCle/index.qmd

@@ -1,0 +1,34 @@
+---
+title: "UNDERSTANDING THE ECOLOGICAL CRISIS"
+toc: true
+number-sections: true
+author: "Jumbong Junior"
+date: "2023-11-16"
+categories: [news]
+title-block-banner: false
+html:
+    code-fold: true
+    toc: true
+---
+
+## What is global warming ?
+
+The world is currently experiencing a major ecological crisis, a main aspect of which is global warming. Before argue about ecological crisis, First, you need to know what is global warming.
+
+Global warming is linked to the greenhouse effect. In the atmosphere, Greenhouse gases trap the infrared radiation emitted by the Earth once the sun has warmed its surface. This phenomenon is natural and necessary for life on Earth as it keep the planet warm enough to sustain life. However, since the industrial revolution, human activity have increased the concentration of greenhouse gases in the atmosphere, leading to an increase in the greenhouse effect and therefore global warming. This is known as anthropogenic global warming. Amounts the greenhouse gasses we can find carbon dioxide, methane, nitrous oxide, and fluorinated gases.
+
+## The impacts of human activities on global warming
+
+Almost all human activities emit greenhouse gases. The main sources of these gases are the burning of fossil fuels (coal, oil, and natural gas) for energy production, transportation, and heating, as well as deforestation and intensive agriculture. 
+
+Furthermore, our activity often reduce the capacity of ecosystems to absorb these gases. Forests, soils and oceans are the main natural `carbon sinks`(**puits de carbone**). Their degradation through deforestation, urbanization, agriculture or pollution reduce their capacity to absorb CO2.
+
+## The consequences of global warming
+
+If the train continues, the consequence will be dramatic. In 2019 the Eearth's temperature was already one degree warmer than in the pre-industrial era. This may seem negligible, but it is enoromous : The last ice age, the average temperature on Earth was only five degrees lower than today. A few degrees can radically transform the climate.
+
+A rise of one degree can profoundly alter the balance of ecosystems and increase the frequency of extreme weather events like droughts, floods, cyclones. 
+
+Climate change can also affect agricultural  productivity and industrial sectors' supply of primary materials, As well as decreasing the economy as whole. Climate change affects the overalll health and safety of populations : Natural disasters, migrations, conflicts over access to resources,etc.
+
+The consequences of global warming are already visible. To face them, we must starting today, aim for carbon neutrality : not emitting more greenhouse gases than we can absorb. This is the only way to limit the rise in temperature to 1.5 degrees, as recommended by the IPCC.
