@@ -304,7 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="http-request-in-python">HTTP Request in Python</h2>
 <p><strong>HTTP Request format</strong></p>
 <p>First, let’s study the format of an HTTP request, such as the dozens you make every day through your web browser. When you enter the following, URL in your browser’s address bar :</p>
-<div id="cb414f6d" class="cell" data-execution_count="1">
+<div id="cd5b9f08" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>https:<span class="op">//</span>jumbong.github.io<span class="op">/</span>ensai<span class="op">/</span>posts<span class="op">/</span>ClimateScenario<span class="op">/</span>substainablefinance.html<span class="op">/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Your browser will send a request to the server concerned(these request will not only content the target URL, but also other information that will not dwell on here). In the previous URL we can distinguish 3 sub-parts :</p>
@@ -314,12 +314,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>/ensai/posts/ClimateScenario/substainablefinance.html/: The path to the resource on the server.</li>
 </ul>
 <p>Similarly, when calling a web API, we will specify the protocole to use, the machine to contact, the path to the desired resource and a number of parameters that will describe our request. Here is an example of a request to a web API(the Google Maps directions API in this case):</p>
-<div id="9d61dcd1" class="cell" data-execution_count="2">
+<div id="1403aa64" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>https:<span class="op">//</span>maps.googleapis.com<span class="op">/</span>maps<span class="op">/</span>api<span class="op">/</span>directions<span class="op">/</span>json?origin<span class="op">=</span>Toronto<span class="op">&amp;</span>destination<span class="op">=</span>Montreal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can copy/paste this URL into your browser’s address bar and observe what you get in return. Note that the result of this request is in JSON format. In fact, if you study the URL more closely, you’ll see that we’ve asked to get the result in this format. Additionally, we’ve specified in the URL that we want to get the route information from Toronto (origin parameter) to Montreal (destination parameter).</p>
 <p>You should also notice that, in response to this request, the Google Maps API actually returns an error message. Indeed, to be authorized to use this API, you need to have an API key and provide this key in the form of an additional parameter (named key in the Google Maps APIs for example). So the previous request would become:</p>
-<div id="224791c0" class="cell" data-execution_count="3">
+<div id="14b55f6b" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>https:<span class="op">//</span>maps.googleapis.com<span class="op">/</span>maps<span class="op">/</span>api<span class="op">/</span>directions<span class="op">/</span>json?origin<span class="op">=</span>Toronto<span class="op">&amp;</span>destination<span class="op">=</span>Montreal<span class="op">&amp;</span>key<span class="op">=</span>VOTRE_CLE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>in which you will have to replace YOUR_KEY with a key that you have previously generated and that will allow you to use the web service in an authenticated manner. To create an API key, you need to go to the developer interface of the API concerned (here for the Google Maps Directions API for example).</p>
@@ -342,7 +342,7 @@ HTTP requests in (very) brief
 </div>
 </div>
 <p>The previous section provided a refresher on the format of HTTP requests, and you were asked to perform HTTP requests using your browser. If you now want to automatically retrieve the result of an HTTP request to manipulate it in Python, the most convenient way is to perform the HTTP request from within Python. To do this, we use the requests module. This module includes a get function that allows you to perform GET-type HTTP requests (I’ll let you guess the name of the function that allows you to perform HTTP POST requests :) :</p>
-<div id="266d8ade" class="cell" data-execution_count="4">
+<div id="c5ab6b19" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"http://my-json-server.typicode.com/rtavenar/fake_api/tasks"</span></span>
@@ -381,28 +381,28 @@ Status codes
 </div>
 </div>
 <p>You can obtain the result of our request in two forms: the raw text of the result, which is stored in <code>response.text</code>, and the formatted version (in the form of a dictionary or list) of this result, which you can obtain via <code>response.json()</code>.</p>
-<div id="47e09022" class="cell" data-execution_count="5">
+<div id="575781de" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>contenu_txt <span class="op">=</span> reponse.text</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(contenu_txt))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'str'&gt;</code></pre>
 </div>
 </div>
-<div id="530e3dec" class="cell" data-execution_count="6">
+<div id="d65f7bfb" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>contenu <span class="op">=</span> reponse.json()</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(contenu))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'list'&gt;</code></pre>
 </div>
 </div>
-<div id="f10a1bcb" class="cell" data-execution_count="7">
+<div id="b72477d6" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(contenu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[{'userId': 1, 'id': 1, 'title': 'delectus aut autem', 'completed': False}, {'userId': 1, 'id': 2, 'title': 'quis ut nam facilis et officia qui', 'completed': False}, {'userId': 1, 'id': 3, 'title': 'fugiat veniam minus', 'completed': False}, {'userId': 1, 'id': 4, 'title': 'et porro tempora', 'completed': True}, {'userId': 1, 'id': 8, 'title': 'quo adipisci enim quam ut ab', 'completed': True}, {'userId': 3, 'id': 44, 'title': 'cum debitis quis accusamus doloremque ipsa natus sapiente omnis', 'completed': True}, {'userId': 3, 'id': 45, 'title': 'velit soluta adipisci molestias reiciendis harum', 'completed': False}, {'userId': 3, 'id': 46, 'title': 'vel voluptatem repellat nihil placeat corporis', 'completed': False}]</code></pre>
 </div>
 </div>
 <p>Furthermore, if you want to pass parameters to the HTTP request (what was after the ? symbol in the URLs above), you can do so when calling <code>requests.get</code> :</p>
-<div id="641c00c2" class="cell" data-execution_count="8">
+<div id="32fb01ae" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"http://my-json-server.typicode.com/rtavenar/fake_api/tasks"</span></span>
