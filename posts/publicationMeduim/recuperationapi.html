@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jumbong Junior">
+<meta name="dcterms.date" content="2024-04-24">
 
 <title>Menu - Data retrieval from WEB API with Python</title>
 <style>
@@ -20,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -209,9 +244,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#what-is-a-web-api" id="toc-what-is-a-web-api" class="nav-link" data-scroll-target="#what-is-a-web-api"><span class="header-section-number">2</span> What is a Web API?</a></li>
-  <li><a href="#http-request-in-python" id="toc-http-request-in-python" class="nav-link" data-scroll-target="#http-request-in-python"><span class="header-section-number">3</span> HTTP Request in Python</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#what-is-a-web-api" id="toc-what-is-a-web-api" class="nav-link" data-scroll-target="#what-is-a-web-api">What is a Web API?</a></li>
+  <li><a href="#http-request-in-python" id="toc-http-request-in-python" class="nav-link" data-scroll-target="#http-request-in-python">HTTP Request in Python</a></li>
+  <li><a href="#retrieving-data-from-a-web-api-using-the-python-requests-module" id="toc-retrieving-data-from-a-web-api-using-the-python-requests-module" class="nav-link" data-scroll-target="#retrieving-data-from-a-web-api-using-the-python-requests-module">Retrieving data from a web API using the python requests module</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -240,7 +278,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
+      <p class="date">April 24, 2024</p>
     </div>
   </div>
   
@@ -252,18 +290,142 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>In the current digital era, access and exploitation of data have become essential for many organizations. Web APIs( Application Programming Interface) offer a standardized interface to access data from the web. Thanks to its robusts libraries, Python greatly simplifies the process of retrieving data from the web. In this article, we will explore how to retrieve data from a web API using Python.</p>
 </section>
-<section id="what-is-a-web-api" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="what-is-a-web-api"><span class="header-section-number">2</span> What is a Web API?</h2>
+<section id="what-is-a-web-api" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-web-api">What is a Web API?</h2>
 <p>A web API is a method for requesting and sending data between a client and a server. The client can be a web browser, a mobile application, or any other device that can access the internet. The server is a computer that hosts the data and processes the requests. There are many types of web APIs for accessing different types of data : - Spotify API for music data - Twitter API for social media data - Google Maps API for location data - CDS API for climate data</p>
 <p>To access data from a web API, using Python, we need to follow these steps: 1. Find the API documentation 2. Install the necessary libraries 3. Make a HTTP request to the API to retrieve the data 4. Transform the data into a python object easily manipulated.</p>
 <p>The most API web provide data in JSON format. JSON format is easily readable and manipulated in Python because it is similar to a Python dictionary. Let’s see how the HTTP request works in general and how to retrieve data from a web API using Python.</p>
 </section>
-<section id="http-request-in-python" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="http-request-in-python"><span class="header-section-number">3</span> HTTP Request in Python</h2>
+<section id="http-request-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="http-request-in-python">HTTP Request in Python</h2>
+<p><strong>HTTP Request format</strong></p>
+<p>First, let’s study the format of an HTTP request, such as the dozens you make every day through your web browser. When you enter the following, URL in your browser’s address bar :</p>
+<div id="cb414f6d" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>https:<span class="op">//</span>jumbong.github.io<span class="op">/</span>ensai<span class="op">/</span>posts<span class="op">/</span>ClimateScenario<span class="op">/</span>substainablefinance.html<span class="op">/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Your browser will send a request to the server concerned(these request will not only content the target URL, but also other information that will not dwell on here). In the previous URL we can distinguish 3 sub-parts :</p>
+<ul>
+<li>https://: Indicates the protocol to use to make the request(in this case https). In this chapter, we will use only be interested in the HTTP and HTTPS protocols(the secure version of the HTTP protocol).</li>
+<li>jumbong.github.io: The domain name of the server to which the request is addressed.</li>
+<li>/ensai/posts/ClimateScenario/substainablefinance.html/: The path to the resource on the server.</li>
+</ul>
+<p>Similarly, when calling a web API, we will specify the protocole to use, the machine to contact, the path to the desired resource and a number of parameters that will describe our request. Here is an example of a request to a web API(the Google Maps directions API in this case):</p>
+<div id="9d61dcd1" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>https:<span class="op">//</span>maps.googleapis.com<span class="op">/</span>maps<span class="op">/</span>api<span class="op">/</span>directions<span class="op">/</span>json?origin<span class="op">=</span>Toronto<span class="op">&amp;</span>destination<span class="op">=</span>Montreal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can copy/paste this URL into your browser’s address bar and observe what you get in return. Note that the result of this request is in JSON format. In fact, if you study the URL more closely, you’ll see that we’ve asked to get the result in this format. Additionally, we’ve specified in the URL that we want to get the route information from Toronto (origin parameter) to Montreal (destination parameter).</p>
+<p>You should also notice that, in response to this request, the Google Maps API actually returns an error message. Indeed, to be authorized to use this API, you need to have an API key and provide this key in the form of an additional parameter (named key in the Google Maps APIs for example). So the previous request would become:</p>
+<div id="224791c0" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>https:<span class="op">//</span>maps.googleapis.com<span class="op">/</span>maps<span class="op">/</span>api<span class="op">/</span>directions<span class="op">/</span>json?origin<span class="op">=</span>Toronto<span class="op">&amp;</span>destination<span class="op">=</span>Montreal<span class="op">&amp;</span>key<span class="op">=</span>VOTRE_CLE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>in which you will have to replace YOUR_KEY with a key that you have previously generated and that will allow you to use the web service in an authenticated manner. To create an API key, you need to go to the developer interface of the API concerned (here for the Google Maps Directions API for example).</p>
+</section>
+<section id="retrieving-data-from-a-web-api-using-the-python-requests-module" class="level2">
+<h2 class="anchored" data-anchor-id="retrieving-data-from-a-web-api-using-the-python-requests-module">Retrieving data from a web API using the python requests module</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+HTTP requests in (very) brief
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the HTTP protocol, there are several types of requests to perform the exchange between the client and the server. In particular, GET requests are widely used when the client requests a resource from the server. This is a request to download a document. It is possible to transmit parameters to filter the response; in this case, the parameters will be transferred “in clear” (in the URL used for the request).</p>
+<p>POST requests, like GET, allow downloading a document from the server to the client, but with more sophistication: the parameters are hidden and it is possible to request to update data on the server as part of the request.</p>
+<p>There are other HTTP requests that we will not detail here.</p>
+</div>
+</div>
+<p>The previous section provided a refresher on the format of HTTP requests, and you were asked to perform HTTP requests using your browser. If you now want to automatically retrieve the result of an HTTP request to manipulate it in Python, the most convenient way is to perform the HTTP request from within Python. To do this, we use the requests module. This module includes a get function that allows you to perform GET-type HTTP requests (I’ll let you guess the name of the function that allows you to perform HTTP POST requests :) :</p>
+<div id="266d8ade" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"http://my-json-server.typicode.com/rtavenar/fake_api/tasks"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>reponse <span class="op">=</span> requests.get(url)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(reponse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;Response [200]&gt;</code></pre>
+</div>
+</div>
+<p>The get function returns a Response object. This object contains the response to the request, including the status code (200 if the request was successful).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Status codes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>20x : the request is successful
+<ul>
+<li>Example: 200 OK</li>
+</ul></li>
+<li>40x : error due to client
+<ul>
+<li>Example : 404 page not found</li>
+</ul></li>
+<li>50x : error due to server
+<ul>
+<li>Example : 504 Gateway Timeout</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<p>You can obtain the result of our request in two forms: the raw text of the result, which is stored in <code>response.text</code>, and the formatted version (in the form of a dictionary or list) of this result, which you can obtain via <code>response.json()</code>.</p>
+<div id="47e09022" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>contenu_txt <span class="op">=</span> reponse.text</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(contenu_txt))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'str'&gt;</code></pre>
+</div>
+</div>
+<div id="530e3dec" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>contenu <span class="op">=</span> reponse.json()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(contenu))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'list'&gt;</code></pre>
+</div>
+</div>
+<div id="f10a1bcb" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(contenu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[{'userId': 1, 'id': 1, 'title': 'delectus aut autem', 'completed': False}, {'userId': 1, 'id': 2, 'title': 'quis ut nam facilis et officia qui', 'completed': False}, {'userId': 1, 'id': 3, 'title': 'fugiat veniam minus', 'completed': False}, {'userId': 1, 'id': 4, 'title': 'et porro tempora', 'completed': True}, {'userId': 1, 'id': 8, 'title': 'quo adipisci enim quam ut ab', 'completed': True}, {'userId': 3, 'id': 44, 'title': 'cum debitis quis accusamus doloremque ipsa natus sapiente omnis', 'completed': True}, {'userId': 3, 'id': 45, 'title': 'velit soluta adipisci molestias reiciendis harum', 'completed': False}, {'userId': 3, 'id': 46, 'title': 'vel voluptatem repellat nihil placeat corporis', 'completed': False}]</code></pre>
+</div>
+</div>
+<p>Furthermore, if you want to pass parameters to the HTTP request (what was after the ? symbol in the URLs above), you can do so when calling <code>requests.get</code> :</p>
+<div id="641c00c2" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"http://my-json-server.typicode.com/rtavenar/fake_api/tasks"</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>reponse <span class="op">=</span> requests.get(url, params<span class="op">=</span><span class="st">"userId=3"</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>contenu <span class="op">=</span> reponse.json()</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(contenu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[{'userId': 3, 'id': 44, 'title': 'cum debitis quis accusamus doloremque ipsa natus sapiente omnis', 'completed': True}, {'userId': 3, 'id': 45, 'title': 'velit soluta adipisci molestias reiciendis harum', 'completed': False}, {'userId': 3, 'id': 46, 'title': 'vel voluptatem repellat nihil placeat corporis', 'completed': False}]</code></pre>
+</div>
+</div>
+<p>The code above corresponds to what you would get in your browser by entering the URL http://my-json-server.typicode.com/rtavenar/fake_api/tasks?userId=3.</p>
+<p>In practice, in many cases, Python modules exist to allow the use of public APIs without having to manage HTTP requests directly. This is the case, for example, with the tweepy module (for the Twitter API) or the graphh module (which allows access to the GraphHopper API, which is a free alternative to Google Maps).</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Thank you for reading. If you have any suggestions don’t hesitate, I will take it in consideration.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li><a href="https://rtavenar.github.io/poly_python/content/api.html/">Python requests module documentation</a></li>
+</ul>
 
 
 </section>
