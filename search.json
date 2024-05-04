@@ -202,116 +202,151 @@
     ]
   },
   {
-    "objectID": "posts/machineLearning3A/index.html",
-    "href": "posts/machineLearning3A/index.html",
-    "title": "Examen de machine learning",
+    "objectID": "posts/machineLearning3A/QCM.html",
+    "href": "posts/machineLearning3A/QCM.html",
+    "title": "Examen de machine learning QCM",
     "section": "",
-    "text": "Il est possible que ce soit Da Veiga qui assure vos cours, mais je vais vous offrir un aperçu de ce à quoi pourrait ressembler votre examen. C’est important, car nous avons tendance à sous-estimer ce type d’activité, surtout lorsqu’il autorise l’utilisation de générateurs de texte tels que ChatGPT. Cette année, peu d’étudiants ont achevé le projet, la charge de données étant longue et fastidieuse. Je vous conseille de vous y prendre en avance. Préparez des fonctions exécutant certaines tâches spécifiques, que je vous expliquerai progressivement."
+    "text": "qcm"
   },
   {
-    "objectID": "posts/machineLearning3A/index.html#box-plot",
-    "href": "posts/machineLearning3A/index.html#box-plot",
-    "title": "Examen de machine learning",
-    "section": "Box plot",
-    "text": "Box plot\nLe graphique ci-dessous montre la distribution de chaque variable en fonction de la variable cible.\n\n# box plot\n# Transformed Cover_Type to categorical\nY_sampled = Y_sampled.astype('category')\n\nfor col in X_sampled.columns:\n    sns.boxplot(x=Y_sampled, y=X_sampled[col])\n    plt.show()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInterprétation: Nous allons nous concentrer sur la variable Elevation.\nOn peut voir que la variable Elevation est très discriminante.\nLes types de couverture 1, 2, et 7 montrent des médianes relativement élevées pour l’élévation, avec 7 ayant la médiane la plus élevée, suivie par 1 et 2."
+    "objectID": "posts/machineLearning3A/QCM.html#q1-what-is-the-primary-objective-of-empirical-risk-minimization-erm-in-machine-learning",
+    "href": "posts/machineLearning3A/QCM.html#q1-what-is-the-primary-objective-of-empirical-risk-minimization-erm-in-machine-learning",
+    "title": "Examen de machine learning QCM",
+    "section": "Q1: What is the primary objective of Empirical Risk Minimization (ERM) in machine learning?",
+    "text": "Q1: What is the primary objective of Empirical Risk Minimization (ERM) in machine learning?\n\n\nMinimize training error\n\n\nMinimize testing error\n\n\nMinimize a combination of training and testing error\n\n\nMaximize model complexity\n\n\nRéponse: C) Minimize training error"
   },
   {
-    "objectID": "posts/machineLearning3A/index.html#elastic-net-regression",
-    "href": "posts/machineLearning3A/index.html#elastic-net-regression",
-    "title": "Examen de machine learning",
-    "section": "Elastic Net Regression",
-    "text": "Elastic Net Regression\nC’est une méthode de machine learning qui combine la régression Ridge et Lasso. Elle est utilisée pour résoudre le problème de surraprentissage, la multicollinéarité et la sélection de variables.\nPassons à sa modélisation :\nNous avons utilisé ici un modèle de régression logistique avec une pénalité elasticnet. Nous avons utilisé une validation croisée pour trouver le meilleur paramètre de régularisation. Nous avons utilisé une pénalité elasticnet avec un ratio de 0.5. Nous avons utilisé un solver saga qui est adapté aux problèmes multiclasse. Nous avons utilisé une tolérance de 0.01. Nous avons utilisé un random state de 12345.\n\nclf_l1l2_LR = LogisticRegressionCV(penalty='elasticnet', l1_ratios=[0.5], \n                                   cv=5, multi_class=\"multinomial\", \n                                 solver=\"saga\",tol=0.01, random_state=12345)\n\nmodel = Pipeline(steps=[('preprocessor', preprocessor), ('logistic', clf_l1l2_LR)])\n\nmodel.fit(X_train,Y_train)\nprediction = model.predict(X_test)\naccuracy_LR = accuracy_score(Y_test, prediction)\n\nprint(\"Accuracy of Logistic Regression :\",\"%.3f\" % accuracy_LR)\n\nAccuracy of Logistic Regression : 0.714\n\n\nJ’ai un accuracy de 0.714. Ce n’est pas mal. Nous pouvons voir la matrice de confusion.\n\n# Confusion matrix\n\n# Compute the confusion matrix\nconf_matrix = confusion_matrix(Y_test, prediction)\n\n# Display the confusion matrix using Seaborn's heatmap\nplt.figure(figsize=(10, 7))\nsns.heatmap(conf_matrix, annot=True, fmt='g', cmap='Blues')\nplt.title('Confusion Matrix')\nplt.xlabel('Predicted labels')\nplt.ylabel('True labels')\nplt.show()\n\n\n\n\n\n\n\n\n\nLes valeurs sur la diagonale principale (de haut à gauche à bas à droite) représentent le nombre de prédictions correctes pour chaque classe. Par exemple, il y a 29724 prédictions correctes pour la classe 0, 44616 pour la classe 1, et ainsi de suite.\nLes valeurs hors de la diagonale indiquent les erreurs de classification. Par exemple, 11947 instances de la classe 0 ont été incorrectement prédites comme appartenant à la classe 1.\nLa classe 0 a le plus grand nombre de faux positifs, c’est-à-dire que de nombreuses instances d’autres classes ont été incorrectement prédites comme appartenant à la classe 0.\nLes classes avec le moins de prédictions incorrectes (et donc les plus sombres dans la visualisation) sont la classe 3 et la classe 6, avec respectivement 187 et 1993 prédictions correctes. Les cases avec un fond plus clair, en dehors de la diagonale, indiquent des erreurs moins fréquentes entre les classes spécifiques."
+    "objectID": "posts/machineLearning3A/QCM.html#q2-in-ridge-regression-what-does-the-regularization-term-primarily-aim-to-prevent",
+    "href": "posts/machineLearning3A/QCM.html#q2-in-ridge-regression-what-does-the-regularization-term-primarily-aim-to-prevent",
+    "title": "Examen de machine learning QCM",
+    "section": "Q2: In Ridge regression, what does the regularization term primarily aim to prevent?",
+    "text": "Q2: In Ridge regression, what does the regularization term primarily aim to prevent?\n\n\nFeature selection\n\n\nOverfitting\n\n\nUnderfitting\n\n\nData preprocessing errors\n\n\nRéponse: B) Overfitting"
   },
   {
-    "objectID": "posts/machineLearning3A/index.html#random-forest",
-    "href": "posts/machineLearning3A/index.html#random-forest",
-    "title": "Examen de machine learning",
-    "section": "Random Forest",
-    "text": "Random Forest\n\nOOB error (Out-of-bag error)\nOOB est une méthode de validation croisée pour les forêts aléatoires. Chaque arbre dans la forêt est construit à partir d’un échantillon bootstrap du jeu de données d’entraînement. Certaines observations sont laissées de côté et non utilisées dans la construction d’un arbre donné. Ces observations “hors sac” peuvent être utilisées pour évaluer les performances de cet arbre. Du coup on peut utiliser cette méthode pour évaluer la performance de la forêt aléatoire et ajuster les hyperparamètres.\nLe code ci-dessous montre comment calculer l’erreur OOB pour un modèle de forêt aléatoire. Il permet en particulier de sélectionner la profondeur de l’arbre dans la forêt aléatoire. Le modèle de forêt aléatoire est entraîné avec une profondeur d’arbre de 10, 20 et 30. L’erreur OOB est calculée pour chaque modèle. Le modèle avec la plus petite erreur OOB est sélectionné.\n\n## Training Random Forest\n\n\n\n\ndepths = [10, 20, 30]\noob_errors = []\nmodels = []\nbest_oob_error = float('inf')\nbest_model = None\ni = 0\nfor depth in depths:\n    print(i)\n    model = RandomForestClassifier(max_depth=depth, oob_score=True, random_state=42,\n                                   n_estimators=100,  \n                                   warm_start=True  # This allows us to add more estimators later if needed\n                                  )\n    model.fit(X_train, Y_train)\n    oob_error = 1 - model.oob_score_\n    oob_errors.append(oob_error)\n    models.append(model)\n    if oob_error &lt; best_oob_error:\n        best_oob_error = oob_error\n        best_model = model\n    i = i+1\n    print(\"Done\")\n\n# Print OOB errors for each model\nfor depth, error in zip(depths, oob_errors):\n    print(f\"Depth: {depth}, OOB Error: {error}\")\n\n0\nDone\n1\nDone\n2\nDone\nDepth: 10, OOB Error: 0.21680518234371537\nDepth: 20, OOB Error: 0.05706860237215716\nDepth: 30, OOB Error: 0.038628770096964526\n\n\n\n\nAccuracy et matrice de confusion\n\n# Compute the accuracy of the best random forest model\npredictions = best_model.predict(X_test)\naccuracy = accuracy_score(Y_test, predictions)\nprint(\"Accuracy of the Best Random Forest: {:.3f}\".format(accuracy))\n\n# Display the confusion matrix\nconf_matrix = confusion_matrix(Y_test, predictions)\nplt.figure(figsize=(10, 7))\nsns.heatmap(conf_matrix, annot=True, fmt='g', cmap='Blues')\nplt.title('Confusion Matrix')\nplt.xlabel('Predicted labels')\nplt.ylabel('True labels')\nplt.show()\n\nAccuracy of the Best Random Forest: 0.962\n\n\n\n\n\n\n\n\n\nNous avons un accuracy de 0.962. C’est très bien si on compare avec le modèle de régression logistique qui a un accuracy de 0.714. Nous pouvons voir la matrice de confusion."
+    "objectID": "posts/machineLearning3A/QCM.html#q3-which-of-the-following-regression-techniques-is-primarily-used-for-feature-selection-by-adding-a-penalty-term-to-the-loss-function",
+    "href": "posts/machineLearning3A/QCM.html#q3-which-of-the-following-regression-techniques-is-primarily-used-for-feature-selection-by-adding-a-penalty-term-to-the-loss-function",
+    "title": "Examen de machine learning QCM",
+    "section": "Q3: Which of the following regression techniques is primarily used for feature selection by adding a penalty term to the loss function?",
+    "text": "Q3: Which of the following regression techniques is primarily used for feature selection by adding a penalty term to the loss function?\n\n\nLinear regression\n\n\nRidge regression\n\n\nLasso regression\n\n\nSupport vector regression\n\n\nRéponse: C) Lasso regression"
   },
   {
-    "objectID": "posts/ClimatMeteo/index.html",
-    "href": "posts/ClimatMeteo/index.html",
-    "title": "Différence entre climat et météo",
+    "objectID": "posts/machineLearning3A/QCM.html#q4-which-optimization-technique-aims-to-find-the-minimum-of-a-convex-function-by-iteratively-updating-the-model-parameters-in-the-direction-of-the-gradient",
+    "href": "posts/machineLearning3A/QCM.html#q4-which-optimization-technique-aims-to-find-the-minimum-of-a-convex-function-by-iteratively-updating-the-model-parameters-in-the-direction-of-the-gradient",
+    "title": "Examen de machine learning QCM",
+    "section": "Q4: Which optimization technique aims to find the minimum of a convex function by iteratively updating the model parameters in the direction of the gradient?",
+    "text": "Q4: Which optimization technique aims to find the minimum of a convex function by iteratively updating the model parameters in the direction of the gradient?\n\n\nGradient Descent\n\n\nNewton’s Method\n\n\nGenetic Algorithms\n\n\nDecision Trees\n\n\nRéponse: A) Gradient Descent"
+  },
+  {
+    "objectID": "posts/machineLearning3A/QCM.html#q5-in-support-vector-machines-what-is-the-primary-goal-when-selecting-the-optimal-hyperplane",
+    "href": "posts/machineLearning3A/QCM.html#q5-in-support-vector-machines-what-is-the-primary-goal-when-selecting-the-optimal-hyperplane",
+    "title": "Examen de machine learning QCM",
+    "section": "Q5: In support vector machines, what is the primary goal when selecting the optimal hyperplane?",
+    "text": "Q5: In support vector machines, what is the primary goal when selecting the optimal hyperplane?\n\n\nMaximize the margin between data points from different classes.\n\n\nMinimize the margin between data points from the same class.\n\n\nMaximize the number of support vectors.\n\n\nMinimize the number of support vectors.\n\n\nRéponse: A) Maximize the margin between data points from different classes."
+  },
+  {
+    "objectID": "posts/machineLearning3A/QCM.html#q6-in-ridge-regression-what-does-the-regularization-term-penalize",
+    "href": "posts/machineLearning3A/QCM.html#q6-in-ridge-regression-what-does-the-regularization-term-penalize",
+    "title": "Examen de machine learning QCM",
+    "section": "Q6: In Ridge regression, what does the regularization term penalize?",
+    "text": "Q6: In Ridge regression, what does the regularization term penalize?\n\n\nThe magnitude of the coefficients\n\n\nThe number of features\n\n\nThe mean squared error\n\n\nThe bias of the model\n\n\nRéponse: A) The magnitude of the coefficients"
+  },
+  {
+    "objectID": "posts/machineLearning3A/QCM.html#q7-which-of-the-following-machine-learning-algorithms-is-specifically-designed-for-binary-classification-and-uses-a-hyperplane-to-separate-data-points",
+    "href": "posts/machineLearning3A/QCM.html#q7-which-of-the-following-machine-learning-algorithms-is-specifically-designed-for-binary-classification-and-uses-a-hyperplane-to-separate-data-points",
+    "title": "Examen de machine learning QCM",
+    "section": "Q7: Which of the following machine learning algorithms is specifically designed for binary classification and uses a hyperplane to separate data points?",
+    "text": "Q7: Which of the following machine learning algorithms is specifically designed for binary classification and uses a hyperplane to separate data points?\n\n\nPrincipal Component Analysis (PCA)\n\n\nK-Means Clustering\n\n\nSupport Vector Machine (SVM)\n\n\nK-Nearest Neighbors (KNN)\n\n\nRéponse: C) Support Vector Machine (SVM)"
+  },
+  {
+    "objectID": "posts/machineLearning3A/QCM.html#q8-which-of-the-following-statements-is-true-about-the-bias-variance-trade-off-in-machine-learning",
+    "href": "posts/machineLearning3A/QCM.html#q8-which-of-the-following-statements-is-true-about-the-bias-variance-trade-off-in-machine-learning",
+    "title": "Examen de machine learning QCM",
+    "section": "Q8: Which of the following statements is true about the bias-variance trade-off in machine learning?",
+    "text": "Q8: Which of the following statements is true about the bias-variance trade-off in machine learning?\n\n\nIncreasing model complexity reduces bias and increases variance\n\n\nIncreasing model complexity increases both bias and variance\n\n\nDecreasing model complexity reduces bias and increases variance\n\n\nDecreasing model complexity reduces both bias and variance\n\n\nRéponse: A) Increasing model complexity reduces bias and increases variance"
+  },
+  {
+    "objectID": "posts/machineLearning3A/QCM.html#q9-what-is-the-main-advantage-of-using-a-kernel-trick-in-support-vector-machines",
+    "href": "posts/machineLearning3A/QCM.html#q9-what-is-the-main-advantage-of-using-a-kernel-trick-in-support-vector-machines",
+    "title": "Examen de machine learning QCM",
+    "section": "Q9: What is the main advantage of using a kernel trick in Support Vector Machines?",
+    "text": "Q9: What is the main advantage of using a kernel trick in Support Vector Machines?\n\n\nIt reduces overfitting\n\n\nIt simplifies the optimization problem\n\n\nIt allows SVM to handle non-linear data\n\n\nIt speeds up the training process\n\n\nRéponse: C) It allows SVM to handle non-linear data"
+  },
+  {
+    "objectID": "posts/machineLearning3A/QCM.html#q10-what-is-the-primary-purpose-of-cross-validation-in-machine-learning",
+    "href": "posts/machineLearning3A/QCM.html#q10-what-is-the-primary-purpose-of-cross-validation-in-machine-learning",
+    "title": "Examen de machine learning QCM",
+    "section": "Q10: What is the primary purpose of cross-validation in machine learning?",
+    "text": "Q10: What is the primary purpose of cross-validation in machine learning?\n\n\nTo train a model on multiple datasets\n\n\nTo select the best hyperparameters for a model\n\n\nTo overfit the model to the training data\n\n\nTo evaluate a model’s performance on the training data\n\n\nRéponse: B) To select the best hyperparameters for a model"
+  },
+  {
+    "objectID": "posts/Leadership/index.html",
+    "href": "posts/Leadership/index.html",
+    "title": "Leadership : Pouvoir, autorité et légitimité",
     "section": "",
-    "text": "Il fera plus chaud demain, le temps était très pluvieurs hier, il fait froid aujourd’hui, les températures seront supérieures de trois degrés par rapport à la normale, etc. Ces phrases sont des exemples qui montrent que la météo est présente dans notre quotidien. Dès qu’on allume la télévision, la radio, nous voulons savoir comment nous habiller, si nous devons prendre un parapluie, etc.\nRéchauffement climatique, fonte des calottes polaires, hausse du niveau des mers, records de températures, diminution des nos gaz à effet de serre… Le climat aussi est un sujet d’actualité, il mobilise les scientifiques, les politiques, les citoyens.\nAu fond sait-on vraiment ce que c’est le climat et qu’elle est la différence entre le climat et la météo? Reprenons ces notions à la base.",
-    "crumbs": [
-      "About",
-      "climat",
-      "Différence entre climat et météo"
-    ]
+    "text": "Leadership : Pouvoir, autorité et légitimité\n\n\n\nLe Pouvoir se reçoit, l’autorité se construit.\nComme l’éminent penseur Christian Monjou, débutons avec une citation marquante. Niccolò Machiavel, une figure clé dans l’étude du leadership et de la stratégie politique, affirmait : ‘Les qualités nécessaires pour conserver le pouvoir ne sont pas les mêmes que celles pour l’acquérir.’ Cette citation soulève un point crucial dans le domaine de la gestion du leadership et de l’autorité en entreprise. Lorsqu’on crée une entreprise, devenir un patron ou un chef d’entreprise confère du pouvoir, mais pas nécessairement de l’autorité. L’autorité, dans le contexte de la leadership efficace, est une reconnaissance octroyée par autrui ; elle repose sur la légitimité perçue par les collaborateurs. Un leader en cours de construction de son autorité n’est pas automatiquement reconnu comme légitime. En effet, la légitimité en leadership et en gestion d’équipe se manifeste à travers le respect et la confiance que l’on inspire à son entourage. Souvent, ceux qui doivent affirmer leur propre légitimité en sont en réalité dépourvus. La construction de l’autorité est donc un élément essentiel à l’efficacité du leadership dans le monde des affaires et la gestion d’équipe.\n\n\nLa construction de l’autorité\nL’essence du leadership transformationnel réside dans la capacité à favoriser la croissance et l’épanouissement de la communauté à laquelle on appartient. Cela implique d’encourager et de soutenir le développement personnel et professionnel des membres de l’équipe. Le concept de développement personnel est crucial dans le cadre du leadership efficace. En effet, un leader qui cesse de s’investir dans son propre développement personnel risque de perdre la légitimité aux yeux de ses collaborateurs. Dans la construction de l’autorité, la notion de style personnel joue également un rôle clé. Un style de leadership rigide ou répétitif peut s’avérer contre-productif. Il est important de rester adaptable et innovant, quelle que soit la situation. Cela soulève une question fondamentale : le leadership est-il inné ou acquis ? La réponse réside souvent dans la capacité d’un individu à évoluer et à s’adapter continuellement, renforçant ainsi son autorité et son influence au sein de son organisation.\n\n\nL’origine du leadership\nLa question de savoir si le leadership est inné ou acquis est un débat central dans le domaine du développement du leadership. Bien qu’il puisse sembler que certaines personnes naissent leaders, cette idée comporte des risques. En effet, se reposer uniquement sur des compétences innées en leadership peut conduire à une stagnation, limitant l’innovation et l’adaptabilité. Comme le soulignait le théoricien du leadership, Berson, ‘Plaquer du mécanique sur du vivant, c’est risquer le ridicule.’ Un leader efficace ne se contente pas de compter sur des compétences innées, mais s’interroge continuellement sur l’adéquation de son style de leadership avec les besoins actuels de sa communauté ou de son organisation. Un exemple éloquent est celui du leadership féminin, où l’adaptabilité et l’empathie jouent souvent un rôle clé dans la réussite et l’impact du leadership.\n\n\nElisabeth I er\nLa figure que vous voyez est celle d’Elisabeth Ière elisabeth., reine d’Angleterre ayant régné durant 45 ans (de 1558 à 1603). Fille de Henri VIII et Anne Boleyn, elle fut la dernière souveraine de la dynastie des Tudors et la première femme à régner sur l’Angleterre et l’Irlande. Son ascension au trône, perçue initialement comme un coup du hasard, est un exemple remarquable de la manière dont un leader peut transformer une opportunité imprévue en un règne influent et significatif. Sa présence imposante, souvent décrite comme une ‘hypertrophie de signe’, reflétait une stratégie de communication visant à établir sa légitimité et son autorité. En effet, Elisabeth Ière comprenait l’importance de l’image et du symbolisme dans la construction du leadership. Elle incarnait la dualité du ‘signe et du sens’ – un aspect essentiel dans la représentation du leadership. Son règne illustre parfaitement la nécessité pour un leader de maintenir un équilibre entre son identité privée et sa persona publique. Finalement, l’efficacité de son leadership résidait dans sa capacité à maîtriser l’art de la communication – un aspect crucial pour tout leader aspirant à un impact durable.\n\n\nLa qualité de la parole\nDans le contexte actuel de l’éducation et du leadership, une transformation notable s’est opérée par rapport aux méthodes traditionnelles. Autrefois, l’entrée d’un enseignant dans une salle de classe était synonyme de respect absolu et d’une reconnaissance incontestée de son savoir. Cependant, dans le monde moderne, marqué par l’accès instantané à l’information via la technologie numérique, cette dynamique a évolué. Imaginez un professeur mentionnant un pourcentage spécifique, comme 2.23 %, devant des étudiants équipés de smartphones. Il est probable qu’ils vérifient immédiatement cette information, remettant en question l’exactitude des données présentées. Cette situation illustre un changement fondamental : la légitimité dans le domaine de l’éducation et du leadership ne repose plus exclusivement sur la transmission du savoir, mais de plus en plus sur la qualité de la communication et de l’engagement. L’ère numérique, en économisant du temps, nous incite non pas à intensifier notre présence numérique, mais plutôt à valoriser davantage le temps consacré à la communication directe et significative. Selon Marcel Mauss, ce principe d’échange symbolique, où la qualité de la communication exige en retour un engagement – ici sous forme de loyauté – est essentiel. Enfin, la vraie mesure d’un leader réside dans sa capacité à anticiper les idées potentiellement nuisibles à sa communauté et à persuader celle-ci d’adopter de nouvelles perspectives pour éviter les pièges futurs. Mener une communauté du connu vers l’inconnu est une des responsabilités les plus ardues d’un leader.\n\n\nUn monde de changement\nNous vivons dans une ère de transformation rapide, caractérisée par un marché mondial en constante évolution. À l’ère numérique et face aux défis de la transition écologique, les communautés et organisations qui ne reconnaissent pas ce changement de paradigme risquent l’obsolescence. Cette transformation s’illustre particulièrement avec l’avènement de l’intelligence artificielle, comme en témoigne le développement de technologies telles que ChatGPT. De plus, les appels urgents du GIEC et des communautés scientifiques, notamment des astrophysiciens, mettent en lumière l’imminence d’une crise écologique mondiale. Il est impératif pour les entreprises, et plus spécifiquement pour les banques, d’évaluer et de gérer ces risques. L’enjeu n’est pas simplement financier, mais il s’agit de la préservation de la vie sur Terre dans toutes ses formes. La responsabilité sociale des entreprises et la durabilité environnementale sont devenues des facteurs clés dans la stratégie d’entreprise moderne, dictant une nouvelle approche vers un avenir plus durable et conscient."
   },
   {
-    "objectID": "posts/ClimatMeteo/index.html#introduction",
-    "href": "posts/ClimatMeteo/index.html#introduction",
-    "title": "Différence entre climat et météo",
+    "objectID": "posts/ClimateScenario/substainablefinance.html",
+    "href": "posts/ClimateScenario/substainablefinance.html",
+    "title": "Understanding Sustainable Finance and its Regulations",
     "section": "",
-    "text": "Il fera plus chaud demain, le temps était très pluvieurs hier, il fait froid aujourd’hui, les températures seront supérieures de trois degrés par rapport à la normale, etc. Ces phrases sont des exemples qui montrent que la météo est présente dans notre quotidien. Dès qu’on allume la télévision, la radio, nous voulons savoir comment nous habiller, si nous devons prendre un parapluie, etc.\nRéchauffement climatique, fonte des calottes polaires, hausse du niveau des mers, records de températures, diminution des nos gaz à effet de serre… Le climat aussi est un sujet d’actualité, il mobilise les scientifiques, les politiques, les citoyens.\nAu fond sait-on vraiment ce que c’est le climat et qu’elle est la différence entre le climat et la météo? Reprenons ces notions à la base.",
-    "crumbs": [
-      "About",
-      "climat",
-      "Différence entre climat et météo"
-    ]
+    "text": "Sustainable finance is a team that can be difficult to define. So what exactly should we understand when we hear the term sustainable finance? To grasp The concept we need to make the difference between traditional finance and sustainable finance.\n\n\nTraditional finance targets economic performance by taking the account purely financial criteria. The main goal here is to maximize the profitability, the share price or growth prospects.\nSustainable finance, on the other hand, takes into account extra-financial criteria. These criteria are environmental, social and governance (ESG) criteria. The goal is to reconcile economic performance with positive social and environmental impacts to meet the goals of sustainable development.\n\n\n\nThe ESG criteria are the three pillars of sustainable finance. Let’s start with the environmental criteria. Their role is to measure the direct or indirect impact of the activity of an economic entity on the environment. For example, it might be to analyze a company’s CO2 emissions, its energy consumptions or the recycling of the waste it produces.\nThen there are the social criteria. They aim to measure the performance of an economic entity on social issues. For example, it might be to analyze the diversity of the workforce, the health and safety of employees, parity or the number of employees with disabilities.\nFinally, the governance criteria assess the way in which the economic entity is managed, administered and monitored. This involves for instance, analyzing the composition of the board of directors, the remuneration of the management, the transparency of the information provided or the fight against corruption."
   },
   {
-    "objectID": "posts/ClimatMeteo/index.html#définition-de-la-météo",
-    "href": "posts/ClimatMeteo/index.html#définition-de-la-météo",
-    "title": "Différence entre climat et météo",
-    "section": "Définition de la météo",
-    "text": "Définition de la météo\nLa météo c’est le temps présent qui est caractérisé par l’ensemble des paramètres de l’atmosphère tels que la température, la pression atmosphérique, l’humidité, la vitesse et la direction du vent, la quantité de précipitations, etc. Ces paramètres peuvent être évalués à la perception; on ouvre la fenêtre, on observe le temps qu’il fait, on ressent la température, on voit s’il pleut, etc. On peut aussi les mesurer à l’aide de nombreux instruments et ainsi obtenir une description scientifique du temps qu’il fait. Par exemple, ce matin, il fait 15°C, le ciel est couvert, il pleut, le vent souffle à 20 km/h, etc. Maintenant, passons à la définition du climat.",
-    "crumbs": [
-      "About",
-      "climat",
-      "Différence entre climat et météo"
-    ]
+    "objectID": "posts/ClimateScenario/substainablefinance.html#definition-of-sustainable-finance-and-esg-criteria.",
+    "href": "posts/ClimateScenario/substainablefinance.html#definition-of-sustainable-finance-and-esg-criteria.",
+    "title": "Understanding Sustainable Finance and its Regulations",
+    "section": "",
+    "text": "Sustainable finance is a team that can be difficult to define. So what exactly should we understand when we hear the term sustainable finance? To grasp The concept we need to make the difference between traditional finance and sustainable finance.\n\n\nTraditional finance targets economic performance by taking the account purely financial criteria. The main goal here is to maximize the profitability, the share price or growth prospects.\nSustainable finance, on the other hand, takes into account extra-financial criteria. These criteria are environmental, social and governance (ESG) criteria. The goal is to reconcile economic performance with positive social and environmental impacts to meet the goals of sustainable development.\n\n\n\nThe ESG criteria are the three pillars of sustainable finance. Let’s start with the environmental criteria. Their role is to measure the direct or indirect impact of the activity of an economic entity on the environment. For example, it might be to analyze a company’s CO2 emissions, its energy consumptions or the recycling of the waste it produces.\nThen there are the social criteria. They aim to measure the performance of an economic entity on social issues. For example, it might be to analyze the diversity of the workforce, the health and safety of employees, parity or the number of employees with disabilities.\nFinally, the governance criteria assess the way in which the economic entity is managed, administered and monitored. This involves for instance, analyzing the composition of the board of directors, the remuneration of the management, the transparency of the information provided or the fight against corruption."
   },
   {
-    "objectID": "posts/ClimatMeteo/index.html#définition-du-climat",
-    "href": "posts/ClimatMeteo/index.html#définition-du-climat",
-    "title": "Différence entre climat et météo",
-    "section": "Définition du climat",
-    "text": "Définition du climat\nLorsqu’on parle de climat, il est toujours question de l’atmosphère et de ces interactions avec le sol mais la façon et les échelles de temps pour l’étudier sont complétement différentes. Le climat est la succession de temps qu’il fait en un lieu donné sur une très longue période de temps. Le climat est décrit selon des éléments statistiques. Par exemple, à Bruz, il pleut en moyenne 1000 mm par an, la température moyenne est de 12°C, etc.",
-    "crumbs": [
-      "About",
-      "climat",
-      "Différence entre climat et météo"
-    ]
+    "objectID": "posts/ClimateScenario/substainablefinance.html#the-3-tools-of-sustainable-finance.",
+    "href": "posts/ClimateScenario/substainablefinance.html#the-3-tools-of-sustainable-finance.",
+    "title": "Understanding Sustainable Finance and its Regulations",
+    "section": "2 The 3 tools of sustainable finance.",
+    "text": "2 The 3 tools of sustainable finance.\nIn practice, sustainable finance use 3 tools to implement the ESG criteriaI : “Socially responsible investment” (SRI), “Green finance” and “Solidarity-based finance”\nSocially responsible investment (SRI) is an investment strategy based on the integration of ESG criteria into the selection of financial assets. Investing in the renewable energy sector or excluding companies that do not respect human rights are examples of SRI.\nGreen finance covers actions and financial operations that promote the energy and ecological transition and the fight against climate change. This includes green bonds, green loans or green funds in particular.\nSolidarity-based finance is a form of finance that aims to finance projects designed to fight against social exclusion or promote social integration. This includes microcredit, social entrepreneurship or ethical banking.\nThank you for reading and see you soon!I"
   },
   {
-    "objectID": "posts/ClimatMeteo/index.html#récapitulatif",
-    "href": "posts/ClimatMeteo/index.html#récapitulatif",
-    "title": "Différence entre climat et météo",
-    "section": "Récapitulatif",
-    "text": "Récapitulatif\nLa météo est une notion instantanée, son évolution est perceptible directement par l’humain. Le climat est une notion statistique avec une évolution incomplètement perceptible par l’humain. C’est donc grâce à un enregistement méthodique et régulier de la météo dans un même lieu et sur une longue période que l’on parvient à décrire la météo.",
-    "crumbs": [
-      "About",
-      "climat",
-      "Différence entre climat et météo"
-    ]
+    "objectID": "posts/ClimateScenario/globalWarning.html",
+    "href": "posts/ClimateScenario/globalWarning.html",
+    "title": "UNDERSTANDING THE ECOLOGICAL CRISIS",
+    "section": "",
+    "text": "The world is currently experiencing a major ecological crisis, a main aspect of which is global warming. Before argue about ecological crisis, First, you need to know what is global warming.\nGlobal warming is linked to the greenhouse effect. In the atmosphere, Greenhouse gases trap the infrared radiation emitted by the Earth once the sun has warmed its surface. This phenomenon is natural and necessary for life on Earth as it keep the planet warm enough to sustain life. However, since the industrial revolution, human activity have increased the concentration of greenhouse gases in the atmosphere, leading to an increase in the greenhouse effect and therefore global warming. This is known as anthropogenic global warming. Amounts the greenhouse gasses we can find carbon dioxide, methane, nitrous oxide, and fluorinated gases."
   },
   {
-    "objectID": "posts/ClimatMeteo/index.html#illustration-par-un-exemple",
-    "href": "posts/ClimatMeteo/index.html#illustration-par-un-exemple",
-    "title": "Différence entre climat et météo",
-    "section": "Illustration par un exemple",
-    "text": "Illustration par un exemple\nConsidérons les données ci-dessous qui représentent la précipitation maximale tombée en 24 heures pour chaque mois de Janvier 1950 à Décembre 2020. Ces données sont issues de la station météorologique de Rennes.\nChaque point correspond à une donnée météorologique.\n\nimport matplotlib.pyplot as plt\n# Data Visualization Libraries:\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport plotly.express as px\nimport warnings\nwarnings.filterwarnings('ignore')\nimport pandas as pd\n\n\n\ndata = pd.read_csv('data.csv',sep=';')\ncolumns = ['AAAAMM','RRAB']\ndata = data[columns]\n\n\ndata['AAAAMM'] = pd.to_datetime(data['AAAAMM'],format='%Y%m')\n# faire un tri par date\ndata = data.sort_values(by='AAAAMM')\n# Tracer le graphe en fonction de la date\nfig,ax = plt.subplots(figsize=(10,5))\nsns.lineplot(data=data, x='AAAAMM', y='RRAB')\nplt.xlabel(\"Date\")\nplt.ylabel(\"Précipitation maximale en 24h (mm)\")\nplt.title(\"Précipitation maximale en 24h pour chaque mois de Janvier 1950 à Juin 2021\")\nplt.show()\n\n\n\n\n\n\n\n\nLe graphique ci-dessous représente le diagramme en bâton de la précipitation maximale pour chaque mois depuis 1950 à 2022. On peut déduire que la précipitation maximale moyenne en Janvier est de 14 mm. Nous avons donc une donnée climatique.\n\nfig,ax = plt.subplots(figsize=(10,5))\n\ndata = data.assign(month=lambda x: x['AAAAMM'].dt.month)\n\n# Calculer la moyenne pour chaque mois\nmonthly_means = data.groupby('month')['RRAB'].mean()\n\n\nsns.barplot(\n    data= data,\n    \n    x='month',\n    y='RRAB',\n)\nplt.xlabel(\"Month\")\nplt.xticks(ticks = range(12), labels = [\"Jan\", \"Feb\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"Sept\", \"Oct\", \"Nov\", \"Dec\"]);",
-    "crumbs": [
-      "About",
-      "climat",
-      "Différence entre climat et météo"
-    ]
+    "objectID": "posts/ClimateScenario/globalWarning.html#what-is-global-warming",
+    "href": "posts/ClimateScenario/globalWarning.html#what-is-global-warming",
+    "title": "UNDERSTANDING THE ECOLOGICAL CRISIS",
+    "section": "",
+    "text": "The world is currently experiencing a major ecological crisis, a main aspect of which is global warming. Before argue about ecological crisis, First, you need to know what is global warming.\nGlobal warming is linked to the greenhouse effect. In the atmosphere, Greenhouse gases trap the infrared radiation emitted by the Earth once the sun has warmed its surface. This phenomenon is natural and necessary for life on Earth as it keep the planet warm enough to sustain life. However, since the industrial revolution, human activity have increased the concentration of greenhouse gases in the atmosphere, leading to an increase in the greenhouse effect and therefore global warming. This is known as anthropogenic global warming. Amounts the greenhouse gasses we can find carbon dioxide, methane, nitrous oxide, and fluorinated gases."
   },
   {
-    "objectID": "posts/ClimatMeteo/index.html#conclusion",
-    "href": "posts/ClimatMeteo/index.html#conclusion",
-    "title": "Différence entre climat et météo",
-    "section": "Conclusion",
-    "text": "Conclusion\nLa météo et le climat sont deux notions différentes. Pour terminer, il faut retenir que un orage violent, de fortes précipitations, demain il fera 25°C, le 1er juillet 2022 est 1.5°C plus chaud que la normale, etc. sont des notions météorologiques. En revanche, la temperature moyenne en Janvier est de 5°C, il pleut en moyenne 1000 mm par an, etc. sont des notions climatiques.",
-    "crumbs": [
-      "About",
-      "climat",
-      "Différence entre climat et météo"
-    ]
+    "objectID": "posts/ClimateScenario/globalWarning.html#the-impacts-of-human-activities-on-global-warming",
+    "href": "posts/ClimateScenario/globalWarning.html#the-impacts-of-human-activities-on-global-warming",
+    "title": "UNDERSTANDING THE ECOLOGICAL CRISIS",
+    "section": "2 The impacts of human activities on global warming",
+    "text": "2 The impacts of human activities on global warming\nAlmost all human activities emit greenhouse gases. The main sources of these gases are the burning of fossil fuels (coal, oil, and natural gas) for energy production, transportation, and heating, as well as deforestation and intensive agriculture.\nFurthermore, our activity often reduce the capacity of ecosystems to absorb these gases. Forests, soils and oceans are the main natural carbon sinks(puits de carbone). Their degradation through deforestation, urbanization, agriculture or pollution reduce their capacity to absorb CO2."
+  },
+  {
+    "objectID": "posts/ClimateScenario/globalWarning.html#the-consequences-of-global-warming",
+    "href": "posts/ClimateScenario/globalWarning.html#the-consequences-of-global-warming",
+    "title": "UNDERSTANDING THE ECOLOGICAL CRISIS",
+    "section": "3 The consequences of global warming",
+    "text": "3 The consequences of global warming\nIf the train continues, the consequence will be dramatic. In 2019 the Eearth’s temperature was already one degree warmer than in the pre-industrial era. This may seem negligible, but it is enoromous : The last ice age, the average temperature on Earth was only five degrees lower than today. A few degrees can radically transform the climate.\nA rise of one degree can profoundly alter the balance of ecosystems and increase the frequency of extreme weather events like droughts, floods, cyclones.\nClimate change can also affect agricultural productivity and industrial sectors’ supply of primary materials, As well as decreasing the economy as whole. Climate change affects the overalll health and safety of populations : Natural disasters, migrations, conflicts over access to resources,etc.\nThe consequences of global warming are already visible. To face them, we must starting today, aim for carbon neutrality : not emitting more greenhouse gases than we can absorb. This is the only way to limit the rise in temperature to 1.5 degrees, as recommended by the IPCC."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Menu",
+    "section": "",
+    "text": "Courbe de taux et valorisation d’obligations\n\n\n\n\n\nLors de la valorisation d’une obligation, il est essentiel de considérer des éléments clés tels que le prix sale (dirty price) et le prix net (clean price), lesquels dépendent de facteurs variés incluant le taux d’intérêt, la maturité et le taux de coupon. Dans cette analyse, nous avons généré la courbe des taux spot en utilisant des obligations zéro coupon et évalué le prix d’une obligation sous l’hypothèse d’une courbe de taux déterministe. Par la suite, nous avons exploré un modèle simplifié de Hull et White, examiné les spécificités d’une obligation munie d’une clause de rappel et discuté des stratégies de couverture contre le risque de taux d’intérêt. \n\n\n\n\n\nJunior Jumbong\n\n\n\n\n\n\n\n\n\n\n\n\nModélisation de la value at risk\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUNDERSTANDING THE ECOLOGICAL CRISIS\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nsimple tool in R to analyze data : Graph representationExecution\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nData Schiller : CAPE Ratio\n\n\n\n\n\n\nMarket\n\n\nStock\n\n\n\n\n\n\n\n\n\nNov 16, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nOrdinary Least squares variants : Ridge, PCA-OLS AND LASSO\n\n\n\n\n\n\nMachine Learning\n\n\nOLS-Regression\n\n\nPCA\n\n\nLasso\n\n\nRidge\n\n\n\n\n\n\n\n\n\nMay 4, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nData retrieval from WEB API with Python\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nApr 24, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nNotions clés pour comprendre le réchauffement climatique\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 29, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nDifférence entre climat et météo\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 28, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nMaitrise des données financières avec Python\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 12, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nExamen de machine learning QCM\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nDec 26, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nExamen de machine learning\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nDec 8, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding Sustainable Finance and its Regulations\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nTBATS : N’a pas de contraintes de saisonnalité\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nPSI and CRAMER’S V\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nLeadership : Pouvoir, autorité et légitimité\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 4, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nMarket risk generalities\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 4, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nSimulation of a real and continuous random variable\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nIA : Eléments clés du premier sommet mondial\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 4, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/ClimateScenario/index.html",
@@ -434,151 +469,193 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Menu",
+    "objectID": "posts/ClimatMeteo/index.html",
+    "href": "posts/ClimatMeteo/index.html",
+    "title": "Différence entre climat et météo",
     "section": "",
-    "text": "Courbe de taux et valorisation d’obligations\n\n\n\n\n\nLors de la valorisation d’une obligation, il est essentiel de considérer des éléments clés tels que le prix sale (dirty price) et le prix net (clean price), lesquels dépendent de facteurs variés incluant le taux d’intérêt, la maturité et le taux de coupon. Dans cette analyse, nous avons généré la courbe des taux spot en utilisant des obligations zéro coupon et évalué le prix d’une obligation sous l’hypothèse d’une courbe de taux déterministe. Par la suite, nous avons exploré un modèle simplifié de Hull et White, examiné les spécificités d’une obligation munie d’une clause de rappel et discuté des stratégies de couverture contre le risque de taux d’intérêt. \n\n\n\n\n\nJunior Jumbong\n\n\n\n\n\n\n\n\n\n\n\n\nModélisation de la value at risk\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUNDERSTANDING THE ECOLOGICAL CRISIS\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nsimple tool in R to analyze data : Graph representationExecution\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nData Schiller : CAPE Ratio\n\n\n\n\n\n\nMarket\n\n\nStock\n\n\n\n\n\n\n\n\n\nNov 16, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nData retrieval from WEB API with Python\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nApr 24, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nNotions clés pour comprendre le réchauffement climatique\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 29, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nDifférence entre climat et météo\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 28, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nMaitrise des données financières avec Python\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 12, 2024\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nExamen de machine learning QCM\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nDec 26, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nExamen de machine learning\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nDec 8, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding Sustainable Finance and its Regulations\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nTBATS : N’a pas de contraintes de saisonnalité\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nPSI and CRAMER’S V\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 16, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nLeadership : Pouvoir, autorité et légitimité\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 4, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nMarket risk generalities\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 4, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nSimulation of a real and continuous random variable\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nJumbong Junior\n\n\n\n\n\n\n\n\n\n\n\n\nIA : Eléments clés du premier sommet mondial\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nNov 4, 2023\n\n\nJumbong Junior\n\n\n\n\n\n\nNo matching items"
+    "text": "Il fera plus chaud demain, le temps était très pluvieurs hier, il fait froid aujourd’hui, les températures seront supérieures de trois degrés par rapport à la normale, etc. Ces phrases sont des exemples qui montrent que la météo est présente dans notre quotidien. Dès qu’on allume la télévision, la radio, nous voulons savoir comment nous habiller, si nous devons prendre un parapluie, etc.\nRéchauffement climatique, fonte des calottes polaires, hausse du niveau des mers, records de températures, diminution des nos gaz à effet de serre… Le climat aussi est un sujet d’actualité, il mobilise les scientifiques, les politiques, les citoyens.\nAu fond sait-on vraiment ce que c’est le climat et qu’elle est la différence entre le climat et la météo? Reprenons ces notions à la base.",
+    "crumbs": [
+      "About",
+      "climat",
+      "Différence entre climat et météo"
+    ]
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "posts/ClimatMeteo/index.html#introduction",
+    "href": "posts/ClimatMeteo/index.html#introduction",
+    "title": "Différence entre climat et météo",
     "section": "",
-    "text": "About this blog"
+    "text": "Il fera plus chaud demain, le temps était très pluvieurs hier, il fait froid aujourd’hui, les températures seront supérieures de trois degrés par rapport à la normale, etc. Ces phrases sont des exemples qui montrent que la météo est présente dans notre quotidien. Dès qu’on allume la télévision, la radio, nous voulons savoir comment nous habiller, si nous devons prendre un parapluie, etc.\nRéchauffement climatique, fonte des calottes polaires, hausse du niveau des mers, records de températures, diminution des nos gaz à effet de serre… Le climat aussi est un sujet d’actualité, il mobilise les scientifiques, les politiques, les citoyens.\nAu fond sait-on vraiment ce que c’est le climat et qu’elle est la différence entre le climat et la météo? Reprenons ces notions à la base.",
+    "crumbs": [
+      "About",
+      "climat",
+      "Différence entre climat et météo"
+    ]
   },
   {
-    "objectID": "posts/ClimateScenario/globalWarning.html",
-    "href": "posts/ClimateScenario/globalWarning.html",
-    "title": "UNDERSTANDING THE ECOLOGICAL CRISIS",
+    "objectID": "posts/ClimatMeteo/index.html#définition-de-la-météo",
+    "href": "posts/ClimatMeteo/index.html#définition-de-la-météo",
+    "title": "Différence entre climat et météo",
+    "section": "Définition de la météo",
+    "text": "Définition de la météo\nLa météo c’est le temps présent qui est caractérisé par l’ensemble des paramètres de l’atmosphère tels que la température, la pression atmosphérique, l’humidité, la vitesse et la direction du vent, la quantité de précipitations, etc. Ces paramètres peuvent être évalués à la perception; on ouvre la fenêtre, on observe le temps qu’il fait, on ressent la température, on voit s’il pleut, etc. On peut aussi les mesurer à l’aide de nombreux instruments et ainsi obtenir une description scientifique du temps qu’il fait. Par exemple, ce matin, il fait 15°C, le ciel est couvert, il pleut, le vent souffle à 20 km/h, etc. Maintenant, passons à la définition du climat.",
+    "crumbs": [
+      "About",
+      "climat",
+      "Différence entre climat et météo"
+    ]
+  },
+  {
+    "objectID": "posts/ClimatMeteo/index.html#définition-du-climat",
+    "href": "posts/ClimatMeteo/index.html#définition-du-climat",
+    "title": "Différence entre climat et météo",
+    "section": "Définition du climat",
+    "text": "Définition du climat\nLorsqu’on parle de climat, il est toujours question de l’atmosphère et de ces interactions avec le sol mais la façon et les échelles de temps pour l’étudier sont complétement différentes. Le climat est la succession de temps qu’il fait en un lieu donné sur une très longue période de temps. Le climat est décrit selon des éléments statistiques. Par exemple, à Bruz, il pleut en moyenne 1000 mm par an, la température moyenne est de 12°C, etc.",
+    "crumbs": [
+      "About",
+      "climat",
+      "Différence entre climat et météo"
+    ]
+  },
+  {
+    "objectID": "posts/ClimatMeteo/index.html#récapitulatif",
+    "href": "posts/ClimatMeteo/index.html#récapitulatif",
+    "title": "Différence entre climat et météo",
+    "section": "Récapitulatif",
+    "text": "Récapitulatif\nLa météo est une notion instantanée, son évolution est perceptible directement par l’humain. Le climat est une notion statistique avec une évolution incomplètement perceptible par l’humain. C’est donc grâce à un enregistement méthodique et régulier de la météo dans un même lieu et sur une longue période que l’on parvient à décrire la météo.",
+    "crumbs": [
+      "About",
+      "climat",
+      "Différence entre climat et météo"
+    ]
+  },
+  {
+    "objectID": "posts/ClimatMeteo/index.html#illustration-par-un-exemple",
+    "href": "posts/ClimatMeteo/index.html#illustration-par-un-exemple",
+    "title": "Différence entre climat et météo",
+    "section": "Illustration par un exemple",
+    "text": "Illustration par un exemple\nConsidérons les données ci-dessous qui représentent la précipitation maximale tombée en 24 heures pour chaque mois de Janvier 1950 à Décembre 2020. Ces données sont issues de la station météorologique de Rennes.\nChaque point correspond à une donnée météorologique.\n\nimport matplotlib.pyplot as plt\n# Data Visualization Libraries:\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport plotly.express as px\nimport warnings\nwarnings.filterwarnings('ignore')\nimport pandas as pd\n\n\n\ndata = pd.read_csv('data.csv',sep=';')\ncolumns = ['AAAAMM','RRAB']\ndata = data[columns]\n\n\ndata['AAAAMM'] = pd.to_datetime(data['AAAAMM'],format='%Y%m')\n# faire un tri par date\ndata = data.sort_values(by='AAAAMM')\n# Tracer le graphe en fonction de la date\nfig,ax = plt.subplots(figsize=(10,5))\nsns.lineplot(data=data, x='AAAAMM', y='RRAB')\nplt.xlabel(\"Date\")\nplt.ylabel(\"Précipitation maximale en 24h (mm)\")\nplt.title(\"Précipitation maximale en 24h pour chaque mois de Janvier 1950 à Juin 2021\")\nplt.show()\n\n\n\n\n\n\n\n\nLe graphique ci-dessous représente le diagramme en bâton de la précipitation maximale pour chaque mois depuis 1950 à 2022. On peut déduire que la précipitation maximale moyenne en Janvier est de 14 mm. Nous avons donc une donnée climatique.\n\nfig,ax = plt.subplots(figsize=(10,5))\n\ndata = data.assign(month=lambda x: x['AAAAMM'].dt.month)\n\n# Calculer la moyenne pour chaque mois\nmonthly_means = data.groupby('month')['RRAB'].mean()\n\n\nsns.barplot(\n    data= data,\n    \n    x='month',\n    y='RRAB',\n)\nplt.xlabel(\"Month\")\nplt.xticks(ticks = range(12), labels = [\"Jan\", \"Feb\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"Sept\", \"Oct\", \"Nov\", \"Dec\"]);",
+    "crumbs": [
+      "About",
+      "climat",
+      "Différence entre climat et météo"
+    ]
+  },
+  {
+    "objectID": "posts/ClimatMeteo/index.html#conclusion",
+    "href": "posts/ClimatMeteo/index.html#conclusion",
+    "title": "Différence entre climat et météo",
+    "section": "Conclusion",
+    "text": "Conclusion\nLa météo et le climat sont deux notions différentes. Pour terminer, il faut retenir que un orage violent, de fortes précipitations, demain il fera 25°C, le 1er juillet 2022 est 1.5°C plus chaud que la normale, etc. sont des notions météorologiques. En revanche, la temperature moyenne en Janvier est de 5°C, il pleut en moyenne 1000 mm par an, etc. sont des notions climatiques.",
+    "crumbs": [
+      "About",
+      "climat",
+      "Différence entre climat et météo"
+    ]
+  },
+  {
+    "objectID": "posts/machineLearning3A/index.html",
+    "href": "posts/machineLearning3A/index.html",
+    "title": "Examen de machine learning",
     "section": "",
-    "text": "The world is currently experiencing a major ecological crisis, a main aspect of which is global warming. Before argue about ecological crisis, First, you need to know what is global warming.\nGlobal warming is linked to the greenhouse effect. In the atmosphere, Greenhouse gases trap the infrared radiation emitted by the Earth once the sun has warmed its surface. This phenomenon is natural and necessary for life on Earth as it keep the planet warm enough to sustain life. However, since the industrial revolution, human activity have increased the concentration of greenhouse gases in the atmosphere, leading to an increase in the greenhouse effect and therefore global warming. This is known as anthropogenic global warming. Amounts the greenhouse gasses we can find carbon dioxide, methane, nitrous oxide, and fluorinated gases."
+    "text": "Il est possible que ce soit Da Veiga qui assure vos cours, mais je vais vous offrir un aperçu de ce à quoi pourrait ressembler votre examen. C’est important, car nous avons tendance à sous-estimer ce type d’activité, surtout lorsqu’il autorise l’utilisation de générateurs de texte tels que ChatGPT. Cette année, peu d’étudiants ont achevé le projet, la charge de données étant longue et fastidieuse. Je vous conseille de vous y prendre en avance. Préparez des fonctions exécutant certaines tâches spécifiques, que je vous expliquerai progressivement."
   },
   {
-    "objectID": "posts/ClimateScenario/globalWarning.html#what-is-global-warming",
-    "href": "posts/ClimateScenario/globalWarning.html#what-is-global-warming",
-    "title": "UNDERSTANDING THE ECOLOGICAL CRISIS",
+    "objectID": "posts/machineLearning3A/index.html#box-plot",
+    "href": "posts/machineLearning3A/index.html#box-plot",
+    "title": "Examen de machine learning",
+    "section": "Box plot",
+    "text": "Box plot\nLe graphique ci-dessous montre la distribution de chaque variable en fonction de la variable cible.\n\n# box plot\n# Transformed Cover_Type to categorical\nY_sampled = Y_sampled.astype('category')\n\nfor col in X_sampled.columns:\n    sns.boxplot(x=Y_sampled, y=X_sampled[col])\n    plt.show()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInterprétation: Nous allons nous concentrer sur la variable Elevation.\nOn peut voir que la variable Elevation est très discriminante.\nLes types de couverture 1, 2, et 7 montrent des médianes relativement élevées pour l’élévation, avec 7 ayant la médiane la plus élevée, suivie par 1 et 2."
+  },
+  {
+    "objectID": "posts/machineLearning3A/index.html#elastic-net-regression",
+    "href": "posts/machineLearning3A/index.html#elastic-net-regression",
+    "title": "Examen de machine learning",
+    "section": "Elastic Net Regression",
+    "text": "Elastic Net Regression\nC’est une méthode de machine learning qui combine la régression Ridge et Lasso. Elle est utilisée pour résoudre le problème de surraprentissage, la multicollinéarité et la sélection de variables.\nPassons à sa modélisation :\nNous avons utilisé ici un modèle de régression logistique avec une pénalité elasticnet. Nous avons utilisé une validation croisée pour trouver le meilleur paramètre de régularisation. Nous avons utilisé une pénalité elasticnet avec un ratio de 0.5. Nous avons utilisé un solver saga qui est adapté aux problèmes multiclasse. Nous avons utilisé une tolérance de 0.01. Nous avons utilisé un random state de 12345.\n\nclf_l1l2_LR = LogisticRegressionCV(penalty='elasticnet', l1_ratios=[0.5], \n                                   cv=5, multi_class=\"multinomial\", \n                                 solver=\"saga\",tol=0.01, random_state=12345)\n\nmodel = Pipeline(steps=[('preprocessor', preprocessor), ('logistic', clf_l1l2_LR)])\n\nmodel.fit(X_train,Y_train)\nprediction = model.predict(X_test)\naccuracy_LR = accuracy_score(Y_test, prediction)\n\nprint(\"Accuracy of Logistic Regression :\",\"%.3f\" % accuracy_LR)\n\nAccuracy of Logistic Regression : 0.714\n\n\nJ’ai un accuracy de 0.714. Ce n’est pas mal. Nous pouvons voir la matrice de confusion.\n\n# Confusion matrix\n\n# Compute the confusion matrix\nconf_matrix = confusion_matrix(Y_test, prediction)\n\n# Display the confusion matrix using Seaborn's heatmap\nplt.figure(figsize=(10, 7))\nsns.heatmap(conf_matrix, annot=True, fmt='g', cmap='Blues')\nplt.title('Confusion Matrix')\nplt.xlabel('Predicted labels')\nplt.ylabel('True labels')\nplt.show()\n\n\n\n\n\n\n\n\n\nLes valeurs sur la diagonale principale (de haut à gauche à bas à droite) représentent le nombre de prédictions correctes pour chaque classe. Par exemple, il y a 29724 prédictions correctes pour la classe 0, 44616 pour la classe 1, et ainsi de suite.\nLes valeurs hors de la diagonale indiquent les erreurs de classification. Par exemple, 11947 instances de la classe 0 ont été incorrectement prédites comme appartenant à la classe 1.\nLa classe 0 a le plus grand nombre de faux positifs, c’est-à-dire que de nombreuses instances d’autres classes ont été incorrectement prédites comme appartenant à la classe 0.\nLes classes avec le moins de prédictions incorrectes (et donc les plus sombres dans la visualisation) sont la classe 3 et la classe 6, avec respectivement 187 et 1993 prédictions correctes. Les cases avec un fond plus clair, en dehors de la diagonale, indiquent des erreurs moins fréquentes entre les classes spécifiques."
+  },
+  {
+    "objectID": "posts/machineLearning3A/index.html#random-forest",
+    "href": "posts/machineLearning3A/index.html#random-forest",
+    "title": "Examen de machine learning",
+    "section": "Random Forest",
+    "text": "Random Forest\n\nOOB error (Out-of-bag error)\nOOB est une méthode de validation croisée pour les forêts aléatoires. Chaque arbre dans la forêt est construit à partir d’un échantillon bootstrap du jeu de données d’entraînement. Certaines observations sont laissées de côté et non utilisées dans la construction d’un arbre donné. Ces observations “hors sac” peuvent être utilisées pour évaluer les performances de cet arbre. Du coup on peut utiliser cette méthode pour évaluer la performance de la forêt aléatoire et ajuster les hyperparamètres.\nLe code ci-dessous montre comment calculer l’erreur OOB pour un modèle de forêt aléatoire. Il permet en particulier de sélectionner la profondeur de l’arbre dans la forêt aléatoire. Le modèle de forêt aléatoire est entraîné avec une profondeur d’arbre de 10, 20 et 30. L’erreur OOB est calculée pour chaque modèle. Le modèle avec la plus petite erreur OOB est sélectionné.\n\n## Training Random Forest\n\n\n\n\ndepths = [10, 20, 30]\noob_errors = []\nmodels = []\nbest_oob_error = float('inf')\nbest_model = None\ni = 0\nfor depth in depths:\n    print(i)\n    model = RandomForestClassifier(max_depth=depth, oob_score=True, random_state=42,\n                                   n_estimators=100,  \n                                   warm_start=True  # This allows us to add more estimators later if needed\n                                  )\n    model.fit(X_train, Y_train)\n    oob_error = 1 - model.oob_score_\n    oob_errors.append(oob_error)\n    models.append(model)\n    if oob_error &lt; best_oob_error:\n        best_oob_error = oob_error\n        best_model = model\n    i = i+1\n    print(\"Done\")\n\n# Print OOB errors for each model\nfor depth, error in zip(depths, oob_errors):\n    print(f\"Depth: {depth}, OOB Error: {error}\")\n\n0\nDone\n1\nDone\n2\nDone\nDepth: 10, OOB Error: 0.21680518234371537\nDepth: 20, OOB Error: 0.05706860237215716\nDepth: 30, OOB Error: 0.038628770096964526\n\n\n\n\nAccuracy et matrice de confusion\n\n# Compute the accuracy of the best random forest model\npredictions = best_model.predict(X_test)\naccuracy = accuracy_score(Y_test, predictions)\nprint(\"Accuracy of the Best Random Forest: {:.3f}\".format(accuracy))\n\n# Display the confusion matrix\nconf_matrix = confusion_matrix(Y_test, predictions)\nplt.figure(figsize=(10, 7))\nsns.heatmap(conf_matrix, annot=True, fmt='g', cmap='Blues')\nplt.title('Confusion Matrix')\nplt.xlabel('Predicted labels')\nplt.ylabel('True labels')\nplt.show()\n\nAccuracy of the Best Random Forest: 0.962\n\n\n\n\n\n\n\n\n\nNous avons un accuracy de 0.962. C’est très bien si on compare avec le modèle de régression logistique qui a un accuracy de 0.714. Nous pouvons voir la matrice de confusion."
+  },
+  {
+    "objectID": "posts/machineLearning3A/TP1_solution.html",
+    "href": "posts/machineLearning3A/TP1_solution.html",
+    "title": "Ordinary Least squares variants : Ridge, PCA-OLS AND LASSO",
     "section": "",
-    "text": "The world is currently experiencing a major ecological crisis, a main aspect of which is global warming. Before argue about ecological crisis, First, you need to know what is global warming.\nGlobal warming is linked to the greenhouse effect. In the atmosphere, Greenhouse gases trap the infrared radiation emitted by the Earth once the sun has warmed its surface. This phenomenon is natural and necessary for life on Earth as it keep the planet warm enough to sustain life. However, since the industrial revolution, human activity have increased the concentration of greenhouse gases in the atmosphere, leading to an increase in the greenhouse effect and therefore global warming. This is known as anthropogenic global warming. Amounts the greenhouse gasses we can find carbon dioxide, methane, nitrous oxide, and fluorinated gases."
+    "text": "I will begin this post by reminder what OLS is and then I will introduce PCA-OLS, Lasso and Ridge regression.\nThe OLS estimator is any coefficient vector \\(\\hat{\\theta_n}\\) = \\((\\hat{\\theta_1}\\), \\(\\hat{\\theta_2}\\), …, \\(\\hat{\\theta_p})^T\\) \\(\\in\\) \\(R^p\\) such that :\n\\[\\hat{\\theta_n}=argmin_{\\theta \\in R^p} \\sum_{i=1}^{n} (y_i - x_i^T\\theta)^2\\]\nWhere \\(x_i\\) is the vector of features of the i-th observation and \\(y_i\\) is the target variable of the i-th observation.\nIn matrix notation, we have :\nZ = \\(\\begin{bmatrix} x_1^T \\\\ x_2^T \\\\ ... \\\\ x_n^T \\end{bmatrix}\\), Y = \\(\\begin{bmatrix} y_1 \\\\ y_2 \\\\ ... \\\\ y_n \\end{bmatrix}\\), \\(1_n\\) = \\(\\begin{bmatrix} 1 \\\\ 1 \\\\ ... \\\\ 1 \\end{bmatrix}\\)\n\\(\\hat{\\theta_n}=argmin_{\\theta \\in R^p} ||Y - Z\\theta||_2^2\\)\nand the OLS estimator is defined by the normal equation :\n\\[Z^TZ\\hat{\\theta_n} = Z^TY\\]\nNote that solution of this equation is not unique without further assumptions on the data.\nFor instance, if \\(u \\in Ker(Z)\\), then \\(\\hat{\\theta_n} + u\\) is also a solution of the normal equation.\nThe solution will be unique if only \\(Ker(Z)\\) = Ker(\\(Z^TZ\\)) = \\({0}\\) which is equivalent to \\(Z^TZ\\) being invertible and this is the case if \\(Z\\) has full column rank. The solution is then given by :\n\\[\\hat{\\theta_n} = (Z^TZ)^{-1}Z^TY\\]\nIf \\(Ker(Z) \\neq {0}\\), then the OLS estimator is not unique. In this case, the set of solutions writes \\(\\hat{\\theta_n} + Ker(Z)\\) where \\(\\hat{\\theta_n}\\) is the particular solution given by the normal equation.\nThere are four cases where you should not use OLS estimator : When we have ill-conditionning, multicollinearity, more variables that samples, and when the model overfit.\nThere are many ways to overcome the issues mentioned above. The PCA before OLS is one of the most common ways to deal with multicollinearity. The other way is to use Lasso and Ridge regression."
   },
   {
-    "objectID": "posts/ClimateScenario/globalWarning.html#the-impacts-of-human-activities-on-global-warming",
-    "href": "posts/ClimateScenario/globalWarning.html#the-impacts-of-human-activities-on-global-warming",
-    "title": "UNDERSTANDING THE ECOLOGICAL CRISIS",
-    "section": "2 The impacts of human activities on global warming",
-    "text": "2 The impacts of human activities on global warming\nAlmost all human activities emit greenhouse gases. The main sources of these gases are the burning of fossil fuels (coal, oil, and natural gas) for energy production, transportation, and heating, as well as deforestation and intensive agriculture.\nFurthermore, our activity often reduce the capacity of ecosystems to absorb these gases. Forests, soils and oceans are the main natural carbon sinks(puits de carbone). Their degradation through deforestation, urbanization, agriculture or pollution reduce their capacity to absorb CO2."
+    "objectID": "posts/machineLearning3A/TP1_solution.html#the-pca-ols",
+    "href": "posts/machineLearning3A/TP1_solution.html#the-pca-ols",
+    "title": "Ordinary Least squares variants : Ridge, PCA-OLS AND LASSO",
+    "section": "1 The PCA-OLS",
+    "text": "1 The PCA-OLS\nThe PCA-OLS is a method that consists in applying PCA to the features to reduce the dimension of the data and then apply OLS to the reduced data. This method is useful when the number of features is large compared to the number of samples and when the features are correlated."
   },
   {
-    "objectID": "posts/ClimateScenario/globalWarning.html#the-consequences-of-global-warming",
-    "href": "posts/ClimateScenario/globalWarning.html#the-consequences-of-global-warming",
-    "title": "UNDERSTANDING THE ECOLOGICAL CRISIS",
-    "section": "3 The consequences of global warming",
-    "text": "3 The consequences of global warming\nIf the train continues, the consequence will be dramatic. In 2019 the Eearth’s temperature was already one degree warmer than in the pre-industrial era. This may seem negligible, but it is enoromous : The last ice age, the average temperature on Earth was only five degrees lower than today. A few degrees can radically transform the climate.\nA rise of one degree can profoundly alter the balance of ecosystems and increase the frequency of extreme weather events like droughts, floods, cyclones.\nClimate change can also affect agricultural productivity and industrial sectors’ supply of primary materials, As well as decreasing the economy as whole. Climate change affects the overalll health and safety of populations : Natural disasters, migrations, conflicts over access to resources,etc.\nThe consequences of global warming are already visible. To face them, we must starting today, aim for carbon neutrality : not emitting more greenhouse gases than we can absorb. This is the only way to limit the rise in temperature to 1.5 degrees, as recommended by the IPCC."
+    "objectID": "posts/machineLearning3A/TP1_solution.html#the-ridge-regression",
+    "href": "posts/machineLearning3A/TP1_solution.html#the-ridge-regression",
+    "title": "Ordinary Least squares variants : Ridge, PCA-OLS AND LASSO",
+    "section": "2 The Ridge Regression",
+    "text": "2 The Ridge Regression\nThe ridge regression is defined as follows : \\[\\hat{\\theta_n}^{ridge} = argmin_{\\theta \\in R^p} \\sum_{i=1}^{n} (y_i - x_i^T\\theta)^2 + \\lambda ||\\theta||_2^2\\]\nWhere \\(\\lambda\\) is the regularization parameter."
   },
   {
-    "objectID": "posts/ClimateScenario/substainablefinance.html",
-    "href": "posts/ClimateScenario/substainablefinance.html",
-    "title": "Understanding Sustainable Finance and its Regulations",
-    "section": "",
-    "text": "Sustainable finance is a team that can be difficult to define. So what exactly should we understand when we hear the term sustainable finance? To grasp The concept we need to make the difference between traditional finance and sustainable finance.\n\n\nTraditional finance targets economic performance by taking the account purely financial criteria. The main goal here is to maximize the profitability, the share price or growth prospects.\nSustainable finance, on the other hand, takes into account extra-financial criteria. These criteria are environmental, social and governance (ESG) criteria. The goal is to reconcile economic performance with positive social and environmental impacts to meet the goals of sustainable development.\n\n\n\nThe ESG criteria are the three pillars of sustainable finance. Let’s start with the environmental criteria. Their role is to measure the direct or indirect impact of the activity of an economic entity on the environment. For example, it might be to analyze a company’s CO2 emissions, its energy consumptions or the recycling of the waste it produces.\nThen there are the social criteria. They aim to measure the performance of an economic entity on social issues. For example, it might be to analyze the diversity of the workforce, the health and safety of employees, parity or the number of employees with disabilities.\nFinally, the governance criteria assess the way in which the economic entity is managed, administered and monitored. This involves for instance, analyzing the composition of the board of directors, the remuneration of the management, the transparency of the information provided or the fight against corruption."
+    "objectID": "posts/machineLearning3A/TP1_solution.html#the-lasso-regression",
+    "href": "posts/machineLearning3A/TP1_solution.html#the-lasso-regression",
+    "title": "Ordinary Least squares variants : Ridge, PCA-OLS AND LASSO",
+    "section": "3 The Lasso Regression",
+    "text": "3 The Lasso Regression\nThe Lasso regression is defined as follows : \\[\\hat{\\theta_n}^{lasso} = argmin_{\\theta \\in R^p} \\sum_{i=1}^{n} (y_i - x_i^T\\theta)^2 + \\lambda ||\\theta||_1\\]\nWhere \\(\\lambda\\) is the regularization parameter."
   },
   {
-    "objectID": "posts/ClimateScenario/substainablefinance.html#definition-of-sustainable-finance-and-esg-criteria.",
-    "href": "posts/ClimateScenario/substainablefinance.html#definition-of-sustainable-finance-and-esg-criteria.",
-    "title": "Understanding Sustainable Finance and its Regulations",
-    "section": "",
-    "text": "Sustainable finance is a team that can be difficult to define. So what exactly should we understand when we hear the term sustainable finance? To grasp The concept we need to make the difference between traditional finance and sustainable finance.\n\n\nTraditional finance targets economic performance by taking the account purely financial criteria. The main goal here is to maximize the profitability, the share price or growth prospects.\nSustainable finance, on the other hand, takes into account extra-financial criteria. These criteria are environmental, social and governance (ESG) criteria. The goal is to reconcile economic performance with positive social and environmental impacts to meet the goals of sustainable development.\n\n\n\nThe ESG criteria are the three pillars of sustainable finance. Let’s start with the environmental criteria. Their role is to measure the direct or indirect impact of the activity of an economic entity on the environment. For example, it might be to analyze a company’s CO2 emissions, its energy consumptions or the recycling of the waste it produces.\nThen there are the social criteria. They aim to measure the performance of an economic entity on social issues. For example, it might be to analyze the diversity of the workforce, the health and safety of employees, parity or the number of employees with disabilities.\nFinally, the governance criteria assess the way in which the economic entity is managed, administered and monitored. This involves for instance, analyzing the composition of the board of directors, the remuneration of the management, the transparency of the information provided or the fight against corruption."
+    "objectID": "posts/machineLearning3A/TP1_solution.html#implementation-in-python",
+    "href": "posts/machineLearning3A/TP1_solution.html#implementation-in-python",
+    "title": "Ordinary Least squares variants : Ridge, PCA-OLS AND LASSO",
+    "section": "4 Implementation in Python",
+    "text": "4 Implementation in Python\nWe work with the data set diabetes accessible in python. The initial data consists of n = 442 patients and p = 10  covariates. The output variable Y is a score reflecting the disease progressing.  For fun, a bad robot has contaminated the data set by adding 200 inappropriate exploratory variables. Since  simply noising the data was not sufficient for the robot, he also arbitrarily permuted the variables. To complete  the picture, the robot has erased any trace of his villainous act and thus we do not know which variables are  relevant.  The new data set contains n = 442 patients and p = 210 covariates denoted by X. Are you capable to resolve the  enigma created by the playful machine and retrieve the relevant variables ?\nBefore starting, we will split the data into a training set and a test set and we will standardize the data.\nLet’s start by importing the necessary libraries and loading the data."
   },
   {
-    "objectID": "posts/ClimateScenario/substainablefinance.html#the-3-tools-of-sustainable-finance.",
-    "href": "posts/ClimateScenario/substainablefinance.html#the-3-tools-of-sustainable-finance.",
-    "title": "Understanding Sustainable Finance and its Regulations",
-    "section": "2 The 3 tools of sustainable finance.",
-    "text": "2 The 3 tools of sustainable finance.\nIn practice, sustainable finance use 3 tools to implement the ESG criteriaI : “Socially responsible investment” (SRI), “Green finance” and “Solidarity-based finance”\nSocially responsible investment (SRI) is an investment strategy based on the integration of ESG criteria into the selection of financial assets. Investing in the renewable energy sector or excluding companies that do not respect human rights are examples of SRI.\nGreen finance covers actions and financial operations that promote the energy and ecological transition and the fight against climate change. This includes green bonds, green loans or green funds in particular.\nSolidarity-based finance is a form of finance that aims to finance projects designed to fight against social exclusion or promote social integration. This includes microcredit, social entrepreneurship or ethical banking.\nThank you for reading and see you soon!I"
+    "objectID": "posts/machineLearning3A/TP1_solution.html#importing-the-necessary-libraries",
+    "href": "posts/machineLearning3A/TP1_solution.html#importing-the-necessary-libraries",
+    "title": "Ordinary Least squares variants : Ridge, PCA-OLS AND LASSO",
+    "section": "5 Importing the necessary libraries",
+    "text": "5 Importing the necessary libraries\n\nimport numpy as np\nimport pandas as pd\n\nfrom scipy.stats import norm\n\nfrom sklearn import datasets\nfrom sklearn import preprocessing\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LinearRegression, RidgeCV, LassoCV\n\n\nimport matplotlib.pyplot as plt\nfrom matplotlib import rc\nimport seaborn as sns\n\nnp.random.seed(2)"
   },
   {
-    "objectID": "posts/Leadership/index.html",
-    "href": "posts/Leadership/index.html",
-    "title": "Leadership : Pouvoir, autorité et légitimité",
-    "section": "",
-    "text": "Leadership : Pouvoir, autorité et légitimité\n\n\n\nLe Pouvoir se reçoit, l’autorité se construit.\nComme l’éminent penseur Christian Monjou, débutons avec une citation marquante. Niccolò Machiavel, une figure clé dans l’étude du leadership et de la stratégie politique, affirmait : ‘Les qualités nécessaires pour conserver le pouvoir ne sont pas les mêmes que celles pour l’acquérir.’ Cette citation soulève un point crucial dans le domaine de la gestion du leadership et de l’autorité en entreprise. Lorsqu’on crée une entreprise, devenir un patron ou un chef d’entreprise confère du pouvoir, mais pas nécessairement de l’autorité. L’autorité, dans le contexte de la leadership efficace, est une reconnaissance octroyée par autrui ; elle repose sur la légitimité perçue par les collaborateurs. Un leader en cours de construction de son autorité n’est pas automatiquement reconnu comme légitime. En effet, la légitimité en leadership et en gestion d’équipe se manifeste à travers le respect et la confiance que l’on inspire à son entourage. Souvent, ceux qui doivent affirmer leur propre légitimité en sont en réalité dépourvus. La construction de l’autorité est donc un élément essentiel à l’efficacité du leadership dans le monde des affaires et la gestion d’équipe.\n\n\nLa construction de l’autorité\nL’essence du leadership transformationnel réside dans la capacité à favoriser la croissance et l’épanouissement de la communauté à laquelle on appartient. Cela implique d’encourager et de soutenir le développement personnel et professionnel des membres de l’équipe. Le concept de développement personnel est crucial dans le cadre du leadership efficace. En effet, un leader qui cesse de s’investir dans son propre développement personnel risque de perdre la légitimité aux yeux de ses collaborateurs. Dans la construction de l’autorité, la notion de style personnel joue également un rôle clé. Un style de leadership rigide ou répétitif peut s’avérer contre-productif. Il est important de rester adaptable et innovant, quelle que soit la situation. Cela soulève une question fondamentale : le leadership est-il inné ou acquis ? La réponse réside souvent dans la capacité d’un individu à évoluer et à s’adapter continuellement, renforçant ainsi son autorité et son influence au sein de son organisation.\n\n\nL’origine du leadership\nLa question de savoir si le leadership est inné ou acquis est un débat central dans le domaine du développement du leadership. Bien qu’il puisse sembler que certaines personnes naissent leaders, cette idée comporte des risques. En effet, se reposer uniquement sur des compétences innées en leadership peut conduire à une stagnation, limitant l’innovation et l’adaptabilité. Comme le soulignait le théoricien du leadership, Berson, ‘Plaquer du mécanique sur du vivant, c’est risquer le ridicule.’ Un leader efficace ne se contente pas de compter sur des compétences innées, mais s’interroge continuellement sur l’adéquation de son style de leadership avec les besoins actuels de sa communauté ou de son organisation. Un exemple éloquent est celui du leadership féminin, où l’adaptabilité et l’empathie jouent souvent un rôle clé dans la réussite et l’impact du leadership.\n\n\nElisabeth I er\nLa figure que vous voyez est celle d’Elisabeth Ière elisabeth., reine d’Angleterre ayant régné durant 45 ans (de 1558 à 1603). Fille de Henri VIII et Anne Boleyn, elle fut la dernière souveraine de la dynastie des Tudors et la première femme à régner sur l’Angleterre et l’Irlande. Son ascension au trône, perçue initialement comme un coup du hasard, est un exemple remarquable de la manière dont un leader peut transformer une opportunité imprévue en un règne influent et significatif. Sa présence imposante, souvent décrite comme une ‘hypertrophie de signe’, reflétait une stratégie de communication visant à établir sa légitimité et son autorité. En effet, Elisabeth Ière comprenait l’importance de l’image et du symbolisme dans la construction du leadership. Elle incarnait la dualité du ‘signe et du sens’ – un aspect essentiel dans la représentation du leadership. Son règne illustre parfaitement la nécessité pour un leader de maintenir un équilibre entre son identité privée et sa persona publique. Finalement, l’efficacité de son leadership résidait dans sa capacité à maîtriser l’art de la communication – un aspect crucial pour tout leader aspirant à un impact durable.\n\n\nLa qualité de la parole\nDans le contexte actuel de l’éducation et du leadership, une transformation notable s’est opérée par rapport aux méthodes traditionnelles. Autrefois, l’entrée d’un enseignant dans une salle de classe était synonyme de respect absolu et d’une reconnaissance incontestée de son savoir. Cependant, dans le monde moderne, marqué par l’accès instantané à l’information via la technologie numérique, cette dynamique a évolué. Imaginez un professeur mentionnant un pourcentage spécifique, comme 2.23 %, devant des étudiants équipés de smartphones. Il est probable qu’ils vérifient immédiatement cette information, remettant en question l’exactitude des données présentées. Cette situation illustre un changement fondamental : la légitimité dans le domaine de l’éducation et du leadership ne repose plus exclusivement sur la transmission du savoir, mais de plus en plus sur la qualité de la communication et de l’engagement. L’ère numérique, en économisant du temps, nous incite non pas à intensifier notre présence numérique, mais plutôt à valoriser davantage le temps consacré à la communication directe et significative. Selon Marcel Mauss, ce principe d’échange symbolique, où la qualité de la communication exige en retour un engagement – ici sous forme de loyauté – est essentiel. Enfin, la vraie mesure d’un leader réside dans sa capacité à anticiper les idées potentiellement nuisibles à sa communauté et à persuader celle-ci d’adopter de nouvelles perspectives pour éviter les pièges futurs. Mener une communauté du connu vers l’inconnu est une des responsabilités les plus ardues d’un leader.\n\n\nUn monde de changement\nNous vivons dans une ère de transformation rapide, caractérisée par un marché mondial en constante évolution. À l’ère numérique et face aux défis de la transition écologique, les communautés et organisations qui ne reconnaissent pas ce changement de paradigme risquent l’obsolescence. Cette transformation s’illustre particulièrement avec l’avènement de l’intelligence artificielle, comme en témoigne le développement de technologies telles que ChatGPT. De plus, les appels urgents du GIEC et des communautés scientifiques, notamment des astrophysiciens, mettent en lumière l’imminence d’une crise écologique mondiale. Il est impératif pour les entreprises, et plus spécifiquement pour les banques, d’évaluer et de gérer ces risques. L’enjeu n’est pas simplement financier, mais il s’agit de la préservation de la vie sur Terre dans toutes ses formes. La responsabilité sociale des entreprises et la durabilité environnementale sont devenues des facteurs clés dans la stratégie d’entreprise moderne, dictant une nouvelle approche vers un avenir plus durable et conscient."
+    "objectID": "posts/machineLearning3A/TP1_solution.html#importation-of-data-which-the-last-column-is-the-output",
+    "href": "posts/machineLearning3A/TP1_solution.html#importation-of-data-which-the-last-column-is-the-output",
+    "title": "Ordinary Least squares variants : Ridge, PCA-OLS AND LASSO",
+    "section": "6 Importation of data which the last column is the output",
+    "text": "6 Importation of data which the last column is the output\nProvide the number of the explanatory variables and the number of the observations\n\ndf = pd.read_csv(\"data/data_dm3.csv\", header=None)\nA = np.array(df)\nprint(A.shape)\n\nX = A[:, :-1]          # on récupère les covariables\nY = A[:, -1]           # puis l'output\n\nn, d = X.shape\nprint(\"X dimensions are: %s x %s \" % (n, d))\n\n(442, 211)\nX dimensions are: 442 x 210 \n\n\nIt is important to check if the data is well centered and normalized.\n\nprint(\"To ensure that means and variances are properly computed for\",\n      \"the variables,\\nwe check the dimensions. It is %s with axis=0, %s with axis=1.\\n\"\n      % (len(X.mean(axis=0)) == d, len(X.mean(axis=1)) == d))\n\nprint(\"Are explanatory variables: \\n centered? %s\\n normalized? %s\\n\"\n      % (np.allclose(X.mean(axis=0), 0), np.allclose(X.std(axis=0), 1)))\n\nprint(\"Is the output variable: \\n centered? %s\\n normalized? %s\"\n      % (np.allclose(Y.mean(axis=0), 0), np.allclose(Y.std(axis=0), 1)))\n\nTo ensure that means and variances are properly computed for the variables,\nwe check the dimensions. It is True with axis=0, False with axis=1.\n\nAre explanatory variables: \n centered? True\n normalized? True\n\nIs the output variable: \n centered? False\n normalized? False\n\n\nEach variable of X is centered and normalized, but not Y.\nLet’s draw the scatterplots of covariates and the output variable.\n\n#sns.set(style=\"ticks\")\ndf_sub = pd.DataFrame(X[:, np.random.choice(range(210), 4)])\ndf_sub['y'] = Y\n\nsns.pairplot(df_sub)\nplt.show()\n\n\n\n\n\n\n\n\nThe selected covariates seem to be poorly correlated with each other. The are also poorly correlated with the explanatory variable. Before starting, will split the data into a training set and a test set and we will standardize the data.\n\nX_train, X_test, y_train, y_test = train_test_split(X, Y, test_size = 0.2,\n                                                    random_state=2)\n\n# Initialize the scaler\nscaler = StandardScaler()\n\n# Fit the scaler on the training data only\nscaler.fit(X_train)\n\n# Apply the transformation to both the training set and the test set.\nX_train_scaled = scaler.transform(X_train)\nX_test_scaled = scaler.transform(X_test)\n\nn_train, _ = X_train.shape\nprint(X_train.shape, X_test.shape)\n\n(353, 210) (89, 210)"
   },
   {
-    "objectID": "posts/machineLearning3A/QCM.html",
-    "href": "posts/machineLearning3A/QCM.html",
-    "title": "Examen de machine learning QCM",
-    "section": "",
-    "text": "qcm"
+    "objectID": "posts/machineLearning3A/TP1_solution.html#pca-ols",
+    "href": "posts/machineLearning3A/TP1_solution.html#pca-ols",
+    "title": "Ordinary Least squares variants : Ridge, PCA-OLS AND LASSO",
+    "section": "7 PCA-OLS",
+    "text": "7 PCA-OLS\nFirst, we provide the matrix covariance for the X_train_scaled and compute the svd of the covariance matrix (here, we could as well use the classical spectral decomposition, and not the SVD):\n\ndf = pd.DataFrame(X_train_scaled)\nCOV = df.cov() \nf = plt.figure(figsize=(19, 15))\nplt.matshow(COV, fignum=f.number)\ncb = plt.colorbar()\n#cb.ax.tick_params(label=FALSE,labelsize=0)\nplt.title('Covariance Matrix', fontsize=16)\n\nText(0.5, 1.0, 'Covariance Matrix')\n\n\n\n\n\n\n\n\n\nLet us compute the svd of the covariance matrix (here, we could as well use the classical spectral decomposition, and not the SVD):\n\nU, s, V = np.linalg.svd(COV, full_matrices = True)\n\nNow, we will plot the eigenvalues to see those are significantly different of 0 and We record the index of the last non-zero eigenvalue.\n\nfig = plt.figure()\nplt.plot(s)\nplt.axvline(52, c='r')\n#plt.axhline(0,c='r')\nplt.title(\"eigenvalues values of the matrix correlation\")\nplt.show()\n\n\n\n\n\n\n\n\nWe notice that only the first 60 values are (significantly) different from 0. This means that the design matrix is rank-deficient (60 &lt; 210). Thus attempting a ‘’PCA before OLS’’ strategy is legitimate. We record the index of the last non-zero eigenvalue.\n\nprint((s[0:52]&gt;0.05))\nprint(s[52]) #indice n°9 pour la dixième valeur!\nelbow = 52  \n\n[ True  True  True  True  True  True  True  True  True  True  True  True\n  True  True  True  True  True  True  True  True  True  True  True  True\n  True  True  True  True  True  True  True  True  True  True  True  True\n  True  True  True  True  True  True  True  True  True  True  True  True\n  True  True  True  True]\n0.9448172106956519\n\n\nIf we first, compute regression without PCA, we have :\n\n7.1 OLS-Regression\nWe will plot the values of the calculated regression coefficients (without the intercept). On another graph, do the same with the classical least squares method.\n\nregr0 = LinearRegression()\nregr0.fit(X_train_scaled, y_train)\n\nfig = plt.figure()\nplt.plot(regr0.coef_,'o')\nplt.title(\"OLS  coefficients\")\nplt.show()\n\n\n\n\n\n\n\n\nWe observe that the coefficients are extremely large. This is due to the fact that the design matrix is rank-deficient. The OLS estimator is not stable and small changes in the data can lead to large changes in the OLS estimator. If we decide now to reduce through PCA, before compute regression, we have :\n\n\n7.2 PCA before OLS\n\nX_train_reduce = np.dot(X_train_scaled, U[:, :elbow])\nX_test_reduce = np.dot(X_test_scaled, U[:, :elbow])\n\nregr1 = LinearRegression()\nregr1.fit(X_train_reduce, y_train)\n\nfig = plt.figure()\nplt.plot(regr1.coef_, 'o')\nplt.title(f\"OLS  coefficients de PCA_before_OLS on the {elbow} first components\")\nplt.show()\n\n\n\n\n\n\n\n\nThe coefficients are now more stable. The PCA method brings some improvements compared to OLS.\n\n\n7.3 Comparison of the two methods\nFor both methods: Plot the residuals of the prediction on the test sample. Plot their density (we can use a histogram). Calculate the coefficient of determination on the test sample. Calculate the prediction risk on the test sample.\n\nR20 = regr0.score(X_test_scaled, y_test) \nR21 = regr1.score(X_test_reduce, y_test)\n\ndef MSE(y_pred, y_true):\n    return np.mean((y_pred - y_true) ** 2)\n\n\n# et le R2 ajusté ?\npred_error0 = MSE(regr0.predict(X_test), y_test)\npred_error1 = MSE(regr1.predict(X_test_reduce), y_test)\n\nprint(\"The R2 of OLS:            %.3f\" % R20)\nprint(\"The R2 of PCA before OLS: %.3f\\n\" % R21)\nprint(\"The error prediction of OLS computed on the test sample:            %.2f\" % pred_error0)\nprint(\"The error prediction of PCA before OLS computed on the test sample: %.2f\" % pred_error1)\n\nThe R2 of OLS:            -0.044\nThe R2 of PCA before OLS: 0.044\n\nThe error prediction of OLS computed on the test sample:            100712213635840763604324319232.00\nThe error prediction of PCA before OLS computed on the test sample: 5281.50\n\n\nThere are evidence that the OLS is a poor model. With a R2 = -0.044, negatif, the model is poorly fitted to the data. Even if the PCA-OLS is not good, it do better compare to the OLS.\n\neps0 = regr0.predict(X_test_scaled) - y_test\neps1 = regr1.predict(X_test_reduce) - y_test\nx=len(eps0)\nprint(x)\nplt.figure()\nplt.plot(range(x),eps0,'o',label=\"ols\")\nplt.plot(range(x),eps1,'o', label=\"pca_before_ols\")\nplt.legend(loc=1)\nplt.title(\"visualization of residuals\")\nplt.show()\n\n89\n\n\n\n\n\n\n\n\n\n\neps = pd.DataFrame(np.c_[eps0, eps1], columns=['OLS', 'PCA_before_OLS'])\neps.hist(bins=20) #histogram\nplt.show()\n\n\n\n\n\n\n\n\nIn general, the PCA method brings some improvements compared to OLS. But it depends on the chosen (random) test sample. It can happen (but it is rare here) that PCA loses information and leads to a lower prediction."
   },
   {
-    "objectID": "posts/machineLearning3A/QCM.html#q1-what-is-the-primary-objective-of-empirical-risk-minimization-erm-in-machine-learning",
-    "href": "posts/machineLearning3A/QCM.html#q1-what-is-the-primary-objective-of-empirical-risk-minimization-erm-in-machine-learning",
-    "title": "Examen de machine learning QCM",
-    "section": "Q1: What is the primary objective of Empirical Risk Minimization (ERM) in machine learning?",
-    "text": "Q1: What is the primary objective of Empirical Risk Minimization (ERM) in machine learning?\n\n\nMinimize training error\n\n\nMinimize testing error\n\n\nMinimize a combination of training and testing error\n\n\nMaximize model complexity\n\n\nRéponse: C) Minimize training error"
+    "objectID": "posts/machineLearning3A/TP1_solution.html#lasso",
+    "href": "posts/machineLearning3A/TP1_solution.html#lasso",
+    "title": "Ordinary Least squares variants : Ridge, PCA-OLS AND LASSO",
+    "section": "8 LASSO",
+    "text": "8 LASSO\nUsing the lassoCV function of sklearn, choose the regularization parameter of LASSO. Give the prediction risk calculated on the test. Compare it to the others.\n\nlasso = LassoCV()\nlasso.fit(X_train_scaled, y_train)\n\n\n\n\n# The estimator chose automatically its lambda:\nprint(lasso.alpha_)\n\n5.686623247060891\n\n\n\npred_error_lasso = MSE(lasso.predict(X_test_scaled), y_test)\n\n\nprint(\"Remind us the previous estimated risks.\\n\")\n\nfor method, error in zip([\"ols           \", \"pca_before_ols\", \"lasso         \"],\n                         [pred_error0, pred_error1, pred_error_lasso]):\n    print(method + \" : %.2f\" % error)\n\nRemind us the previous estimated risks.\n\nols            : 100712213635840763604324319232.00\npca_before_ols : 5281.50\nlasso          : 3386.13"
   },
   {
-    "objectID": "posts/machineLearning3A/QCM.html#q2-in-ridge-regression-what-does-the-regularization-term-primarily-aim-to-prevent",
-    "href": "posts/machineLearning3A/QCM.html#q2-in-ridge-regression-what-does-the-regularization-term-primarily-aim-to-prevent",
-    "title": "Examen de machine learning QCM",
-    "section": "Q2: In Ridge regression, what does the regularization term primarily aim to prevent?",
-    "text": "Q2: In Ridge regression, what does the regularization term primarily aim to prevent?\n\n\nFeature selection\n\n\nOverfitting\n\n\nUnderfitting\n\n\nData preprocessing errors\n\n\nRéponse: B) Overfitting"
+    "objectID": "posts/machineLearning3A/TP1_solution.html#lasso-feature-selection-and-ols",
+    "href": "posts/machineLearning3A/TP1_solution.html#lasso-feature-selection-and-ols",
+    "title": "Ordinary Least squares variants : Ridge, PCA-OLS AND LASSO",
+    "section": "9 LASSO feature selection and OLS",
+    "text": "9 LASSO feature selection and OLS\n\nprint(\"Selected variables with LASSO %s \" % np.sum(lasso.coef_ &gt; 0 ))\n\n\nX_train_sel_lasso = X_train_scaled[:, lasso.coef_ &gt; 0 ]\nX_test_sel_lasso = X_test_scaled[:, lasso.coef_ &gt; 0]\n\nregr2Lasso = LinearRegression()\nregr2Lasso.fit(X_train_sel_lasso, y_train)\n\npred_error_LSLASSO = MSE(regr2Lasso.predict(X_test_sel_lasso), y_test)\n\nprint(\"MSE :\\n\"),\n\nfor method, error in zip([\"ols           \", \"pca_before_ols\", \"lasso         \", \"ls_lasso      \"],\n                         [pred_error0, pred_error1, pred_error_lasso, pred_error_LSLASSO]):\n    print(method + \" : %.2f\" % error)\n\nSelected variables with LASSO 8 \nMSE :\n\nols            : 100712213635840763604324319232.00\npca_before_ols : 5281.50\nlasso          : 3386.13\nls_lasso       : 3921.41"
   },
   {
-    "objectID": "posts/machineLearning3A/QCM.html#q3-which-of-the-following-regression-techniques-is-primarily-used-for-feature-selection-by-adding-a-penalty-term-to-the-loss-function",
-    "href": "posts/machineLearning3A/QCM.html#q3-which-of-the-following-regression-techniques-is-primarily-used-for-feature-selection-by-adding-a-penalty-term-to-the-loss-function",
-    "title": "Examen de machine learning QCM",
-    "section": "Q3: Which of the following regression techniques is primarily used for feature selection by adding a penalty term to the loss function?",
-    "text": "Q3: Which of the following regression techniques is primarily used for feature selection by adding a penalty term to the loss function?\n\n\nLinear regression\n\n\nRidge regression\n\n\nLasso regression\n\n\nSupport vector regression\n\n\nRéponse: C) Lasso regression"
-  },
-  {
-    "objectID": "posts/machineLearning3A/QCM.html#q4-which-optimization-technique-aims-to-find-the-minimum-of-a-convex-function-by-iteratively-updating-the-model-parameters-in-the-direction-of-the-gradient",
-    "href": "posts/machineLearning3A/QCM.html#q4-which-optimization-technique-aims-to-find-the-minimum-of-a-convex-function-by-iteratively-updating-the-model-parameters-in-the-direction-of-the-gradient",
-    "title": "Examen de machine learning QCM",
-    "section": "Q4: Which optimization technique aims to find the minimum of a convex function by iteratively updating the model parameters in the direction of the gradient?",
-    "text": "Q4: Which optimization technique aims to find the minimum of a convex function by iteratively updating the model parameters in the direction of the gradient?\n\n\nGradient Descent\n\n\nNewton’s Method\n\n\nGenetic Algorithms\n\n\nDecision Trees\n\n\nRéponse: A) Gradient Descent"
-  },
-  {
-    "objectID": "posts/machineLearning3A/QCM.html#q5-in-support-vector-machines-what-is-the-primary-goal-when-selecting-the-optimal-hyperplane",
-    "href": "posts/machineLearning3A/QCM.html#q5-in-support-vector-machines-what-is-the-primary-goal-when-selecting-the-optimal-hyperplane",
-    "title": "Examen de machine learning QCM",
-    "section": "Q5: In support vector machines, what is the primary goal when selecting the optimal hyperplane?",
-    "text": "Q5: In support vector machines, what is the primary goal when selecting the optimal hyperplane?\n\n\nMaximize the margin between data points from different classes.\n\n\nMinimize the margin between data points from the same class.\n\n\nMaximize the number of support vectors.\n\n\nMinimize the number of support vectors.\n\n\nRéponse: A) Maximize the margin between data points from different classes."
-  },
-  {
-    "objectID": "posts/machineLearning3A/QCM.html#q6-in-ridge-regression-what-does-the-regularization-term-penalize",
-    "href": "posts/machineLearning3A/QCM.html#q6-in-ridge-regression-what-does-the-regularization-term-penalize",
-    "title": "Examen de machine learning QCM",
-    "section": "Q6: In Ridge regression, what does the regularization term penalize?",
-    "text": "Q6: In Ridge regression, what does the regularization term penalize?\n\n\nThe magnitude of the coefficients\n\n\nThe number of features\n\n\nThe mean squared error\n\n\nThe bias of the model\n\n\nRéponse: A) The magnitude of the coefficients"
-  },
-  {
-    "objectID": "posts/machineLearning3A/QCM.html#q7-which-of-the-following-machine-learning-algorithms-is-specifically-designed-for-binary-classification-and-uses-a-hyperplane-to-separate-data-points",
-    "href": "posts/machineLearning3A/QCM.html#q7-which-of-the-following-machine-learning-algorithms-is-specifically-designed-for-binary-classification-and-uses-a-hyperplane-to-separate-data-points",
-    "title": "Examen de machine learning QCM",
-    "section": "Q7: Which of the following machine learning algorithms is specifically designed for binary classification and uses a hyperplane to separate data points?",
-    "text": "Q7: Which of the following machine learning algorithms is specifically designed for binary classification and uses a hyperplane to separate data points?\n\n\nPrincipal Component Analysis (PCA)\n\n\nK-Means Clustering\n\n\nSupport Vector Machine (SVM)\n\n\nK-Nearest Neighbors (KNN)\n\n\nRéponse: C) Support Vector Machine (SVM)"
-  },
-  {
-    "objectID": "posts/machineLearning3A/QCM.html#q8-which-of-the-following-statements-is-true-about-the-bias-variance-trade-off-in-machine-learning",
-    "href": "posts/machineLearning3A/QCM.html#q8-which-of-the-following-statements-is-true-about-the-bias-variance-trade-off-in-machine-learning",
-    "title": "Examen de machine learning QCM",
-    "section": "Q8: Which of the following statements is true about the bias-variance trade-off in machine learning?",
-    "text": "Q8: Which of the following statements is true about the bias-variance trade-off in machine learning?\n\n\nIncreasing model complexity reduces bias and increases variance\n\n\nIncreasing model complexity increases both bias and variance\n\n\nDecreasing model complexity reduces bias and increases variance\n\n\nDecreasing model complexity reduces both bias and variance\n\n\nRéponse: A) Increasing model complexity reduces bias and increases variance"
-  },
-  {
-    "objectID": "posts/machineLearning3A/QCM.html#q9-what-is-the-main-advantage-of-using-a-kernel-trick-in-support-vector-machines",
-    "href": "posts/machineLearning3A/QCM.html#q9-what-is-the-main-advantage-of-using-a-kernel-trick-in-support-vector-machines",
-    "title": "Examen de machine learning QCM",
-    "section": "Q9: What is the main advantage of using a kernel trick in Support Vector Machines?",
-    "text": "Q9: What is the main advantage of using a kernel trick in Support Vector Machines?\n\n\nIt reduces overfitting\n\n\nIt simplifies the optimization problem\n\n\nIt allows SVM to handle non-linear data\n\n\nIt speeds up the training process\n\n\nRéponse: C) It allows SVM to handle non-linear data"
-  },
-  {
-    "objectID": "posts/machineLearning3A/QCM.html#q10-what-is-the-primary-purpose-of-cross-validation-in-machine-learning",
-    "href": "posts/machineLearning3A/QCM.html#q10-what-is-the-primary-purpose-of-cross-validation-in-machine-learning",
-    "title": "Examen de machine learning QCM",
-    "section": "Q10: What is the primary purpose of cross-validation in machine learning?",
-    "text": "Q10: What is the primary purpose of cross-validation in machine learning?\n\n\nTo train a model on multiple datasets\n\n\nTo select the best hyperparameters for a model\n\n\nTo overfit the model to the training data\n\n\nTo evaluate a model’s performance on the training data\n\n\nRéponse: B) To select the best hyperparameters for a model"
+    "objectID": "posts/machineLearning3A/TP1_solution.html#ridge",
+    "href": "posts/machineLearning3A/TP1_solution.html#ridge",
+    "title": "Ordinary Least squares variants : Ridge, PCA-OLS AND LASSO",
+    "section": "10 RIDGE",
+    "text": "10 RIDGE\n\nridge = RidgeCV(alphas =  [.1,.2, .5, 1, 2, 5, 10, 20 , 50,100, 200, 500], cv = 10 )\nridge.fit(X_train_scaled, y_train)\nridge.alpha_ \n\n100.0\n\n\n\npred_error_ridge = MSE(ridge.predict(X_test), y_test)\n\n\n10.1 Comparison of the three methods\n\nprint(\"Remind us the previous estimated risks.\\n\")\n\nfor method, error in zip([\"ols           \", \"pca_before_ols\", \"lasso         \", \"lslasso       \", \"ridge         \"],\n                         [pred_error0, pred_error1, pred_error_lasso,pred_error_LSLASSO, pred_error_ridge]):\n    print(method + \" : %.2f\" % error)\n\nRemind us the previous estimated risks.\n\nols            : 100712213635840763604324319232.00\npca_before_ols : 5281.50\nlasso          : 3386.13\nlslasso        : 3921.41\nridge          : 3967.63\n\n\nIn this document, we try to overcome all the problems that can be encountered in the OLS method. We have seen that the PCA-OLS method, the LASSO and the RIDGE can be used to improve the prediction.\nThank you for reading. I hope that it will be useful."
   },
   {
     "objectID": "posts/MarketRiskGen/index.html",
