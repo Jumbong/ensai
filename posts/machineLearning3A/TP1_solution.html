@@ -379,7 +379,7 @@ window.Quarto = {
 </section>
 <section id="importing-the-necessary-libraries" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="importing-the-necessary-libraries"><span class="header-section-number">5</span> Importing the necessary libraries</h2>
-<div id="16919d7d" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="1">
+<div id="fc869932" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -402,7 +402,7 @@ window.Quarto = {
 <section id="importation-of-data-which-the-last-column-is-the-output" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="importation-of-data-which-the-last-column-is-the-output"><span class="header-section-number">6</span> Importation of data which the last column is the&nbsp;output</h2>
 <p>Provide the number of the explanatory variables and the number of the observations</p>
-<div id="d8565974" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="2">
+<div id="9ab49c3d" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"data/data_dm3.csv"</span>, header<span class="op">=</span><span class="va">None</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array(df)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A.shape)</span>
@@ -418,7 +418,7 @@ X dimensions are: 442 x 210 </code></pre>
 </div>
 </div>
 <p>It is important to check if the data is well centered and normalized.</p>
-<div id="e9f45383" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="3">
+<div id="76bbf390" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"To ensure that means and variances are properly computed for"</span>,</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>      <span class="st">"the variables,</span><span class="ch">\n</span><span class="st">we check the dimensions. It is </span><span class="sc">%s</span><span class="st"> with axis=0, </span><span class="sc">%s</span><span class="st"> with axis=1.</span><span class="ch">\n</span><span class="st">"</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>      <span class="op">%</span> (<span class="bu">len</span>(X.mean(axis<span class="op">=</span><span class="dv">0</span>)) <span class="op">==</span> d, <span class="bu">len</span>(X.mean(axis<span class="op">=</span><span class="dv">1</span>)) <span class="op">==</span> d))</span>
@@ -443,7 +443,7 @@ Is the output variable:
 </div>
 <p>Each variable of X is centered and normalized, but not Y.</p>
 <p>Let’s draw the scatterplots of covariates and the output variable.</p>
-<div id="eb088625" class="cell" data-tags="[]" data-execution_count="4">
+<div id="9f14b546" class="cell" data-tags="[]" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#sns.set(style="ticks")</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_sub <span class="op">=</span> pd.DataFrame(X[:, np.random.choice(<span class="bu">range</span>(<span class="dv">210</span>), <span class="dv">4</span>)])</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df_sub[<span class="st">'y'</span>] <span class="op">=</span> Y</span>
@@ -459,7 +459,7 @@ Is the output variable:
 </div>
 </div>
 <p>The selected covariates seem to be poorly correlated with each other. The are also poorly correlated with the explanatory variable. Before starting, will split the data into a training set and a test set and we will standardize the data.</p>
-<div id="4b7c3a02" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="5">
+<div id="9a7a1b32" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, Y, test_size <span class="op">=</span> <span class="fl">0.2</span>,</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                                                    random_state<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -483,10 +483,10 @@ Is the output variable:
 <section id="pca-ols" class="level2" data-number="7">
 <h2 data-number="7" class="anchored" data-anchor-id="pca-ols"><span class="header-section-number">7</span> PCA-OLS</h2>
 <p>First, we provide the matrix covariance for the X_train_scaled and compute the svd of the covariance matrix (here, we could as well use the classical spectral decomposition, and not the SVD):</p>
-<div id="167cf4e1" class="cell" data-execution_count="6">
+<div id="46ba62a4" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(X_train_scaled)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>COV <span class="op">=</span> df.cov() </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">19</span>, <span class="dv">15</span>))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.matshow(COV, fignum<span class="op">=</span>f.number)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>cb <span class="op">=</span> plt.colorbar()</span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#cb.ax.tick_params(label=FALSE,labelsize=0)</span></span>
@@ -497,17 +497,17 @@ Is the output variable:
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="TP1_solution_files/figure-html/cell-7-output-2.png" width="1338" height="1187" class="figure-img"></p>
+<p><img src="TP1_solution_files/figure-html/cell-7-output-2.png" width="438" height="368" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Let us compute the svd of the covariance matrix (here, we could as well use the classical spectral decomposition, and not the SVD):</p>
-<div id="7bc55554" class="cell" data-execution_count="7">
+<div id="fcb3b7ad" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>U, s, V <span class="op">=</span> np.linalg.svd(COV, full_matrices <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, we will plot the eigenvalues to see those are significantly different of 0 and We record the index of the last non-zero eigenvalue.</p>
-<div id="740cd58c" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="8">
+<div id="8c536a23" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.plot(s)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">52</span>, c<span class="op">=</span><span class="st">'r'</span>)</span>
@@ -523,7 +523,7 @@ Is the output variable:
 </div>
 </div>
 <p>We notice that only the first 60 values are (significantly) different from 0. This means that the design matrix is rank-deficient (60 &lt; 210). Thus attempting a ‘’PCA before OLS’’ strategy is legitimate. We record the index of the last non-zero eigenvalue.</p>
-<div id="db31b4fd" class="cell" data-execution_count="9">
+<div id="97fc13c5" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>((s[<span class="dv">0</span>:<span class="dv">52</span>]<span class="op">&gt;</span><span class="fl">0.05</span>))</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s[<span class="dv">52</span>]) <span class="co">#indice n°9 pour la dixième valeur!</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>elbow <span class="op">=</span> <span class="dv">52</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -540,7 +540,7 @@ Is the output variable:
 <section id="ols-regression" class="level3" data-number="7.1">
 <h3 data-number="7.1" class="anchored" data-anchor-id="ols-regression"><span class="header-section-number">7.1</span> OLS-Regression</h3>
 <p>We will plot the values of the calculated regression coefficients (without the intercept). On another graph, do the same with the classical least squares method.</p>
-<div id="dc6d451e" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="10">
+<div id="6a569004" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>regr0 <span class="op">=</span> LinearRegression()</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>regr0.fit(X_train_scaled, y_train)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -560,7 +560,7 @@ Is the output variable:
 </section>
 <section id="pca-before-ols" class="level3" data-number="7.2">
 <h3 data-number="7.2" class="anchored" data-anchor-id="pca-before-ols"><span class="header-section-number">7.2</span> PCA before OLS</h3>
-<div id="9d1218f5" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="11">
+<div id="87cfb1ec" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>X_train_reduce <span class="op">=</span> np.dot(X_train_scaled, U[:, :elbow])</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>X_test_reduce <span class="op">=</span> np.dot(X_test_scaled, U[:, :elbow])</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -584,7 +584,7 @@ Is the output variable:
 <section id="comparison-of-the-two-methods" class="level3" data-number="7.3">
 <h3 data-number="7.3" class="anchored" data-anchor-id="comparison-of-the-two-methods"><span class="header-section-number">7.3</span> Comparison of the two methods</h3>
 <p>For both methods: Plot the residuals of the prediction on the test sample. Plot their density (we can use a histogram). Calculate the coefficient of determination on the test sample. Calculate the prediction risk on the test sample.</p>
-<div id="e8532b81" class="cell" data-tags="[]" data-execution_count="12">
+<div id="f4d9212d" class="cell" data-tags="[]" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>R20 <span class="op">=</span> regr0.score(X_test_scaled, y_test) </span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>R21 <span class="op">=</span> regr1.score(X_test_reduce, y_test)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -609,7 +609,7 @@ The error prediction of PCA before OLS computed on the test sample: 5281.50</cod
 </div>
 </div>
 <p>There are evidence that the OLS is a poor model. With a R2 = -0.044, negatif, the model is poorly fitted to the data. Even if the PCA-OLS is not good, it do better compare to the OLS.</p>
-<div id="cd255ca4" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="13">
+<div id="3908ee3c" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>eps0 <span class="op">=</span> regr0.predict(X_test_scaled) <span class="op">-</span> y_test</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>eps1 <span class="op">=</span> regr1.predict(X_test_reduce) <span class="op">-</span> y_test</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span><span class="bu">len</span>(eps0)</span>
@@ -631,7 +631,7 @@ The error prediction of PCA before OLS computed on the test sample: 5281.50</cod
 </div>
 </div>
 </div>
-<div id="dd2eef9a" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="14">
+<div id="3300f289" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>eps <span class="op">=</span> pd.DataFrame(np.c_[eps0, eps1], columns<span class="op">=</span>[<span class="st">'OLS'</span>, <span class="st">'PCA_before_OLS'</span>])</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>eps.hist(bins<span class="op">=</span><span class="dv">20</span>) <span class="co">#histogram</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -649,7 +649,7 @@ The error prediction of PCA before OLS computed on the test sample: 5281.50</cod
 <section id="lasso" class="level2" data-number="8">
 <h2 data-number="8" class="anchored" data-anchor-id="lasso"><span class="header-section-number">8</span> LASSO</h2>
 <p>Using the lassoCV function of sklearn, choose the regularization parameter of LASSO. Give the prediction risk calculated on the test. Compare it to the others.</p>
-<div id="b288303f" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="15">
+<div id="d7eb4c28" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>lasso <span class="op">=</span> LassoCV()</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>lasso.fit(X_train_scaled, y_train)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -662,10 +662,10 @@ The error prediction of PCA before OLS computed on the test sample: 5281.50</cod
 <pre><code>5.686623247060891</code></pre>
 </div>
 </div>
-<div id="3dd6089c" class="cell" data-execution_count="16">
+<div id="f85e2ce1" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>pred_error_lasso <span class="op">=</span> MSE(lasso.predict(X_test_scaled), y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e9360f04" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="17">
+<div id="df29a4f3" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Remind us the previous estimated risks.</span><span class="ch">\n</span><span class="st">"</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> method, error <span class="kw">in</span> <span class="bu">zip</span>([<span class="st">"ols           "</span>, <span class="st">"pca_before_ols"</span>, <span class="st">"lasso         "</span>],</span>
@@ -682,7 +682,7 @@ lasso          : 3386.13</code></pre>
 </section>
 <section id="lasso-feature-selection-and-ols" class="level2" data-number="9">
 <h2 data-number="9" class="anchored" data-anchor-id="lasso-feature-selection-and-ols"><span class="header-section-number">9</span> LASSO feature selection and OLS</h2>
-<div id="6b2c4183" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="18">
+<div id="f8e67a4c" class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Selected variables with LASSO </span><span class="sc">%s</span><span class="st"> "</span> <span class="op">%</span> np.<span class="bu">sum</span>(lasso.coef_ <span class="op">&gt;</span> <span class="dv">0</span> ))</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -712,7 +712,7 @@ ls_lasso       : 3921.41</code></pre>
 </section>
 <section id="ridge" class="level2" data-number="10">
 <h2 data-number="10" class="anchored" data-anchor-id="ridge"><span class="header-section-number">10</span> RIDGE</h2>
-<div id="94e15013" class="cell" data-execution_count="19">
+<div id="f9185592" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>ridge <span class="op">=</span> RidgeCV(alphas <span class="op">=</span>  [<span class="fl">.1</span>,<span class="fl">.2</span>, <span class="fl">.5</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span> , <span class="dv">50</span>,<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">500</span>], cv <span class="op">=</span> <span class="dv">10</span> )</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>ridge.fit(X_train_scaled, y_train)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>ridge.alpha_ </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -720,12 +720,12 @@ ls_lasso       : 3921.41</code></pre>
 <pre><code>100.0</code></pre>
 </div>
 </div>
-<div id="4dc6ff74" class="cell" data-execution_count="20">
+<div id="86336e72" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>pred_error_ridge <span class="op">=</span> MSE(ridge.predict(X_test), y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="comparison-of-the-three-methods" class="level3" data-number="10.1">
 <h3 data-number="10.1" class="anchored" data-anchor-id="comparison-of-the-three-methods"><span class="header-section-number">10.1</span> Comparison of the three methods</h3>
-<div id="a43d516b" class="cell" data-execution_count="21">
+<div id="f8acdd2c" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Remind us the previous estimated risks.</span><span class="ch">\n</span><span class="st">"</span>)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> method, error <span class="kw">in</span> <span class="bu">zip</span>([<span class="st">"ols           "</span>, <span class="st">"pca_before_ols"</span>, <span class="st">"lasso         "</span>, <span class="st">"lslasso       "</span>, <span class="st">"ridge         "</span>],</span>
