@@ -201,7 +201,7 @@ window.Quarto = {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
- <span class="menu-text">Machine learning Da Vega</span></a>
+ <span class="menu-text">Machine learning 3A</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -333,6 +333,28 @@ V = \sqrt{\frac{\chi^2}{n \times (min(c, r) - 1)}}
 <section id="implementation" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="implementation"><span class="header-section-number">4</span> Implementation</h2>
 <p>Before implementing. ensure that you have done the same The same treatment in the test set as you have done in the training set.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Algorithm to compute the p-value under the bootstrap method
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Variables :
+<ul>
+<li>( x_1, …, x_n ) : the observations</li>
+<li>( t_{obs} ) : the observed value of the test statistic</li>
+<li>B : the number of bootstrap samples</li>
+</ul></li>
+<li>Begin :</li>
+</ul>
+<p>For b in 1 to B : - Sample with replacement m observations from ( x_1, …, x_m ) to get ( x_1^b, …, x_m^b ) - Compute the test statistic <span class="math inline">\(T_b\)</span> on the bootstrap sample ( x_1^b, …, x_n^b ) - Compute the p-value : ( p-value = <em>{i=1}^{B} (T_i &gt; t</em>{obs}) )</p>
+</div>
+</div>
 
 
 </section>

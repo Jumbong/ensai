@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jumbong Junior">
-<meta name="dcterms.date" content="2023-11-16">
+<meta name="dcterms.date" content="2024-05-18">
 
-<title>Menu - TBATS : N’a pas de contraintes de saisonnalité</title>
+<title>Menu - The P-value under the Bootstrap Method with python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,27 +56,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -199,7 +179,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">TBATS : N’a pas de contraintes de saisonnalité</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">The P-value under the Bootstrap Method with python</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -322,13 +302,9 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#présentation-du-modèle-tbats" id="toc-présentation-du-modèle-tbats" class="nav-link active" data-scroll-target="#présentation-du-modèle-tbats"><span class="header-section-number">1</span> Présentation du modèle TBATS</a></li>
-  <li><a href="#présentation-des-données" id="toc-présentation-des-données" class="nav-link" data-scroll-target="#présentation-des-données"><span class="header-section-number">2</span> Présentation des données</a></li>
-  <li><a href="#le-dendogramme-de-la-série-temporelle" id="toc-le-dendogramme-de-la-série-temporelle" class="nav-link" data-scroll-target="#le-dendogramme-de-la-série-temporelle"><span class="header-section-number">3</span> Le dendogramme de la série temporelle</a></li>
-  <li><a href="#résultats-de-prévision-avec-tbats" id="toc-résultats-de-prévision-avec-tbats" class="nav-link" data-scroll-target="#résultats-de-prévision-avec-tbats"><span class="header-section-number">4</span> Résultats de Prévision avec TBATS</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> Conclusion</a>
+  <li><a href="#understanding-the-p-value" id="toc-understanding-the-p-value" class="nav-link active" data-scroll-target="#understanding-the-p-value"><span class="header-section-number">1</span> Understanding the p-value</a>
   <ul class="collapse">
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5.0.1</span> References</a></li>
+  <li><a href="#the-p-value-under-a-unknown-distribution-of-the-test-statistic-using-the-bootstrap-method." id="toc-the-p-value-under-a-unknown-distribution-of-the-test-statistic-using-the-bootstrap-method." class="nav-link" data-scroll-target="#the-p-value-under-a-unknown-distribution-of-the-test-statistic-using-the-bootstrap-method."><span class="header-section-number">1.1</span> The p-value under a unknown distribution of the test statistic using the bootstrap method.</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -338,7 +314,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TBATS : N’a pas de contraintes de saisonnalité</h1>
+<h1 class="title">The P-value under the Bootstrap Method with python</h1>
   <div class="quarto-categories">
     <div class="quarto-category">news</div>
   </div>
@@ -358,7 +334,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 16, 2023</p>
+      <p class="date">May 18, 2024</p>
     </div>
   </div>
   
@@ -370,204 +346,108 @@ window.Quarto = {
 </header>
 
 
-<p>Dans notre quête pour décrypter les tendances de consommation énergétique en France, tout au long de notre projet de série temporelle, nous avons été confrontés à un défi de taille : prédire efficacement la consommation future d’énergie dans un contexte de double saisonnalité. En explorant au-delà des méthodes classiques telles que les modèles SARIMA et ARIMA, nous avons rencontré des obstacles liés à l’estimation des variations saisonnières hebdomadaires et annuelles. Ces complexités nous ont conduits vers une solution innovante : le modèle TBATS.</p>
-<p>Le modèle TBATS, une avancée significative dans l’analyse des séries temporelles, embrasse la multifacette de la saisonnalité grâce à une élégante synthèse de fonctions trigonométriques. Contrairement aux modèles ARIMA et SARIMA qui peinaient à capturer les subtilités de nos données, TBATS a brillé par sa capacité à intégrer des périodicités multiples.</p>
-<p>Dans cet article, nous plongeons au cœur de la méthodologie mathématique du modèle TBATS avant de le mettre en application sur nos données de consommation énergétique. Rejoignez-nous pour une exploration de la modélisation prédictive avec Python et la librairie tbats, et découvrez comment nous avons illuminé le chemin vers des prévisions énergétiques plus précises.</p>
-<section id="présentation-du-modèle-tbats" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Présentation du modèle TBATS</h1>
-<p>Le modèle TBATS ou encore (Trigonometric, Box-Cox transform, ARMA errors, Trend and Seasonal components)<span class="citation" data-cites="delivera2011">(<a href="#ref-delivera2011" role="doc-biblioref">De Livera, Hyndman, and Snyder 2011</a>)</span> a pour paramètres TBATS(<span class="math inline">\(\omega\)</span>, {p,q}, <span class="math inline">\(\phi\)</span>, <span class="math inline">\({&lt;m_1,k_1&gt;,...,&lt;m_n,k_n&gt;}\)</span>) où :</p>
+<section id="understanding-the-p-value" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Understanding the p-value</h1>
+<p>Suppose you perform a study, and you have precise data, specifically ( n ) observations ( x_1 ) to ( x_n ) from ( n ) samples ( X_1 ) to ( X_n ), but you don’t know the distribution from which the data are drawn. Here, I assume you understand the difference between an observation and a sample. An observation <span class="math inline">\(x_1\)</span> may be seen as the realization of a function <span class="math inline">\(X_1\)</span>.</p>
+<p>Now, suppose that you want to test if the mean of the data is equal to 0. For example, suppose the sample represents the CAC-40 current price, and you compute the empirical mean in the observation $ _{i=1}^{n} and you find 0 can you conclude that the mean of the distribution of data is 0 ? It’s difficult to conclude anything solely from the fact that the mean of the sample is zero. This result might be due to chance. To gain more confidence, the p-value is a statistical term that helps us determine the likelihood that the observed result is due to chance. Before defining the p-value, let’s clarify some mathematical terms we need :</p>
 <ul>
-<li><span class="math inline">\(\omega\)</span> correspond à la transformation de Box-Cox.</li>
-<li>{p,q} correspond aux paramètres de l’ARMA.</li>
-<li><span class="math inline">\(\phi\)</span> correspond à la tendance.</li>
-<li><span class="math inline">\({&lt;m_1,k_1&gt;,...,&lt;m_n,k_n&gt;}\)</span> correspond aux paramètres de saisonnalité.</li>
-<li><span class="math inline">\(k_1,...,k_n\)</span> correspond aux nombres de Fourier de séries pairs.</li>
+<li><p>First, you need the observations <span class="math inline">\((x_1,...x_n)\)</span> from the sample <span class="math inline">\((X_1,...X_n)\)</span>. Let’s assume that we don’t know the distribution of the sample. The sample could be the price of a stock, for example.</p></li>
+<li><p>Next, you need the hypothesis and the complementary hypothesis. The null hypothesis H0 is constructed alongside the alternative hypothesis H1. The null hypothesis might state that the mean is zero, while the alternative hypothesis might state that the mean is different from zero : <span class="math inline">\(H0 : \mu = 0\)</span> and <span class="math inline">\(H1 : \mu \neq 0\)</span>.</p></li>
+<li><p>Then, you need the test statistic T estimate under the null hypothesis. It might be the empirical mean, denoted as <span class="math inline">\(T = \frac{1}{n} \sum_{i=1}^{n} X_i\)</span>.</p></li>
+<li><p>Then you need to compute the value of the test statistic in the data <span class="math inline">\(t_{obs} = \frac{1}{n} \sum_{i=1}^{n} x_i\)</span> in the data you observed. Finally, you need to make a decision to accept or reject the null hypothesis. You reject the null hypothesis if the test statistic T is greater than the observed value <span class="math inline">\(t_{obs}\)</span>(T &gt; <span class="math inline">\(t_{obs}\)</span>).</p></li>
 </ul>
-<p>Le model s’écrit de la manière suivante :</p>
-<p><span class="math display">\[
-y_t(\omega) = l_{t-1} + \phi b_{t-1} + \sum_{i=1}^{T} s_{t-1}(i) + \alpha d_t
-\]</span> <span class="math display">\[
-b_t = b_{t-1} + \beta d_t
-\]</span> <span class="math display">\[
-s_t(i) = \sum_{j=1}^{k_i} s_{j,t}(i)
-\]</span> <span class="math display">\[
-s_{j,t}(i) = s_{j,t-1}(i) \cos \lambda_j(i) + s^{*}_{j,t-1}(i) \sin \lambda_j(i) + \gamma^{(i)}_1 d_t
-\]</span> <span class="math display">\[
-s^{*}_{j,t}(i) = -s_{j,t-1}(i) \sin \lambda_j(i) + s^{*}_{j,t-1}(i) \cos \lambda_j(i) + \gamma^{(i)}_2 d_t
-\]</span> <span class="math display">\[
-\lambda_j(i) = \frac{2\pi j}{m}
-\]</span></p>
-<p>où :</p>
-<ul>
-<li><span class="math inline">\(i = 1, \ldots, T\)</span></li>
-<li><span class="math inline">\(d_t\)</span> est un processus ARMA ( p, q ),</li>
-<li><span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>, <span class="math inline">\(\gamma_1\)</span> et <span class="math inline">\(\gamma_2\)</span> sont des paramètres de lissage,</li>
-<li><span class="math inline">\(l_0\)</span> est le niveau initial,</li>
-<li><span class="math inline">\(b_0\)</span> est la valeur de la pente.</li>
-</ul>
-<p>Les erreurs de prévisions seront modélisées par les indicateurs de qualité suivants :</p>
-<ul>
-<li>Mean Squared Error (MSE) : <span class="math inline">\(MSE = \frac{1}{n} \sum_{i=1}^{n} e_i^2\)</span></li>
-<li>Root Mean Squared Error (RMSE) : <span class="math inline">\(RMSE = \sqrt{MSE}\)</span></li>
-<li>Mean Absolute Error (MAE) : <span class="math inline">\(MAE = \frac{1}{n} \sum_{i=1}^{n} |e_i|\)</span></li>
-<li>Mean Absolute Percentage Error (MAPE) : <span class="math inline">\(MAPE = \frac{1}{n} \sum_{i=1}^{n} \left| \frac{e_i}{y_i} \right| \cdot 100\%\)</span></li>
-<li>Mean Error (ME) : <span class="math inline">\(ME = \frac{1}{n} \sum_{i=1}^{n} e_i\)</span></li>
-<li>Mean Percentage Error (MPE) : $MPE = _{i=1}^{n} % $</li>
-<li>Mean Absolute Scaled Error (MASE): <span class="math inline">\(MASE = \frac{n}{n-m} \frac{\sum_{i=1}^{n} |e_i|}{\sum_{i=m+1}^{n} |y_i - y_{i-m}|}\)</span></li>
-<li>Autocorrelation function of errors at lag 1 (ACF1) : <span class="math inline">\(ACF1 = \frac{\sum_{i=1}^{n-1} (e_i - ME) \cdot (e_{i+1} - ME)}{\sum_{i=1}^{n} (e_i - ME)^2}\)</span></li>
-</ul>
-<p>où : <span class="math inline">\(e_t\)</span> is the error <span class="math inline">\(e_t = y_t -{ y_t}^*\)</span></p>
-<p><span class="math inline">\(y_t\)</span> est la valeur actuelle, <span class="math inline">\(y_t^*\)</span> est la valeur prédicte , m est la période de saisonalité.</p>
-<p>Dans l’analyse des prédictions de modèles statistiques, la compréhension des erreurs est cruciale. En comparant le Mean Error (ME) et le Mean Absolute Error (MAE), nous pouvons déterminer si les valeurs prédites sont systématiquement plus élevées ou plus faibles que les valeurs réelles, indiquant un biais directionnel. De même, la comparaison entre le Mean Percentage Error (MPE) et le Mean Absolute Percentage Error (MAPE) révèle l’ampleur de ce biais en termes de pourcentage.</p>
-<p>Mais ce n’est pas tout. L’analyse du Mean Squared Error (MSE) peut révéler la présence de valeurs aberrantes ou d’erreurs exceptionnellement élevées dans les prédictions. Ces erreurs extrêmes se manifestent souvent par un écart significatif entre le MAE et le Root Mean Squared Error (RMSE), où le RMSE, en donnant plus de poids aux grandes erreurs, met en lumière les défauts plus subtils de notre modèle prédictif.</p>
-</section>
-<section id="présentation-des-données" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Présentation des données</h1>
-<p>Dans notre étude appronfondie sur la demande énergétique en france, nous avons plongé au coeur des données de consommation, mésurées en mégawattts, révelatrices des tendances de consommation du pays. Afin d’affiner notre analyse nous avons présenter les données sous forme de séries temporelles journalières. Cette approche nous permettra d’aborder plus aisement l’analyse.</p>
-</section>
-<section id="le-dendogramme-de-la-série-temporelle" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Le dendogramme de la série temporelle</h1>
-<p>Nous avons mis en évidence des motifs saisonniers clés à travers la représentation d’un dendogramme. Cet outil permettra de vérifier que 365 et 7 sont des saisonnalités.</p>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> signal</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>frequencies, power_spectral_density <span class="op">=</span> signal.periodogram(df_con_daily[<span class="st">'consommation'</span>].values)</span>
+<p>Because the test statistic T is a random variable, you don’t directly observe it. The tool that allows us to make a decision here is to compute the probability that the test statistic is larger than the observed value. This probability, which we will call alpha (()), helps us decide whether to reject the null hypothesis.</p>
+<div id="5ef08eaf" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Tracé du périodogramme</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">3</span>))</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>plt.plot(frequencies, power_spectral_density)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Périodogramme'</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Fréquence'</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Densité spectrale de puissance'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate x values</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">1000</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate y values for the normal distribution</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> norm.pdf(x, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up the plot</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajout de la ligne verticale à 1/12</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.axvline(x<span class="op">=</span><span class="dv">1</span><span class="op">/</span><span class="dv">365</span>, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>plt.axvline(x<span class="op">=</span><span class="dv">1</span><span class="op">/</span><span class="dv">7</span>, color<span class="op">=</span><span class="st">'yellow'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="quarto-figure quarto-figure-center">
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the normal distribution curve</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Shade the rejection region</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>x_fill <span class="op">=</span> np.linspace(norm.ppf(<span class="fl">0.95</span>), <span class="dv">4</span>, <span class="dv">100</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>y_fill <span class="op">=</span> norm.pdf(x_fill, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>plt.fill_between(x_fill, <span class="dv">0</span>, y_fill, color<span class="op">=</span><span class="st">'red'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a vertical line for the critical value</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>plt.axvline(norm.ppf(<span class="fl">0.95</span>), color<span class="op">=</span><span class="st">'brown'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Add text for the regions</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>plt.text(<span class="op">-</span><span class="dv">2</span>, <span class="fl">0.1</span>, <span class="vs">r"$\mathrm{No\  reject}\ H_0$"</span>, fontsize<span class="op">=</span><span class="dv">15</span>, color<span class="op">=</span><span class="st">'blue'</span>, rotation<span class="op">=</span><span class="dv">0</span>, ha<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>plt.text(<span class="dv">3</span>, <span class="fl">0.1</span>, <span class="vs">r"$\mathrm</span><span class="sc">{Reject}</span><span class="vs">\ H_0$"</span>, fontsize<span class="op">=</span><span class="dv">15</span>, color<span class="op">=</span><span class="st">'brown'</span>, rotation<span class="op">=</span><span class="dv">0</span>, ha<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Add text for the critical value</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>plt.text(norm.ppf(<span class="fl">0.95</span>), <span class="fl">0.02</span>, <span class="vs">r'$t_\alpha$'</span>, fontsize<span class="op">=</span><span class="dv">15</span>, color<span class="op">=</span><span class="st">'black'</span>, ha<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove y-axis</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>plt.gca().axes.get_yaxis().set_visible(<span class="va">False</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove x-axis</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>plt.gca().axes.get_xaxis().set_visible(<span class="va">False</span>)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Add horizontal line</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>,linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Set x-axis limits</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Set labels</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">''</span>)</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">''</span>)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Show plot</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
 <figure class="figure">
-<p><img src="dendogramme.png" class="img-fluid figure-img"></p>
-<figcaption>dendrogramme</figcaption>
+<p><img src="p_value_files/figure-html/cell-2-output-1.png" width="763" height="389" class="figure-img"></p>
 </figure>
 </div>
-<p>Nous observons que les cylces de 365 et 7 se détachent nettement, mettant en évidence une saisonnalité annuelle est hebdommadaire.</p>
-<p>En plus de l’analyse dendrogramme, une autre méthode efficace pour mettre en lumière les saisonnalités dans nos données énergétiques consiste à décomposer la série temporelle. Cette approche permet d’isoler et d’examiner les composantes saisonnières annuelles et hebdomadaires de manière distincte. L’analyse des fonctions d’autocorrélation et d’autocorrélation partielle offre également des insights précieux. Cependant, pour rester concentrés sur les aspects les plus pertinents de notre étude, nous choisirons de ne pas approfondir cette méthode dans ce cadre. Les paramètres du model TBATS(False,{0,0},0.85,{&lt;7,365&gt;}) correspondent au mieux aux données.</p>
-<p>Dans notre démarche analytique, une étape cruciale a été la segmentation de nos données en ensembles d’entraînement et de test. Cette division stratégique est essentielle pour affiner et évaluer la précision de nos modèles prédictifs. La variable <strong>date_cutoff</strong> joue un rôle clé dans ce processus, définissant le point de séparation entre les périodes d’entraînement et de test.</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sktime.datatypes <span class="im">import</span> check_raise</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_con_daily[<span class="st">'consommation'</span>]</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>y.index <span class="op">=</span> pd.to_datetime(y.index)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>date_cutoff <span class="op">=</span> pd.Timestamp(<span class="st">'2019-12-31'</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensuite, effectuez la comparaison</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> df_con_daily[df_con_daily.index <span class="op">&lt;</span> date_cutoff][<span class="st">'consommation'</span>]</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> df_con_daily[df_con_daily.index <span class="op">&gt;=</span> date_cutoff][<span class="st">'consommation'</span>]</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>y_train.index <span class="op">=</span> pd.to_datetime(y_train.index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Ensuite nous avons instancier le modèle TBATS avec les différentes saisonnalités 7 et 365. n_jobs facilite le temps de computation. Pour plus de détails voir [TBATS](<a href="https://www.sktime.net/en/latest/api_reference/auto_generated/sktime.forecasting.tbats.TBATS.html" class="uri">https://www.sktime.net/en/latest/api_reference/auto_generated/sktime.forecasting.tbats.TBATS.html</a>). Assurez vous que vos index ou la colonne date soit de type <strong>pandas.core.indexes.datetimes.DatetimeIndex</strong>. Pour cela vous pouvez vous servir de chatgpt.</p>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>forecaster <span class="op">=</span> TBATS(sp <span class="op">=</span> [<span class="dv">7</span>, <span class="dv">365</span>], n_jobs <span class="op">=</span> <span class="dv">1</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> forecaster.fit(y_train)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Prediction</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>fh <span class="op">=</span> <span class="bu">len</span>(y_test)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.forecast(fh)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">15</span>,<span class="dv">5</span>))  </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>y.plot(title <span class="op">=</span> <span class="st">'TBATS dayly energie consumption'</span>, xlabel <span class="op">=</span> <span class="st">''</span>, ax <span class="op">=</span> ax)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>y_pred.plot(ax <span class="op">=</span> ax)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>ax.legend([<span class="st">'Actual Values'</span>, <span class="st">'Forecast'</span>])</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Une fonction pour les différentes métriques pour évaluer la qualité du modèle est donnée par :</p>
+<p>Now, we can define the p-value as the smallest alpha threshold at which we will reject the test(T&gt;<span class="math inline">\(t_{obs}\)</span>). In other words, the p-value is the probability of observing an extreme value as extreme as the observed value.</p>
+<p>So for a given alpha threshold, if the p-value is less than the alpha threshold, we reject the null hypothesis. If the p-value is greater than the alpha threshold, we don’t reject the null hypothesis.</p>
+<p>Here, we have two scenarios to compute the p-value. First, you might know the distribution of the test statistic, or you might not know the distribution of the test statistic. It is easier to compute the p-value when you know the distribution of the test statistic. Here we will assume that you don’t know the distribution of the test statistic.</p>
+<section id="the-p-value-under-a-unknown-distribution-of-the-test-statistic-using-the-bootstrap-method." class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="the-p-value-under-a-unknown-distribution-of-the-test-statistic-using-the-bootstrap-method."><span class="header-section-number">1.1</span> The p-value under a unknown distribution of the test statistic using the bootstrap method.</h2>
+<p>The bootstrap method is a resampling method that allows us to estimate the distribution of the test statistic. The idea is to resample the data B times and compute the test statistic for each resample. The distribution of the test statistic is then the distribution of the B test statistics (T1, T2, …, TB).</p>
+<p><img src="images/montecarlo.drawio.png" class="img-fluid" alt="distribution of the test statistic"> The p-value is then the proportion of the test statistics that are greater than the observed value. In other words, you compare the observed value to the distribution of the test statistic. If the test statistic is greater than the observed value, you reject the null hypothesis(you note true) and if the test statistic is less than the observed value, you don’t reject the null hypothesis(you note false).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="prevision.png" class="img-fluid figure-img"></p>
-<figcaption>prevision</figcaption>
+<p><img src="images/distributionTestStatistic.drawio.png" class="img-fluid figure-img"></p>
+<figcaption>p-value</figcaption>
 </figure>
 </div>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_metrics(y_true, y_pred, model_name):</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    mae_ <span class="op">=</span> mean_absolute_error(y_true, y_pred)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    rmse_ <span class="op">=</span> np.sqrt(mean_squared_error(y_true, y_pred))</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    mape_ <span class="op">=</span> mean_absolute_percentage_error(y_true, y_pred)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    smape_ <span class="op">=</span> mean_absolute_percentage_error(y_true, y_pred, symmetric <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    dict_ <span class="op">=</span> {<span class="st">'MAE'</span>: mae_, <span class="st">'RMSE'</span>: rmse_,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>             <span class="st">'MAPE'</span>: mape_, <span class="st">'SMAPE'</span>: smape_ }</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame(dict_, index <span class="op">=</span> [model_name])</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(df.<span class="bu">round</span>(decimals <span class="op">=</span> <span class="dv">2</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The p-value is then the proportion of the true values :</p>
+<p><span class="math display">\[ p-value = \frac{1}{B} \sum_{i=1}^{B} \mathbb{1}(T_i &gt; t_{obs}) \]</span></p>
+<p>where ( (T_i &gt; t_{obs}) ) is the indicator function that returns 1 if the test statistic is greater than the observed value and 0 otherwise.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Pour avoir les résultats des performances du modèle, il faut exécuter cette fonction.</p>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>print_metrics(y_test, y_pred, <span class="st">'TBATS Forecaster'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="résultats-de-prévision-avec-tbats" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Résultats de Prévision avec TBATS</h1>
-<p>Nous avons essayer de mettre les résultats dans un tableau :</p>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tabulate <span class="im">import</span> tabulate </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> [[<span class="st">"TBATS Forecaster"</span>,<span class="st">"290.94"</span>,<span class="st">"412.76"</span>,<span class="st">"0.07"</span>,<span class="st">"0.06"</span>]]</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>Markdown((tabulate(</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    table,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    headers <span class="op">=</span> [<span class="st">""</span>,<span class="st">"MAE"</span>,<span class="st">"RMSE"</span>,<span class="st">"MAPE"</span>,<span class="st">"SMAPE"</span>]</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="indicateurs" class="cell-output cell-output-display" data-execution_count="1">
-<table class="table table-sm table-striped small">
-<caption>Indicateurs de performance</caption>
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: right;">MAE</th>
-<th style="text-align: right;">RMSE</th>
-<th style="text-align: right;">MAPE</th>
-<th style="text-align: right;">SMAPE</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>TBATS Forecaster</td>
-<td style="text-align: right;">290.94</td>
-<td style="text-align: right;">412.76</td>
-<td style="text-align: right;">0.07</td>
-<td style="text-align: right;">0.06</td>
-</tr>
-</tbody>
-</table>
+<div class="callout-title-container flex-fill">
+Algorithm to compute the p-value under the bootstrap method
 </div>
 </div>
-</section>
-<section id="conclusion" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Conclusion</h1>
+<div class="callout-body-container callout-body">
 <ul>
-<li>Le Mean Absolute Error (MAE) : Il montre qu’en moyenne, les prévisions s’écartent de 290.94 unités des valeurs réelles, nous donnant une idée de l’erreur moyenne absolue.</li>
-<li>Le Root Mean Squared Error (RMSE) : Sa valeur de 493.17, n’étant pas très élévée comparé au MAE, nous pouvons conclure que les erreurs de prévision sont relativement faibles.</li>
-<li>Le Mean Absolute Percentage Error (MAPE) et le Symmetric Mean Absolute Percentage Error (SMAPE) : Ils indiquent une erreur moyenne de prédiction de 0.07%, ce qui est considéré comme relativement précis dans notre contexte.</li>
+<li>Variables :
+<ul>
+<li>( x_1, …, x_n ) : the observations</li>
+<li>( t_{obs} ) : the observed value of the test statistic</li>
+<li>B : the number of bootstrap samples</li>
+</ul></li>
+<li>Begin :</li>
 </ul>
-<p>Ainsi le modèle TBATS est un modèle qui permet de faire des prévisions acceptables sur les données possèdant des saisonnalités multiples.</p>
-<section id="references" class="level3" data-number="5.0.1">
-<h3 data-number="5.0.1" class="anchored" data-anchor-id="references"><span class="header-section-number">5.0.1</span> References</h3>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-brozyna2018" class="csl-entry" role="listitem">
-BROŻYNA, Jacek, Grzegorz Mentel, Beata Szetela, and Wadim Strielkowski. 2018. <span>“MULTI-SEASONALITY IN THE TBATS MODEL USING DEMAND FOR ELECTRIC ENERGY AS a CASE STUDY.”</span> <em>Economic Computation &amp; Economic Cybernetics Studies &amp; Research</em> 52 (1). <a href="https://www.researchgate.net/profile/Grzegorz-Mentel/publication/323868510_Multi-Seasonality_in_the_TBATS_Model_Using_Demand_for_Electric_Energy_as_a_Case_Study/links/5ab0afafaca2721710fe20b8/Multi-Seasonality-in-the-TBATS-Model-Using-Demand-for-Electric-Energy-as-a-Case-Study.pdf">https://www.researchgate.net/profile/Grzegorz-Mentel/publication/323868510_Multi-Seasonality_in_the_TBATS_Model_Using_Demand_for_Electric_Energy_as_a_Case_Study/links/5ab0afafaca2721710fe20b8/Multi-Seasonality-in-the-TBATS-Model-Using-Demand-for-Electric-Energy-as-a-Case-Study.pdf</a>.
-</div>
-<div id="ref-delivera2011" class="csl-entry" role="listitem">
-De Livera, Alysha M., Rob J. Hyndman, and Ralph D. Snyder. 2011. <span>“Forecasting Time Series With Complex Seasonal Patterns Using Exponential Smoothing.”</span> <em>Journal of the American Statistical Association</em> 106 (496): 1513–27. <a href="https://doi.org/10.1198/jasa.2011.tm09771">https://doi.org/10.1198/jasa.2011.tm09771</a>.
+<p>For b in 1 to B : - Sample with replacement n observations from ( x_1, …, x_n ) to get ( x_1^b, …, x_n^b ) - Compute the test statistic <span class="math inline">\(T_b\)</span> on the bootstrap sample ( x_1^b, …, x_n^b ) - Compute the p-value : ( p-value = <em>{i=1}^{B} (T_i &gt; t</em>{obs}) )</p>
 </div>
 </div>
 
