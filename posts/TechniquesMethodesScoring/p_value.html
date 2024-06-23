@@ -154,9 +154,9 @@ window.Quarto = {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
-<span class="menu-text">About</span></a>
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../cv_jumbong_junior.html"> 
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://www.linkedin.com/in/junior-jumbong-258330211/"> <i class="bi bi-linkedin" role="img">
@@ -305,6 +305,7 @@ window.Quarto = {
   <li><a href="#understanding-the-p-value" id="toc-understanding-the-p-value" class="nav-link active" data-scroll-target="#understanding-the-p-value"><span class="header-section-number">1</span> Understanding the p-value</a>
   <ul class="collapse">
   <li><a href="#the-p-value-under-a-unknown-distribution-of-the-test-statistic-using-the-bootstrap-method." id="toc-the-p-value-under-a-unknown-distribution-of-the-test-statistic-using-the-bootstrap-method." class="nav-link" data-scroll-target="#the-p-value-under-a-unknown-distribution-of-the-test-statistic-using-the-bootstrap-method."><span class="header-section-number">1.1</span> The p-value under a unknown distribution of the test statistic using the bootstrap method.</a></li>
+  <li><a href="#implementation-of-the-p-value-under-the-bootstrap-method-with-python" id="toc-implementation-of-the-p-value-under-the-bootstrap-method-with-python" class="nav-link" data-scroll-target="#implementation-of-the-p-value-under-the-bootstrap-method-with-python"><span class="header-section-number">1.2</span> Implementation of the p-value under the bootstrap method with python</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -316,7 +317,9 @@ window.Quarto = {
 <div class="quarto-title">
 <h1 class="title">The P-value under the Bootstrap Method with python</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">news</div>
+    <div class="quarto-category">p-value</div>
+    <div class="quarto-category">bootstrap</div>
+    <div class="quarto-category">python</div>
   </div>
   </div>
 
@@ -348,8 +351,8 @@ window.Quarto = {
 
 <section id="understanding-the-p-value" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Understanding the p-value</h1>
-<p>Suppose you perform a study, and you have precise data, specifically ( n ) observations ( x_1 ) to ( x_n ) from ( n ) samples ( X_1 ) to ( X_n ), but you don’t know the distribution from which the data are drawn. Here, I assume you understand the difference between an observation and a sample. An observation <span class="math inline">\(x_1\)</span> may be seen as the realization of a function <span class="math inline">\(X_1\)</span>.</p>
-<p>Now, suppose that you want to test if the mean of the data is equal to 0. For example, suppose the sample represents the CAC-40 current price, and you compute the empirical mean in the observation $ _{i=1}^{n} and you find 0 can you conclude that the mean of the distribution of data is 0 ? It’s difficult to conclude anything solely from the fact that the mean of the sample is zero. This result might be due to chance. To gain more confidence, the p-value is a statistical term that helps us determine the likelihood that the observed result is due to chance. Before defining the p-value, let’s clarify some mathematical terms we need :</p>
+<p>Suppose you perform a study, and you have precise data, specifically n observations <span class="math inline">\(x_1\)</span> to <span class="math inline">\(x_n\)</span> from n samples <span class="math inline">\(X_1\)</span>$ to <span class="math inline">\(X_n\)</span>, but you don’t know the distribution from which the data are drawn. Here, I assume you understand the difference between an observation and a sample. An observation <span class="math inline">\(x_1\)</span> may be seen as the realization of a function <span class="math inline">\(X_1\)</span>.</p>
+<p>Now, suppose that you want to test if the mean of the data is equal to 0. For example, suppose the sample represents the CAC-40 current price, and you compute the empirical mean in the observation <span class="math inline">\(\frac{1}{n} \sum_{i=1}^{n} x_i\)</span> and you find 0 can you conclude that the mean of the distribution of data is 0 ? It’s difficult to conclude anything solely from the fact that the mean of the sample is zero. This result might be due to chance. To gain more confidence, the p-value is a statistical term that helps us determine the likelihood that the observed result is due to chance. Before defining the p-value, let’s clarify some mathematical terms we need :</p>
 <ul>
 <li><p>First, you need the observations <span class="math inline">\((x_1,...x_n)\)</span> from the sample <span class="math inline">\((X_1,...X_n)\)</span>. Let’s assume that we don’t know the distribution of the sample. The sample could be the price of a stock, for example.</p></li>
 <li><p>Next, you need the hypothesis and the complementary hypothesis. The null hypothesis H0 is constructed alongside the alternative hypothesis H1. The null hypothesis might state that the mean is zero, while the alternative hypothesis might state that the mean is different from zero : <span class="math inline">\(H0 : \mu = 0\)</span> and <span class="math inline">\(H1 : \mu \neq 0\)</span>.</p></li>
@@ -357,7 +360,7 @@ window.Quarto = {
 <li><p>Then you need to compute the value of the test statistic in the data <span class="math inline">\(t_{obs} = \frac{1}{n} \sum_{i=1}^{n} x_i\)</span> in the data you observed. Finally, you need to make a decision to accept or reject the null hypothesis. You reject the null hypothesis if the test statistic T is greater than the observed value <span class="math inline">\(t_{obs}\)</span>(T &gt; <span class="math inline">\(t_{obs}\)</span>).</p></li>
 </ul>
 <p>Because the test statistic T is a random variable, you don’t directly observe it. The tool that allows us to make a decision here is to compute the probability that the test statistic is larger than the observed value. This probability, which we will call alpha (()), helps us decide whether to reject the null hypothesis.</p>
-<div id="5ef08eaf" class="cell" data-execution_count="1">
+<div id="1f657544" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
@@ -417,7 +420,7 @@ window.Quarto = {
 <p>Here, we have two scenarios to compute the p-value. First, you might know the distribution of the test statistic, or you might not know the distribution of the test statistic. It is easier to compute the p-value when you know the distribution of the test statistic. Here we will assume that you don’t know the distribution of the test statistic.</p>
 <section id="the-p-value-under-a-unknown-distribution-of-the-test-statistic-using-the-bootstrap-method." class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="the-p-value-under-a-unknown-distribution-of-the-test-statistic-using-the-bootstrap-method."><span class="header-section-number">1.1</span> The p-value under a unknown distribution of the test statistic using the bootstrap method.</h2>
-<p>The bootstrap method is a resampling method that allows us to estimate the distribution of the test statistic. The idea is to resample the data B times and compute the test statistic for each resample. The distribution of the test statistic is then the distribution of the B test statistics (T1, T2, …, TB).</p>
+<p>The bootstrap method is a resampling with replacement method that allows us to estimate the distribution of the test statistic. The idea is to resample with replacement the data B times and compute the test statistic for each resample(The length of resample data is smaller than the lenght of the data). The distribution of the test statistic is then the distribution of the B test statistics (T1, T2, …, TB).</p>
 <p><img src="images/montecarlo.drawio.png" class="img-fluid" alt="distribution of the test statistic"> The p-value is then the proportion of the test statistics that are greater than the observed value. In other words, you compare the observed value to the distribution of the test statistic. If the test statistic is greater than the observed value, you reject the null hypothesis(you note true) and if the test statistic is less than the observed value, you don’t reject the null hypothesis(you note false).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -426,8 +429,10 @@ window.Quarto = {
 </figure>
 </div>
 <p>The p-value is then the proportion of the true values :</p>
-<p><span class="math display">\[ p-value = \frac{1}{B} \sum_{i=1}^{B} \mathbb{1}(T_i &gt; t_{obs}) \]</span></p>
-<p>where ( (T_i &gt; t_{obs}) ) is the indicator function that returns 1 if the test statistic is greater than the observed value and 0 otherwise.</p>
+<p><span class="math display">\[
+Pvalue = \frac{1}{B} \sum_{i=1}^{B} \mathbb{1}(T_i &gt; t_{obs})
+\]</span></p>
+<p>where <span class="math inline">\(\mathbb{1}(T_i &gt; t_{obs})\)</span> is the indicator function that returns 1 if the test statistic is greater than the observed value and 0 otherwise.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -439,17 +444,120 @@ Algorithm to compute the p-value under the bootstrap method
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Variables :
+<li><p>Variables :</p>
 <ul>
-<li>( x_1, …, x_n ) : the observations</li>
-<li>( t_{obs} ) : the observed value of the test statistic</li>
+<li><span class="math inline">\(x_1, ..., x_n\)</span> : the observations</li>
+<li><span class="math inline">\(t_{obs}\)</span> : the observed value of the test statistic</li>
 <li>B : the number of bootstrap samples</li>
 </ul></li>
-<li>Begin :</li>
+<li><p>Begin :</p>
+<ul>
+<li><p>For b in 1 to B :</p>
+<ul>
+<li>Sample with replacement m observations from <span class="math inline">\(x_1, ..., x_n\)</span> to get <span class="math inline">\(x_1^b, ..., x_n^b\)</span></li>
+<li>Compute the test statistic <span class="math inline">\(T_b\)</span> on the bootstrap sample <span class="math inline">\(x_1^b, ..., x_n^b\)</span></li>
+</ul></li>
+<li><p>Compute the p-value : <span class="math inline">\(pvalue = \frac{1}{B} \sum_{i=1}^{B} \mathbb{1}(T_i &gt; t_{obs})\)</span></p></li>
+</ul></li>
 </ul>
-<p>For b in 1 to B : - Sample with replacement n observations from ( x_1, …, x_n ) to get ( x_1^b, …, x_n^b ) - Compute the test statistic <span class="math inline">\(T_b\)</span> on the bootstrap sample ( x_1^b, …, x_n^b ) - Compute the p-value : ( p-value = <em>{i=1}^{B} (T_i &gt; t</em>{obs}) )</p>
 </div>
 </div>
+</section>
+<section id="implementation-of-the-p-value-under-the-bootstrap-method-with-python" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="implementation-of-the-p-value-under-the-bootstrap-method-with-python"><span class="header-section-number">1.2</span> Implementation of the p-value under the bootstrap method with python</h2>
+<p>Now, let’s implement the p-value under the bootstrap method with python. We need to define a function that takes the observations, the function to compute the test statistic, and the number of bootstrap samples as input and returns the p-value.</p>
+<div id="2273f4d2" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bootstrap_p_value(x ,fun, B):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Compute the p-value under the bootstrap method</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    x : array-like</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">        Observations</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    fun : function</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">        Function to compute the test statistic</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    B : int, optional</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">        Number of bootstrap samples, by default 1000</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns : float</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">        The p-value</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(x)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute the observed value of the test statistic</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    t_obs <span class="op">=</span> fun(x)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Resample the data B times</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> np.zeros(B)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> b <span class="kw">in</span> <span class="bu">range</span>(B):</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        x_b <span class="op">=</span> np.random.choice(x, n, replace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        t[b] <span class="op">=</span> fun(x_b)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute the p-value</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    p_value <span class="op">=</span> np.mean(t <span class="op">&gt;</span> t_obs)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> p_value,x_b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s test the function with an example. Suppose you have the following observations and you want to test if the mean of the observations is equal to 0. The test statistic is the empirical mean. We assume that the observations are drawn from a normal distribution with mean 0 and standard deviation 1 with 100 observations.</p>
+<div id="3c2d3c19" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the seed for reproducibility</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">0</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the observations</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.normal(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">100</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function to compute the test statistic</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>fun <span class="op">=</span> np.mean</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="dv">9999</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the distribution of the test statistic x_b and print the p-value</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>p_value,x_b <span class="op">=</span> bootstrap_p_value(x, fun, B)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The p-value is : </span><span class="sc">{</span>p_value<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The p-value is : 0.49904990499049906</code></pre>
+</div>
+</div>
+<p>The p-value is 0.5, so in the threshold of 0.05, we don’t reject the null hypothesis.</p>
+<div id="da1716ef" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the distribution of the test statistic not the histogram of the test statistic</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.hist(x_b, bins<span class="op">=</span><span class="dv">30</span>, color<span class="op">=</span><span class="st">'blue'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, density<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>plt.axvline(np.mean(x_b), color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Test statistic'</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="p_value_files/figure-html/cell-5-output-1.png" width="589" height="429" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now we can plot the ergodic mean(p-value) in order to see the convergence of the p-value.</p>
+<div id="b4af986c" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p_values <span class="op">=</span> []</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> b <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">20000</span>):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    p_value,_ <span class="op">=</span> bootstrap_p_value(x, fun, b)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    p_values.append(p_value)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.plot(p_values)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of bootstrap samples'</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'p-value'</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="p_value_files/figure-html/cell-6-output-1.png" width="589" height="429" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>we can notice that the p-value converges to 0.5. This is because the observations are drawn from a normal distribution with mean 0 and standard deviation 1 when B is large enough (B&gt;5000).</p>
+<p>Boostrapp method is a powerful method to estimate the distribution of the test statistic when you don’t know the distribution of the test statistic. However, the bootstrap method is computationally expensive because you need to resample the data B times. In addition, the bootstrap method is not always accurate, especially when the sample size is small.</p>
 
 
 </section>
